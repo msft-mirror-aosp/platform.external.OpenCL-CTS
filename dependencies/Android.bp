@@ -1,0 +1,5 @@
+cc_library_headers {
+    name: "ocl-headers",
+    export_include_dirs: [ "ocl-headers" ],
+}
+

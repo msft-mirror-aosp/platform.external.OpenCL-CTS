@@ -1,0 +1,100 @@
+cc_library_headers {
+    name: "ocl-harness-headers",
+    export_include_dirs: [
+        "test_common/harness",
+        "test_common"
+    ]
+}
+
+cc_defaults {
+    name: "ocl-harness-defaults",
+    header_libs: [
+        "ocl-harness-headers",
+    ],
+    export_header_lib_headers: [
+        "ocl-harness-headers",
+    ],
+    cflags: [
+        "-DCL_EXPERIMENTAL",
+        "-DCL_TARGET_OPENCL_VERSION=300",
+        "-Wno-#warnings",
+        "-Wno-absolute-value",
+        "-Wno-asm-operand-widths",
+        "-Wno-c++11-narrowing",
+        "-Wno-dangling-else",
+        "-Wno-date-time",
+        "-Wno-deprecated-declarations",
+        "-Wno-format",
+        "-Wno-ignored-qualifiers",
+        "-Wno-implicit-fallthrough",
+        "-Wno-logical-op-parentheses",
+        "-Wno-macro-redefined",
+        "-Wno-missing-braces",
+        "-Wno-missing-declarations",
+        "-Wno-missing-field-initializers",
+        "-Wno-non-virtual-dtor",
+        "-Wno-overloaded-virtual",
+        "-Wno-parentheses",
+        "-Wno-parentheses-equality",
+        "-Wno-reorder-ctor",
+        "-Wno-return-stack-address",
+        "-Wno-shift-negative-value",
+        "-Wno-sometimes-uninitialized",
+        "-Wno-switch",
+        "-Wno-unknown-pragmas",
+        "-Wno-unneeded-internal-declaration",
+        "-Wno-unused-function",
+        "-Wno-unused-label",
+        "-Wno-unused-parameter",
+        "-Wno-unused-variable",
+        "-Wno-writable-strings",
+        "-fexceptions",
+    ],
+    static_libs: [
+        "ocl-stubs"
+    ],
+}
+
+cc_library {
+    name: "ocl-harness",
+    srcs: [ "test_common/harness/*.cpp", ],
+    defaults: [ "ocl-harness-defaults" ],
+}
+
+cc_defaults {
+    name: "ocl-test-defaults",
+    defaults: [ "ocl-harness-defaults" ],
+    static_libs: [ "ocl-harness" ],
+    compile_multilib: "both",
+    multilib: {
+        lib32: {
+            suffix: "32",
+        },
+        lib64: {
+            suffix: "64",
+        },
+    },
+}
+
+cc_test {
+    name: "ocl-test-api",
+    srcs: [ "test_conformance/api/*.cpp", ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+python_test_host {
+    name: "opencl_cts",
+    main: "scripts/test_opencl_cts.py",
+    srcs: [ "scripts/test_opencl_cts.py" ],
+    data: [ "scripts/test_opencl_cts.xml" ],
+    test_config: "scripts/test_opencl_cts.xml",
+    version: {
+        py2: {
+            enabled: false,
+        },
+        py3: {
+            enabled: true
+        }
+    }
+}

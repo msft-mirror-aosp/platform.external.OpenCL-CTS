@@ -6,6 +6,7 @@
         <option name="cleanup" value="true"/>
         <option name="append-bitness" value="true"/>
         <option key="ocl-test-api" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-api"/>
+        <option key="ocl-test-computeinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>
@@ -13,5 +14,12 @@
         <option name="test-timeout" value="30m"/>
         <option name="python-options" value="api"/>
         <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-api"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="computeinfo"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
     </test>
 </configuration>

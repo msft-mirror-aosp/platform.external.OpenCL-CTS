@@ -81,6 +81,14 @@ cc_test {
     gtest: false
 }
 
+
+cc_test {
+    name: "ocl-test-computeinfo",
+    srcs: [ "test_conformance/computeinfo/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
 python_test_host {
     name: "opencl_cts",
     main: "scripts/test_opencl_cts.py",

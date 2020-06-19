@@ -8,7 +8,6 @@ from functools import partial
 import re
 import sys
 
-VERBOSE = True
 ANDROID_RUNNER_REQUIRED_VERBOSITY = 2
 TEST_CONFIG = os.path.join(os.path.dirname(__file__), "test_opencl_cts.xml")
 
@@ -18,13 +17,8 @@ def run_command(command):
   if not serial_number:
     raise "$ANDROID_SERIAL is empty, device must be specified"
   full_command = ["adb", "-s", serial_number, "shell"] + command
-  if VERBOSE:
-    print("+" + " ".join(full_command))
   ret = subprocess.run(
       full_command, capture_output=True, universal_newlines=True)
-  if VERBOSE:
-    print(ret.stdout)
-    print(ret.stderr, file=sys.stderr)
   return ret.returncode, ret.stdout, ret.stderr
 
 

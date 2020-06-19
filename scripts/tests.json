@@ -1,0 +1,9 @@
+[
+    {
+        "test_name": "api",
+        "binary_name": "ocl-test-api",
+        "srcs": [
+            "test_conformance/api/*.cpp"
+        ]
+    }
+]

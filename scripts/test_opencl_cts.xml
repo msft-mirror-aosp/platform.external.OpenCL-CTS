@@ -26,5 +26,7 @@
         <option name="par-file-name" value="opencl_cts" />
         <option name="inject-android-serial" value="true" />
         <option name="test-timeout" value="30m" />
+        <option name="python-options" value="api" />
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-api64" />
     </test>
 </configuration>

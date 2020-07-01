@@ -8,20 +8,8 @@ from functools import partial
 import re
 import sys
 
-VERBOSE = True
+ANDROID_RUNNER_REQUIRED_VERBOSITY = 2
 TEST_CONFIG = os.path.join(os.path.dirname(__file__), "test_opencl_cts.xml")
-
-
-def extract_tests_from_xml(xmlfile):
-  """ Extracts tests from AndroidTest.xml compatible file
-
-      param: xmlfile str containing path to AndroidTest.xml compatible xml file
-  """
-  tree = ElementTree.parse(xmlfile)
-  root = tree.getroot()
-  return [(o.attrib["key"], o.attrib["value"])
-          for o in root.findall("./target_preparer/option")
-          if o.attrib["name"] == "push-file"]
 
 
 def run_command(command):
@@ -29,13 +17,8 @@ def run_command(command):
   if not serial_number:
     raise "$ANDROID_SERIAL is empty, device must be specified"
   full_command = ["adb", "-s", serial_number, "shell"] + command
-  if VERBOSE:
-    print("+" + " ".join(full_command))
   ret = subprocess.run(
       full_command, capture_output=True, universal_newlines=True)
-  if VERBOSE:
-    print(ret.stdout)
-    print(ret.stderr, file=sys.stderr)
   return ret.returncode, ret.stdout, ret.stderr
 
 
@@ -70,18 +53,15 @@ class OpenCLTest(unittest.TestCase):
     self.assertEqual(passed, total, "{} subtests failed".format(total - passed))
 
 
-ANDROID_RUNNER_REQUIRED_VERBOSITY = 2
-
-
 def main():
   """main entrypoint for test runner"""
+  _, test_name, binary_path, *args = sys.argv
+
+  suite = unittest.TestSuite()
+  suite.addTest(OpenCLTest(test_name, binary_path, args))
 
   runner = unittest.TextTestRunner(
       stream=sys.stderr, verbosity=ANDROID_RUNNER_REQUIRED_VERBOSITY)
-  suite = unittest.TestSuite()
-  for test, test_path in extract_tests_from_xml(TEST_CONFIG):
-    print(f"Found test: {test}")
-    suite.addTest(OpenCLTest(test, test_path, []))
   runner.run(suite)
 
 

@@ -1,0 +1,16 @@
+[
+    {
+        "test_name": "api",
+        "binary_name": "ocl-test-api",
+        "srcs": [
+            "test_conformance/api/*.cpp"
+        ]
+    },
+    {
+        "test_name": "computeinfo",
+        "binary_name": "ocl-test-computeinfo",
+        "srcs": [
+            "test_conformance/computeinfo/*.cpp"
+        ]
+    }
+]

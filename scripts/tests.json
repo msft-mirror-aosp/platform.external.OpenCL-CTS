@@ -1,5 +1,12 @@
 [
     {
+        "test_name": "allocations",
+        "binary_name": "ocl-test-allocations",
+        "srcs": [
+            "test_conformance/allocations/*.cpp"
+        ]
+    },
+    {
         "test_name": "api",
         "binary_name": "ocl-test-api",
         "srcs": [
@@ -7,10 +14,88 @@
         ]
     },
     {
+        "test_name": "atomics",
+        "binary_name": "ocl-test-atomics",
+        "srcs": [
+            "test_conformance/atomics/*.cpp"
+        ]
+    },
+    {
+        "test_name": "basic",
+        "binary_name": "ocl-test-basic",
+        "srcs": [
+            "test_conformance/basic/*.cpp"
+        ]
+    },
+    {
+        "test_name": "buffers",
+        "binary_name": "ocl-test-buffers",
+        "srcs": [
+            "test_conformance/buffers/*.cpp"
+        ]
+    },
+    {
+        "test_name": "c11-atomics",
+        "binary_name": "ocl-test-c11-atomics",
+        "srcs": [
+            "test_conformance/c11_atomics/*.cpp"
+        ]
+    },
+    {
+        "test_name": "commonfns",
+        "binary_name": "ocl-test-commonfns",
+        "srcs": [
+            "test_conformance/commonfns/*.cpp"
+        ]
+    },
+    {
+        "test_name": "compiler",
+        "binary_name": "ocl-test-compiler",
+        "srcs": [
+            "test_conformance/compiler/*.cpp"
+        ]
+    },
+    {
         "test_name": "computeinfo",
         "binary_name": "ocl-test-computeinfo",
         "srcs": [
             "test_conformance/computeinfo/*.cpp"
+        ]
+    },
+    {
+        "test_name": "contractions",
+        "binary_name": "ocl-test-contractions",
+        "srcs": [
+            "test_conformance/contractions/*.cpp"
+        ]
+    },
+    {
+        "test_name": "conversions",
+        "binary_name": "ocl-test-conversions",
+        "srcs": [
+            "test_conformance/conversions/*.cpp"
+        ],
+        "long_running": true
+    },
+    {
+        "test_name": "device-execution",
+        "binary_name": "ocl-test-device-execution",
+        "srcs": [
+            "test_conformance/device_execution/*.cpp"
+        ]
+    },
+    {
+        "test_name": "device-partition",
+        "binary_name": "ocl-test-device-partition",
+        "srcs": [
+            "test_conformance/device_partition/*.cpp"
+        ]
+    },
+    {
+        "test_name": "device-timer",
+        "binary_name": "ocl-test-device-timer",
+        "srcs": [
+            "test_conformance/device_timer/*.cpp"
         ]
     }
 ]

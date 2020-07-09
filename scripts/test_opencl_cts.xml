@@ -18,6 +18,12 @@
         <option key="ocl-test-device-execution" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-execution"/>
         <option key="ocl-test-device-partition" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-partition"/>
         <option key="ocl-test-device-timer" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-timer"/>
+        <option key="ocl-test-events" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-events"/>
+        <option key="ocl-test-generic-address-space" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
+        <option key="ocl-test-geometrics" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-geometrics"/>
+        <option key="ocl-test-mem-host-flags" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
+        <option key="ocl-test-multiple-device-context" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
+        <option key="ocl-test-non-uniform-work-group" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>
@@ -109,5 +115,47 @@
         <option name="test-timeout" value="30m"/>
         <option name="python-options" value="device-timer"/>
         <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-device-timer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="events"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-events"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="generic-address-space"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="geometrics"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-geometrics"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="mem-host-flags"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="multiple-device-context"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="non-uniform-work-group"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
     </test>
 </configuration>

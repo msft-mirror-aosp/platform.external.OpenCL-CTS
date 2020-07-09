@@ -39,7 +39,8 @@
         "binary_name": "ocl-test-c11-atomics",
         "srcs": [
             "test_conformance/c11_atomics/*.cpp"
-        ]
+        ],
+        "timeout": "120m"
     },
     {
         "test_name": "commonfns",

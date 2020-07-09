@@ -57,7 +57,7 @@
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>
         <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
+        <option name="test-timeout" value="120m"/>
         <option name="python-options" value="c11-atomics"/>
         <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
     </test>

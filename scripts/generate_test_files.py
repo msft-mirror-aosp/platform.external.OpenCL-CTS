@@ -66,6 +66,9 @@ def generate_push_file_rules(configuration):
     tests = json.load(f)
 
   for test in tests:
+    if test.get('long_running', False):
+      continue
+
     create_subelement_with_attribs(file_pusher, 'option',
         {
           'name': "push-file",
@@ -79,6 +82,9 @@ def generate_test_rules(configuration):
     tests = json.load(f)
 
   for test in tests:
+    if test.get('long_running', False):
+      continue
+
     test_rule = create_subelement_with_attribs(configuration, 'test',
         { 'class': "com.android.tradefed.testtype.python.PythonBinaryHostTest" })
 

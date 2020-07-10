@@ -75,6 +75,14 @@ cc_defaults {
 
 
 cc_test {
+    name: "ocl-test-allocations",
+    srcs: [ "test_conformance/allocations/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
     name: "ocl-test-api",
     srcs: [ "test_conformance/api/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
@@ -83,8 +91,96 @@ cc_test {
 
 
 cc_test {
+    name: "ocl-test-atomics",
+    srcs: [ "test_conformance/atomics/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-basic",
+    srcs: [ "test_conformance/basic/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-buffers",
+    srcs: [ "test_conformance/buffers/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-c11-atomics",
+    srcs: [ "test_conformance/c11_atomics/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-commonfns",
+    srcs: [ "test_conformance/commonfns/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-compiler",
+    srcs: [ "test_conformance/compiler/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
     name: "ocl-test-computeinfo",
     srcs: [ "test_conformance/computeinfo/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-contractions",
+    srcs: [ "test_conformance/contractions/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-conversions",
+    srcs: [ "test_conformance/conversions/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-device-execution",
+    srcs: [ "test_conformance/device_execution/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-device-partition",
+    srcs: [ "test_conformance/device_partition/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-device-timer",
+    srcs: [ "test_conformance/device_timer/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
     gtest: false
 }

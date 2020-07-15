@@ -78,6 +78,7 @@ cc_test {
     name: "ocl-test-allocations",
     srcs: [ "test_conformance/allocations/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -86,6 +87,7 @@ cc_test {
     name: "ocl-test-api",
     srcs: [ "test_conformance/api/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -94,6 +96,7 @@ cc_test {
     name: "ocl-test-atomics",
     srcs: [ "test_conformance/atomics/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -102,6 +105,7 @@ cc_test {
     name: "ocl-test-basic",
     srcs: [ "test_conformance/basic/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -110,6 +114,7 @@ cc_test {
     name: "ocl-test-buffers",
     srcs: [ "test_conformance/buffers/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -118,6 +123,7 @@ cc_test {
     name: "ocl-test-c11-atomics",
     srcs: [ "test_conformance/c11_atomics/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -126,6 +132,7 @@ cc_test {
     name: "ocl-test-commonfns",
     srcs: [ "test_conformance/commonfns/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -135,6 +142,7 @@ cc_test {
     srcs: [ "test_conformance/compiler/*.cpp" ],
     data: [ "test_conformance/compiler/includeTestDirectory/testIncludeFile.h", "test_conformance/compiler/secondIncludeTestDirectory/testIncludeFile.h" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -143,6 +151,7 @@ cc_test {
     name: "ocl-test-computeinfo",
     srcs: [ "test_conformance/computeinfo/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -151,6 +160,7 @@ cc_test {
     name: "ocl-test-contractions",
     srcs: [ "test_conformance/contractions/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -159,6 +169,7 @@ cc_test {
     name: "ocl-test-conversions",
     srcs: [ "test_conformance/conversions/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -167,6 +178,7 @@ cc_test {
     name: "ocl-test-device-execution",
     srcs: [ "test_conformance/device_execution/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -175,6 +187,7 @@ cc_test {
     name: "ocl-test-device-partition",
     srcs: [ "test_conformance/device_partition/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -183,6 +196,7 @@ cc_test {
     name: "ocl-test-device-timer",
     srcs: [ "test_conformance/device_timer/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -191,6 +205,7 @@ cc_test {
     name: "ocl-test-events",
     srcs: [ "test_conformance/events/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -199,6 +214,7 @@ cc_test {
     name: "ocl-test-generic-address-space",
     srcs: [ "test_conformance/generic_address_space/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -207,6 +223,7 @@ cc_test {
     name: "ocl-test-geometrics",
     srcs: [ "test_conformance/geometrics/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -215,6 +232,7 @@ cc_test {
     name: "ocl-test-half",
     srcs: [ "test_conformance/half/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -223,6 +241,7 @@ cc_test {
     name: "ocl-test-integer-ops",
     srcs: [ "test_conformance/integer_ops/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -231,6 +250,7 @@ cc_test {
     name: "ocl-test-math-brute-force",
     srcs: [ "test_conformance/math_brute_force/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -239,6 +259,7 @@ cc_test {
     name: "ocl-test-mem-host-flags",
     srcs: [ "test_conformance/mem_host_flags/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -247,6 +268,7 @@ cc_test {
     name: "ocl-test-multiple-device-context",
     srcs: [ "test_conformance/multiple_device_context/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 
@@ -255,6 +277,107 @@ cc_test {
     name: "ocl-test-non-uniform-work-group",
     srcs: [ "test_conformance/non_uniform_work_group/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-pipes",
+    srcs: [ "test_conformance/pipes/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-printf",
+    srcs: [ "test_conformance/printf/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-profiling",
+    srcs: [ "test_conformance/profiling/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-relationals",
+    srcs: [ "test_conformance/relationals/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-select",
+    srcs: [ "test_conformance/select/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-spirv-new",
+    srcs: [ "test_conformance/spirv_new/*.cpp", "test_conformance/math_brute_force/reference_math.cpp", "test_conformance/math_brute_force/Utility.cpp" ],
+    data: [ "test_conformance/spirv_new/spirv_asm/*", "test_conformance/spirv_new/spirv_bin/*" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-subgroups",
+    srcs: [ "test_conformance/subgroups/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-svm",
+    srcs: [ "test_conformance/SVM/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-thread-dimensions",
+    srcs: [ "test_conformance/thread_dimensions/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-vec-align",
+    srcs: [ "test_conformance/vec_align/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-vec-step",
+    srcs: [ "test_conformance/vec_step/*.cpp" ],
+    defaults: [ "ocl-test-defaults" ],
+    rtti: false,
     gtest: false
 }
 

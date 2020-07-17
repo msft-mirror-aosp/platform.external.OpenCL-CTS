@@ -54,7 +54,12 @@
         "binary_name": "ocl-test-compiler",
         "srcs": [
             "test_conformance/compiler/*.cpp"
-        ]
+        ],
+        "data": [
+            "test_conformance/compiler/includeTestDirectory/testIncludeFile.h",
+            "test_conformance/compiler/secondIncludeTestDirectory/testIncludeFile.h"
+        ],
+        "long_running": true
     },
     {
         "test_name": "computeinfo",

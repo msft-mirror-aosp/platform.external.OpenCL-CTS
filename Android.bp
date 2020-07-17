@@ -73,6 +73,13 @@ cc_defaults {
     },
 }
 
+cc_defaults {
+    name: "ocl-test-image-defaults",
+    srcs: [ "test_conformance/images/common.cpp" ],
+    export_include_dirs: [ "test_conformance/images" ],
+    defaults: [ "ocl-test-defaults" ],
+}
+
 
 cc_test {
     name: "ocl-test-allocations",
@@ -377,6 +384,69 @@ cc_test {
     name: "ocl-test-vec-step",
     srcs: [ "test_conformance/vec_step/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-clcopyimage",
+    srcs: [ "test_conformance/images/clCopyImage/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-clfillimage",
+    srcs: [ "test_conformance/images/clFillImage/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-clgetinfo",
+    srcs: [ "test_conformance/images/clGetInfo/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-clreadwriteimage",
+    srcs: [ "test_conformance/images/clReadWriteImage/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-kernel-image-methods",
+    srcs: [ "test_conformance/images/kernel_image_methods/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-kernel-read-write",
+    srcs: [ "test_conformance/images/kernel_read_write/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
+    rtti: false,
+    gtest: false
+}
+
+
+cc_test {
+    name: "ocl-test-image-samplerlessreads",
+    srcs: [ "test_conformance/images/samplerlessReads/*.cpp" ],
+    defaults: [ "ocl-test-image-defaults" ],
     rtti: false,
     gtest: false
 }

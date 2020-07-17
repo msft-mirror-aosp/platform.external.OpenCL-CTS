@@ -18,6 +18,11 @@ def write_one_cc_test(test_details, f):
   stringified_sources = map(lambda s: f'"{s}"', test_details['srcs'])
   stringified_data = map(lambda s: f'"{s}"', test_details.get('data', []))
   stringified_cflags = map(lambda s: f'"{s}"', test_details.get('cflags', []))
+
+  default = "ocl-test-defaults"
+  if test_details.get('image_type', False):
+    default = "ocl-test-image-defaults"
+
   rtti = test_details.get('rtti', False)
 
   cc_test_string = """
@@ -26,7 +31,7 @@ cc_test {{
     srcs: [ {} ],
     data: [ {} ],
     cflags: [ {} ],
-    defaults: [ "ocl-test-defaults" ],
+    defaults: [ "{}" ],
     rtti: {},
     gtest: false
 }}
@@ -35,6 +40,7 @@ cc_test {{
            ", ".join(stringified_sources),
            ", ".join(stringified_data),
            ", ".join(stringified_cflags),
+           default,
            (str(rtti)).lower())
 
   empty_field_regex = re.compile("^\s*\w+: \[\s*\],?$")

@@ -133,6 +133,7 @@ cc_test {
 cc_test {
     name: "ocl-test-compiler",
     srcs: [ "test_conformance/compiler/*.cpp" ],
+    data: [ "test_conformance/compiler/includeTestDirectory/testIncludeFile.h", "test_conformance/compiler/secondIncludeTestDirectory/testIncludeFile.h" ],
     defaults: [ "ocl-test-defaults" ],
     gtest: false
 }

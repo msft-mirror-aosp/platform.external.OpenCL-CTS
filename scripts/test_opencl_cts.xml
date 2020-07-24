@@ -31,6 +31,12 @@
         <option key="ocl-test-thread-dimensions" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
         <option key="ocl-test-vec-align" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vec-align"/>
         <option key="ocl-test-vec-step" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vec-step"/>
+        <option key="ocl-test-image-clcopyimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+        <option key="ocl-test-image-clfillimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+        <option key="ocl-test-image-clgetinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+        <option key="ocl-test-image-clreadwriteimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+        <option key="ocl-test-image-kernel-image-methods" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+        <option key="ocl-test-image-samplerlessreads" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>
@@ -213,5 +219,47 @@
         <option name="test-timeout" value="30m"/>
         <option name="python-options" value="vec-step"/>
         <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vec-step"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clcopyimage"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clfillimage"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clgetinfo"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clreadwriteimage"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="kernel-image-methods"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="samplerlessreads"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </test>
 </configuration>

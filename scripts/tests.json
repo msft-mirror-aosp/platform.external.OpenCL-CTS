@@ -271,5 +271,62 @@
         "srcs": [
             "test_conformance/vec_step/*.cpp"
         ]
+    },
+    {
+        "test_name": "clcopyimage",
+        "binary_name": "ocl-test-image-clcopyimage",
+        "srcs": [
+            "test_conformance/images/clCopyImage/*.cpp"
+        ],
+        "image_type": true
+    },
+    {
+        "test_name": "clfillimage",
+        "binary_name": "ocl-test-image-clfillimage",
+        "srcs": [
+            "test_conformance/images/clFillImage/*.cpp"
+        ],
+        "image_type": true
+    },
+    {
+        "test_name": "clgetinfo",
+        "binary_name": "ocl-test-image-clgetinfo",
+        "srcs": [
+            "test_conformance/images/clGetInfo/*.cpp"
+        ],
+        "image_type": true
+    },
+    {
+        "test_name": "clreadwriteimage",
+        "binary_name": "ocl-test-image-clreadwriteimage",
+        "srcs": [
+            "test_conformance/images/clReadWriteImage/*.cpp"
+        ],
+        "image_type": true
+    },
+    {
+        "test_name": "kernel-image-methods",
+        "binary_name": "ocl-test-image-kernel-image-methods",
+        "srcs": [
+            "test_conformance/images/kernel_image_methods/*.cpp"
+        ],
+        "image_type": true
+    },
+    {
+        "test_name": "kernel-read-write",
+        "binary_name": "ocl-test-image-kernel-read-write",
+        "srcs": [
+            "test_conformance/images/kernel_read_write/*.cpp"
+        ],
+        "manual_only": true,
+        "image_type": true
+    },
+    {
+        "test_name": "samplerlessreads",
+        "binary_name": "ocl-test-image-samplerlessreads",
+        "srcs": [
+            "test_conformance/images/samplerlessReads/*.cpp"
+        ],
+        "image_type": true
     }
 ]

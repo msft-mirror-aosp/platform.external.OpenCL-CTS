@@ -73,3 +73,10 @@ cc_defaults {
     },
 }
 
+cc_defaults {
+    name: "ocl-test-image-defaults",
+    srcs: [ "test_conformance/images/common.cpp" ],
+    export_include_dirs: [ "test_conformance/images" ],
+    defaults: [ "ocl-test-defaults" ],
+}
+

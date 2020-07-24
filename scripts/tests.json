@@ -59,7 +59,7 @@
             "test_conformance/compiler/includeTestDirectory/testIncludeFile.h",
             "test_conformance/compiler/secondIncludeTestDirectory/testIncludeFile.h"
         ],
-        "long_running": true
+        "manual_only": true
     },
     {
         "test_name": "computeinfo",
@@ -81,7 +81,7 @@
         "srcs": [
             "test_conformance/conversions/*.cpp"
         ],
-        "long_running": true
+        "manual_only": true
     },
     {
         "test_name": "device-execution",
@@ -131,7 +131,7 @@
         "srcs": [
             "test_conformance/half/*.cpp"
         ],
-        "long_running": true
+        "manual_only": true
     },
     {
         "test_name": "integer-ops",
@@ -139,7 +139,7 @@
         "srcs": [
             "test_conformance/integer_ops/*.cpp"
         ],
-        "long_running": true
+        "manual_only": true
     },
     {
         "test_name": "math-brute-force",
@@ -147,7 +147,7 @@
         "srcs": [
             "test_conformance/math_brute_force/*.cpp"
         ],
-        "long_running": true
+        "manual_only": true
     },
     {
         "test_name": "mem-host-flags",

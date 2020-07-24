@@ -11,21 +11,31 @@ TEST_JSON_PATH = os.path.join(SCRIPT_DIR, TEST_JSON)
 
 
 def write_one_cc_test(test_details, f):
+  # TODO(b/161524664): Remove this exception for spir
+  if test_details['test_name'] == 'spir':
+    return
+
   stringified_sources = map(lambda s: f'"{s}"', test_details['srcs'])
   stringified_data = map(lambda s: f'"{s}"', test_details.get('data', []))
+  stringified_cflags = map(lambda s: f'"{s}"', test_details.get('cflags', []))
+  rtti = test_details.get('rtti', False)
 
   cc_test_string = """
 cc_test {{
     name: "{}",
     srcs: [ {} ],
     data: [ {} ],
+    cflags: [ {} ],
     defaults: [ "ocl-test-defaults" ],
+    rtti: {},
     gtest: false
 }}
 
 """.format(test_details['binary_name'],
            ", ".join(stringified_sources),
-           ", ".join(stringified_data))
+           ", ".join(stringified_data),
+           ", ".join(stringified_cflags),
+           (str(rtti)).lower())
 
   empty_field_regex = re.compile("^\s*\w+: \[\s*\],?$")
   cc_test_string = '\n'.join([line for line in cc_test_string.split('\n')

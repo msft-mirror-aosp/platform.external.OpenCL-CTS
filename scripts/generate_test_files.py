@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from xml.dom import minidom
 from xml.etree import ElementTree
 
@@ -10,19 +11,41 @@ TEST_JSON_PATH = os.path.join(SCRIPT_DIR, TEST_JSON)
 
 
 def write_one_cc_test(test_details, f):
+  # TODO(b/161524664): Remove this exception for spir
+  if test_details['test_name'] == 'spir':
+    return
+
   stringified_sources = map(lambda s: f'"{s}"', test_details['srcs'])
+  stringified_data = map(lambda s: f'"{s}"', test_details.get('data', []))
+  stringified_cflags = map(lambda s: f'"{s}"', test_details.get('cflags', []))
+
+  default = "ocl-test-defaults"
+  if test_details.get('image_type', False):
+    default = "ocl-test-image-defaults"
+
+  rtti = test_details.get('rtti', False)
 
   cc_test_string = """
 cc_test {{
     name: "{}",
     srcs: [ {} ],
-    defaults: [ "ocl-test-defaults" ],
+    data: [ {} ],
+    cflags: [ {} ],
+    defaults: [ "{}" ],
+    rtti: {},
     gtest: false
 }}
 
 """.format(test_details['binary_name'],
-           ", ".join(stringified_sources))
+           ", ".join(stringified_sources),
+           ", ".join(stringified_data),
+           ", ".join(stringified_cflags),
+           default,
+           (str(rtti)).lower())
 
+  empty_field_regex = re.compile("^\s*\w+: \[\s*\],?$")
+  cc_test_string = '\n'.join([line for line in cc_test_string.split('\n')
+                                   if not empty_field_regex.match(line)])
   f.write(cc_test_string)
 
 
@@ -66,7 +89,7 @@ def generate_push_file_rules(configuration):
     tests = json.load(f)
 
   for test in tests:
-    if test.get('long_running', False):
+    if test.get('manual_only', False):
       continue
 
     create_subelement_with_attribs(file_pusher, 'option',
@@ -82,7 +105,7 @@ def generate_test_rules(configuration):
     tests = json.load(f)
 
   for test in tests:
-    if test.get('long_running', False):
+    if test.get('manual_only', False):
       continue
 
     test_rule = create_subelement_with_attribs(configuration, 'test',

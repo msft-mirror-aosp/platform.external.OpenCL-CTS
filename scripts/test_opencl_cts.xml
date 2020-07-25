@@ -12,7 +12,6 @@
         <option key="ocl-test-buffers" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-buffers"/>
         <option key="ocl-test-c11-atomics" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
         <option key="ocl-test-commonfns" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-commonfns"/>
-        <option key="ocl-test-compiler" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-compiler"/>
         <option key="ocl-test-computeinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
         <option key="ocl-test-contractions" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-contractions"/>
         <option key="ocl-test-device-execution" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-execution"/>
@@ -24,6 +23,20 @@
         <option key="ocl-test-mem-host-flags" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
         <option key="ocl-test-multiple-device-context" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
         <option key="ocl-test-non-uniform-work-group" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
+        <option key="ocl-test-pipes" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-pipes"/>
+        <option key="ocl-test-profiling" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-profiling"/>
+        <option key="ocl-test-relationals" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-relationals"/>
+        <option key="ocl-test-subgroups" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
+        <option key="ocl-test-svm" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
+        <option key="ocl-test-thread-dimensions" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
+        <option key="ocl-test-vec-align" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vec-align"/>
+        <option key="ocl-test-vec-step" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vec-step"/>
+        <option key="ocl-test-image-clcopyimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+        <option key="ocl-test-image-clfillimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+        <option key="ocl-test-image-clgetinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+        <option key="ocl-test-image-clreadwriteimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+        <option key="ocl-test-image-kernel-image-methods" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+        <option key="ocl-test-image-samplerlessreads" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>
@@ -73,13 +86,6 @@
         <option name="test-timeout" value="30m"/>
         <option name="python-options" value="commonfns"/>
         <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-commonfns"/>
-    </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="compiler"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-compiler"/>
     </test>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>
@@ -157,5 +163,103 @@
         <option name="test-timeout" value="30m"/>
         <option name="python-options" value="non-uniform-work-group"/>
         <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="pipes"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-pipes"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="profiling"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-profiling"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="relationals"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-relationals"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="subgroups"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="svm"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="thread-dimensions"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="vec-align"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vec-align"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="vec-step"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vec-step"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clcopyimage"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clfillimage"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clgetinfo"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="clreadwriteimage"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="kernel-image-methods"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+    </test>
+    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
+        <option name="par-file-name" value="opencl_cts"/>
+        <option name="inject-android-serial" value="true"/>
+        <option name="test-timeout" value="30m"/>
+        <option name="python-options" value="samplerlessreads"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </test>
 </configuration>

@@ -176,6 +176,7 @@ cc_test {
     name: "ocl-test-conversions",
     srcs: [ "test_conformance/conversions/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
+    cflags: [ "-Wno-ignored-pragmas" ],
     rtti: false,
     gtest: false
 }

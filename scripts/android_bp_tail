@@ -11,5 +11,8 @@ python_test_host {
         py3: {
             enabled: true
         }
-    }
+    },
+    test_options: {
+        unit_test: false,
+    },
 }

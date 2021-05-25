@@ -63,6 +63,7 @@ cc_defaults {
         "-Wno-date-time",
         "-Wno-deprecated-declarations",
         "-Wno-format",
+        "-Wno-ignored-pragmas",
         "-Wno-ignored-qualifiers",
         "-Wno-implicit-fallthrough",
         "-Wno-logical-op-parentheses",
@@ -214,7 +215,6 @@ cc_test {
     name: "ocl-test-conversions",
     srcs: [ "test_conformance/conversions/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
-    cflags: [ "-Wno-ignored-pragmas" ],
     rtti: false,
     gtest: false
 }

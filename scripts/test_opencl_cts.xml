@@ -29,8 +29,7 @@
         <option key="ocl-test-subgroups" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
         <option key="ocl-test-svm" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
         <option key="ocl-test-thread-dimensions" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
-        <option key="ocl-test-vec-align" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vec-align"/>
-        <option key="ocl-test-vec-step" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vec-step"/>
+        <option key="ocl-test-vectors" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vectors"/>
         <option key="ocl-test-image-clcopyimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
         <option key="ocl-test-image-clfillimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
         <option key="ocl-test-image-clgetinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
@@ -210,15 +209,8 @@
         <option name="par-file-name" value="opencl_cts"/>
         <option name="inject-android-serial" value="true"/>
         <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="vec-align"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vec-align"/>
-    </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="vec-step"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vec-step"/>
+        <option name="python-options" value="vectors"/>
+        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vectors"/>
     </test>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>

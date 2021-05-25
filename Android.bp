@@ -375,7 +375,7 @@ cc_test {
 
 cc_test {
     name: "ocl-test-spirv-new",
-    srcs: [ "test_conformance/spirv_new/*.cpp", "test_conformance/math_brute_force/reference_math.cpp", "test_conformance/math_brute_force/Utility.cpp" ],
+    srcs: [ "test_conformance/spirv_new/*.cpp", "test_conformance/math_brute_force/reference_math.cpp", "test_conformance/math_brute_force/utility.cpp" ],
     data: [ "test_conformance/spirv_new/spirv_asm/*", "test_conformance/spirv_new/spirv_bin/*" ],
     defaults: [ "ocl-test-defaults" ],
     rtti: false,
@@ -411,17 +411,8 @@ cc_test {
 
 
 cc_test {
-    name: "ocl-test-vec-align",
-    srcs: [ "test_conformance/vec_align/*.cpp" ],
-    defaults: [ "ocl-test-defaults" ],
-    rtti: false,
-    gtest: false
-}
-
-
-cc_test {
-    name: "ocl-test-vec-step",
-    srcs: [ "test_conformance/vec_step/*.cpp" ],
+    name: "ocl-test-vectors",
+    srcs: [ "test_conformance/vectors/*.cpp" ],
     defaults: [ "ocl-test-defaults" ],
     rtti: false,
     gtest: false

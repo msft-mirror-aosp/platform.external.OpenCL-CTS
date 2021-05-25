@@ -229,7 +229,7 @@
         "srcs": [
             "test_conformance/spirv_new/*.cpp",
             "test_conformance/math_brute_force/reference_math.cpp",
-            "test_conformance/math_brute_force/Utility.cpp"
+            "test_conformance/math_brute_force/utility.cpp"
         ],
         "data": [
             "test_conformance/spirv_new/spirv_asm/*",
@@ -259,17 +259,10 @@
         ]
     },
     {
-        "test_name": "vec-align",
-        "binary_name": "ocl-test-vec-align",
+        "test_name": "vectors",
+        "binary_name": "ocl-test-vectors",
         "srcs": [
-            "test_conformance/vec_align/*.cpp"
-        ]
-    },
-    {
-        "test_name": "vec-step",
-        "binary_name": "ocl-test-vec-step",
-        "srcs": [
-            "test_conformance/vec_step/*.cpp"
+            "test_conformance/vectors/*.cpp"
         ]
     },
     {

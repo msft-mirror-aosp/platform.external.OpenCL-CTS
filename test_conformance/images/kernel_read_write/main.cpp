@@ -13,13 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+#include "../harness/compat.h"
 
 #include <stdio.h>
 #include <string.h>
+
+#if !defined(_WIN32)
+#include <unistd.h>
+#include <sys/time.h>
+#endif
+
 #include "../testBase.h"
-#include "../harness/compat.h"
 #include "../harness/fpcontrol.h"
 #include "../harness/parseParameters.h"
+
+#include <vector>
 
 #if defined(__PPC__)
 // Global varaiable used to hold the FPU control register state. The FPSCR register can not
@@ -35,6 +43,7 @@ bool gTestSmallImages;
 bool gTestMaxImages;
 bool gTestImage2DFromBuffer;
 bool gTestMipmaps;
+bool gDeviceLt20 = false;
 cl_filter_mode    gFilterModeToUse = (cl_filter_mode)-1;
 // Default is CL_MEM_USE_HOST_PTR for the test
 cl_mem_flags    gMemFlagsToUse = CL_MEM_USE_HOST_PTR;
@@ -48,6 +57,8 @@ bool            gEnablePitch = false;
 
 int             gtestTypesToRun = 0;
 static int testTypesToRun;
+
+#define MAX_ALLOWED_STD_DEVIATION_IN_MB        8.0
 
 static void printUsage( const char *execName );
 
@@ -106,6 +117,10 @@ static int doTest( cl_device_id device, cl_context context, cl_command_queue que
     bool            tDisableOffsets = false;
     bool            tNormalizedModeToUse = false;
     cl_filter_mode  tFilterModeToUse = (cl_filter_mode)-1;
+    auto version = get_device_cl_version(device);
+    if (version < Version(2, 0)) {
+        gDeviceLt20 = true;
+    }
 
     if( testTypesToRun & kReadTests )
     {
@@ -162,10 +177,11 @@ static int doTest( cl_device_id device, cl_context context, cl_command_queue que
         }
     }
 
-    if ((testTypesToRun & kReadWriteTests)
-        && checkForReadWriteImageSupport(device))
-    {
-        return TEST_SKIPPED_ITSELF;
+    if (testTypesToRun & kReadWriteTests) {
+        if (gDeviceLt20)  {
+            log_info("TEST skipped, Opencl 2.0 + requried for this test");
+            return ret;
+        }
     }
 
     if( ( testTypesToRun & kReadWriteTests ) && !gTestMipmaps )
@@ -390,8 +406,7 @@ int main(int argc, const char *argv[])
     FPU_mode_type oldMode;
     DisableFTZ(&oldMode);
 
-    int ret = runTestHarnessWithCheck(argCount, argList, test_num, test_list,
-                                      false, 0, verifyImageSupport);
+    int ret = runTestHarness( argCount, argList, test_num, test_list, true, false, 0 );
 
     // Restore FP state before leaving
     RestoreFPState(&oldMode);

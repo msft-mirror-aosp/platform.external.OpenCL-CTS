@@ -19,7 +19,7 @@
 
 #if !defined (_WIN32)
 #include <sys/resource.h>
-#if defined(__APPLE__)
+#if !defined(__ANDROID__)
 #include <sys/sysctl.h>
 #endif
 #include <libgen.h>

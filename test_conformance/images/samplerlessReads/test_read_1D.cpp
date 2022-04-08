@@ -22,7 +22,14 @@
     #include <setjmp.h>
 #endif
 
-extern bool gTestReadWrite;
+#define MAX_ERR 0.005f
+#define MAX_HALF_LINEAR_ERR 0.3f
+
+extern bool                 gDebugTrace, gTestSmallImages, gEnablePitch, gTestMaxImages, gDeviceLt20;
+extern bool                 gTestReadWrite;
+
+#define MAX_TRIES   1
+#define MAX_CLAMPED 1
 
 const char *read1DKernelSourcePattern =
 "__kernel void sample_kernel( read_only image1d_t input, sampler_t sampler, __global int *results )\n"
@@ -177,11 +184,8 @@ int test_read_image_1D( cl_context context, cl_command_queue queue, cl_kernel ke
     return 0;
 }
 
-int test_read_image_set_1D(cl_device_id device, cl_context context,
-                           cl_command_queue queue,
-                           const cl_image_format *format,
-                           image_sampler_data *imageSampler,
-                           ExplicitType outputType)
+int test_read_image_set_1D( cl_device_id device, cl_context context, cl_command_queue queue, cl_image_format *format, image_sampler_data *imageSampler,
+                            ExplicitType outputType )
 {
     char programSrc[10240];
     const char *ptr;
@@ -191,11 +195,6 @@ int test_read_image_set_1D(cl_device_id device, cl_context context,
     clKernelWrapper kernel;
     RandomSeed seed( gRandomSeed );
     int error;
-
-    if (gTestReadWrite && checkForReadWriteImageSupport(device))
-    {
-        return TEST_SKIPPED_ITSELF;
-    }
 
     // Get our operating params
     size_t maxWidth;
@@ -254,8 +253,7 @@ int test_read_image_set_1D(cl_device_id device, cl_context context,
 
 
     ptr = programSrc;
-    error = create_single_kernel_helper(context, &program, &kernel, 1, &ptr,
-                                        "sample_kernel");
+    error = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &ptr, "sample_kernel", gDeviceLt20 ? "" : "-cl-std=CL2.0" );
     test_error( error, "Unable to create testing kernel" );
 
     if ( gTestSmallImages )

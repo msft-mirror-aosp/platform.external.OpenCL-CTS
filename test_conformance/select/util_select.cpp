@@ -561,18 +561,13 @@ size_t check_uchar(void *test, void *correct, size_t count, size_t vector_size) 
     const cl_uchar *c = (const cl_uchar *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_uchar) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%2.2x vs 0x%2.2x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+    for(i = 0; i < count; i++)
+        if (t[i] != c[i]) {
+            log_error("\n(check_uchar) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%2.2x vs 0x%2.2x\n", vector_size, i, count, c[i], t[i]);
+            return i + 1;
+        }
+
     return 0;
 }
 
@@ -581,18 +576,13 @@ size_t check_char(void *test, void *correct, size_t count, size_t vector_size) {
     const cl_char *c = (const cl_char *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_char) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%2.2x vs 0x%2.2x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+    for( i = 0; i < count; i++ )
+        if( t[i] != c[i] ) {
+            log_error("\n(check_char) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%2.2x vs 0x%2.2x\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -602,18 +592,13 @@ size_t check_ushort(void *test, void *correct, size_t count, size_t vector_size)
     const cl_ushort *c = (const cl_ushort *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_ushort) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%4.4x vs 0x%4.4x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+    for( i = 0; i < count; i++ )
+        if(t[i] != c[i]) {
+            log_error("\n(check_ushort) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%4.4x vs 0x%4.4x\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -623,18 +608,13 @@ size_t check_short(void *test, void *correct, size_t count, size_t vector_size) 
     const cl_short *c = (const cl_short *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_short) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%8.8x vs 0x%8.8x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+    for (i = 0; i < count; i++)
+        if(t[i] != c[i]) {
+            log_error("\n(check_short) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -644,18 +624,14 @@ size_t check_uint(void *test, void *correct, size_t count, size_t vector_size) {
     const cl_uint *c = (const cl_uint *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_uint) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%8.8x vs 0x%8.8x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+
+    for (i = 0; i < count; i++)
+        if(t[i] != c[i]) {
+            log_error("\n(check_uint) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -665,19 +641,24 @@ size_t check_int(void *test, void *correct, size_t count, size_t vector_size) {
     const cl_int *c = (const cl_int *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
 
-                log_error("\n(check_int) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%8.8x vs 0x%8.8x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
+    for(i = 0; i < count; i++)
+        if( t[i] != c[i] ) {
+
+            log_error("\n(check_int) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i, count, c[i], t[i]);
+            log_error("\n(check_int) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i+1, count,c[i+1], t[i+1]);
+            log_error("\n(check_int) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i+2, count,c[i+2], t[i+2]);
+            log_error("\n(check_int) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i+3, count,c[i+3], t[i+3]);
+            if(i) {
+                log_error("\n(check_int) Error for vector size %ld found just after 0x%8.8lx:  "
+                          "*0x%8.8x vs 0x%8.8x\n", vector_size, i-1, c[i-1], t[i-1]);
             }
-    }
+            return i + 1;
+        }
 
     return 0;
 }
@@ -687,18 +668,13 @@ size_t check_ulong(void *test, void *correct, size_t count, size_t vector_size) 
     const cl_ulong *c = (const cl_ulong *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_ulong) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%16.16llx vs 0x%16.16llx\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+    for( i = 0; i < count; i++ )
+        if( t[i] != c[i] ) {
+            log_error("\n(check_ulong) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%16.16llx vs 0x%16.16llx\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -708,18 +684,13 @@ size_t check_long(void *test, void *correct, size_t count, size_t vector_size) {
     const cl_long *c = (const cl_long *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++)
-            if (t[i] != c[i])
-            {
-                log_error("\n(check_long) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%16.16llx vs 0x%16.16llx\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+    for(i = 0; i < count; i++ )
+        if(t[i] != c[i]) {
+            log_error("\n(check_long) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%16.16llx vs 0x%16.16llx\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -729,19 +700,14 @@ size_t check_float( void *test, void *correct, size_t count, size_t vector_size 
     const cl_uint *c = (const cl_uint *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++) /* Allow nans to be binary different */
-            if ((t[i] != c[i])
-                && !(isnan(((float *)correct)[i]) && isnan(((float *)test)[i])))
-            {
-                log_error("\n(check_float) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%8.8x vs 0x%8.8x\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+    for( i = 0; i < count; i++ )
+        /* Allow nans to be binary different */
+        if ((t[i] != c[i]) && !(isnan(((float *)correct)[i]) && isnan(((float *)test)[i]))) {
+            log_error("\n(check_float) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%8.8x vs 0x%8.8x\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }
@@ -751,20 +717,15 @@ size_t check_double( void *test, void *correct, size_t count, size_t vector_size
     const cl_ulong *c = (const cl_ulong *) correct;
     size_t i;
 
-    if (memcmp(t, c, count * sizeof(c[0])) != 0)
-    {
-        for (i = 0; i < count; i++) /* Allow nans to be binary different */
-            if ((t[i] != c[i])
-                && !(isnan(((double *)correct)[i])
-                     && isnan(((double *)test)[i])))
-            {
-                log_error("\n(check_double) Error for vector size %ld found at "
-                          "0x%8.8lx (of 0x%8.8lx):  "
-                          "*0x%16.16llx vs 0x%16.16llx\n",
-                          vector_size, i, count, c[i], t[i]);
-                return i + 1;
-            }
-    }
+
+
+    for( i = 0; i < count; i++ )
+        /* Allow nans to be binary different */
+        if ((t[i] != c[i]) && !(isnan(((double *)correct)[i]) && isnan(((double *)test)[i]))) {
+            log_error("\n(check_double) Error for vector size %ld found at 0x%8.8lx (of 0x%8.8lx):  "
+                      "*0x%16.16llx vs 0x%16.16llx\n", vector_size, i, count, c[i], t[i] );
+            return i + 1;
+        }
 
     return 0;
 }

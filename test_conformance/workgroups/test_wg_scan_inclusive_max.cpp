@@ -1,6 +1,6 @@
 //
 // Copyright (c) 2017 The Khronos Group Inc.
-//
+// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -175,9 +175,7 @@ test_work_group_scan_inclusive_max_int(cl_device_id device, cl_context context, 
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_scan_inclusive_max_kernel_code_int,
-                                      "test_wg_scan_inclusive_max_int");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_scan_inclusive_max_kernel_code_int, "test_wg_scan_inclusive_max_int", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -189,16 +187,14 @@ test_work_group_scan_inclusive_max_int(cl_device_id device, cl_context context, 
 
     input_ptr[0] = (cl_int*)malloc(sizeof(cl_int) * num_elements);
     output_ptr = (cl_int*)malloc(sizeof(cl_int) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_int) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_int) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_int) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_int) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");
@@ -280,9 +276,7 @@ test_work_group_scan_inclusive_max_uint(cl_device_id device, cl_context context,
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_scan_inclusive_max_kernel_code_uint,
-                                      "test_wg_scan_inclusive_max_uint");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_scan_inclusive_max_kernel_code_uint, "test_wg_scan_inclusive_max_uint", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -294,16 +288,14 @@ test_work_group_scan_inclusive_max_uint(cl_device_id device, cl_context context,
 
     input_ptr[0] = (cl_uint*)malloc(sizeof(cl_uint) * num_elements);
     output_ptr = (cl_uint*)malloc(sizeof(cl_uint) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_uint) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_uint) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_uint) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_uint) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");
@@ -384,9 +376,7 @@ test_work_group_scan_inclusive_max_long(cl_device_id device, cl_context context,
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_scan_inclusive_max_kernel_code_long,
-                                      "test_wg_scan_inclusive_max_long");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_scan_inclusive_max_kernel_code_long, "test_wg_scan_inclusive_max_long", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -398,16 +388,14 @@ test_work_group_scan_inclusive_max_long(cl_device_id device, cl_context context,
 
     input_ptr[0] = (cl_long*)malloc(sizeof(cl_long) * num_elements);
     output_ptr = (cl_long*)malloc(sizeof(cl_long) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_long) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_long) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_long) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_long) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");
@@ -489,9 +477,7 @@ test_work_group_scan_inclusive_max_ulong(cl_device_id device, cl_context context
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_scan_inclusive_max_kernel_code_ulong,
-                                      "test_wg_scan_inclusive_max_ulong");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_scan_inclusive_max_kernel_code_ulong, "test_wg_scan_inclusive_max_ulong", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -503,16 +489,14 @@ test_work_group_scan_inclusive_max_ulong(cl_device_id device, cl_context context
 
     input_ptr[0] = (cl_ulong*)malloc(sizeof(cl_ulong) * num_elements);
     output_ptr = (cl_ulong*)malloc(sizeof(cl_ulong) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_ulong) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_ulong) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_ulong) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_ulong) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");

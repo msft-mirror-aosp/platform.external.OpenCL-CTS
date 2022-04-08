@@ -1,6 +1,6 @@
 //
 // Copyright (c) 2017-2019 The Khronos Group Inc.
-//
+// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -24,14 +24,14 @@
 
 /* Helper to return a string containing device information for the specified
  * device info parameter. */
-std::string get_device_info_string(cl_device_id device,
-                                   cl_device_info param_name)
+static std::string get_device_info_string(cl_device_id device,
+                                          cl_device_info param_name)
 {
     size_t size = 0;
     int err;
 
     if ((err = clGetDeviceInfo(device, param_name, 0, NULL, &size))
-            != CL_SUCCESS
+        != CL_SUCCESS
         || size == 0)
     {
         throw std::runtime_error("clGetDeviceInfo failed\n");
@@ -45,8 +45,7 @@ std::string get_device_info_string(cl_device_id device,
         throw std::runtime_error("clGetDeviceInfo failed\n");
     }
 
-    /* The returned string does not include the null terminator. */
-    return std::string(info.data(), size - 1);
+    return std::string(info.begin(), info.end());
 }
 
 /* Determines if an extension is supported by a device. */
@@ -79,22 +78,4 @@ std::string get_device_il_version_string(cl_device_id device)
 std::string get_device_version_string(cl_device_id device)
 {
     return get_device_info_string(device, CL_DEVICE_VERSION);
-}
-
-/* Returns a string containing the device name. */
-std::string get_device_name(cl_device_id device)
-{
-    return get_device_info_string(device, CL_DEVICE_NAME);
-}
-
-size_t get_max_param_size(cl_device_id device)
-{
-    size_t ret(0);
-    if (clGetDeviceInfo(device, CL_DEVICE_MAX_PARAMETER_SIZE, sizeof(ret), &ret,
-                        nullptr)
-        != CL_SUCCESS)
-    {
-        throw std::runtime_error("clGetDeviceInfo failed\n");
-    }
-    return ret;
 }

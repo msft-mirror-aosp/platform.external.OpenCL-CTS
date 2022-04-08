@@ -157,13 +157,14 @@ int test_null_buffer_arg(cl_device_id device, cl_context context,
 
     // prep kernel:
     if (gIsEmbedded)
-        status = create_single_kernel_helper(context, &program, &kernel, 1,
-                                             &kernel_string, "test_kernel");
+        status = create_single_kernel_helper(context, &program, NULL, 1, &kernel_string, NULL);
     else
-        status = create_single_kernel_helper(
-            context, &program, &kernel, 1, &kernel_string_long, "test_kernel");
+        status = create_single_kernel_helper(context, &program, NULL, 1, &kernel_string_long, NULL);
 
-    test_error(status, "Unable to create kernel");
+    test_error(status, "Unable to build test program");
+
+    kernel = clCreateKernel(program, "test_kernel", &status);
+    test_error(status, "CreateKernel failed.");
 
     cl_mem dev_src = clCreateBuffer(context, CL_MEM_READ_ONLY, NITEMS*sizeof(cl_float),
         NULL, NULL);

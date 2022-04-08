@@ -428,8 +428,7 @@ int test_get_program_source(cl_device_id deviceID, cl_context context, cl_comman
     int error;
     char buffer[10240];
     size_t length;
-    size_t line_length = strlen(sample_kernel_code_single_line[0]);
-    bool online_compilation = (gCompilationMode == kOnline);
+
 
     error = create_single_kernel_helper_create_program(context, &program, 1, sample_kernel_code_single_line);
     if( program == NULL )
@@ -441,7 +440,7 @@ int test_get_program_source(cl_device_id deviceID, cl_context context, cl_comman
     /* Try getting the length */
     error = clGetProgramInfo( program, CL_PROGRAM_SOURCE, 0, NULL, &length );
     test_error( error, "Unable to get program source length" );
-    if (length != line_length + 1 && online_compilation)
+    if (length != strlen(sample_kernel_code_single_line[0]) + 1 && gCompilationMode == kOnline)
     {
         log_error( "ERROR: Length returned for program source is incorrect!\n" );
         return -1;
@@ -450,7 +449,7 @@ int test_get_program_source(cl_device_id deviceID, cl_context context, cl_comman
     /* Try normal source */
     error = clGetProgramInfo( program, CL_PROGRAM_SOURCE, sizeof( buffer ), buffer, NULL );
     test_error( error, "Unable to get program source" );
-    if (strlen(buffer) != line_length && online_compilation)
+    if (strlen(buffer) != strlen(sample_kernel_code_single_line[0]) && gCompilationMode == kOnline)
     {
         log_error( "ERROR: Length of program source is incorrect!\n" );
         return -1;
@@ -459,12 +458,12 @@ int test_get_program_source(cl_device_id deviceID, cl_context context, cl_comman
     /* Try both at once */
     error = clGetProgramInfo( program, CL_PROGRAM_SOURCE, sizeof( buffer ), buffer, &length );
     test_error( error, "Unable to get program source" );
-    if (strlen(buffer) != line_length && online_compilation)
+    if (strlen(buffer) != strlen(sample_kernel_code_single_line[0]) && gCompilationMode == kOnline)
     {
         log_error( "ERROR: Length of program source is incorrect!\n" );
         return -1;
     }
-    if (length != line_length + 1 && online_compilation)
+    if (length != strlen(sample_kernel_code_single_line[0]) + 1 && gCompilationMode == kOnline)
     {
         log_error( "ERROR: Returned length of program source is incorrect!\n" );
         return -1;

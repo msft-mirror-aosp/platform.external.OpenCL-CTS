@@ -1,6 +1,6 @@
 //
 // Copyright (c) 2017 The Khronos Group Inc.
-//
+// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -174,9 +174,7 @@ test_work_group_broadcast_1D(cl_device_id device, cl_context context, cl_command
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_broadcast_1D_kernel_code,
-                                      "test_wg_broadcast_1D");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_broadcast_1D_kernel_code, "test_wg_broadcast_1D", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -188,16 +186,14 @@ test_work_group_broadcast_1D(cl_device_id device, cl_context context, cl_command
 
     input_ptr[0] = (cl_float*)malloc(sizeof(cl_float) * num_elements);
     output_ptr = (cl_float*)malloc(sizeof(cl_float) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_float) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_float) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_float) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_float) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");
@@ -283,9 +279,7 @@ test_work_group_broadcast_2D(cl_device_id device, cl_context context, cl_command
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_broadcast_2D_kernel_code,
-                                      "test_wg_broadcast_2D");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_broadcast_2D_kernel_code, "test_wg_broadcast_2D", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -317,16 +311,14 @@ test_work_group_broadcast_2D(cl_device_id device, cl_context context, cl_command
 
     input_ptr[0] = (cl_float*)malloc(sizeof(cl_float) * num_elements);
     output_ptr = (cl_float*)malloc(sizeof(cl_float) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_float) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_float) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_float) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_float) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");
@@ -410,9 +402,7 @@ test_work_group_broadcast_3D(cl_device_id device, cl_context context, cl_command
     int          i;
     MTdata       d;
 
-    err = create_single_kernel_helper(context, &program, &kernel, 1,
-                                      &wg_broadcast_3D_kernel_code,
-                                      "test_wg_broadcast_3D");
+    err = create_single_kernel_helper_with_build_options( context, &program, &kernel, 1, &wg_broadcast_3D_kernel_code, "test_wg_broadcast_3D", "-cl-std=CL2.0" );
     if (err)
         return -1;
 
@@ -445,16 +435,14 @@ test_work_group_broadcast_3D(cl_device_id device, cl_context context, cl_command
 
     input_ptr[0] = (cl_float*)malloc(sizeof(cl_float) * num_elements);
     output_ptr = (cl_float*)malloc(sizeof(cl_float) * num_elements);
-    streams[0] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_float) * num_elements, NULL, NULL);
+    streams[0] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_float) * num_elements, NULL, NULL );
     if (!streams[0])
     {
         log_error("clCreateBuffer failed\n");
         return -1;
     }
 
-    streams[1] = clCreateBuffer(context, CL_MEM_READ_WRITE,
-                                sizeof(cl_float) * num_elements, NULL, NULL);
+    streams[1] = clCreateBuffer( context, (cl_mem_flags)(CL_MEM_READ_WRITE),  sizeof(cl_float) * num_elements, NULL, NULL );
     if (!streams[1])
     {
         log_error("clCreateBuffer failed\n");

@@ -15,30 +15,20 @@
 //
 #include "../testBase.h"
 
-extern int test_get_image_info_single(cl_context context,
-                                      cl_command_queue queue,
-                                      image_descriptor *imageInfo, MTdata d,
-                                      cl_mem_flags flags);
+#define MAX_ERR 0.005f
+#define MAX_HALF_LINEAR_ERR 0.3f
 
-int test_get_image_info_3D(cl_device_id device, cl_context context,
-                           cl_command_queue queue, cl_image_format *format,
-                           cl_mem_flags flags)
+extern bool            gDebugTrace, gTestSmallImages, gTestMaxImages, gDeviceLt20;
+
+extern int test_get_image_info_single( cl_context context, cl_command_queue queue, image_descriptor *imageInfo, MTdata d );
+
+int test_get_image_info_3D( cl_device_id device, cl_context context, cl_command_queue queue, cl_image_format *format )
 {
     size_t maxWidth, maxHeight, maxDepth;
     cl_ulong maxAllocSize, memSize;
     image_descriptor imageInfo = { 0 };
     RandomSeed seed( gRandomSeed );
     size_t pixelSize;
-
-    if ((flags != CL_MEM_READ_ONLY)
-        && !is_extension_available(device, "cl_khr_3d_image_writes"))
-    {
-        log_info("-----------------------------------------------------\n");
-        log_info("This device does not support cl_khr_3d_image_writes.\n"
-                 "Skipping 3d image write test.\n");
-        log_info("-----------------------------------------------------\n\n");
-        return 0;
-    }
 
     imageInfo.type = CL_MEM_OBJECT_IMAGE3D;
     imageInfo.format = format;
@@ -68,8 +58,7 @@ int test_get_image_info_3D(cl_device_id device, cl_context context,
                 {
                     if( gDebugTrace )
                         log_info( "   at size %d,%d,%d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.depth );
-                    int ret = test_get_image_info_single(
-                        context, queue, &imageInfo, seed, flags);
+                    int ret = test_get_image_info_single( context, queue, &imageInfo, seed );
                     if( ret )
                         return -1;
                 }
@@ -95,8 +84,7 @@ int test_get_image_info_3D(cl_device_id device, cl_context context,
             log_info( "Testing %d x %d x %d\n", (int)sizes[ idx ][ 0 ], (int)sizes[ idx ][ 1 ], (int)sizes[ idx ][ 2 ] );
             if( gDebugTrace )
                 log_info( "   at max size %d,%d,%d\n", (int)sizes[ idx ][ 0 ], (int)sizes[ idx ][ 1 ], (int)sizes[ idx ][ 2 ] );
-            if (test_get_image_info_single(context, queue, &imageInfo, seed,
-                                           flags))
+            if( test_get_image_info_single( context, queue, &imageInfo, seed ) )
                 return -1;
         }
     }
@@ -105,9 +93,6 @@ int test_get_image_info_3D(cl_device_id device, cl_context context,
         for( int i = 0; i < NUM_IMAGE_ITERATIONS; i++ )
         {
             cl_ulong size;
-            cl_ulong slicePitch;
-            cl_ulong rowPitch;
-
             // Loop until we get a size that a) will fit in the max alloc size and b) that an allocation of that
             // image, the result array, plus offset arrays, will fit in the global ram space
             do
@@ -116,30 +101,26 @@ int test_get_image_info_3D(cl_device_id device, cl_context context,
                 imageInfo.height = (size_t)random_log_in_range( 16, (int)maxHeight / 32, seed );
                 imageInfo.depth = (size_t)random_log_in_range( 16, (int)maxDepth / 32, seed );
 
-                rowPitch = imageInfo.width * pixelSize;
-                slicePitch = imageInfo.rowPitch * imageInfo.height;
+                imageInfo.rowPitch = imageInfo.width * pixelSize;
+                imageInfo.slicePitch = imageInfo.rowPitch * imageInfo.height;
 
                 size_t extraWidth = (int)random_log_in_range( 0, 64, seed );
-                rowPitch += extraWidth;
+                imageInfo.rowPitch += extraWidth;
 
                 do {
                     extraWidth++;
-                    rowPitch += extraWidth;
-                } while ((rowPitch % pixelSize) != 0);
+                    imageInfo.rowPitch += extraWidth;
+                } while ((imageInfo.rowPitch % pixelSize) != 0);
 
                 size_t extraHeight = (int)random_log_in_range( 0, 8, seed );
-                slicePitch = rowPitch * (imageInfo.height + extraHeight);
+                imageInfo.slicePitch = imageInfo.rowPitch * (imageInfo.height + extraHeight);
 
-                size = slicePitch * imageInfo.depth * 4 * 4;
+                size = (cl_ulong)imageInfo.slicePitch * (cl_ulong)imageInfo.depth * 4 * 4;
             } while(  size > maxAllocSize || ( size * 3 ) > memSize );
-
-            imageInfo.slicePitch = slicePitch;
-            imageInfo.rowPitch = rowPitch;
 
             if( gDebugTrace )
                 log_info( "   at size %d,%d,%d (pitch %d,%d) out of %d,%d,%d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.depth, (int)imageInfo.rowPitch, (int)imageInfo.slicePitch, (int)maxWidth, (int)maxHeight, (int)maxDepth );
-            int ret = test_get_image_info_single(context, queue, &imageInfo,
-                                                 seed, flags);
+            int ret = test_get_image_info_single( context, queue, &imageInfo, seed );
             if( ret )
                 return -1;
         }

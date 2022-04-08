@@ -14,7 +14,11 @@
 // limitations under the License.
 //
 #include "helpers.h"
-#include "harness/imageHelpers.h"
+#include "../harness/imageHelpers.h"
+
+// convert_float_to_half and convert_half_to_float may be found in test_conformance/images/image_helpers.cpp
+cl_ushort convert_float_to_half( cl_float f );
+cl_float  convert_half_to_float( cl_ushort h );
 
 #if defined( __APPLE__ )
     #include <OpenGL/glu.h>
@@ -1277,7 +1281,9 @@ void * CreateGLTexture2DMultisample( size_t width, size_t height, size_t samples
         case kUInt:
         *((unsigned int*)p) = val*0xffffffff;
           break;
-        case kHalf: *((cl_half *)p) = convert_float_to_half(val); break;
+        case kHalf:
+          *((cl_ushort*)p) = convert_float_to_half(val);
+          break;
         default:
           log_error("Test error: unexpected type enum 0x%x\n",type);
       }
@@ -1539,7 +1545,9 @@ void * CreateGLTexture2DArrayMultisample(size_t width, size_t height,
         case kUInt:
           *((unsigned int*)p) = val*0xffffffff;
           break;
-        case kHalf: *((cl_half *)p) = convert_float_to_half(val); break;
+        case kHalf:
+          *((cl_ushort*)p) = convert_float_to_half(val);
+          break;
         default:
           log_error("Test error: unexpected type enum 0x%x\n",type);
       }

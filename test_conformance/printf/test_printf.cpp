@@ -20,7 +20,7 @@
 #include <memory>
 
 #if ! defined( _WIN32)
-#if defined(__APPLE__)
+#if ! defined( __ANDROID__ )
 #include <sys/sysctl.h>
 #endif
 #include <unistd.h>
@@ -59,7 +59,7 @@ static void printUsage( void );
 //Stream helper functions
 
 //Associate stdout stream with the file(gFileName):i.e redirect stdout stream to the specific files (gFileName)
-static int acquireOutputStream(int* error);
+static int acquireOutputStream();
 
 //Close the file(gFileName) associated with the stdout stream and disassociates it.
 static void releaseOutputStream(int fd);
@@ -141,15 +141,10 @@ static int getTempFileName()
 //-----------------------------------------
 // acquireOutputStream
 //-----------------------------------------
-static int acquireOutputStream(int* error)
+static int acquireOutputStream()
 {
     int fd = streamDup(fileno(stdout));
-    *error = 0;
-    if (!freopen(gFileName, "w", stdout))
-    {
-        releaseOutputStream(fd);
-        *error = -1;
-    }
+    freopen(gFileName,"w",stdout);
     return fd;
 }
 
@@ -306,26 +301,25 @@ static cl_program makePrintfProgram(cl_kernel *kernel_ptr, const cl_context cont
 
     if(allTestCase[testId]->_type == TYPE_VECTOR)
     {
-        err = create_single_kernel_helper(
-            context, &program, kernel_ptr,
-            sizeof(sourceVec) / sizeof(sourceVec[0]), sourceVec, testname);
+        err = create_single_kernel_helper(context, &program, NULL, sizeof(sourceVec) / sizeof(sourceVec[0]), sourceVec, NULL);
     }
     else if(allTestCase[testId]->_type == TYPE_ADDRESS_SPACE)
     {
-        err = create_single_kernel_helper(context, &program, kernel_ptr,
-                                          sizeof(sourceAddrSpace)
-                                              / sizeof(sourceAddrSpace[0]),
-                                          sourceAddrSpace, testname);
+        err = create_single_kernel_helper(context, &program, NULL, sizeof(sourceAddrSpace) / sizeof(sourceAddrSpace[0]), sourceAddrSpace, NULL);
     }
     else
     {
-        err = create_single_kernel_helper(
-            context, &program, kernel_ptr,
-            sizeof(sourceGen) / sizeof(sourceGen[0]), sourceGen, testname);
+        err = create_single_kernel_helper(context, &program, NULL, sizeof(sourceGen) / sizeof(sourceGen[0]), sourceGen, NULL);
     }
 
     if (!program || err) {
         log_error("create_single_kernel_helper failed\n");
+        return NULL;
+    }
+
+    *kernel_ptr = clCreateKernel(program, testname, &err);
+    if ( err ) {
+        log_error("clCreateKernel failed (%d)\n", err);
         return NULL;
     }
 
@@ -498,12 +492,7 @@ static int doTest(cl_command_queue queue, cl_context context, const unsigned int
         }
     }
 
-    fd = acquireOutputStream(&err);
-    if (err != 0)
-    {
-        log_error("Error while redirection stdout to file");
-        goto exit;
-    }
+    fd = acquireOutputStream();
     globalWorkSize[0] = 1;
     cl_event ndrEvt;
     err = clEnqueueNDRangeKernel(queue, kernel, 1, NULL, globalWorkSize, NULL, 0, NULL,&ndrEvt);
@@ -993,12 +982,7 @@ test_status InitCL( cl_device_id device )
     uint32_t compute_devices = 0;
 
     int err;
-    gFd = acquireOutputStream(&err);
-    if (err != 0)
-    {
-        log_error("Error while redirection stdout to file");
-        return TEST_FAIL;
-    }
+    gFd = acquireOutputStream();
 
     size_t config_size = sizeof( device_frequency );
 #if MULTITHREAD
@@ -1024,24 +1008,20 @@ test_status InitCL( cl_device_id device )
     auto expected_min_version = Version(1, 2);
     if (version < expected_min_version)
     {
-        version_expected_info("Test", "OpenCL",
-                              expected_min_version.to_string().c_str(),
-                              version.to_string().c_str());
+        version_expected_info("Test", expected_min_version.to_string().c_str(), version.to_string().c_str());
         return TEST_SKIP;
     }
 
     log_info( "Test binary built %s %s\n", __DATE__, __TIME__ );
 
-    gFd = acquireOutputStream(&err);
-    if (err != 0)
-    {
-        log_error("Error while redirection stdout to file");
-        return TEST_FAIL;
-    }
-    cl_context_properties printf_properties[] = {
-        CL_PRINTF_CALLBACK_ARM, (cl_context_properties)printfCallBack,
-        CL_PRINTF_BUFFERSIZE_ARM, ANALYSIS_BUFFER_SIZE, 0
-    };
+    gFd = acquireOutputStream();
+
+    cl_context_properties printf_properties[] =
+        {
+            CL_PRINTF_CALLBACK_ARM, (cl_context_properties)printfCallBack,
+            CL_PRINTF_BUFFERSIZE_ARM, ANALYSIS_BUFFER_SIZE,
+            0
+        };
 
     cl_context_properties* props = NULL;
 

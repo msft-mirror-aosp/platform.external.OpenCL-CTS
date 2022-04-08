@@ -15,9 +15,16 @@
 //
 #include "../testBase.h"
 
-int test_read_image_1D(cl_context context, cl_command_queue queue,
-                       image_descriptor *imageInfo, MTdata d,
-                       cl_mem_flags flags)
+#define MAX_ERR 0.005f
+#define MAX_HALF_LINEAR_ERR 0.3f
+
+extern bool            gDebugTrace, gDisableOffsets, gTestSmallImages, gEnablePitch, gTestMaxImages, gTestMipmaps;
+extern cl_filter_mode    gFilterModeToUse;
+extern cl_addressing_mode    gAddressModeToUse;
+extern uint64_t gRoundingStartValue;
+
+
+int test_read_image_1D( cl_context context, cl_command_queue queue, image_descriptor *imageInfo, MTdata d )
 {
     int error;
 
@@ -36,14 +43,12 @@ int test_read_image_1D(cl_context context, cl_command_queue queue,
     // Construct testing sources
   if(!gTestMipmaps)
   {
-      image = create_image_1d(context, flags, imageInfo->format,
-                              imageInfo->width, 0, NULL, NULL, &error);
-      if (image == NULL)
-      {
-          log_error("ERROR: Unable to create 1D image of size %d (%s)",
-                    (int)imageInfo->width, IGetErrorString(error));
-          return -1;
-      }
+    image = create_image_1d( context, (cl_mem_flags)(CL_MEM_READ_ONLY), imageInfo->format, imageInfo->width, 0, NULL, NULL, &error );
+    if( image == NULL )
+    {
+      log_error( "ERROR: Unable to create 1D image of size %d (%s)", (int)imageInfo->width, IGetErrorString( error ) );
+      return -1;
+    }
   }
   else
   {
@@ -52,8 +57,7 @@ int test_read_image_1D(cl_context context, cl_command_queue queue,
     image_desc.image_width = imageInfo->width;
     image_desc.num_mip_levels = imageInfo->num_mip_levels;
 
-    image = clCreateImage(context, flags, imageInfo->format, &image_desc, NULL,
-                          &error);
+    image = clCreateImage( context, CL_MEM_READ_ONLY, imageInfo->format, &image_desc, NULL, &error);
     if( error != CL_SUCCESS )
     {
       log_error( "ERROR: Unable to create %d level mipmapped 1D image of size %d x %d (pitch %d ) (%s)",(int)imageInfo->num_mip_levels, (int)imageInfo->width, (int)imageInfo->height, (int)imageInfo->rowPitch, IGetErrorString( error ) );
@@ -163,9 +167,7 @@ int test_read_image_1D(cl_context context, cl_command_queue queue,
     return 0;
 }
 
-int test_read_image_set_1D(cl_device_id device, cl_context context,
-                           cl_command_queue queue, cl_image_format *format,
-                           cl_mem_flags flags)
+int test_read_image_set_1D( cl_device_id device, cl_context context, cl_command_queue queue, cl_image_format *format )
 {
     size_t maxWidth;
     cl_ulong maxAllocSize, memSize;
@@ -199,8 +201,7 @@ int test_read_image_set_1D(cl_device_id device, cl_context context,
             if( gDebugTrace )
                 log_info( "   at size %d\n", (int)imageInfo.width );
 
-            int ret =
-                test_read_image_1D(context, queue, &imageInfo, seed, flags);
+            int ret = test_read_image_1D( context, queue, &imageInfo, seed );
             if( ret )
                 return -1;
         }
@@ -224,7 +225,7 @@ int test_read_image_set_1D(cl_device_id device, cl_context context,
             log_info("Testing %d\n", (int)imageInfo.width);
             if( gDebugTrace )
                 log_info( "   at max size %d\n", (int)maxWidth );
-            if (test_read_image_1D(context, queue, &imageInfo, seed, flags))
+            if( test_read_image_1D( context, queue, &imageInfo, seed ) )
                 return -1;
         }
     }
@@ -260,8 +261,7 @@ int test_read_image_set_1D(cl_device_id device, cl_context context,
 
             if( gDebugTrace )
                 log_info( "   at size %d (row pitch %d) out of %d\n", (int)imageInfo.width, (int)imageInfo.rowPitch, (int)maxWidth );
-            int ret =
-                test_read_image_1D(context, queue, &imageInfo, seed, flags);
+            int ret = test_read_image_1D( context, queue, &imageInfo, seed );
             if( ret )
                 return -1;
         }

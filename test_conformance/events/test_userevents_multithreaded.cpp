@@ -16,19 +16,28 @@
 #include "testBase.h"
 #include "action_classes.h"
 #include "harness/conversions.h"
-
-#include <thread>
+#include "harness/genericThread.h"
 
 #if !defined (_MSC_VER)
     #include <unistd.h>
 #endif // !_MSC_VER
 
-void trigger_user_event(cl_event *event)
+class releaseEvent_thread : public genericThread
 {
-    usleep(1000000);
-    log_info("\tTriggering gate from separate thread...\n");
-    clSetUserEventStatus(*event, CL_COMPLETE);
-}
+    public:
+        releaseEvent_thread( cl_event *event ) : mEvent( event ) {}
+
+        cl_event * mEvent;
+
+    protected:
+        virtual void *    IRun( void )
+        {
+            usleep( 1000000 );
+            log_info( "\tTriggering gate from separate thread...\n" );
+            clSetUserEventStatus( *mEvent, CL_COMPLETE );
+            return NULL;
+        }
+};
 
 int test_userevents_multithreaded( cl_device_id deviceID, cl_context context, cl_command_queue queue, int num_elements )
 {
@@ -57,14 +66,14 @@ int test_userevents_multithreaded( cl_device_id deviceID, cl_context context, cl
     }
 
     // Now, instead of releasing the gate, we spawn a separate thread to do so
+    releaseEvent_thread thread( &gateEvent );
     log_info( "\tStarting trigger thread...\n" );
-    std::thread thread(trigger_user_event, &gateEvent);
+    thread.Start();
 
     log_info( "\tWaiting for actions...\n" );
     error = clWaitForEvents( 3, &actionEvents[ 0 ] );
     test_error( error, "Unable to wait for action events" );
 
-    thread.join();
     log_info( "\tActions completed.\n" );
 
     // If we got here without error, we're good

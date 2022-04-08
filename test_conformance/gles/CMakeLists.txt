@@ -15,6 +15,11 @@ set (${MODULE_NAME}_SOURCES
         ../../test_common/gles/helpers.cpp
     )
 
-list(APPEND CLConform_LIBRARIES EGL GLESv2)
+if(ANDROID)
+    list(APPEND CLConform_LIBRARIES GLESv2)
+elseif(WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGLES3")
+    list(APPEND CLConform_LIBRARIES libEGL libGLESv2 )
+endif(ANDROID)
 
 include(../CMakeCommon.txt)

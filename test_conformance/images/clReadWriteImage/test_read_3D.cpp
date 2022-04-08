@@ -15,9 +15,14 @@
 //
 #include "../testBase.h"
 
-int test_read_image_3D(cl_context context, cl_command_queue queue,
-                       image_descriptor *imageInfo, MTdata d,
-                       cl_mem_flags flags)
+#define MAX_ERR 0.005f
+#define MAX_HALF_LINEAR_ERR 0.3f
+
+extern bool            gDebugTrace, gDisableOffsets, gTestSmallImages, gEnablePitch, gTestMaxImages, gTestMipmaps;
+extern cl_filter_mode    gFilterModeToUse;
+extern cl_addressing_mode    gAddressModeToUse;
+
+int test_read_image_3D( cl_context context, cl_command_queue queue, image_descriptor *imageInfo, MTdata d )
 {
     int error;
 
@@ -36,9 +41,7 @@ int test_read_image_3D(cl_context context, cl_command_queue queue,
     // Construct testing sources
     if(!gTestMipmaps)
     {
-        image = create_image_3d(context, flags, imageInfo->format,
-                                imageInfo->width, imageInfo->height,
-                                imageInfo->depth, 0, 0, NULL, &error);
+        image = create_image_3d( context, (cl_mem_flags)(CL_MEM_READ_ONLY), imageInfo->format, imageInfo->width, imageInfo->height, imageInfo->depth, 0, 0, NULL, &error );
         if( image == NULL )
         {
             log_error( "ERROR: Unable to create 2D image of size %d x %d x %d (%s)", (int)imageInfo->width, (int)imageInfo->height, (int)imageInfo->depth, IGetErrorString( error ) );
@@ -54,8 +57,7 @@ int test_read_image_3D(cl_context context, cl_command_queue queue,
         image_desc.image_depth = imageInfo->depth;
         image_desc.num_mip_levels = imageInfo->num_mip_levels;
 
-        image = clCreateImage(context, flags, imageInfo->format, &image_desc,
-                              NULL, &error);
+        image = clCreateImage( context, CL_MEM_READ_ONLY, imageInfo->format, &image_desc, NULL, &error);
         if( error != CL_SUCCESS )
         {
             log_error( "ERROR: Unable to create %d level mipmapped 3D image of size %d x %d x %d (pitch %d, %d ) (%s)",(int)imageInfo->num_mip_levels, (int)imageInfo->width, (int)imageInfo->height, (int)imageInfo->depth, (int)imageInfo->rowPitch, (int)imageInfo->slicePitch, IGetErrorString( error ) );
@@ -152,9 +154,7 @@ int test_read_image_3D(cl_context context, cl_command_queue queue,
     return 0;
 }
 
-int test_read_image_set_3D(cl_device_id device, cl_context context,
-                           cl_command_queue queue, cl_image_format *format,
-                           cl_mem_flags flags)
+int test_read_image_set_3D( cl_device_id device, cl_context context, cl_command_queue queue, cl_image_format *format )
 {
     size_t maxWidth, maxHeight, maxDepth;
     cl_ulong maxAllocSize, memSize;
@@ -193,8 +193,7 @@ int test_read_image_set_3D(cl_device_id device, cl_context context,
 
                     if( gDebugTrace )
                         log_info( "   at size %d,%d,%d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.depth );
-                    int ret = test_read_image_3D(context, queue, &imageInfo,
-                                                 seed, flags);
+                    int ret = test_read_image_3D( context, queue, &imageInfo, seed );
                     if( ret )
                         return -1;
                 }
@@ -222,8 +221,8 @@ int test_read_image_set_3D(cl_device_id device, cl_context context,
         imageInfo.num_mip_levels = (cl_uint) random_log_in_range(2, (int)compute_max_mip_levels(imageInfo.width, imageInfo.height, imageInfo.depth), seed);
 
       log_info("Testing %d x %d x %d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.depth);
-      if (test_read_image_3D(context, queue, &imageInfo, seed, flags))
-          return -1;
+      if( test_read_image_3D( context, queue, &imageInfo, seed ) )
+        return -1;
     }
   }
     else
@@ -265,8 +264,7 @@ int test_read_image_set_3D(cl_device_id device, cl_context context,
 
             if( gDebugTrace )
                 log_info( "   at size %d,%d,%d (pitch %d,%d) out of %d,%d,%d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.depth, (int)imageInfo.rowPitch, (int)imageInfo.slicePitch, (int)maxWidth, (int)maxHeight, (int)maxDepth );
-            int ret =
-                test_read_image_3D(context, queue, &imageInfo, seed, flags);
+            int ret = test_read_image_3D( context, queue, &imageInfo, seed );
             if( ret )
                 return -1;
         }

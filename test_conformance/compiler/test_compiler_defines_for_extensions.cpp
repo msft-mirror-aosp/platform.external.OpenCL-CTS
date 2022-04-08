@@ -21,6 +21,8 @@
 #endif
 
 
+
+
 const char *known_extensions[] = {
     "cl_khr_byte_addressable_store",
     "cl_khr_3d_image_writes",
@@ -42,16 +44,8 @@ const char *known_extensions[] = {
     "cl_khr_mipmap_image_writes",
     "cl_khr_srgb_image_writes",
     "cl_khr_subgroup_named_barrier",
-    "cl_khr_subgroup_extended_types",
-    "cl_khr_subgroup_non_uniform_vote",
-    "cl_khr_subgroup_ballot",
-    "cl_khr_subgroup_non_uniform_arithmetic",
-    "cl_khr_subgroup_shuffle",
-    "cl_khr_subgroup_shuffle_relative",
-    "cl_khr_subgroup_clustered_reduce",
 
-    // API-only extensions after this point.  If you add above here, modify
-    // first_API_extension below.
+    //API-only extensions after this point.  If you add above here, modify first_API_extension below.
     "cl_khr_icd",
     "cl_khr_gl_sharing",
     "cl_khr_gl_event",
@@ -70,11 +64,10 @@ const char *known_extensions[] = {
     "cl_khr_throttle_hints",
     "cl_khr_spirv_no_integer_wrap_decoration",
     "cl_khr_extended_versioning",
-    "cl_khr_device_uuid",
 };
 
 size_t num_known_extensions = sizeof(known_extensions)/sizeof(char*);
-size_t first_API_extension = 27;
+size_t first_API_extension = 20;
 
 const char *known_embedded_extensions[] = {
     "cles_khr_int64",
@@ -335,15 +328,14 @@ int test_compiler_defines_for_extensions(cl_device_id device, cl_context context
     strcat(kernel_code, kernel_strings[4]);
 
     // Now we need to execute the kernel
-    clMemWrapper defines;
+    cl_mem defines;
     cl_int *data;
-    clProgramWrapper program;
-    clKernelWrapper kernel;
+    cl_program program;
+    cl_kernel kernel;
 
     Version version = get_device_cl_version(device);
 
-    error = create_single_kernel_helper(context, &program, &kernel, 1,
-                                        (const char **)&kernel_code, "test");
+    error = create_single_kernel_helper(context, &program, &kernel, 1, (const char **)&kernel_code, "test", version < Version(2,0) ? "" : "-cl-std=CL2.0");
     test_error(error, "create_single_kernel_helper failed");
 
     data = (cl_int*)malloc(sizeof(cl_int)*(num_not_supported_extensions+num_of_supported_extensions));
@@ -432,6 +424,10 @@ int test_compiler_defines_for_extensions(cl_device_id device, cl_context context
       free(extensions_supported[i]);
     }
     free(extensions);
+    if( defines ) {
+        error = clReleaseMemObject( defines );
+        test_error( error, "Unable to release memory object" );
+    }
 
     if (total_errors)
         return -1;

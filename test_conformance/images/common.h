@@ -22,7 +22,6 @@
 #include "harness/conversions.h"
 
 #include <array>
-#include <vector>
 
 extern cl_channel_type gChannelTypeToUse;
 extern cl_channel_order gChannelOrderToUse;
@@ -41,13 +40,14 @@ struct ImageTestTypes
 
 extern std::array<ImageTestTypes, 3> imageTestTypes;
 
-int filter_formats(const std::vector<cl_image_format> &formatList,
-                   std::vector<bool> &filterFlags,
+const char *convert_image_type_to_string(cl_mem_object_type imageType);
+int filter_formats(cl_image_format *formatList, bool *filterFlags,
+                   unsigned int formatCount,
                    cl_channel_type *channelDataTypesToFilter,
                    bool testMipmaps = false);
 int get_format_list(cl_context context, cl_mem_object_type imageType,
-                    std::vector<cl_image_format> &outFormatList,
-                    cl_mem_flags flags);
+                    cl_image_format *&outFormatList,
+                    unsigned int &outFormatCount, cl_mem_flags flags);
 size_t random_in_ranges(size_t minimum, size_t rangeA, size_t rangeB, MTdata d);
 
 #endif // IMAGES_COMMON_H

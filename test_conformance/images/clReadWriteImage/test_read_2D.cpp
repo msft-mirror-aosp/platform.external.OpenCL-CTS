@@ -15,9 +15,16 @@
 //
 #include "../testBase.h"
 
-int test_read_image_2D(cl_context context, cl_command_queue queue,
-                       image_descriptor *imageInfo, MTdata d,
-                       cl_mem_flags flags)
+#define MAX_ERR 0.005f
+#define MAX_HALF_LINEAR_ERR 0.3f
+
+extern bool            gDebugTrace, gDisableOffsets, gTestSmallImages, gEnablePitch, gTestMaxImages, gTestMipmaps;
+extern cl_filter_mode    gFilterModeToUse;
+extern cl_addressing_mode    gAddressModeToUse;
+extern uint64_t gRoundingStartValue;
+
+
+int test_read_image_2D( cl_context context, cl_command_queue queue, image_descriptor *imageInfo, MTdata d )
 {
     int error;
 
@@ -37,9 +44,7 @@ int test_read_image_2D(cl_context context, cl_command_queue queue,
     // Construct testing sources
     if(!gTestMipmaps)
     {
-        image =
-            create_image_2d(context, flags, imageInfo->format, imageInfo->width,
-                            imageInfo->height, 0, NULL, &error);
+        image = create_image_2d( context, (cl_mem_flags)(CL_MEM_READ_ONLY), imageInfo->format, imageInfo->width, imageInfo->height, 0, NULL, &error );
         if( image == NULL )
         {
             log_error( "ERROR: Unable to create 2D image of size %d x %d (%s)", (int)imageInfo->width, (int)imageInfo->height, IGetErrorString( error ) );
@@ -54,8 +59,7 @@ int test_read_image_2D(cl_context context, cl_command_queue queue,
         image_desc.image_height = imageInfo->height;
         image_desc.num_mip_levels = imageInfo->num_mip_levels;
 
-        image = clCreateImage(context, flags, imageInfo->format, &image_desc,
-                              NULL, &error);
+        image = clCreateImage( context, CL_MEM_READ_ONLY, imageInfo->format, &image_desc, NULL, &error);
         if( error != CL_SUCCESS )
         {
             log_error( "ERROR: Unable to create %d level mipmapped 2D image of size %d x %d (pitch %d ) (%s)",(int)imageInfo->num_mip_levels, (int)imageInfo->width, (int)imageInfo->height, (int)imageInfo->rowPitch, IGetErrorString( error ) );
@@ -172,9 +176,7 @@ int test_read_image_2D(cl_context context, cl_command_queue queue,
     return 0;
 }
 
-int test_read_image_set_2D(cl_device_id device, cl_context context,
-                           cl_command_queue queue, cl_image_format *format,
-                           cl_mem_flags flags)
+int test_read_image_set_2D( cl_device_id device, cl_context context, cl_command_queue queue, cl_image_format *format )
 {
     size_t maxWidth, maxHeight;
     cl_ulong maxAllocSize, memSize;
@@ -210,8 +212,7 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
                 if( gDebugTrace )
                     log_info( "   at size %d,%d\n", (int)imageInfo.width, (int)imageInfo.height );
 
-                int ret =
-                    test_read_image_2D(context, queue, &imageInfo, seed, flags);
+                int ret = test_read_image_2D( context, queue, &imageInfo, seed );
                 if( ret )
                     return -1;
             }
@@ -237,7 +238,7 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
             log_info("Testing %d x %d\n", (int)imageInfo.width, (int)imageInfo.height);
             if( gDebugTrace )
                 log_info( "   at max size %d,%d\n", (int)maxWidth, (int)maxHeight );
-            if (test_read_image_2D(context, queue, &imageInfo, seed, flags))
+            if( test_read_image_2D( context, queue, &imageInfo, seed ) )
                 return -1;
         }
     }
@@ -273,8 +274,7 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
 
             if( gDebugTrace )
                 log_info( "   at size %d,%d (row pitch %d) out of %d,%d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.rowPitch, (int)maxWidth, (int)maxHeight );
-            int ret =
-                test_read_image_2D(context, queue, &imageInfo, seed, flags);
+            int ret = test_read_image_2D( context, queue, &imageInfo, seed );
             if( ret )
                 return -1;
         }

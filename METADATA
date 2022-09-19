@@ -1,7 +1,13 @@
-# *** THIS PACKAGE HAS SPECIAL LICENSING CONDITIONS.  PLEASE
-#     CONSULT THE OWNERS AND opensource-licensing@google.com BEFORE
-#     DEPENDING ON IT IN YOUR PROJECT. ***
+name: "OpenCL-CTS"
+description:
+    "OpenCL Conformance Tests"
+
 third_party {
-  license_note: "Khronos proprietary"
-  license_type: BY_EXCEPTION_ONLY
+  url {
+    type: GIT
+    value: "https://github.com/KhronosGroup/OpenCL-CTS.git"
+  }
+  version: "a87e686757f9fda5377baf73a32bb3c791eae70c"
+  last_upgrade_date { year: 2022 month: 9 day: 18 }
+  license_type: NOTICE
 }

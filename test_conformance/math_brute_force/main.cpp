@@ -18,6 +18,7 @@
 #include "sleep.h"
 #include "utility.h"
 
+#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
@@ -57,8 +58,8 @@ static char appName[MAXPATHLEN] = "";
 cl_device_id gDevice = NULL;
 cl_context gContext = NULL;
 cl_command_queue gQueue = NULL;
-static int32_t gStartTestNumber = -1;
-static int32_t gEndTestNumber = -1;
+static size_t gStartTestNumber = ~0u;
+static size_t gEndTestNumber = ~0u;
 int gSkipCorrectnessTesting = 0;
 static int gStopOnError = 0;
 static bool gSkipRestOfTests;
@@ -128,7 +129,7 @@ static int doTest(const char *name)
         const Func *const temp_func = functionList + i;
         if (strcmp(temp_func->name, name) == 0)
         {
-            if ((gStartTestNumber != -1 && i < gStartTestNumber)
+            if ((gStartTestNumber != ~0u && i < gStartTestNumber)
                 || i > gEndTestNumber)
             {
                 vlog("Skipping function #%d\n", i);
@@ -167,7 +168,6 @@ static int doTest(const char *name)
     }
 
     {
-        extern int my_ilogb(double);
         if (0 == strcmp("ilogb", func_data->name))
         {
             InitILogbConstants();
@@ -360,16 +360,18 @@ static int ParseArgs(int argc, const char **argv)
     int singleThreaded = 0;
 
     { // Extract the app name
-        strncpy(appName, argv[0], MAXPATHLEN);
+        strncpy(appName, argv[0], MAXPATHLEN - 1);
+        appName[MAXPATHLEN - 1] = '\0';
 
 #if defined(__APPLE__)
         char baseName[MAXPATHLEN];
         char *base = NULL;
-        strncpy(baseName, argv[0], MAXPATHLEN);
+        strncpy(baseName, argv[0], MAXPATHLEN - 1);
+        baseName[MAXPATHLEN - 1] = '\0';
         base = basename(baseName);
         if (NULL != base)
         {
-            strncpy(appName, base, sizeof(appName));
+            strncpy(appName, base, sizeof(appName) - 1);
             appName[sizeof(appName) - 1] = '\0';
         }
 #endif
@@ -467,7 +469,7 @@ static int ParseArgs(int argc, const char **argv)
             long number = strtol(arg, &t, 0);
             if (t != arg)
             {
-                if (-1 == gStartTestNumber)
+                if (~0u == gStartTestNumber)
                     gStartTestNumber = (int32_t)number;
                 else
                     gEndTestNumber = gStartTestNumber + (int32_t)number;
@@ -524,7 +526,7 @@ static int ParseArgs(int argc, const char **argv)
 static void PrintFunctions(void)
 {
     vlog("\nMath function names:\n");
-    for (int i = 0; i < functionListCount; i++)
+    for (size_t i = 0; i < functionListCount; i++)
     {
         vlog("\t%s\n", functionList[i].name);
     }
@@ -1056,8 +1058,6 @@ int MakeKernels(const char **c, cl_uint count, const char *name,
                 cl_uint kernel_count, cl_kernel *k, cl_program *p,
                 bool relaxedMode)
 {
-    int error = 0;
-    cl_uint i;
     char options[200] = "";
 
     if (gForceFTZ)
@@ -1075,7 +1075,7 @@ int MakeKernels(const char **c, cl_uint count, const char *name,
         strcat(options, " -cl-fast-relaxed-math");
     }
 
-    error =
+    int error =
         create_single_kernel_helper(gContext, p, NULL, count, c, NULL, options);
     if (error != CL_SUCCESS)
     {
@@ -1083,9 +1083,7 @@ int MakeKernels(const char **c, cl_uint count, const char *name,
         return error;
     }
 
-
-    memset(k, 0, kernel_count * sizeof(*k));
-    for (i = 0; i < kernel_count; i++)
+    for (cl_uint i = 0; i < kernel_count; i++)
     {
         k[i] = clCreateKernel(*p, name, &error);
         if (NULL == k[i] || error)
@@ -1096,7 +1094,6 @@ int MakeKernels(const char **c, cl_uint count, const char *name,
             clGetProgramBuildInfo(*p, gDevice, CL_PROGRAM_BUILD_LOG,
                                   sizeof(buffer), buffer, NULL);
             vlog_error("Log: %s\n", buffer);
-            clReleaseProgram(*p);
             return error;
         }
     }
@@ -1244,7 +1241,7 @@ float Bruteforce_Ulp_Error_Double(double test, long double reference)
 
         // The unbiased exponent of the ulp unit place
         int ulp_exp =
-            DBL_MANT_DIG - 1 - MAX(ilogbl(reference), DBL_MIN_EXP - 1);
+            DBL_MANT_DIG - 1 - std::max(ilogbl(reference), DBL_MIN_EXP - 1);
 
         // Scale the exponent of the error
         float result = (float)scalbnl(testVal - reference, ulp_exp);
@@ -1260,7 +1257,7 @@ float Bruteforce_Ulp_Error_Double(double test, long double reference)
     // reference is a normal power of two or a zero
     // The unbiased exponent of the ulp unit place
     int ulp_exp =
-        DBL_MANT_DIG - 1 - MAX(ilogbl(reference) - 1, DBL_MIN_EXP - 1);
+        DBL_MANT_DIG - 1 - std::max(ilogbl(reference) - 1, DBL_MIN_EXP - 1);
 
     // allow correctly rounded results to pass through unmolested. (We might add
     // error to it below.) There is something of a performance optimization here

@@ -16,6 +16,7 @@
 
 #include "test_common.h"
 
+#include <algorithm>
 
 cl_sampler create_sampler(cl_context context, image_sampler_data *sdata, bool test_mipmaps, cl_int *error) {
     cl_sampler sampler = nullptr;
@@ -556,7 +557,7 @@ int test_read_image(cl_context context, cl_command_queue queue,
                                 // Apple requires its CPU implementation to do
                                 // correctly rounded address arithmetic in all
                                 // modes
-                                || gDeviceType != CL_DEVICE_TYPE_GPU
+                                || !(gDeviceType & CL_DEVICE_TYPE_GPU)
 #endif
                             )
                                 offset = 0.0f; // Loop only once
@@ -874,7 +875,7 @@ int test_read_image(cl_context context, cl_command_queue queue,
                                 // Apple requires its CPU implementation to do
                                 // correctly rounded address arithmetic in all
                                 // modes
-                                || gDeviceType != CL_DEVICE_TYPE_GPU
+                                || !(gDeviceType & CL_DEVICE_TYPE_GPU)
 #endif
                             )
                                 offset = 0.0f; // Loop only once
@@ -934,13 +935,13 @@ int test_read_image(cl_context context, cl_command_queue queue,
                                         {
                                             err4 = 0.0f;
                                         }
-                                        float maxErr1 = MAX(
+                                        float maxErr1 = std::max(
                                             maxErr * maxPixel.p[0], FLT_MIN);
-                                        float maxErr2 = MAX(
+                                        float maxErr2 = std::max(
                                             maxErr * maxPixel.p[1], FLT_MIN);
-                                        float maxErr3 = MAX(
+                                        float maxErr3 = std::max(
                                             maxErr * maxPixel.p[2], FLT_MIN);
-                                        float maxErr4 = MAX(
+                                        float maxErr4 = std::max(
                                             maxErr * maxPixel.p[3], FLT_MIN);
 
                                         if (!(err1 <= maxErr1)
@@ -1039,17 +1040,17 @@ int test_read_image(cl_context context, cl_command_queue queue,
                                             float err4 = ABS_ERROR(resultPtr[3],
                                                                    expected[3]);
                                             float maxErr1 =
-                                                MAX(maxErr * maxPixel.p[0],
-                                                    FLT_MIN);
+                                                std::max(maxErr * maxPixel.p[0],
+                                                         FLT_MIN);
                                             float maxErr2 =
-                                                MAX(maxErr * maxPixel.p[1],
-                                                    FLT_MIN);
+                                                std::max(maxErr * maxPixel.p[1],
+                                                         FLT_MIN);
                                             float maxErr3 =
-                                                MAX(maxErr * maxPixel.p[2],
-                                                    FLT_MIN);
+                                                std::max(maxErr * maxPixel.p[2],
+                                                         FLT_MIN);
                                             float maxErr4 =
-                                                MAX(maxErr * maxPixel.p[3],
-                                                    FLT_MIN);
+                                                std::max(maxErr * maxPixel.p[3],
+                                                         FLT_MIN);
 
 
                                             if (!(err1 <= maxErr1)
@@ -1213,7 +1214,8 @@ int test_read_image(cl_context context, cl_command_queue queue,
                                         // offsets (0.0, 0.0) E.g., test one
                                         // pixel.
                                         if (!imageSampler->normalized_coords
-                                            || gDeviceType != CL_DEVICE_TYPE_GPU
+                                            || !(gDeviceType
+                                                 & CL_DEVICE_TYPE_GPU)
                                             || NORM_OFFSET == 0)
                                         {
                                             norm_offset_x = 0.0f;
@@ -1395,7 +1397,8 @@ int test_read_image(cl_context context, cl_command_queue queue,
                                         // offsets (0.0, 0.0) E.g., test one
                                         // pixel.
                                         if (!imageSampler->normalized_coords
-                                            || gDeviceType != CL_DEVICE_TYPE_GPU
+                                            || !(gDeviceType
+                                                 & CL_DEVICE_TYPE_GPU)
                                             || NORM_OFFSET == 0)
                                         {
                                             norm_offset_x = 0.0f;
@@ -1543,4 +1546,39 @@ int test_read_image(cl_context context, cl_command_queue queue,
     }
 
     return numTries != MAX_TRIES || numClamped != MAX_CLAMPED;
+}
+
+void filter_undefined_bits(image_descriptor *imageInfo, char *resultPtr)
+{
+    // mask off the top bit (bit 15) if the image format is (CL_UNORM_SHORT_555,
+    // CL_RGB). (Note: OpenCL says: the top bit is undefined meaning it can be
+    // either 0 or 1.)
+    if (imageInfo->format->image_channel_data_type == CL_UNORM_SHORT_555)
+    {
+        cl_ushort *temp = (cl_ushort *)resultPtr;
+        temp[0] &= 0x7fff;
+    }
+}
+
+int filter_rounding_errors(int forceCorrectlyRoundedWrites,
+                           image_descriptor *imageInfo, float *errors)
+{
+    // We are allowed 0.6 absolute error vs. infinitely precise for some
+    // normalized formats
+    if (0 == forceCorrectlyRoundedWrites
+        && (imageInfo->format->image_channel_data_type == CL_UNORM_INT8
+            || imageInfo->format->image_channel_data_type == CL_UNORM_INT_101010
+            || imageInfo->format->image_channel_data_type == CL_UNORM_INT16
+            || imageInfo->format->image_channel_data_type == CL_SNORM_INT8
+            || imageInfo->format->image_channel_data_type == CL_SNORM_INT16
+            || imageInfo->format->image_channel_data_type == CL_UNORM_SHORT_555
+            || imageInfo->format->image_channel_data_type
+                == CL_UNORM_SHORT_565))
+    {
+        if (!(fabsf(errors[0]) > 0.6f) && !(fabsf(errors[1]) > 0.6f)
+            && !(fabsf(errors[2]) > 0.6f) && !(fabsf(errors[3]) > 0.6f))
+            return 0;
+    }
+
+    return 1;
 }

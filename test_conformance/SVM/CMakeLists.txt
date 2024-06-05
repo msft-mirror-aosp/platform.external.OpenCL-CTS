@@ -1,4 +1,3 @@
-set(CMAKE_CXX_STANDARD 11)
 set(MODULE_NAME SVM)
 
 set(${MODULE_NAME}_SOURCES
@@ -17,5 +16,7 @@ set(${MODULE_NAME}_SOURCES
     test_shared_sub_buffers.cpp
     test_migrate.cpp
 )
+
+set_gnulike_module_compile_flags("-Wno-sometimes-uninitialized -Wno-sign-compare")
 
 include(../CMakeCommon.txt)

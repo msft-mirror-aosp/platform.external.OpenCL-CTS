@@ -51,8 +51,8 @@ cc_defaults {
         "-Wno-unused-parameter",
         "-fexceptions",
     ],
-    static_libs: [
-        "ocl-stubs",
+    shared_libs: [
+        "//external/OpenCL-ICD-Loader:libOpenCL",
     ],
 }
 

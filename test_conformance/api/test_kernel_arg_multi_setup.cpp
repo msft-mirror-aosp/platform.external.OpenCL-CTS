@@ -27,8 +27,6 @@ const char *multi_arg_kernel_source_pattern =
 "    dst3[tid] = src3[tid];\n"
 "}\n";
 
-#define MAX_ERROR_TOLERANCE 0.0005f
-
 int test_multi_arg_set(cl_device_id device, cl_context context, cl_command_queue queue,
                        ExplicitType vec1Type, int vec1Size,
                        ExplicitType vec2Type, int vec2Size,
@@ -242,7 +240,7 @@ int test_kernel_arg_multi_setup_exhaustive(cl_device_id device, cl_context conte
     return 0;
 }
 
-int test_kernel_arg_multi_setup_random(cl_device_id device, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(kernel_arg_multi_setup_random)
 {
     // Loop through a selection of combinations
     ExplicitType types[] = { kChar, kShort, kInt, kFloat, kNumExplicitTypes };
@@ -284,7 +282,3 @@ int test_kernel_arg_multi_setup_random(cl_device_id device, cl_context context, 
     }
     return 0;
 }
-
-
-
-

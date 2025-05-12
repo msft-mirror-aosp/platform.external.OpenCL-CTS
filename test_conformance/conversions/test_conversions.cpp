@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2017 The Khronos Group Inc.
+// Copyright (c) 2017-2024 The Khronos Group Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -73,9 +73,9 @@ static void PrintUsage(void);
 test_status InitCL(cl_device_id device);
 
 
-const char *gTypeNames[kTypeCount] = { "uchar", "char", "ushort", "short",
-                                       "uint",  "int",  "float",  "double",
-                                       "ulong", "long" };
+const char *gTypeNames[kTypeCount] = { "uchar",  "char",  "ushort", "short",
+                                       "uint",   "int",   "half",   "float",
+                                       "double", "ulong", "long" };
 
 const char *gRoundingModeNames[kRoundingModeCount] = { "", "_rte", "_rtp",
                                                        "_rtn", "_rtz" };
@@ -83,17 +83,16 @@ const char *gRoundingModeNames[kRoundingModeCount] = { "", "_rte", "_rtp",
 const char *gSaturationNames[2] = { "", "_sat" };
 
 size_t gTypeSizes[kTypeCount] = {
-    sizeof(cl_uchar), sizeof(cl_char), sizeof(cl_ushort), sizeof(cl_short),
-    sizeof(cl_uint),  sizeof(cl_int),  sizeof(cl_float),  sizeof(cl_double),
-    sizeof(cl_ulong), sizeof(cl_long),
+    sizeof(cl_uchar),  sizeof(cl_char),  sizeof(cl_ushort), sizeof(cl_short),
+    sizeof(cl_uint),   sizeof(cl_int),   sizeof(cl_half),   sizeof(cl_float),
+    sizeof(cl_double), sizeof(cl_ulong), sizeof(cl_long),
 };
 
 char appName[64] = "ctest";
 int gMultithread = 1;
 
 
-int test_conversions(cl_device_id device, cl_context context,
-                     cl_command_queue queue, int num_elements)
+REGISTER_TEST(conversions)
 {
     if (argCount)
     {
@@ -106,13 +105,6 @@ int test_conversions(cl_device_id device, cl_context context,
                                                num_elements);
     }
 }
-
-
-test_definition test_list[] = {
-    ADD_TEST(conversions),
-};
-
-const int test_num = ARRAY_SIZE(test_list);
 
 
 int main(int argc, const char **argv)
@@ -148,8 +140,9 @@ int main(int argc, const char **argv)
     gMTdata = init_genrand(gRandomSeed);
 
     const char *arg[] = { argv[0] };
-    int ret =
-        runTestHarnessWithCheck(1, arg, test_num, test_list, true, 0, InitCL);
+    int ret = runTestHarnessWithCheck(
+        1, arg, test_registry::getInstance().num_tests(),
+        test_registry::getInstance().definitions(), true, 0, InitCL);
 
     free_mtdata(gMTdata);
     if (gQueue)
@@ -182,11 +175,12 @@ static int ParseArgs(int argc, const char **argv)
 #if (defined(__APPLE__) || defined(__linux__) || defined(__MINGW32__))
     { // Extract the app name
         char baseName[MAXPATHLEN];
-        strncpy(baseName, argv[0], MAXPATHLEN);
+        strncpy(baseName, argv[0], MAXPATHLEN - 1);
+        baseName[sizeof(baseName) - 1] = '\0';
         char *base = basename(baseName);
         if (NULL != base)
         {
-            strncpy(appName, base, sizeof(appName));
+            strncpy(appName, base, sizeof(appName) - 1);
             appName[sizeof(appName) - 1] = '\0';
         }
     }
@@ -200,7 +194,7 @@ static int ParseArgs(int argc, const char **argv)
         if (err == 0)
         { // no error
             strcat(fname, ext); // just cat them, size of frame can keep both
-            strncpy(appName, fname, sizeof(appName));
+            strncpy(appName, fname, sizeof(appName) - 1);
             appName[sizeof(appName) - 1] = '\0';
         }
     }
@@ -221,13 +215,17 @@ static int ParseArgs(int argc, const char **argv)
                 switch (*arg)
                 {
                     case 'd': gTestDouble ^= 1; break;
+                    case 'h': gTestHalfs ^= 1; break;
                     case 'l': gSkipTesting ^= 1; break;
                     case 'm': gMultithread ^= 1; break;
                     case 'w': gWimpyMode ^= 1; break;
                     case '[':
                         parseWimpyReductionFactor(arg, gWimpyReductionFactor);
                         break;
-                    case 'z': gForceFTZ ^= 1; break;
+                    case 'z':
+                        gForceFTZ ^= 1;
+                        gForceHalfFTZ ^= 1;
+                        break;
                     case 't': gTimeResults ^= 1; break;
                     case 'a': gReportAverageTimes ^= 1; break;
                     case '1':
@@ -355,7 +353,6 @@ static void PrintUsage(void)
 }
 
 
-
 test_status InitCL(cl_device_id device)
 {
     int error, i;
@@ -411,6 +408,50 @@ test_status InitCL(cl_device_id device)
         gHasDouble = 1;
     }
     gTestDouble &= gHasDouble;
+
+    if (is_extension_available(device, "cl_khr_fp16"))
+    {
+        gHasHalfs = 1;
+
+        cl_device_fp_config floatCapabilities = 0;
+        if ((error = clGetDeviceInfo(device, CL_DEVICE_HALF_FP_CONFIG,
+                                     sizeof(floatCapabilities),
+                                     &floatCapabilities, NULL)))
+            floatCapabilities = 0;
+
+        if (0 == (CL_FP_DENORM & floatCapabilities)) gForceHalfFTZ ^= 1;
+
+        if (0 == (floatCapabilities & CL_FP_ROUND_TO_NEAREST))
+        {
+            char profileStr[128] = "";
+            // Verify that we are an embedded profile device
+            if ((error = clGetDeviceInfo(device, CL_DEVICE_PROFILE,
+                                         sizeof(profileStr), profileStr, NULL)))
+            {
+                vlog_error("FAILURE: Could not get device profile: error %d\n",
+                           error);
+                return TEST_FAIL;
+            }
+
+            if (strcmp(profileStr, "EMBEDDED_PROFILE"))
+            {
+                vlog_error(
+                    "FAILURE: non-embedded profile device does not support "
+                    "CL_FP_ROUND_TO_NEAREST\n");
+                return TEST_FAIL;
+            }
+
+            if (0 == (floatCapabilities & CL_FP_ROUND_TO_ZERO))
+            {
+                vlog_error("FAILURE: embedded profile device supports neither "
+                           "CL_FP_ROUND_TO_NEAREST or CL_FP_ROUND_TO_ZERO\n");
+                return TEST_FAIL;
+            }
+
+            gIsHalfRTZ = 1;
+        }
+    }
+    gTestHalfs &= gHasHalfs;
 
     // detect whether profile of the device is embedded
     char profile[1024] = "";
@@ -487,13 +528,17 @@ test_status InitCL(cl_device_id device)
     vlog("\tCL C Version: %s\n", c);
     clGetDeviceInfo(device, CL_DRIVER_VERSION, sizeof(c), c, NULL);
     vlog("\tDriver Version: %s\n", c);
-    vlog("\tProcessing with %ld devices\n", gComputeDevices);
+    vlog("\tProcessing with %zu devices\n", gComputeDevices);
     vlog("\tDevice Frequency: %d MHz\n", gDeviceFrequency);
     vlog("\tSubnormal values supported for floats? %s\n",
          no_yes[0 != (CL_FP_DENORM & floatCapabilities)]);
     vlog("\tTesting with FTZ mode ON for floats? %s\n", no_yes[0 != gForceFTZ]);
+    vlog("\tTesting with FTZ mode ON for halfs? %s\n",
+         no_yes[0 != gForceHalfFTZ]);
     vlog("\tTesting with default RTZ mode for floats? %s\n",
          no_yes[0 != gIsRTZ]);
+    vlog("\tTesting with default RTZ mode for halfs? %s\n",
+         no_yes[0 != gIsHalfRTZ]);
     vlog("\tHas Double? %s\n", no_yes[0 != gHasDouble]);
     if (gHasDouble) vlog("\tTest Double? %s\n", no_yes[0 != gTestDouble]);
     vlog("\tHas Long? %s\n", no_yes[0 != gHasLong]);
@@ -503,5 +548,3 @@ test_status InitCL(cl_device_id device)
     vlog("\n");
     return TEST_PASS;
 }
-
-

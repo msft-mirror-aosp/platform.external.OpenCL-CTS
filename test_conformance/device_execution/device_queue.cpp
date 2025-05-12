@@ -20,7 +20,6 @@
 
 #include <vector>
 
-#include "procs.h"
 #include "utils.h"
 
 static int check_device_queue(cl_device_id device, cl_context context, cl_command_queue queue, cl_uint size)
@@ -84,7 +83,7 @@ static int check_device_queues(cl_device_id device, cl_context context, cl_uint 
     for(i = 0; i < num_queues; ++i)
     {
         queue[i] = clCreateCommandQueueWithProperties(context, device, properties, &err_ret);
-        test_error(err_ret, "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE) failed");
+        test_error(err_ret, "clCreateCommandQueueWithProperties failed");
     }
 
     // Validate all queues
@@ -97,7 +96,7 @@ static int check_device_queues(cl_device_id device, cl_context context, cl_uint 
     return res;
 }
 
-int test_device_queue(cl_device_id device, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(device_queue)
 {
     cl_int err_ret, res = 0;
     size_t ret_len;
@@ -128,7 +127,9 @@ int test_device_queue(cl_device_id device, cl_context context, cl_command_queue 
     if(max_queues > MAX_QUEUES) max_queues = MAX_QUEUES;
 
     dev_queue = clCreateCommandQueueWithProperties(context, device, queue_prop_def, &err_ret);
-    test_error(err_ret, "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE|CL_QUEUE_DEFAULT) failed");
+    test_error(err_ret,
+               "clCreateCommandQueueWithProperties(CL_QUEUE_ON_DEVICE | "
+               "CL_QUEUE_ON_DEVICE_DEFAULT) failed");
 
     err_ret = check_device_queue(device, context, dev_queue, preffered_size);
     if(check_error(err_ret, "Default device queue validation failed")) res = -1;
@@ -185,4 +186,3 @@ int test_device_queue(cl_device_id device, cl_context context, cl_command_queue 
 
     return res;
 }
-

@@ -1,15 +1,18 @@
-/******************************************************************
-Copyright (c) 2016 The Khronos Group Inc. All Rights Reserved.
-
-This code is protected by copyright laws and contains material proprietary to the Khronos Group, Inc.
-This is UNPUBLISHED PROPRIETARY SOURCE CODE that may not be disclosed in whole or in part to
-third parties, and may not be reproduced, republished, distributed, transmitted, displayed,
-broadcast or otherwise exploited in any manner without the express prior written permission
-of Khronos Group. The receipt or possession of this code does not convey any rights to reproduce,
-disclose, or distribute its contents, or to manufacture, use, or sell anything that it may describe,
-in whole or in part other than under the terms of the Khronos Adopters Agreement
-or Khronos Conformance Test Source License Agreement as executed between Khronos and the recipient.
-******************************************************************/
+//
+// Copyright (c) 2016-2023 The Khronos Group Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 
 #include "testBase.h"
 #include "types.hpp"
@@ -78,30 +81,32 @@ int test_selection_merge(cl_device_id deviceID,
     return 0;
 }
 
-#define TEST_LOOP_BRANCH(control)                                   \
-    TEST_SPIRV_FUNC(op_loop_merge_branch_##control)                 \
-    {                                                               \
-        const int num = 1 << 10;                                    \
-        RandomSeed seed(gRandomSeed);                               \
-                                                                    \
-        int rep = 4;                                                \
-        std::vector<cl_int> in(rep * num);                          \
-        std::vector<cl_int> out(num);                               \
-                                                                    \
-        for (int i = 0; i < num; i++) {                             \
-            int res = 0;                                            \
-            for (int j = 0; j < rep; j++) {                         \
-                cl_int val = genrand<cl_int>(seed) % 1024;          \
-                res += val;                                         \
-                in[j * num + i] = val;                              \
-            }                                                       \
-            out[i] = res;                                           \
-        }                                                           \
-                                                                    \
-        return test_selection_merge(deviceID, context, queue,       \
-                                    "loop_merge_branch_" #control,  \
-                                    in, out, rep);                  \
-    }                                                               \
+#define TEST_LOOP_BRANCH(control)                                              \
+    REGISTER_TEST(op_loop_merge_branch_##control)                              \
+    {                                                                          \
+        const int num = 1 << 10;                                               \
+        RandomSeed seed(gRandomSeed);                                          \
+                                                                               \
+        int rep = 4;                                                           \
+        std::vector<cl_int> in(rep *num);                                      \
+        std::vector<cl_int> out(num);                                          \
+                                                                               \
+        for (int i = 0; i < num; i++)                                          \
+        {                                                                      \
+            int res = 0;                                                       \
+            for (int j = 0; j < rep; j++)                                      \
+            {                                                                  \
+                cl_int val = genrand<cl_int>(seed) % 1024;                     \
+                res += val;                                                    \
+                in[j * num + i] = val;                                         \
+            }                                                                  \
+            out[i] = res;                                                      \
+        }                                                                      \
+                                                                               \
+        return test_selection_merge(device, context, queue,                    \
+                                    "loop_merge_branch_" #control, in, out,    \
+                                    rep);                                      \
+    }
 
 TEST_LOOP_BRANCH(none)
 TEST_LOOP_BRANCH(unroll)

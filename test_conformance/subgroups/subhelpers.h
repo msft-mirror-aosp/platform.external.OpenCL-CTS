@@ -28,8 +28,6 @@
 #include <regex>
 #include <map>
 
-#define NR_OF_ACTIVE_WORK_ITEMS 4
-
 extern MTdata gMTdata;
 typedef std::bitset<128> bs128;
 extern cl_half_rounding_mode g_rounding_mode;
@@ -1449,7 +1447,7 @@ public:
 };
 
 // Driver for testing a single built in function
-template <typename Ty, typename Fns, size_t TSIZE = 0> struct test
+template <typename Ty, typename Fns, size_t TSIZE = 0> struct subgroup_test
 {
     static test_status run(cl_device_id device, cl_context context,
                            cl_command_queue queue, int num_elements,
@@ -1474,8 +1472,6 @@ template <typename Ty, typename Fns, size_t TSIZE = 0> struct test
 
         Fns::log_test(test_params, "");
 
-        kernel_sstr << "#define NR_OF_ACTIVE_WORK_ITEMS ";
-        kernel_sstr << NR_OF_ACTIVE_WORK_ITEMS << "\n";
         // Make sure a test of type Ty is supported by the device
         if (!TypeManager<Ty>::type_supported(device))
         {
@@ -1615,7 +1611,7 @@ template <typename Ty, typename Fns, size_t TSIZE = 0> struct test
         test_params.subgroup_size = subgroup_size;
         Fns::gen(idata.data(), mapin.data(), sgmap.data(), test_params);
 
-        test_status status;
+        test_status status = TEST_FAIL;
 
         if (test_params.divergence_mask_arg != -1)
         {
@@ -1692,9 +1688,9 @@ struct RunTestForType
             std::regex_replace(test_params_.get_kernel_source(function_name),
                                std::regex("\\%s"), function_name);
         std::string kernel_name = "test_" + function_name;
-        error =
-            test<T, U>::run(device_, context_, queue_, num_elements_,
-                            kernel_name.c_str(), source.c_str(), test_params_);
+        error = subgroup_test<T, U>::run(device_, context_, queue_,
+                                         num_elements_, kernel_name.c_str(),
+                                         source.c_str(), test_params_);
 
         // If we return TEST_SKIPPED_ITSELF here, then an entire suite may be
         // reported as having been skipped even if some tests within it

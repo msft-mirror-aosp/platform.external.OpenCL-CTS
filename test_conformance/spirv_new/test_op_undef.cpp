@@ -1,15 +1,18 @@
-/******************************************************************
-Copyright (c) 2016 The Khronos Group Inc. All Rights Reserved.
-
-This code is protected by copyright laws and contains material proprietary to the Khronos Group, Inc.
-This is UNPUBLISHED PROPRIETARY SOURCE CODE that may not be disclosed in whole or in part to
-third parties, and may not be reproduced, republished, distributed, transmitted, displayed,
-broadcast or otherwise exploited in any manner without the express prior written permission
-of Khronos Group. The receipt or possession of this code does not convey any rights to reproduce,
-disclose, or distribute its contents, or to manufacture, use, or sell anything that it may describe,
-in whole or in part other than under the terms of the Khronos Adopters Agreement
-or Khronos Conformance Test Source License Agreement as executed between Khronos and the recipient.
-******************************************************************/
+//
+// Copyright (c) 2016-2023 The Khronos Group Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 
 #include "testBase.h"
 #include "types.hpp"
@@ -54,12 +57,12 @@ int test_undef(cl_device_id deviceID, cl_context context,
     return 0;
 }
 
-#define TEST_UNDEF(NAME, TYPE)                              \
-    TEST_SPIRV_FUNC(op_undef_##NAME##_simple)               \
-    {                                                       \
-        return test_undef<TYPE>(deviceID, context, queue,   \
-                                "undef_" #NAME "_simple");  \
-    }                                                       \
+#define TEST_UNDEF(NAME, TYPE)                                                 \
+    REGISTER_TEST(op_undef_##NAME##_simple)                                    \
+    {                                                                          \
+        return test_undef<TYPE>(device, context, queue,                        \
+                                "undef_" #NAME "_simple");                     \
+    }
 
 // Boolean tests
 TEST_UNDEF(true  , cl_int  )
@@ -89,28 +92,30 @@ TEST_UNDEF(int4  , cl_int4)
 TEST_UNDEF(int3  , cl_int3)
 
 
-TEST_SPIRV_FUNC(op_undef_struct_int_float_simple)
+REGISTER_TEST(op_undef_struct_int_float_simple)
 {
     typedef AbstractStruct2<cl_int, cl_float> CustomType;
-    return test_undef<CustomType>(deviceID, context, queue, "undef_struct_int_float_simple");
+    return test_undef<CustomType>(device, context, queue,
+                                  "undef_struct_int_float_simple");
 }
 
-TEST_SPIRV_FUNC(op_undef_struct_int_char_simple)
+REGISTER_TEST(op_undef_struct_int_char_simple)
 {
     typedef AbstractStruct2<cl_int, cl_char> CustomType;
-    return test_undef<CustomType>(deviceID, context, queue, "undef_struct_int_char_simple");
+    return test_undef<CustomType>(device, context, queue,
+                                  "undef_struct_int_char_simple");
 }
 
-TEST_SPIRV_FUNC(op_undef_struct_struct_simple)
+REGISTER_TEST(op_undef_struct_struct_simple)
 {
     typedef AbstractStruct2<cl_int, cl_char> CustomType1;
     typedef AbstractStruct2<cl_int2, CustomType1> CustomType2;
-    return test_undef<CustomType2>(deviceID, context, queue, "undef_struct_struct_simple");
+    return test_undef<CustomType2>(device, context, queue,
+                                   "undef_struct_struct_simple");
 }
 
-TEST_SPIRV_FUNC(op_undef_half_simple)
+REGISTER_TEST(op_undef_half_simple)
 {
-    PASSIVE_REQUIRE_FP16_SUPPORT(deviceID);
-    return test_undef<cl_float>(deviceID, context, queue,
-                                "undef_half_simple");
+    PASSIVE_REQUIRE_FP16_SUPPORT(device);
+    return test_undef<cl_float>(device, context, queue, "undef_half_simple");
 }

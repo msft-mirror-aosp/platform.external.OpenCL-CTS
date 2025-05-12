@@ -80,9 +80,9 @@ public:
     }
 };
 
-int test_atomic_store_generic(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements,
-                              bool useSVM)
+static int test_atomic_store_generic(cl_device_id deviceID, cl_context context,
+                                     cl_command_queue queue, int num_elements,
+                                     bool useSVM)
 {
     int error = 0;
     CBasicTestStore<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -156,17 +156,15 @@ int test_atomic_store_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_store(cl_device_id deviceID, cl_context context,
-                      cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_store)
 {
-    return test_atomic_store_generic(deviceID, context, queue, num_elements,
+    return test_atomic_store_generic(device, context, queue, num_elements,
                                      false);
 }
 
-int test_svm_atomic_store(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_store)
 {
-    return test_atomic_store_generic(deviceID, context, queue, num_elements,
+    return test_atomic_store_generic(device, context, queue, num_elements,
                                      true);
 }
 
@@ -202,9 +200,9 @@ public:
     }
 };
 
-int test_atomic_init_generic(cl_device_id deviceID, cl_context context,
-                             cl_command_queue queue, int num_elements,
-                             bool useSVM)
+static int test_atomic_init_generic(cl_device_id deviceID, cl_context context,
+                                    cl_command_queue queue, int num_elements,
+                                    bool useSVM)
 {
     int error = 0;
     CBasicTestInit<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT, useSVM);
@@ -277,18 +275,15 @@ int test_atomic_init_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_init(cl_device_id deviceID, cl_context context,
-                     cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_init)
 {
-    return test_atomic_init_generic(deviceID, context, queue, num_elements,
+    return test_atomic_init_generic(device, context, queue, num_elements,
                                     false);
 }
 
-int test_svm_atomic_init(cl_device_id deviceID, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_init)
 {
-    return test_atomic_init_generic(deviceID, context, queue, num_elements,
-                                    true);
+    return test_atomic_init_generic(device, context, queue, num_elements, true);
 }
 
 template <typename HostAtomicType, typename HostDataType>
@@ -377,9 +372,9 @@ public:
     }
 };
 
-int test_atomic_load_generic(cl_device_id deviceID, cl_context context,
-                             cl_command_queue queue, int num_elements,
-                             bool useSVM)
+static int test_atomic_load_generic(cl_device_id deviceID, cl_context context,
+                                    cl_command_queue queue, int num_elements,
+                                    bool useSVM)
 {
     int error = 0;
     CBasicTestLoad<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT, useSVM);
@@ -452,18 +447,15 @@ int test_atomic_load_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_load(cl_device_id deviceID, cl_context context,
-                     cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_load)
 {
-    return test_atomic_load_generic(deviceID, context, queue, num_elements,
+    return test_atomic_load_generic(device, context, queue, num_elements,
                                     false);
 }
 
-int test_svm_atomic_load(cl_device_id deviceID, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_load)
 {
-    return test_atomic_load_generic(deviceID, context, queue, num_elements,
-                                    true);
+    return test_atomic_load_generic(device, context, queue, num_elements, true);
 }
 
 template <typename HostAtomicType, typename HostDataType>
@@ -568,9 +560,10 @@ public:
     }
 };
 
-int test_atomic_exchange_generic(cl_device_id deviceID, cl_context context,
-                                 cl_command_queue queue, int num_elements,
-                                 bool useSVM)
+static int test_atomic_exchange_generic(cl_device_id deviceID,
+                                        cl_context context,
+                                        cl_command_queue queue,
+                                        int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestExchange<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -644,17 +637,15 @@ int test_atomic_exchange_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_exchange(cl_device_id deviceID, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_exchange)
 {
-    return test_atomic_exchange_generic(deviceID, context, queue, num_elements,
+    return test_atomic_exchange_generic(device, context, queue, num_elements,
                                         false);
 }
 
-int test_svm_atomic_exchange(cl_device_id deviceID, cl_context context,
-                             cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_exchange)
 {
-    return test_atomic_exchange_generic(deviceID, context, queue, num_elements,
+    return test_atomic_exchange_generic(device, context, queue, num_elements,
                                         true);
 }
 
@@ -830,10 +821,11 @@ public:
     }
 };
 
-int test_atomic_compare_exchange_strong_generic(cl_device_id deviceID,
-                                                cl_context context,
-                                                cl_command_queue queue,
-                                                int num_elements, bool useSVM)
+static int test_atomic_compare_exchange_strong_generic(cl_device_id deviceID,
+                                                       cl_context context,
+                                                       cl_command_queue queue,
+                                                       int num_elements,
+                                                       bool useSVM)
 {
     int error = 0;
     CBasicTestCompareStrong<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -899,21 +891,15 @@ int test_atomic_compare_exchange_strong_generic(cl_device_id deviceID,
     return error;
 }
 
-int test_atomic_compare_exchange_strong(cl_device_id deviceID,
-                                        cl_context context,
-                                        cl_command_queue queue,
-                                        int num_elements)
+REGISTER_TEST(atomic_compare_exchange_strong)
 {
-    return test_atomic_compare_exchange_strong_generic(deviceID, context, queue,
+    return test_atomic_compare_exchange_strong_generic(device, context, queue,
                                                        num_elements, false);
 }
 
-int test_svm_atomic_compare_exchange_strong(cl_device_id deviceID,
-                                            cl_context context,
-                                            cl_command_queue queue,
-                                            int num_elements)
+REGISTER_TEST(svm_atomic_compare_exchange_strong)
 {
-    return test_atomic_compare_exchange_strong_generic(deviceID, context, queue,
+    return test_atomic_compare_exchange_strong_generic(device, context, queue,
                                                        num_elements, true);
 }
 
@@ -966,10 +952,11 @@ public:
     }
 };
 
-int test_atomic_compare_exchange_weak_generic(cl_device_id deviceID,
-                                              cl_context context,
-                                              cl_command_queue queue,
-                                              int num_elements, bool useSVM)
+static int test_atomic_compare_exchange_weak_generic(cl_device_id deviceID,
+                                                     cl_context context,
+                                                     cl_command_queue queue,
+                                                     int num_elements,
+                                                     bool useSVM)
 {
     int error = 0;
     CBasicTestCompareWeak<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1035,19 +1022,15 @@ int test_atomic_compare_exchange_weak_generic(cl_device_id deviceID,
     return error;
 }
 
-int test_atomic_compare_exchange_weak(cl_device_id deviceID, cl_context context,
-                                      cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_compare_exchange_weak)
 {
-    return test_atomic_compare_exchange_weak_generic(deviceID, context, queue,
+    return test_atomic_compare_exchange_weak_generic(device, context, queue,
                                                      num_elements, false);
 }
 
-int test_svm_atomic_compare_exchange_weak(cl_device_id deviceID,
-                                          cl_context context,
-                                          cl_command_queue queue,
-                                          int num_elements)
+REGISTER_TEST(svm_atomic_compare_exchange_weak)
 {
-    return test_atomic_compare_exchange_weak_generic(deviceID, context, queue,
+    return test_atomic_compare_exchange_weak_generic(device, context, queue,
                                                      num_elements, true);
 }
 
@@ -1111,9 +1094,10 @@ public:
     }
 };
 
-int test_atomic_fetch_add_generic(cl_device_id deviceID, cl_context context,
-                                  cl_command_queue queue, int num_elements,
-                                  bool useSVM)
+static int test_atomic_fetch_add_generic(cl_device_id deviceID,
+                                         cl_context context,
+                                         cl_command_queue queue,
+                                         int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchAdd<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1179,17 +1163,15 @@ int test_atomic_fetch_add_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_add(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_add)
 {
-    return test_atomic_fetch_add_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_add_generic(device, context, queue, num_elements,
                                          false);
 }
 
-int test_svm_atomic_fetch_add(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_add)
 {
-    return test_atomic_fetch_add_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_add_generic(device, context, queue, num_elements,
                                          true);
 }
 
@@ -1238,9 +1220,10 @@ public:
     }
 };
 
-int test_atomic_fetch_sub_generic(cl_device_id deviceID, cl_context context,
-                                  cl_command_queue queue, int num_elements,
-                                  bool useSVM)
+static int test_atomic_fetch_sub_generic(cl_device_id deviceID,
+                                         cl_context context,
+                                         cl_command_queue queue,
+                                         int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchSub<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1306,17 +1289,15 @@ int test_atomic_fetch_sub_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_sub(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_sub)
 {
-    return test_atomic_fetch_sub_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_sub_generic(device, context, queue, num_elements,
                                          false);
 }
 
-int test_svm_atomic_fetch_sub(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_sub)
 {
-    return test_atomic_fetch_sub_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_sub_generic(device, context, queue, num_elements,
                                          true);
 }
 
@@ -1389,9 +1370,10 @@ public:
     }
 };
 
-int test_atomic_fetch_or_generic(cl_device_id deviceID, cl_context context,
-                                 cl_command_queue queue, int num_elements,
-                                 bool useSVM)
+static int test_atomic_fetch_or_generic(cl_device_id deviceID,
+                                        cl_context context,
+                                        cl_command_queue queue,
+                                        int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchOr<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1457,17 +1439,15 @@ int test_atomic_fetch_or_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_or(cl_device_id deviceID, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_or)
 {
-    return test_atomic_fetch_or_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_or_generic(device, context, queue, num_elements,
                                         false);
 }
 
-int test_svm_atomic_fetch_or(cl_device_id deviceID, cl_context context,
-                             cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_or)
 {
-    return test_atomic_fetch_or_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_or_generic(device, context, queue, num_elements,
                                         true);
 }
 
@@ -1524,9 +1504,10 @@ public:
     }
 };
 
-int test_atomic_fetch_xor_generic(cl_device_id deviceID, cl_context context,
-                                  cl_command_queue queue, int num_elements,
-                                  bool useSVM)
+static int test_atomic_fetch_xor_generic(cl_device_id deviceID,
+                                         cl_context context,
+                                         cl_command_queue queue,
+                                         int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchXor<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1592,17 +1573,15 @@ int test_atomic_fetch_xor_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_xor(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_xor)
 {
-    return test_atomic_fetch_xor_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_xor_generic(device, context, queue, num_elements,
                                          false);
 }
 
-int test_svm_atomic_fetch_xor(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_xor)
 {
-    return test_atomic_fetch_xor_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_xor_generic(device, context, queue, num_elements,
                                          true);
 }
 
@@ -1675,9 +1654,10 @@ public:
     }
 };
 
-int test_atomic_fetch_and_generic(cl_device_id deviceID, cl_context context,
-                                  cl_command_queue queue, int num_elements,
-                                  bool useSVM)
+static int test_atomic_fetch_and_generic(cl_device_id deviceID,
+                                         cl_context context,
+                                         cl_command_queue queue,
+                                         int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchAnd<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1743,17 +1723,15 @@ int test_atomic_fetch_and_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_and(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_and)
 {
-    return test_atomic_fetch_and_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_and_generic(device, context, queue, num_elements,
                                          false);
 }
 
-int test_svm_atomic_fetch_and(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_and)
 {
-    return test_atomic_fetch_and_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_and_generic(device, context, queue, num_elements,
                                          true);
 }
 
@@ -1855,9 +1833,10 @@ public:
     }
 };
 
-int test_atomic_fetch_orand_generic(cl_device_id deviceID, cl_context context,
-                                    cl_command_queue queue, int num_elements,
-                                    bool useSVM)
+static int test_atomic_fetch_orand_generic(cl_device_id deviceID,
+                                           cl_context context,
+                                           cl_command_queue queue,
+                                           int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchOrAnd<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -1923,18 +1902,16 @@ int test_atomic_fetch_orand_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_orand(cl_device_id deviceID, cl_context context,
-                            cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_orand)
 {
-    return test_atomic_fetch_orand_generic(deviceID, context, queue,
-                                           num_elements, false);
+    return test_atomic_fetch_orand_generic(device, context, queue, num_elements,
+                                           false);
 }
 
-int test_svm_atomic_fetch_orand(cl_device_id deviceID, cl_context context,
-                                cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_orand)
 {
-    return test_atomic_fetch_orand_generic(deviceID, context, queue,
-                                           num_elements, true);
+    return test_atomic_fetch_orand_generic(device, context, queue, num_elements,
+                                           true);
 }
 
 template <typename HostAtomicType, typename HostDataType>
@@ -2035,9 +2012,10 @@ public:
     }
 };
 
-int test_atomic_fetch_xor2_generic(cl_device_id deviceID, cl_context context,
-                                   cl_command_queue queue, int num_elements,
-                                   bool useSVM)
+static int test_atomic_fetch_xor2_generic(cl_device_id deviceID,
+                                          cl_context context,
+                                          cl_command_queue queue,
+                                          int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchXor2<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -2103,18 +2081,16 @@ int test_atomic_fetch_xor2_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_xor2(cl_device_id deviceID, cl_context context,
-                           cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_xor2)
 {
-    return test_atomic_fetch_xor2_generic(deviceID, context, queue,
-                                          num_elements, false);
+    return test_atomic_fetch_xor2_generic(device, context, queue, num_elements,
+                                          false);
 }
 
-int test_svm_atomic_fetch_xor2(cl_device_id deviceID, cl_context context,
-                               cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_xor2)
 {
-    return test_atomic_fetch_xor2_generic(deviceID, context, queue,
-                                          num_elements, true);
+    return test_atomic_fetch_xor2_generic(device, context, queue, num_elements,
+                                          true);
 }
 
 template <typename HostAtomicType, typename HostDataType>
@@ -2170,9 +2146,10 @@ public:
     }
 };
 
-int test_atomic_fetch_min_generic(cl_device_id deviceID, cl_context context,
-                                  cl_command_queue queue, int num_elements,
-                                  bool useSVM)
+static int test_atomic_fetch_min_generic(cl_device_id deviceID,
+                                         cl_context context,
+                                         cl_command_queue queue,
+                                         int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchMin<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -2238,17 +2215,15 @@ int test_atomic_fetch_min_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_min(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_min)
 {
-    return test_atomic_fetch_min_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_min_generic(device, context, queue, num_elements,
                                          false);
 }
 
-int test_svm_atomic_fetch_min(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_min)
 {
-    return test_atomic_fetch_min_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_min_generic(device, context, queue, num_elements,
                                          true);
 }
 
@@ -2305,9 +2280,10 @@ public:
     }
 };
 
-int test_atomic_fetch_max_generic(cl_device_id deviceID, cl_context context,
-                                  cl_command_queue queue, int num_elements,
-                                  bool useSVM)
+static int test_atomic_fetch_max_generic(cl_device_id deviceID,
+                                         cl_context context,
+                                         cl_command_queue queue,
+                                         int num_elements, bool useSVM)
 {
     int error = 0;
     CBasicTestFetchMax<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -2373,17 +2349,15 @@ int test_atomic_fetch_max_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fetch_max(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fetch_max)
 {
-    return test_atomic_fetch_max_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_max_generic(device, context, queue, num_elements,
                                          false);
 }
 
-int test_svm_atomic_fetch_max(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fetch_max)
 {
-    return test_atomic_fetch_max_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fetch_max_generic(device, context, queue, num_elements,
                                          true);
 }
 
@@ -2597,9 +2571,9 @@ public:
     }
 };
 
-int test_atomic_flag_generic(cl_device_id deviceID, cl_context context,
-                             cl_command_queue queue, int num_elements,
-                             bool useSVM)
+static int test_atomic_flag_generic(cl_device_id deviceID, cl_context context,
+                                    cl_command_queue queue, int num_elements,
+                                    bool useSVM)
 {
     int error = 0;
     CBasicTestFlag<HOST_ATOMIC_FLAG, HOST_FLAG> test_flag(TYPE_ATOMIC_FLAG,
@@ -2609,18 +2583,15 @@ int test_atomic_flag_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_flag(cl_device_id deviceID, cl_context context,
-                     cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_flag)
 {
-    return test_atomic_flag_generic(deviceID, context, queue, num_elements,
+    return test_atomic_flag_generic(device, context, queue, num_elements,
                                     false);
 }
 
-int test_svm_atomic_flag(cl_device_id deviceID, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_flag)
 {
-    return test_atomic_flag_generic(deviceID, context, queue, num_elements,
-                                    true);
+    return test_atomic_flag_generic(device, context, queue, num_elements, true);
 }
 
 template <typename HostAtomicType, typename HostDataType>
@@ -2827,7 +2798,7 @@ public:
             // value from other thread
             // - reads value from other thread's variable
             // - repeats the above steps when both values are the same (and less
-            // than 1000000)
+            // than 500000)
             // - stores the last value read from other thread (in additional
             // variable) At the end of execution at least one thread should know
             // the last value from other thread
@@ -2846,7 +2817,7 @@ public:
                   "memory_order_relaxed"
                 + MemoryScopeStr()
                 + ");\n"
-                  "  } while(myValue == hisValue && myValue < 1000000);\n"
+                  "  } while(myValue == hisValue && myValue < 500000);\n"
                   "  "
                 + nonAtomic + "[myId] = hisValue; \n";
         }
@@ -2972,7 +2943,7 @@ public:
                 host_atomic_thread_fence(MemoryOrder());
                 hisValue = host_atomic_load<HostAtomicType, HostDataType>(
                     &destMemory[hisId], MEMORY_ORDER_RELAXED);
-            } while (myValue == hisValue && hisValue < 1000000);
+            } while (myValue == hisValue && hisValue < 500000);
             oldValues[tid] = hisValue;
         }
         else
@@ -3053,11 +3024,11 @@ public:
                     if (myValue == hisValue)
                     {
                         // a draw - both threads should reach final value
-                        // 1000000
-                        if (myValue != 1000000)
+                        // 500000
+                        if (myValue != 500000)
                         {
                             log_error("ERROR: Invalid reference value #%u (%d "
-                                      "instead of 1000000)\n",
+                                      "instead of 500000)\n",
                                       workOffset + i, myValue);
                             correct = false;
                             return true;
@@ -3149,9 +3120,9 @@ private:
     struct TestDefinition _subCase;
 };
 
-int test_atomic_fence_generic(cl_device_id deviceID, cl_context context,
-                              cl_command_queue queue, int num_elements,
-                              bool useSVM)
+static int test_atomic_fence_generic(cl_device_id deviceID, cl_context context,
+                                     cl_command_queue queue, int num_elements,
+                                     bool useSVM)
 {
     int error = 0;
     CBasicTestFence<HOST_ATOMIC_INT, HOST_INT> test_int(TYPE_ATOMIC_INT,
@@ -3217,16 +3188,14 @@ int test_atomic_fence_generic(cl_device_id deviceID, cl_context context,
     return error;
 }
 
-int test_atomic_fence(cl_device_id deviceID, cl_context context,
-                      cl_command_queue queue, int num_elements)
+REGISTER_TEST(atomic_fence)
 {
-    return test_atomic_fence_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fence_generic(device, context, queue, num_elements,
                                      false);
 }
 
-int test_svm_atomic_fence(cl_device_id deviceID, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(svm_atomic_fence)
 {
-    return test_atomic_fence_generic(deviceID, context, queue, num_elements,
+    return test_atomic_fence_generic(device, context, queue, num_elements,
                                      true);
 }

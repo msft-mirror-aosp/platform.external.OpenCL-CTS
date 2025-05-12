@@ -21,6 +21,8 @@
 #if !defined(_MSC_VER)
 #include <unistd.h>
 #endif // !_MSC_VER
+#include <chrono>
+#include <thread>
 
 extern const char *IGetStatusString(cl_int status);
 
@@ -71,8 +73,18 @@ void CL_CALLBACK single_event_callback_function_flags(cl_event event,
     sCallbackTriggered_flag[pdata->index] = true;
 }
 
-int test_callback_event_single(cl_device_id device, cl_context context,
-                               cl_command_queue queue, Action *actionToTest)
+void CL_CALLBACK combuf_event_callback_function(cl_event event,
+                                                cl_int commandStatus,
+                                                void *userData)
+{
+    bool *pdata = static_cast<bool *>(userData);
+    log_info("\tEvent callback triggered\n");
+    *pdata = true;
+}
+
+static int test_callback_event_single(cl_device_id device, cl_context context,
+                                      cl_command_queue queue,
+                                      Action *actionToTest)
 {
     // Note: we don't use the waiting feature here. We just want to verify that
     // we get a callback called when the given event finishes
@@ -152,15 +164,14 @@ int test_callback_event_single(cl_device_id device, cl_context context,
     {                                                                          \
         name##Action action;                                                   \
         log_info("-- Testing " #name "...\n");                                 \
-        if ((error = test_callback_event_single(deviceID, context, queue,      \
-                                                &action))                      \
+        if ((error =                                                           \
+                 test_callback_event_single(device, context, queue, &action))  \
             != CL_SUCCESS)                                                     \
             retVal++;                                                          \
         clFinish(queue);                                                       \
     }
 
-int test_callbacks(cl_device_id deviceID, cl_context context,
-                   cl_command_queue queue, int num_elements)
+REGISTER_TEST(callbacks)
 {
     cl_int error;
     int retVal = 0;
@@ -174,7 +185,7 @@ int test_callbacks(cl_device_id deviceID, cl_context context,
     TEST_ACTION(MapBuffer)
     TEST_ACTION(UnmapBuffer)
 
-    if (checkForImageSupport(deviceID) == CL_IMAGE_FORMAT_NOT_SUPPORTED)
+    if (checkForImageSupport(device) == CL_IMAGE_FORMAT_NOT_SUPPORTED)
     {
         log_info("\nNote: device does not support images. Skipping remainder "
                  "of callback tests...\n");
@@ -188,7 +199,7 @@ int test_callbacks(cl_device_id deviceID, cl_context context,
         TEST_ACTION(CopyBufferTo2DImage)
         TEST_ACTION(MapImage)
 
-        if (checkFor3DImageSupport(deviceID) == CL_IMAGE_FORMAT_NOT_SUPPORTED)
+        if (checkFor3DImageSupport(device) == CL_IMAGE_FORMAT_NOT_SUPPORTED)
             log_info("\nNote: device does not support 3D images. Skipping "
                      "remainder of waitlist tests...\n");
         else
@@ -226,8 +237,7 @@ void CL_CALLBACK simultaneous_event_callback_function(cl_event event,
     ThreadPool_AtomicAdd(&sSimultaneousCount, 1);
 }
 
-int test_callbacks_simultaneous(cl_device_id deviceID, cl_context context,
-                                cl_command_queue queue, int num_elements)
+REGISTER_TEST(callbacks_simultaneous)
 {
     cl_int error;
 
@@ -244,7 +254,7 @@ int test_callbacks_simultaneous(cl_device_id deviceID, cl_context context,
     actions[index++] = new MapBufferAction();
     actions[index++] = new UnmapBufferAction();
 
-    if (checkForImageSupport(deviceID) != CL_IMAGE_FORMAT_NOT_SUPPORTED)
+    if (checkForImageSupport(device) != CL_IMAGE_FORMAT_NOT_SUPPORTED)
     {
         actions[index++] = new ReadImage2DAction();
         actions[index++] = new WriteImage2DAction();
@@ -253,7 +263,7 @@ int test_callbacks_simultaneous(cl_device_id deviceID, cl_context context,
         actions[index++] = new CopyBufferTo2DImageAction();
         actions[index++] = new MapImageAction();
 
-        if (checkFor3DImageSupport(deviceID) != CL_IMAGE_FORMAT_NOT_SUPPORTED)
+        if (checkFor3DImageSupport(device) != CL_IMAGE_FORMAT_NOT_SUPPORTED)
         {
             actions[index++] = new ReadImage3DAction();
             actions[index++] = new WriteImage3DAction();
@@ -271,7 +281,7 @@ int test_callbacks_simultaneous(cl_device_id deviceID, cl_context context,
     log_info("\tSetting up test events...\n");
     for (index = 0; actions[index] != NULL; index++)
     {
-        error = actions[index]->Setup(deviceID, context, queue);
+        error = actions[index]->Setup(device, context, queue);
         test_error(error, "Unable to set up test action");
         sSimultaneousFlags[index] = false;
     }
@@ -371,4 +381,73 @@ int test_callbacks_simultaneous(cl_device_id deviceID, cl_context context,
 
     if (actionEvents) delete[] actionEvents;
     return -1;
+}
+
+REGISTER_TEST(callback_on_error_simple)
+{
+    cl_int error = CL_SUCCESS;
+    clEventWrapper user_event = clCreateUserEvent(context, &error);
+    test_error(error, "clCreateUserEvent failed");
+
+    bool confirmation = false;
+    error = clSetEventCallback(user_event, CL_COMPLETE,
+                               combuf_event_callback_function, &confirmation);
+    test_error(error, "clSetEventCallback failed");
+
+    error = clSetUserEventStatus(user_event, CL_INVALID_VALUE);
+    test_error(error, "clSetUserEventStatus failed");
+
+    // Wait for callback
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+    if (!confirmation)
+    {
+        log_error("callback not called upon error status different than "
+                  "CL_SUCCESS\n");
+        return TEST_FAIL;
+    }
+
+    return CL_SUCCESS;
+}
+
+REGISTER_TEST(callback_on_error_enqueue_command)
+{
+    cl_int error = CL_SUCCESS;
+    bool confirmation = false;
+
+    clEventWrapper user_event = clCreateUserEvent(context, &error);
+    test_error(error, "clCreateUserEvent failed");
+    clEventWrapper fill_event;
+
+    const cl_int pattern_pri = 0xA;
+    clMemWrapper in_mem =
+        clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(cl_int) * num_elements,
+                       nullptr, &error);
+    test_error(error, "clCreateBuffer failed");
+
+    error = clEnqueueFillBuffer(queue, in_mem, &pattern_pri, sizeof(cl_int), 0,
+                                num_elements * sizeof(cl_int), 1, &user_event,
+                                &fill_event);
+    test_error(error, "clEnqueueFillBuffer failed");
+
+    error = clSetEventCallback(fill_event, CL_COMPLETE,
+                               combuf_event_callback_function, &confirmation);
+    test_error(error, "clSetEventCallback failed");
+
+    error = clSetUserEventStatus(user_event, CL_INVALID_VALUE);
+    test_error(error, "clSetUserEventStatus failed");
+
+    error = clFinish(queue);
+
+    // Wait for callback
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+    if (!confirmation)
+    {
+        log_error("callback not called upon error status different than "
+                  "CL_SUCCESS\n");
+        return TEST_FAIL;
+    }
+
+    return CL_SUCCESS;
 }

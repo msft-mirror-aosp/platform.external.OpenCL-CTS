@@ -13,6 +13,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
+// Import function list from math_brute_force
+#define FUNCTION_LIST_ULPS_ONLY
+#include "../math_brute_force/function_list.cpp"
+
 #include "harness/compat.h"
 
 #include <stdio.h>
@@ -150,7 +155,8 @@ static void get_spir_version(cl_device_id device,
     {
         auto major = v[v.find('.') - 1];
         auto minor = v[v.find('.') + 1];
-        versions.push_back(Version{ major - '0', minor - '0' });
+        versions.push_back(
+            Version{ (cl_uint)(major - '0'), (cl_uint)(minor - '0') });
     }
 }
 

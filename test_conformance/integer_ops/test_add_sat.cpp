@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "harness/compat.h"
+#include "testBase.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -22,9 +22,7 @@
 #include <sys/stat.h>
 
 #include <algorithm>
-
-#include "procs.h"
-
+#include <cinttypes>
 static int verify_addsat_char( const cl_char *inA, const cl_char *inB, const cl_char *outptr, int n, const char *sizeName, int vecSize )
 {
     int i;
@@ -140,7 +138,13 @@ static int verify_addsat_long( const cl_long *inA, const cl_long *inB, const cl_
                 r = CL_LONG_MIN;
         }
         if( r != outptr[i] )
-        { log_info( "%d) Failure for add_sat( (long%s) 0x%16.16llx, (long%s) 0x%16.16llx) = *0x%16.16llx vs 0x%16.16llx\n", i, sizeName, inA[i], sizeName, inB[i], r, outptr[i] ); return -1; }
+        {
+            log_info("%d) Failure for add_sat( (long%s) 0x%16.16" PRIx64
+                     ", (long%s) 0x%16.16" PRIx64 ") = *0x%16.16" PRIx64
+                     " vs 0x%16.16" PRIx64 "\n",
+                     i, sizeName, inA[i], sizeName, inB[i], r, outptr[i]);
+            return -1;
+        }
     }
     return 0;
 }
@@ -154,7 +158,13 @@ static int verify_addsat_ulong( const cl_ulong *inA, const cl_ulong *inB, const 
         if( r < inA[i] )
             r = CL_ULONG_MAX;
         if( r != outptr[i] )
-        { log_info( "%d) Failure for add_sat( (ulong%s) 0x%16.16llx, (ulong%s) 0x%16.16llx) = *0x%16.16llx vs 0x%16.16llx\n", i, sizeName, inA[i], sizeName, inB[i], r, outptr[i] ); return -1; }
+        {
+            log_info("%d) Failure for add_sat( (ulong%s) 0x%16.16" PRIx64
+                     ", (ulong%s) 0x%16.16" PRIx64 ") = *0x%16.16" PRIx64
+                     " vs 0x%16.16" PRIx64 "\n",
+                     i, sizeName, inA[i], sizeName, inB[i], r, outptr[i]);
+            return -1;
+        }
     }
     return 0;
 }
@@ -172,7 +182,7 @@ static const int vector_sizes[] = {1, 2, 3, 4, 8, 16};
 static const char *vector_size_names[] = { "", "2", "3", "4", "8", "16" };
 static const size_t  kSizes[8] = { 1, 1, 2, 2, 4, 4, 8, 8 };
 
-int test_integer_add_sat(cl_device_id device, cl_context context, cl_command_queue queue, int n_elems)
+REGISTER_TEST(integer_add_sat)
 {
     cl_int *input_ptr[2], *output_ptr, *p;
     int err;
@@ -182,7 +192,7 @@ int test_integer_add_sat(cl_device_id device, cl_context context, cl_command_que
     MTdata d;
     int fail_count = 0;
 
-    size_t length = sizeof(cl_int) * 4 * n_elems;
+    size_t length = sizeof(cl_int) * 4 * num_elements;
 
     input_ptr[0] = (cl_int*)malloc(length);
     input_ptr[1] = (cl_int*)malloc(length);
@@ -190,11 +200,9 @@ int test_integer_add_sat(cl_device_id device, cl_context context, cl_command_que
 
     d = init_genrand( gRandomSeed );
     p = input_ptr[0];
-    for (i=0; i<4 * n_elems; i++)
-        p[i] = genrand_int32(d);
+    for (i = 0; i < 4 * num_elements; i++) p[i] = genrand_int32(d);
     p = input_ptr[1];
-    for (i=0; i<4 * n_elems; i++)
-        p[i] = genrand_int32(d);
+    for (i = 0; i < 4 * num_elements; i++) p[i] = genrand_int32(d);
     free_mtdata(d); d = NULL;
 
     for( type = 0; type < sizeof( test_str_names ) / sizeof( test_str_names[0] ); type++ )
@@ -363,5 +371,3 @@ int test_integer_add_sat(cl_device_id device, cl_context context, cl_command_que
 
     return err;
 }
-
-

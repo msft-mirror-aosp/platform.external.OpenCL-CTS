@@ -17,6 +17,7 @@
 #include <float.h>
 
 #include <algorithm>
+#include <cinttypes>
 
 #if defined( __APPLE__ )
     #include <signal.h>
@@ -96,7 +97,9 @@ template <class T> int determine_validation_error( void *imagePtr, image_descrip
         {
             if( (--numClamped) == 0 )
             {
-                log_error( "ERROR: TEST FAILED: Read is erroneously clamping coordinates for image size %ld x %ld!\n", imageInfo->width, imageInfo->height );
+                log_error("ERROR: TEST FAILED: Read is erroneously clamping "
+                          "coordinates for image size %zu x %zu!\n",
+                          imageInfo->width, imageInfo->height);
                 if (imageInfo->format->image_channel_order == CL_DEPTH)
                 {
                     if( printAsFloat )
@@ -138,7 +141,9 @@ template <class T> int determine_validation_error( void *imagePtr, image_descrip
         {
             if( (--numClamped) == 0 )
             {
-                log_error( "ERROR: TEST FAILED: Clamping is erroneously returning border color for image size %ld x %ld!\n", imageInfo->width, imageInfo->height );
+                log_error("ERROR: TEST FAILED: Clamping is erroneously "
+                          "returning border color for image size %zu x %zu!\n",
+                          imageInfo->width, imageInfo->height);
                 if (imageInfo->format->image_channel_order == CL_DEPTH)
                 {
                     if( printAsFloat )
@@ -202,7 +207,8 @@ template <class T> int determine_validation_error( void *imagePtr, image_descrip
                                     (int)resultPtr[ 0 ], (int)resultPtr[ 1 ], (int)resultPtr[ 2 ], (int)resultPtr[ 3 ] );
             }
         }
-        log_error( "img size %ld,%ld (pitch %ld)", imageInfo->width, imageInfo->height, imageInfo->rowPitch );
+        log_error("img size %zu,%zu (pitch %zu)", imageInfo->width,
+                  imageInfo->height, imageInfo->rowPitch);
         if( clamped )
         {
             log_error( " which would clamp to %d,%d\n", clampedX, clampedY );
@@ -1185,7 +1191,7 @@ int test_read_image_2D( cl_context context, cl_command_queue queue, cl_kernel ke
 {
     int error;
     static int initHalf = 0;
-    cl_mem imageBuffer;
+    cl_mem imageBuffer = nullptr;
     cl_mem_flags    image_read_write_flags = CL_MEM_READ_ONLY;
     size_t threads[2];
 
@@ -1481,8 +1487,7 @@ int test_read_image_2D( cl_context context, cl_command_queue queue, cl_kernel ke
         char *imagePtr = (char *)imageValues + nextLevelOffset;
         if( gTestMipmaps )
         {
-            if(gDebugTrace)
-                log_info("\t- Working at mip level %d\n", lod);
+            if (gDebugTrace) log_info("\t- Working at mip level %zu\n", lod);
             error = clSetKernelArg( kernel, idx, sizeof(float), &lod_float);
         }
 
@@ -1663,7 +1668,9 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
     {
         for( imageInfo.width = 1; imageInfo.width < 13; imageInfo.width++ )
         {
-            imageInfo.rowPitch = imageInfo.width * pixelSize;
+            if (!is_width_compatible(imageInfo)) continue;
+            imageInfo.rowPitch = calculate_row_pitch(imageInfo, pixelSize);
+
             for( imageInfo.height = 1; imageInfo.height < 9; imageInfo.height++ )
             {
                 if( gTestMipmaps )
@@ -1688,10 +1695,28 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
 
         for( size_t idx = 0; idx < numbeOfSizes; idx++ )
         {
-            imageInfo.width = sizes[ idx ][ 0 ];
-            imageInfo.height = sizes[ idx ][ 1 ];
-            imageInfo.rowPitch = imageInfo.width * pixelSize;
-            log_info("Testing %d x %d\n", (int)sizes[ idx ][ 0 ], (int)sizes[ idx ][ 1 ]);
+            if (imageInfo.format->image_channel_data_type
+                == CL_UNSIGNED_INT_RAW10_EXT)
+            {
+                imageInfo.width = sizes[idx][0] & ~0x3ULL;
+            }
+            else if (imageInfo.format->image_channel_data_type
+                     == CL_UNSIGNED_INT_RAW12_EXT)
+            {
+                imageInfo.width = sizes[idx][0] & ~0x1ULL;
+            }
+            else
+            {
+                imageInfo.width = sizes[idx][0];
+            }
+
+            imageInfo.height = sizes[idx][1];
+            imageInfo.rowPitch = calculate_row_pitch(imageInfo, pixelSize);
+
+            if (0 == imageInfo.width) continue;
+
+            log_info("Testing %d x %d\n", (int)imageInfo.width,
+                     (int)imageInfo.height);
 
             if( gTestMipmaps )
                 imageInfo.num_mip_levels = (size_t) random_in_range(2, compute_max_mip_levels(imageInfo.width, imageInfo.height, 0)-1, seed);
@@ -1723,7 +1748,10 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
         do
         {
             if( gDebugTrace )
-                log_info( "   at size %d,%d, starting round ramp at %llu for range %llu\n", (int)imageInfo.width, (int)imageInfo.height, gRoundingStartValue, typeRange );
+                log_info("   at size %d,%d, starting round ramp at %" PRIu64
+                         " for range %" PRIu64 "\n",
+                         (int)imageInfo.width, (int)imageInfo.height,
+                         gRoundingStartValue, typeRange);
             int retCode = test_read_image_2D( context, queue, kernel, &imageInfo, imageSampler, floatCoords, outputType, seed );
             if( retCode )
                 return retCode;
@@ -1759,7 +1787,8 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
                 imageInfo.width = (size_t)random_log_in_range( 16, maxWidthRange, seed );
                 imageInfo.height = (size_t)random_log_in_range( 16, maxHeightRange, seed );
 
-                imageInfo.rowPitch = imageInfo.width * pixelSize;
+                imageInfo.rowPitch = calculate_row_pitch(imageInfo, pixelSize);
+
                 if( gTestMipmaps )
                 {
                     imageInfo.num_mip_levels = (size_t) random_in_range(2, compute_max_mip_levels(imageInfo.width, imageInfo.height, 0)-1, seed);
@@ -1782,7 +1811,8 @@ int test_read_image_set_2D(cl_device_id device, cl_context context,
 
                     size = (size_t)imageInfo.rowPitch * (size_t)imageInfo.height * 4;
                 }
-            } while(  size > maxAllocSize || ( size * 3 ) > memSize );
+            } while (size > maxAllocSize || (size * 3) > memSize
+                     || !is_width_compatible(imageInfo));
 
             if( gDebugTrace )
                 log_info( "   at size %d,%d (row pitch %d) out of %d,%d\n", (int)imageInfo.width, (int)imageInfo.height, (int)imageInfo.rowPitch, (int)maxWidth, (int)maxHeight );

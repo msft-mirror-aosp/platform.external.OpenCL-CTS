@@ -15,7 +15,6 @@
 //
 
 #include "basic_command_buffer.h"
-#include "procs.h"
 
 #include <vector>
 
@@ -161,14 +160,14 @@ struct OutOfOrderTest : public BasicCommandBufferTest
     {
         cl_sync_point_khr sync_points[2];
         const cl_int pattern = pattern_pri;
-        cl_int error =
-            clCommandFillBufferKHR(out_of_order_command_buffer, nullptr, in_mem,
-                                   &pattern, sizeof(cl_int), 0, data_size(), 0,
-                                   nullptr, &sync_points[0], nullptr);
+        cl_int error = clCommandFillBufferKHR(
+            out_of_order_command_buffer, nullptr, nullptr, in_mem, &pattern,
+            sizeof(cl_int), 0, data_size(), 0, nullptr, &sync_points[0],
+            nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
 
         error = clCommandFillBufferKHR(out_of_order_command_buffer, nullptr,
-                                       out_mem, &overwritten_pattern,
+                                       nullptr, out_mem, &overwritten_pattern,
                                        sizeof(cl_int), 0, data_size(), 0,
                                        nullptr, &sync_points[1], nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
@@ -214,7 +213,7 @@ struct OutOfOrderTest : public BasicCommandBufferTest
         cl_sync_point_khr sync_points[2];
         // for both simultaneous passes this call will fill entire in_mem buffer
         cl_int error = clCommandFillBufferKHR(
-            out_of_order_command_buffer, nullptr, in_mem, &pattern_pri,
+            out_of_order_command_buffer, nullptr, nullptr, in_mem, &pattern_pri,
             sizeof(cl_int), 0, data_size() * buffer_size_multiplier, 0, nullptr,
             &sync_points[0], nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
@@ -337,15 +336,13 @@ struct OutOfOrderTest : public BasicCommandBufferTest
 
 } // anonymous namespace
 
-int test_out_of_order(cl_device_id device, cl_context context,
-                      cl_command_queue queue, int num_elements)
+REGISTER_TEST(out_of_order)
 {
     return MakeAndRunTest<OutOfOrderTest<false>>(device, context, queue,
                                                  num_elements);
 }
 
-int test_simultaneous_out_of_order(cl_device_id device, cl_context context,
-                                   cl_command_queue queue, int num_elements)
+REGISTER_TEST(simultaneous_out_of_order)
 {
     return MakeAndRunTest<OutOfOrderTest<true>>(device, context, queue,
                                                 num_elements);

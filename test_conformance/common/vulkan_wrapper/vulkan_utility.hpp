@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2022 The Khronos Group Inc.
+// Copyright (c) 2024 The Khronos Group Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,23 +30,32 @@
 #define ROUND_UP(n, multiple)                                                  \
     (((n) + (multiple)-1) - ((((n) + (multiple)-1)) % (multiple)))
 
-const VulkanInstance& getVulkanInstance();
-const VulkanPhysicalDevice& getVulkanPhysicalDevice();
-const VulkanQueueFamily&
-getVulkanQueueFamily(uint32_t queueFlags = VULKAN_QUEUE_FLAG_GRAPHICS
-                         | VULKAN_QUEUE_FLAG_COMPUTE);
+const VulkanInstance& getVulkanInstance(bool useValidationLayers = false);
+const VulkanPhysicalDevice&
+getVulkanPhysicalDevice(bool useValidationLayers = false);
+const VulkanPhysicalDevice&
+getAssociatedVulkanPhysicalDevice(cl_device_id deviceId,
+                                  bool useValidationLayers = false);
+const VulkanQueueFamily& getVulkanQueueFamily(
+    const VulkanPhysicalDevice& physicalDevice = getVulkanPhysicalDevice(),
+    uint32_t queueFlags = VULKAN_QUEUE_FLAG_GRAPHICS
+        | VULKAN_QUEUE_FLAG_COMPUTE);
 const VulkanMemoryType&
 getVulkanMemoryType(const VulkanDevice& device,
                     VulkanMemoryTypeProperty memoryTypeProperty);
-bool checkVkSupport();
+bool checkVkSupport(bool useValidationLayers = false);
 const VulkanQueueFamilyList& getEmptyVulkanQueueFamilyList();
 const VulkanDescriptorSetLayoutList& getEmptyVulkanDescriptorSetLayoutList();
 const VulkanQueueFamilyToQueueCountMap&
 getDefaultVulkanQueueFamilyToQueueCountMap();
 const std::vector<VulkanExternalMemoryHandleType>
-getSupportedVulkanExternalMemoryHandleTypeList();
+getSupportedVulkanExternalMemoryHandleTypeList(
+    const VulkanPhysicalDevice& physical_device);
 const std::vector<VulkanExternalSemaphoreHandleType>
-getSupportedVulkanExternalSemaphoreHandleTypeList();
+getSupportedVulkanExternalSemaphoreHandleTypeList(const VulkanDevice& vkDevice);
+std::vector<VulkanExternalSemaphoreHandleType>
+getSupportedInteropExternalSemaphoreHandleTypes(cl_device_id device,
+                                                VulkanDevice& vkDevice);
 const std::vector<VulkanFormat> getSupportedVulkanFormatList();
 
 uint32_t getVulkanFormatElementSize(VulkanFormat format);
@@ -69,5 +78,6 @@ operator<<(std::ostream& os,
            VulkanExternalSemaphoreHandleType externalSemaphoreHandleType);
 std::ostream& operator<<(std::ostream& os, VulkanFormat format);
 
-std::vector<char> readFile(const std::string& filename);
+std::vector<char> readFile(const std::string& filename,
+                           const std::string& startdir);
 #endif // _vulkan_utility_hpp_

@@ -1,15 +1,18 @@
-/******************************************************************
-Copyright (c) 2016 The Khronos Group Inc. All Rights Reserved.
-
-This code is protected by copyright laws and contains material proprietary to the Khronos Group, Inc.
-This is UNPUBLISHED PROPRIETARY SOURCE CODE that may not be disclosed in whole or in part to
-third parties, and may not be reproduced, republished, distributed, transmitted, displayed,
-broadcast or otherwise exploited in any manner without the express prior written permission
-of Khronos Group. The receipt or possession of this code does not convey any rights to reproduce,
-disclose, or distribute its contents, or to manufacture, use, or sell anything that it may describe,
-in whole or in part other than under the terms of the Khronos Adopters Agreement
-or Khronos Conformance Test Source License Agreement as executed between Khronos and the recipient.
-******************************************************************/
+//
+// Copyright (c) 2016-2023 The Khronos Group Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 
 #include <stdio.h>
 #include <string.h>
@@ -30,22 +33,24 @@ const std::string slash = "/";
 #endif
 
 const std::string spvExt = ".spv";
+bool gVersionSkip = false;
 std::string gAddrWidth = "";
 std::string spvBinariesPath = "spirv_bin";
-std::string spvBinariesPathArg = "--spirv-binaries-path";
+
+const std::string spvBinariesPathArg = "--spirv-binaries-path";
+const std::string spvVersionSkipArg = "--skip-spirv-version-check";
 
 std::vector<unsigned char> readBinary(const char *file_name)
 {
-    using namespace std;
-
-    ifstream file(file_name, ios::in | ios::binary | ios::ate);
+    std::ifstream file(file_name,
+                       std::ios::in | std::ios::binary | std::ios::ate);
 
     std::vector<char> tmpBuffer(0);
 
     if (file.is_open()) {
         size_t size = file.tellg();
         tmpBuffer.resize(size);
-        file.seekg(0, ios::beg);
+        file.seekg(0, std::ios::beg);
         file.read(&tmpBuffer[0], size);
         file.close();
     } else {
@@ -62,34 +67,6 @@ std::vector<unsigned char> readSPIRV(const char *file_name)
 {
     std::string full_name_str = spvBinariesPath + slash + file_name + spvExt + gAddrWidth;
     return readBinary(full_name_str.c_str());
-}
-
-test_definition *spirvTestsRegistry::getTestDefinitions()
-{
-    return &testDefinitions[0];
-}
-
-size_t spirvTestsRegistry::getNumTests()
-{
-    return testDefinitions.size();
-}
-
-void spirvTestsRegistry::addTestClass(baseTestClass *test, const char *testName,
-                                      Version version)
-{
-
-    testClasses.push_back(test);
-    test_definition testDef;
-    testDef.func = test->getFunction();
-    testDef.name = testName;
-    testDef.min_version = version;
-    testDefinitions.push_back(testDef);
-}
-
-spirvTestsRegistry& spirvTestsRegistry::getInstance()
-{
-    static spirvTestsRegistry instance;
-    return instance;
 }
 
 static int offline_get_program_with_il(clProgramWrapper &prog,
@@ -195,7 +172,12 @@ int get_program_with_il(clProgramWrapper &prog, const cl_device_id deviceID,
     }
 
     err = clBuildProgram(prog, 1, &deviceID, NULL, NULL, NULL);
-    SPIRV_CHECK_ERROR(err, "Failed to build program");
+    if (err != CL_SUCCESS)
+    {
+        cl_int outputErr = OutputBuildLog(prog, deviceID);
+        SPIRV_CHECK_ERROR(outputErr, "OutputBuildLog failed");
+        return err;
+    }
 
     return err;
 }
@@ -224,7 +206,10 @@ test_status InitCL(cl_device_id id)
 
 void printUsage() {
     log_info("Reading SPIR-V files from default '%s' path.\n", spvBinariesPath.c_str());
-    log_info("In case you want to set other directory use '%s' argument.\n", spvBinariesPathArg.c_str());
+    log_info("In case you want to set other directory use '%s' argument.\n",
+             spvBinariesPathArg.c_str());
+    log_info("To skip the SPIR-V version check use the '%s' argument.\n",
+             spvVersionSkipArg.c_str());
 }
 
 int main(int argc, const char *argv[])
@@ -243,6 +228,11 @@ int main(int argc, const char *argv[])
                 modifiedSpvBinariesPath = true;
             }
         }
+        if (argv[i] == spvVersionSkipArg)
+        {
+            gVersionSkip = true;
+            argsRemoveNum++;
+        }
 
         if (argsRemoveNum > 0) {
             for (int j = i; j < (argc - argsRemoveNum); ++j)
@@ -257,7 +247,6 @@ int main(int argc, const char *argv[])
     }
 
     return runTestHarnessWithCheck(
-        argc, argv, spirvTestsRegistry::getInstance().getNumTests(),
-        spirvTestsRegistry::getInstance().getTestDefinitions(), false, 0,
-        InitCL);
+        argc, argv, test_registry::getInstance().num_tests(),
+        test_registry::getInstance().definitions(), false, 0, InitCL);
 }

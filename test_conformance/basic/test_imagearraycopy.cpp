@@ -1,6 +1,6 @@
 //
 // Copyright (c) 2017 The Khronos Group Inc.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -14,134 +14,191 @@
 // limitations under the License.
 //
 #include "harness/compat.h"
+#include "harness/imageHelpers.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <vector>
+#include <memory>
+using test_function_t = int (*)(cl_device_id, cl_context, cl_command_queue,
+                                cl_mem_flags, cl_mem_flags, cl_mem_object_type,
+                                const cl_image_format *);
 
-#include "procs.h"
-
-int test_imagearraycopy_single_format(cl_device_id device, cl_context context, cl_command_queue queue, cl_image_format *format)
+static int test_imagearraycopy_single_format(
+    cl_device_id device, cl_context context, cl_command_queue queue,
+    cl_mem_flags image_flags, cl_mem_flags buffer_flags,
+    cl_mem_object_type image_type, const cl_image_format *format)
 {
-  cl_uchar    *imgptr, *bufptr;
-  clMemWrapper      image, buffer;
-  int        img_width = 512;
-  int        img_height = 512;
-  size_t    elem_size;
-  size_t    buffer_size;
-  int        i;
-  cl_int          err;
-  MTdata          d;
-  cl_event  copyevent;
+    std::unique_ptr<cl_uchar, decltype(&free)> bufptr{ nullptr, free },
+        imgptr{ nullptr, free };
+    clMemWrapper buffer, image;
+    const int img_width = 512;
+    const int img_height = 512;
+    const int img_depth = (image_type == CL_MEM_OBJECT_IMAGE3D) ? 32 : 1;
+    size_t elem_size;
+    size_t buffer_size;
+    cl_int err;
+    cl_event copyevent;
+    RandomSeed seed(gRandomSeed);
 
-  log_info("Testing %s %s\n", GetChannelOrderName(format->image_channel_order), GetChannelTypeName(format->image_channel_data_type));
+    const size_t origin[3] = { 0, 0, 0 },
+                 region[3] = { img_width, img_height, img_depth };
 
-  image = create_image_2d(context, CL_MEM_READ_WRITE, format, img_width,
-                          img_height, 0, NULL, &err);
-  test_error(err, "create_image_2d failed");
+    log_info("Testing %s %s\n",
+             GetChannelOrderName(format->image_channel_order),
+             GetChannelTypeName(format->image_channel_data_type));
 
-  err = clGetImageInfo(image, CL_IMAGE_ELEMENT_SIZE, sizeof(size_t), &elem_size, NULL);
-  test_error(err, "clGetImageInfo failed");
+    elem_size = get_pixel_size(format);
+    buffer_size =
+        sizeof(cl_uchar) * elem_size * img_width * img_height * img_depth;
 
-  buffer_size = sizeof(cl_uchar) * elem_size * img_width * img_height;
-
-  buffer = clCreateBuffer(context, CL_MEM_READ_WRITE, buffer_size, NULL, &err);
-  test_error(err, "clCreateBuffer failed");
-
-  d = init_genrand( gRandomSeed );
-  imgptr = (cl_uchar*)malloc(buffer_size);
-  for (i=0; i<(int)buffer_size; i++) {
-     imgptr[i] = (cl_uchar)genrand_int32(d);
-  }
-  free_mtdata(d); d = NULL;
-
-  size_t origin[3]={0,0,0}, region[3]={img_width,img_height,1};
-  err = clEnqueueWriteImage( queue, image, CL_TRUE, origin, region, 0, 0, imgptr, 0, NULL, NULL );
-  test_error(err, "clEnqueueWriteBuffer failed");
-
-  err = clEnqueueCopyImageToBuffer( queue, image, buffer, origin, region, 0, 0, NULL, &copyevent );
-  test_error(err, "clEnqueueCopyImageToBuffer failed");
-
-  bufptr = (cl_uchar*)malloc(buffer_size);
-
-  err = clEnqueueReadBuffer( queue, buffer, CL_TRUE, 0, buffer_size, bufptr, 1, &copyevent, NULL);
-  test_error(err, "clEnqueueReadBuffer failed");
-
-  err = clReleaseEvent(copyevent);
-  test_error(err, "clReleaseEvent failed");
-
-  if (memcmp(imgptr, bufptr, buffer_size) != 0) {
-    log_error( "ERROR: Results did not validate!\n" );
-    unsigned char * inchar = (unsigned char*)imgptr;
-    unsigned char * outchar = (unsigned char*)bufptr;
-    int failuresPrinted = 0;
-    int i;
-    for (i=0; i< (int)buffer_size; i+=(int)elem_size) {
-        int failed = 0;
-        int j;
-        for (j=0; j<(int)elem_size; j++)
-            if (inchar[i+j] != outchar[i+j])
-                failed = 1;
-        char values[4096];
-        values[0] = 0;
-        if (failed) {
-            sprintf(values + strlen(values), "%d(0x%x) -> expected [", i, i);
-            int j;
-            for (j=0; j<(int)elem_size; j++)
-                sprintf(values + strlen( values), "0x%02x ", inchar[i+j]);
-            sprintf(values + strlen(values), "] != actual [");
-            for (j=0; j<(int)elem_size; j++)
-                sprintf(values + strlen( values), "0x%02x ", outchar[i+j]);
-            sprintf(values + strlen(values), "]");
-            log_error("%s\n", values);
-            failuresPrinted++;
-        }
-        if (failuresPrinted > 5) {
-            log_error("Not printing further failures...\n");
-            break;
-        }
+    if (image_flags & CL_MEM_USE_HOST_PTR || image_flags & CL_MEM_COPY_HOST_PTR)
+    {
+        imgptr.reset(static_cast<cl_uchar *>(
+            create_random_data(kUChar, seed, buffer_size)));
     }
-    err = -1;
-  }
 
-  free(imgptr);
-  free(bufptr);
+    bufptr.reset(
+        static_cast<cl_uchar *>(create_random_data(kUChar, seed, buffer_size)));
 
-  if (err)
-    log_error("IMAGE to ARRAY copy test failed for image_channel_order=0x%lx and image_channel_data_type=0x%lx\n",
-              (unsigned long)format->image_channel_order, (unsigned long)format->image_channel_data_type);
+    if (CL_MEM_OBJECT_IMAGE2D == image_type)
+    {
+        image = create_image_2d(context, image_flags, format, img_width,
+                                img_height, 0, imgptr.get(), &err);
+    }
+    else
+    {
+        image =
+            create_image_3d(context, image_flags, format, img_width, img_height,
+                            img_depth, 0, 0, imgptr.get(), &err);
+    }
+    test_error(err, "create_image_xd failed");
 
-  return err;
+    if (!(image_flags & CL_MEM_USE_HOST_PTR
+          || image_flags & CL_MEM_COPY_HOST_PTR))
+    {
+        imgptr.reset(static_cast<cl_uchar *>(
+            create_random_data(kUChar, seed, buffer_size)));
+
+        err = clEnqueueWriteImage(queue, image, CL_TRUE, origin, region, 0, 0,
+                                  imgptr.get(), 0, nullptr, nullptr);
+        test_error(err, "clEnqueueWriteImage failed");
+    }
+
+    buffer = clCreateBuffer(context, buffer_flags, buffer_size, nullptr, &err);
+    test_error(err, "clCreateBuffer failed");
+
+    err = clEnqueueCopyImageToBuffer(queue, image, buffer, origin, region, 0, 0,
+                                     nullptr, &copyevent);
+    test_error(err, "clEnqueueCopyImageToBuffer failed");
+
+    bufptr.reset(static_cast<cl_uchar *>(malloc(buffer_size)));
+
+    err = clEnqueueReadBuffer(queue, buffer, CL_TRUE, 0, buffer_size,
+                              bufptr.get(), 1, &copyevent, nullptr);
+    test_error(err, "clEnqueueReadBuffer failed");
+
+    err = clReleaseEvent(copyevent);
+    test_error(err, "clReleaseEvent failed");
+
+    image_descriptor compareImageInfo = { 0 };
+    compareImageInfo.format = format;
+    compareImageInfo.width = buffer_size / get_pixel_size(format);
+    size_t where = compare_scanlines(
+        &compareImageInfo, reinterpret_cast<const char *>(imgptr.get()),
+        reinterpret_cast<const char *>(bufptr.get()));
+    if (where < compareImageInfo.width)
+    {
+        log_error("ERROR: Results did not validate!\n");
+        auto inchar = static_cast<unsigned char *>(imgptr.get());
+        auto outchar = static_cast<unsigned char *>(bufptr.get());
+        int failuresPrinted = 0;
+        for (size_t i = 0; i < buffer_size; i += elem_size)
+        {
+            if (memcmp(&inchar[i], &outchar[i], elem_size) != 0)
+            {
+                log_error("%zu(0x%zx) -> expected [", i, i);
+                for (size_t j = 0; j < elem_size; j++)
+                    log_error("0x%02x ", inchar[i + j]);
+                log_error("] != actual [");
+                for (size_t j = 0; j < elem_size; j++)
+                    log_error("0x%02x ", outchar[i + j]);
+                log_error("]\n");
+                failuresPrinted++;
+            }
+            if (failuresPrinted > 5)
+            {
+                log_error("Not printing further failures...\n");
+                break;
+            }
+        }
+        err = -1;
+    }
+
+    if (err)
+        log_error(
+            "IMAGE to ARRAY copy test failed for image_channel_order=0x%lx and "
+            "image_channel_data_type=0x%lx\n",
+            static_cast<unsigned long>(format->image_channel_order),
+            static_cast<unsigned long>(format->image_channel_data_type));
+
+    return err;
 }
 
-int test_imagearraycopy(cl_device_id device, cl_context context, cl_command_queue queue, int num_elements)
+static int test_imagearraycommon(cl_device_id device, cl_context context,
+                                 cl_command_queue queue,
+                                 cl_mem_flags image_flags,
+                                 cl_mem_flags buffer_flags,
+                                 cl_mem_object_type image_type,
+                                 test_function_t test_function)
 {
-  cl_int          err;
-  cl_image_format *formats;
-  cl_uint         num_formats;
-  cl_uint         i;
+    cl_int err;
+    cl_uint num_formats;
 
-  PASSIVE_REQUIRE_IMAGE_SUPPORT( device )
+    err = clGetSupportedImageFormats(context, image_flags, image_type, 0,
+                                     nullptr, &num_formats);
+    test_error(err, "clGetSupportedImageFormats failed");
 
-  err = clGetSupportedImageFormats(context, CL_MEM_READ_WRITE, CL_MEM_OBJECT_IMAGE2D, 0, NULL, &num_formats);
-  test_error(err, "clGetSupportedImageFormats failed");
+    std::vector<cl_image_format> formats(num_formats);
 
-  formats = (cl_image_format *)malloc(num_formats * sizeof(cl_image_format));
+    err = clGetSupportedImageFormats(context, image_flags, image_type,
+                                     num_formats, formats.data(), nullptr);
+    test_error(err, "clGetSupportedImageFormats failed");
 
-  err = clGetSupportedImageFormats(context, CL_MEM_READ_WRITE, CL_MEM_OBJECT_IMAGE2D, num_formats, formats, NULL);
-  test_error(err, "clGetSupportedImageFormats failed");
+    for (const auto &format : formats)
+    {
+        err |= test_function(device, context, queue, image_flags, buffer_flags,
+                             image_type, &format);
+    }
 
-  for (i = 0; i < num_formats; i++) {
-    err |= test_imagearraycopy_single_format(device, context, queue, &formats[i]);
-  }
+    if (err)
+        log_error("IMAGE%s to ARRAY copy test failed\n",
+                  convert_image_type_to_string(image_type));
+    else
+        log_info("IMAGE%s to ARRAY copy test passed\n",
+                 convert_image_type_to_string(image_type));
 
-  free(formats);
-  if (err)
-    log_error("IMAGE to ARRAY copy test failed\n");
-  else
-    log_info("IMAGE to ARRAY copy test passed\n");
+    return err;
+}
 
-  return err;
+REGISTER_TEST(imagearraycopy)
+{
+    PASSIVE_REQUIRE_IMAGE_SUPPORT(device)
+
+    return test_imagearraycommon(device, context, queue, CL_MEM_READ_WRITE,
+                                 CL_MEM_READ_WRITE, CL_MEM_OBJECT_IMAGE2D,
+                                 test_imagearraycopy_single_format);
+}
+
+
+REGISTER_TEST(imagearraycopy3d)
+{
+    PASSIVE_REQUIRE_3D_IMAGE_SUPPORT(device)
+
+    return test_imagearraycommon(device, context, queue, CL_MEM_READ_ONLY,
+                                 CL_MEM_READ_WRITE, CL_MEM_OBJECT_IMAGE3D,
+                                 test_imagearraycopy_single_format);
 }

@@ -16,6 +16,8 @@
 #include "testBase.h"
 #include "harness/conversions.h"
 
+#include <cinttypes>
+
 #define TEST_SIZE 512
 
 enum OpKonstants
@@ -71,8 +73,8 @@ int test_unary_op( cl_command_queue queue, cl_context context, OpKonstants which
     }
     else
     {
-        sprintf( loadLine, "vload%ld( tid, inOut )", vecSize );
-        sprintf( storeLine, "vstore%ld( inOutVal, tid, inOut )", vecSize );
+        sprintf(loadLine, "vload%zu( tid, inOut )", vecSize);
+        sprintf(storeLine, "vstore%zu( inOutVal, tid, inOut )", vecSize);
     }
 
     char sizeNames[][4] = { "", "", "2", "3", "4", "", "", "", "8", "", "", "", "", "", "", "", "16" };
@@ -95,7 +97,7 @@ int test_unary_op( cl_command_queue queue, cl_context context, OpKonstants which
         get_explicit_type_size(vecType) * vecSize * TEST_SIZE, inData, &error);
     test_error( error, "Creating input data array failed" );
 
-    cl_uint bits;
+    cl_uint bits = 0;
     for( i = 0; i < TEST_SIZE; i++ )
     {
         size_t which = i & 7;
@@ -159,8 +161,9 @@ template<typename T> int VerifyFn( void * actualPtr, void * inputPtr, size_t vec
 
             if( actualData[ index ] != nextVal )
             {
-                log_error( "ERROR: Validation failed on vector %ld:%ld (expected %lld, got %lld)", i, j,
-                          (cl_long)nextVal, (cl_long)actualData[ index ] );
+                log_error("ERROR: Validation failed on vector %zu:%zu "
+                          "(expected %" PRId64 ", got %" PRId64 ")",
+                          i, j, (cl_long)nextVal, (cl_long)actualData[index]);
                 return -1;
             }
         }
@@ -195,17 +198,17 @@ int test_unary_op_set( cl_command_queue queue, cl_context context, OpKonstants w
     return retVal;
 }
 
-int test_unary_ops_full(cl_device_id deviceID, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(unary_ops_full)
 {
     return test_unary_op_set( queue, context, kBoth );
 }
 
-int test_unary_ops_increment(cl_device_id deviceID, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(unary_ops_increment)
 {
     return test_unary_op_set( queue, context, kIncrement );
 }
 
-int test_unary_ops_decrement(cl_device_id deviceID, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(unary_ops_decrement)
 {
     return test_unary_op_set( queue, context, kDecrement );
 }

@@ -16,10 +16,12 @@
 #include "testBase.h"
 #include <limits.h>
 #include <ctype.h>
+#include <cinttypes>
 #ifndef _WIN32
 #include <unistd.h>
 #endif
 
+// clang-format off
 // List should follow order in the extension spec
 const char *known_extensions[] = {
     "cl_khr_byte_addressable_store",
@@ -53,6 +55,7 @@ const char *known_extensions[] = {
     "cl_khr_extended_bit_ops",
     "cl_khr_integer_dot_product",
     "cl_khr_subgroup_rotate",
+    "cl_khr_kernel_clock",
     // API-only extensions after this point.  If you add above here, modify
     // first_API_extension below.
     "cl_khr_icd",
@@ -91,10 +94,12 @@ const char *known_extensions[] = {
     "cl_khr_external_memory_dma_buf",
     "cl_khr_command_buffer",
     "cl_khr_command_buffer_mutable_dispatch",
+    "cl_khr_command_buffer_multi_device"
 };
+// clang-format on
 
 size_t num_known_extensions = ARRAY_SIZE(known_extensions);
-size_t first_API_extension = 31;
+size_t first_API_extension = 32;
 
 const char *known_embedded_extensions[] = {
     "cles_khr_int64",
@@ -126,7 +131,7 @@ bool string_has_prefix(const char *str, const char *prefix)
     return strncmp(str, prefix, strlen(prefix)) == 0;
 }
 
-int test_compiler_defines_for_extensions(cl_device_id device, cl_context context, cl_command_queue queue, int n_elems )
+REGISTER_TEST(compiler_defines_for_extensions)
 {
 
     int error;
@@ -212,7 +217,9 @@ int test_compiler_defines_for_extensions(cl_device_id device, cl_context context
         char *extension = (char *)malloc((extension_length + 1) * sizeof(char));
         if (extension == NULL)
         {
-            log_error( "Error: unable to allocate memory to hold extension name: %ld chars\n", extension_length );
+            log_error("Error: unable to allocate memory to hold extension "
+                      "name: %" PRIdPTR " chars\n",
+                      extension_length);
             return -1;
         }
         extensions_supported[num_of_supported_extensions] = extension;
@@ -472,8 +479,13 @@ int test_compiler_defines_for_extensions(cl_device_id device, cl_context context
     // cleanup
     free(data);
     free(kernel_code);
-    for(i=0; i<num_of_supported_extensions; i++) {
-      free(extensions_supported[i]);
+    for (i = 0; i < num_of_supported_extensions; i++)
+    {
+        free(extensions_supported[i]);
+    }
+    for (i = 0; i < num_not_supported_extensions; i++)
+    {
+        free(extensions_not_supported[i]);
     }
     free(extensions);
 

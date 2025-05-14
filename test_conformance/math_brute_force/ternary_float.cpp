@@ -139,7 +139,7 @@ int TestFunc_Float_Float_Float_Float(const Func *f, MTdata d, bool relaxedMode)
     float maxErrorVal3 = 0.0f;
     uint64_t step = getTestStep(sizeof(float), BUFFER_SIZE);
 
-    cl_uchar overflow[BUFFER_SIZE / sizeof(float)];
+    std::vector<cl_uchar> overflow(BUFFER_SIZE / sizeof(float));
 
     float float_ulps;
     if (gIsEmbedded)
@@ -159,6 +159,8 @@ int TestFunc_Float_Float_Float_Float(const Func *f, MTdata d, bool relaxedMode)
 
     for (uint64_t i = 0; i < (1ULL << 32); i += step)
     {
+        if (gSkipCorrectnessTesting) break;
+
         // Init input array
         cl_uint *p = (cl_uint *)gIn;
         cl_uint *p2 = (cl_uint *)gIn2;
@@ -256,30 +258,18 @@ int TestFunc_Float_Float_Float_Float(const Func *f, MTdata d, bool relaxedMode)
             size_t vectorSize = sizeof(cl_float) * sizeValues[j];
             size_t localCount = (BUFFER_SIZE + vectorSize - 1)
                 / vectorSize; // BUFFER_SIZE / vectorSize  rounded up
-            if ((error = clSetKernelArg(kernels[j][thread_id], 0,
-                                        sizeof(gOutBuffer[j]), &gOutBuffer[j])))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
-            if ((error = clSetKernelArg(kernels[j][thread_id], 1,
-                                        sizeof(gInBuffer), &gInBuffer)))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
-            if ((error = clSetKernelArg(kernels[j][thread_id], 2,
-                                        sizeof(gInBuffer2), &gInBuffer2)))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
-            if ((error = clSetKernelArg(kernels[j][thread_id], 3,
-                                        sizeof(gInBuffer3), &gInBuffer3)))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
+            error = clSetKernelArg(kernels[j][thread_id], 0,
+                                   sizeof(gOutBuffer[j]), &gOutBuffer[j]);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 1, sizeof(gInBuffer),
+                                   &gInBuffer);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 2, sizeof(gInBuffer2),
+                                   &gInBuffer2);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 3, sizeof(gInBuffer3),
+                                   &gInBuffer3);
+            test_error(error, "Failed to set kernel argument");
 
             if ((error = clEnqueueNDRangeKernel(gQueue, kernels[j][thread_id],
                                                 1, NULL, &localCount, NULL, 0,
@@ -327,8 +317,6 @@ int TestFunc_Float_Float_Float_Float(const Func *f, MTdata d, bool relaxedMode)
                 return error;
             }
         }
-
-        if (gSkipCorrectnessTesting) break;
 
         // Verify data
         uint32_t *t = (uint32_t *)gOut_Ref;

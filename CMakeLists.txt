@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.1)
+cmake_minimum_required(VERSION 3.12.0)
 
 set( CONFORMANCE_SUFFIX "" )
 set(CLConform_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
@@ -7,7 +7,7 @@ project(CLConform${CONFORMANCE_SUFFIX})
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_definitions(-DCL_TARGET_OPENCL_VERSION=300)
@@ -18,6 +18,7 @@ add_definitions(-DCL_USE_DEPRECATED_OPENCL_1_2_APIS=1)
 add_definitions(-DCL_USE_DEPRECATED_OPENCL_1_1_APIS=1)
 add_definitions(-DCL_USE_DEPRECATED_OPENCL_1_0_APIS=1)
 add_definitions(-DCL_NO_EXTENSION_PROTOTYPES)
+add_definitions(-DCL_ENABLE_BETA_EXTENSIONS)
 
 option(USE_CL_EXPERIMENTAL "Use Experimental definitions" OFF)
 if(USE_CL_EXPERIMENTAL)
@@ -104,11 +105,10 @@ if(CMAKE_COMPILER_IS_GNUCC OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "(Apple)?Clang"
         # Enable more warnings if not doing a release build.
         add_cxx_flag_if_supported(-Wall)
     endif()
-    add_cxx_flag_if_supported(-Wno-narrowing)
-    add_cxx_flag_if_supported(-Wno-format)
     add_cxx_flag_if_supported(-Wno-error=cpp) # Allow #warning directive
     add_cxx_flag_if_supported(-Wno-unknown-pragmas) # Issue #785
     add_cxx_flag_if_supported(-Wno-error=asm-operand-widths) # Issue #784
+    add_cxx_flag_if_supported(-Wno-strict-aliasing)  # Issue 2234
 
     # -msse -mfpmath=sse to force gcc to use sse for float math,
     # avoiding excess precision problems that cause tests like int2float
@@ -153,8 +153,19 @@ if(MSVC)
 endif()
 
 if( WIN32 AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Intel" )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Qlong-double -Qpc80 /DWIN32 /D_WINDOWS /W3 /GR /EHsc -nologo -Od -D_CRT_NONSTDC_NO_WARNINGS -EHsc -Wall -Qdiag-disable:68,111,177,186,161,869,1028,2259,2553,181,239,265,1188 -fp:strict -fp:source")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Qlong-double -Qpc80 /DWIN32 /D_WINDOWS /W3 /GR /EHsc -nologo -Od -D_CRT_NONSTDC_NO_WARNINGS -EHsc -Wall -Qdiag-disable:68,111,177,186,161,869,1028,2259,2553,181,239,265,1188 -fp:strict -fp:source")
+    set(Shared_Flags_Intel "-Qlong-double -Qpc80 /DWIN32 /D_WINDOWS /W3 /GR /EHsc -nologo -Od -D_CRT_NONSTDC_NO_WARNINGS -EHsc -Wall -fp:strict")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Shared_Flags_Intel}")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${Shared_Flags_Intel}")
+    if (NOT ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "IntelLLVM"))
+        set(ICC_Extra_Flags "-Qdiag-disable:68,111,177,186,161,869,1028,2259,2553,181,239,265,1188 -fp:source")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ICC_Extra_Flags}")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${ICC_Extra_Flags}")
+    endif()
+endif()
+
+# To handle addresses larger than 2 gigabytes for 32bit targets
+if(WIN32 AND ${CLConform_TARGET_ARCH} STREQUAL "x86")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /LARGEADDRESSAWARE")
 endif()
 
 list(APPEND CLConform_LIBRARIES ${OPENCL_LIBRARIES})

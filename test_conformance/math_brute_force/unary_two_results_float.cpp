@@ -51,13 +51,13 @@ int TestFunc_Float2_Float(const Func *f, MTdata d, bool relaxedMode)
     float maxErrorVal1 = 0.0f;
     uint64_t step = getTestStep(sizeof(float), BUFFER_SIZE);
     int scale = (int)((1ULL << 32) / (16 * BUFFER_SIZE / sizeof(float)) + 1);
-    cl_uchar overflow[BUFFER_SIZE / sizeof(float)];
+    std::vector<cl_uchar> overflow(BUFFER_SIZE / sizeof(float));
     int isFract = 0 == strcmp("fract", f->nameInCode);
     int skipNanInf = isFract && !gInfNanSupport;
 
     logFunctionInfo(f->name, sizeof(cl_float), relaxedMode);
 
-    float float_ulps = getAllowedUlpError(f, relaxedMode);
+    float float_ulps = getAllowedUlpError(f, kfloat, relaxedMode);
     // Init the kernels
     BuildKernelInfo build_info{ 1, kernels, programs, f->nameInCode,
                                 relaxedMode };
@@ -68,6 +68,8 @@ int TestFunc_Float2_Float(const Func *f, MTdata d, bool relaxedMode)
 
     for (uint64_t i = 0; i < (1ULL << 32); i += step)
     {
+        if (gSkipCorrectnessTesting) break;
+
         // Init input array
         uint32_t *p = (uint32_t *)gIn;
         if (gWimpyMode)
@@ -157,25 +159,15 @@ int TestFunc_Float2_Float(const Func *f, MTdata d, bool relaxedMode)
         {
             size_t vectorSize = sizeValues[j] * sizeof(cl_float);
             size_t localCount = (BUFFER_SIZE + vectorSize - 1) / vectorSize;
-            if ((error = clSetKernelArg(kernels[j][thread_id], 0,
-                                        sizeof(gOutBuffer[j]), &gOutBuffer[j])))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
-            if ((error =
-                     clSetKernelArg(kernels[j][thread_id], 1,
-                                    sizeof(gOutBuffer2[j]), &gOutBuffer2[j])))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
-            if ((error = clSetKernelArg(kernels[j][thread_id], 2,
-                                        sizeof(gInBuffer), &gInBuffer)))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
+            error = clSetKernelArg(kernels[j][thread_id], 0,
+                                   sizeof(gOutBuffer[j]), &gOutBuffer[j]);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 1,
+                                   sizeof(gOutBuffer2[j]), &gOutBuffer2[j]);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 2, sizeof(gInBuffer),
+                                   &gInBuffer);
+            test_error(error, "Failed to set kernel argument");
 
             if ((error = clEnqueueNDRangeKernel(gQueue, kernels[j][thread_id],
                                                 1, NULL, &localCount, NULL, 0,
@@ -256,12 +248,6 @@ int TestFunc_Float2_Float(const Func *f, MTdata d, bool relaxedMode)
                 vlog_error("ReadArray2 failed %d\n", error);
                 return error;
             }
-        }
-
-        if (gSkipCorrectnessTesting)
-        {
-            if (isFract && gIsInRTZMode) (void)set_round(oldRoundMode, kfloat);
-            break;
         }
 
         // Verify data

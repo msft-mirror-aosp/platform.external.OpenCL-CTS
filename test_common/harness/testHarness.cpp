@@ -62,6 +62,27 @@ bool gCoreILProgram = true;
 
 #define DEFAULT_NUM_ELEMENTS 0x4000
 
+test_definition *test_registry::definitions() { return &m_definitions[0]; }
+
+size_t test_registry::num_tests() { return m_definitions.size(); }
+
+void test_registry::add_test(test *t, const char *name, Version version)
+{
+
+    m_tests.push_back(t);
+    test_definition testDef;
+    testDef.func = t->getFunction();
+    testDef.name = name;
+    testDef.min_version = version;
+    m_definitions.push_back(testDef);
+}
+
+test_registry &test_registry::getInstance()
+{
+    static test_registry instance;
+    return instance;
+}
+
 static int saveResultsToJson(const char *suiteName, test_definition testList[],
                              unsigned char selectedTestList[],
                              test_status resultTestList[], int testNum)
@@ -185,6 +206,9 @@ int runTestHarnessWithCheck(int argc, const char *argv[], int testNum,
         else if (strcmp(env_mode, "accelerator") == 0
                  || strcmp(env_mode, "CL_DEVICE_TYPE_ACCELERATOR") == 0)
             device_type = CL_DEVICE_TYPE_ACCELERATOR;
+        else if (strcmp(env_mode, "custom") == 0
+                 || strcmp(env_mode, "CL_DEVICE_TYPE_CUSTOM") == 0)
+            device_type = CL_DEVICE_TYPE_CUSTOM;
         else if (strcmp(env_mode, "default") == 0
                  || strcmp(env_mode, "CL_DEVICE_TYPE_DEFAULT") == 0)
             device_type = CL_DEVICE_TYPE_DEFAULT;
@@ -314,6 +338,12 @@ int runTestHarnessWithCheck(int argc, const char *argv[], int testNum,
             device_type = CL_DEVICE_TYPE_ACCELERATOR;
             argc--;
         }
+        else if (strcmp(argv[argc - 1], "custom") == 0
+                 || strcmp(argv[argc - 1], "CL_DEVICE_TYPE_CUSTOM") == 0)
+        {
+            device_type = CL_DEVICE_TYPE_CUSTOM;
+            argc--;
+        }
         else if (strcmp(argv[argc - 1], "CL_DEVICE_TYPE_DEFAULT") == 0)
         {
             device_type = CL_DEVICE_TYPE_DEFAULT;
@@ -350,6 +380,9 @@ int runTestHarnessWithCheck(int argc, const char *argv[], int testNum,
         case CL_DEVICE_TYPE_CPU: log_info("Requesting CPU device "); break;
         case CL_DEVICE_TYPE_ACCELERATOR:
             log_info("Requesting Accelerator device ");
+            break;
+        case CL_DEVICE_TYPE_CUSTOM:
+            log_info("Requesting Custom device ");
             break;
         case CL_DEVICE_TYPE_DEFAULT:
             log_info("Requesting Default device ");
@@ -677,6 +710,7 @@ static void print_results(int failed, int count, const char *name)
             log_error("FAILED %s.\n", name);
         }
     }
+    fflush(stdout);
 }
 
 int parseAndCallCommandLineTests(int argc, const char *argv[],
@@ -1196,18 +1230,21 @@ Version get_device_spirv_il_version(cl_device_id device)
         ASSERT_SUCCESS(err, "clGetDeviceInfo");
     }
 
-    if (strstr(str.data(), "SPIR-V_1.0") != NULL)
-        return Version(1, 0);
-    else if (strstr(str.data(), "SPIR-V_1.1") != NULL)
-        return Version(1, 1);
-    else if (strstr(str.data(), "SPIR-V_1.2") != NULL)
-        return Version(1, 2);
-    else if (strstr(str.data(), "SPIR-V_1.3") != NULL)
-        return Version(1, 3);
+    // Because this query returns a space-separated list of IL version strings
+    // we should check for SPIR-V versions in reverse order, to return the
+    // highest version supported.
+    if (strstr(str.data(), "SPIR-V_1.5") != NULL)
+        return Version(1, 5);
     else if (strstr(str.data(), "SPIR-V_1.4") != NULL)
         return Version(1, 4);
-    else if (strstr(str.data(), "SPIR-V_1.5") != NULL)
-        return Version(1, 5);
+    else if (strstr(str.data(), "SPIR-V_1.3") != NULL)
+        return Version(1, 3);
+    else if (strstr(str.data(), "SPIR-V_1.2") != NULL)
+        return Version(1, 2);
+    else if (strstr(str.data(), "SPIR-V_1.1") != NULL)
+        return Version(1, 1);
+    else if (strstr(str.data(), "SPIR-V_1.0") != NULL)
+        return Version(1, 0);
 
     throw std::runtime_error(std::string("Unknown SPIR-V version: ")
                              + str.data());
@@ -1279,6 +1316,43 @@ cl_platform_id getPlatformFromDevice(cl_device_id deviceID)
     return platform;
 }
 
+/**
+ * Helper to return a string containing platform information
+ * for the specified platform info parameter.
+ */
+std::string get_platform_info_string(cl_platform_id platform,
+                                     cl_platform_info param_name)
+{
+    size_t size = 0;
+    int err;
+
+    if ((err = clGetPlatformInfo(platform, param_name, 0, NULL, &size))
+            != CL_SUCCESS
+        || size == 0)
+    {
+        throw std::runtime_error("clGetPlatformInfo failed\n");
+    }
+
+    std::vector<char> info(size);
+
+    if ((err = clGetPlatformInfo(platform, param_name, size, info.data(), NULL))
+        != CL_SUCCESS)
+    {
+        throw std::runtime_error("clGetPlatformInfo failed\n");
+    }
+
+    /* The returned string does not include the null terminator. */
+    return std::string(info.data(), size - 1);
+}
+
+bool is_platform_extension_available(cl_platform_id platform,
+                                     const char *extensionName)
+{
+    std::string extString =
+        get_platform_info_string(platform, CL_PLATFORM_EXTENSIONS);
+    return extString.find(extensionName) != std::string::npos;
+}
+
 void PrintArch(void)
 {
     vlog("sizeof( void*) = %zu\n", sizeof(void *));
@@ -1298,6 +1372,8 @@ void PrintArch(void)
     vlog("ARCH:\taarch64\n");
 #elif defined(_WIN32)
     vlog("ARCH:\tWindows\n");
+#elif defined(__mips__)
+    vlog("ARCH:\tmips\n");
 #else
 #error unknown arch
 #endif

@@ -1,15 +1,18 @@
-/******************************************************************
-Copyright (c) 2016 The Khronos Group Inc. All Rights Reserved.
-
-This code is protected by copyright laws and contains material proprietary to the Khronos Group, Inc.
-This is UNPUBLISHED PROPRIETARY SOURCE CODE that may not be disclosed in whole or in part to
-third parties, and may not be reproduced, republished, distributed, transmitted, displayed,
-broadcast or otherwise exploited in any manner without the express prior written permission
-of Khronos Group. The receipt or possession of this code does not convey any rights to reproduce,
-disclose, or distribute its contents, or to manufacture, use, or sell anything that it may describe,
-in whole or in part other than under the terms of the Khronos Adopters Agreement
-or Khronos Conformance Test Source License Agreement as executed between Khronos and the recipient.
-******************************************************************/
+//
+// Copyright (c) 2016-2023 The Khronos Group Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 
 #include "testBase.h"
 #include "types.hpp"
@@ -80,64 +83,64 @@ int test_phi(cl_device_id deviceID,
     return 0;
 }
 
-TEST_SPIRV_FUNC(op_phi_2_blocks)
+REGISTER_TEST(op_phi_2_blocks)
 {
     const int num = 1 << 10;
     RandomSeed seed(gRandomSeed);
 
-    std::vector<cl_int> lhs(num);
-    std::vector<cl_int> rhs(num);
-    std::vector<cl_int> out(num);
+    std::vector<cl_uint> lhs(num);
+    std::vector<cl_uint> rhs(num);
+    std::vector<cl_uint> out(num);
 
     for (int i = 0; i < num; i++) {
-        lhs[i] = genrand<cl_int>(seed);
-        rhs[i] = genrand<cl_int>(seed);
+        lhs[i] = genrand<cl_uint>(seed);
+        rhs[i] = genrand<cl_uint>(seed);
         out[i] = lhs[i] < rhs[i] ? (rhs[i] - lhs[i]) : (lhs[i] - rhs[i]);
     }
 
-    return test_phi(deviceID, context, queue, "phi_2", lhs, rhs, out);
+    return test_phi(device, context, queue, "phi_2", lhs, rhs, out);
 }
 
-TEST_SPIRV_FUNC(op_phi_3_blocks)
+REGISTER_TEST(op_phi_3_blocks)
 {
     const int num = 1 << 10;
     RandomSeed seed(gRandomSeed);
 
-    std::vector<cl_int> lhs(num);
-    std::vector<cl_int> rhs(num);
-    std::vector<cl_int> out(num);
+    std::vector<cl_uint> lhs(num);
+    std::vector<cl_uint> rhs(num);
+    std::vector<cl_uint> out(num);
 
     for (int i = 0; i < num; i++) {
-        lhs[i] = genrand<cl_int>(seed);
-        rhs[i] = genrand<cl_int>(seed);
+        lhs[i] = genrand<cl_uint>(seed);
+        rhs[i] = genrand<cl_uint>(seed);
         if (lhs[i] < rhs[i]) {
-            out[i] = lhs[i] < 0 ? -lhs[i] : lhs[i];
+            out[i] = lhs[i] < 65535 ? -lhs[i] : lhs[i];
         } else {
             out[i] = lhs[i] - rhs[i];
         }
     }
 
-    return test_phi(deviceID, context, queue, "phi_3", lhs, rhs, out);
+    return test_phi(device, context, queue, "phi_3", lhs, rhs, out);
 }
 
-TEST_SPIRV_FUNC(op_phi_4_blocks)
+REGISTER_TEST(op_phi_4_blocks)
 {
     const int num = 1 << 10;
     RandomSeed seed(gRandomSeed);
 
-    std::vector<cl_int> lhs(num);
-    std::vector<cl_int> rhs(num);
-    std::vector<cl_int> out(num);
+    std::vector<cl_uint> lhs(num);
+    std::vector<cl_uint> rhs(num);
+    std::vector<cl_uint> out(num);
 
     for (int i = 0; i < num; i++) {
-        lhs[i] = genrand<cl_int>(seed);
-        rhs[i] = genrand<cl_int>(seed);
+        lhs[i] = genrand<cl_uint>(seed);
+        rhs[i] = genrand<cl_uint>(seed);
         if (lhs[i] < rhs[i]) {
-            out[i] = lhs[i] < 0 ? -lhs[i] : lhs[i];
+            out[i] = lhs[i] < 65535 ? -lhs[i] : lhs[i];
         } else {
-            out[i] = rhs[i] < 0 ? -rhs[i] : rhs[i];
+            out[i] = rhs[i] < 65535 ? -rhs[i] : rhs[i];
         }
     }
 
-    return test_phi(deviceID, context, queue, "phi_4", lhs, rhs, out);
+    return test_phi(device, context, queue, "phi_4", lhs, rhs, out);
 }

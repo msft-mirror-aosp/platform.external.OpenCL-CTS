@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "procs.h"
 #include "subhelpers.h"
 #include "subgroup_common_templates.h"
 #include "harness/typeWrappers.h"
@@ -767,7 +766,7 @@ __kernel void test_sub_group_non_uniform_broadcast(const __global Type *in, __gl
     int gid = get_global_id(0);
     XY(xy,gid);
     Type x = in[gid];
-    if (xy[gid].x < NR_OF_ACTIVE_WORK_ITEMS) {
+    if (xy[gid].x < (get_sub_group_size() >> 1)) {
         out[gid] = sub_group_non_uniform_broadcast(x, xy[gid].z);
     } else {
         out[gid] = sub_group_non_uniform_broadcast(x, xy[gid].w);
@@ -779,7 +778,7 @@ __kernel void test_sub_group_broadcast_first(const __global Type *in, __global i
     int gid = get_global_id(0);
     XY(xy,gid);
     Type x = in[gid];
-    if (xy[gid].x < NR_OF_ACTIVE_WORK_ITEMS) {
+    if (xy[gid].x < (get_sub_group_size() >> 1)) {
         out[gid] = sub_group_broadcast_first(x);;
     } else {
         out[gid] = sub_group_broadcast_first(x);;
@@ -888,8 +887,7 @@ template <typename T> int run_non_uniform_broadcast_for_type(RunTestForType rft)
 
 }
 
-int test_subgroup_functions_ballot(cl_device_id device, cl_context context,
-                                   cl_command_queue queue, int num_elements)
+REGISTER_TEST(subgroup_functions_ballot)
 {
     if (!is_extension_available(device, "cl_khr_subgroup_ballot"))
     {

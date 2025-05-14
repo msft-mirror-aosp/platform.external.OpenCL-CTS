@@ -16,7 +16,6 @@
 #include "basic_command_buffer.h"
 #include "svm_command_basic.h"
 #include "harness/typeWrappers.h"
-#include "procs.h"
 
 #include <vector>
 
@@ -35,10 +34,9 @@ struct FillImageKHR : public BasicCommandBufferTest
 
     cl_int Run() override
     {
-        cl_int error =
-            clCommandFillImageKHR(command_buffer, nullptr, image, fill_color_1,
-                                  origin, region, 0, nullptr, nullptr, nullptr);
-
+        cl_int error = clCommandFillImageKHR(
+            command_buffer, nullptr, nullptr, image, fill_color_1, origin,
+            region, 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandFillImageKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -124,9 +122,8 @@ struct FillBufferKHR : public BasicCommandBufferTest
     cl_int Run() override
     {
         cl_int error = clCommandFillBufferKHR(
-            command_buffer, nullptr, in_mem, &pattern_1, sizeof(cl_char), 0,
-            data_size(), 0, nullptr, nullptr, nullptr);
-
+            command_buffer, nullptr, nullptr, in_mem, &pattern_1,
+            sizeof(cl_char), 0, data_size(), 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -179,8 +176,8 @@ struct FillSVMBufferKHR : public BasicSVMCommandBufferTest
     cl_int Run() override
     {
         cl_int error = clCommandSVMMemFillKHR(
-            command_buffer, nullptr, svm_in_mem(), &pattern_1, sizeof(cl_char),
-            data_size(), 0, nullptr, nullptr, nullptr);
+            command_buffer, nullptr, nullptr, svm_in_mem(), &pattern_1,
+            sizeof(cl_char), data_size(), 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandSVMMemFillKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -232,22 +229,19 @@ struct FillSVMBufferKHR : public BasicSVMCommandBufferTest
 };
 };
 
-int test_fill_buffer(cl_device_id device, cl_context context,
-                     cl_command_queue queue, int num_elements)
+REGISTER_TEST(fill_buffer)
 {
     return MakeAndRunTest<FillBufferKHR>(device, context, queue, num_elements);
 }
 
-int test_fill_svm_buffer(cl_device_id device, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(fill_svm_buffer)
 {
     return MakeAndRunTest<FillSVMBufferKHR>(device, context, queue,
                                             num_elements);
 }
 
 
-int test_fill_image(cl_device_id device, cl_context context,
-                    cl_command_queue queue, int num_elements)
+REGISTER_TEST(fill_image)
 {
     return MakeAndRunTest<FillImageKHR>(device, context, queue, num_elements);
 }

@@ -21,7 +21,6 @@
 #include <algorithm>
 #include <vector>
 
-#include "procs.h"
 #include "utils.h"
 #include <time.h>
 
@@ -90,7 +89,7 @@ static int check_kernel_results(cl_int* results, cl_int len)
 /*
     Test checks kernel block execution order in case of two different kernels with enqueue block submitted to one ordered host queue.
 */
-int test_host_queue_order(cl_device_id device, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(host_queue_order)
 {
     cl_int k, err_ret, res = 0;
     clCommandQueueWrapper dev_queue;
@@ -117,7 +116,9 @@ int test_host_queue_order(cl_device_id device, cl_context context, cl_command_qu
     };
 
     dev_queue = clCreateCommandQueueWithProperties(context, device, queue_prop_def, &err_ret);
-    test_error(err_ret, "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE|CL_QUEUE_DEFAULT) failed");
+    test_error(err_ret,
+               "clCreateCommandQueueWithProperties(CL_QUEUE_ON_DEVICE | "
+               "CL_QUEUE_ON_DEVICE_DEFAULT) failed");
 
     cl_int status;
     size_t size = 1;

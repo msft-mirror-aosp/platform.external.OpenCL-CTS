@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2022 The Khronos Group Inc.
+// Copyright (c) 2024 The Khronos Group Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <CL/cl.h>
 #include <CL/cl_ext.h>
+#include "deviceInfo.h"
 #if defined(_WIN32) || defined(_WIN64)
 #include <versionhelpers.h>
 #endif
@@ -31,26 +32,22 @@
 #define BUFFERSIZE 3000
 
 
-const VulkanInstance &getVulkanInstance()
+const VulkanInstance &getVulkanInstance(bool useValidationLayers)
 {
-    static VulkanInstance instance;
+    static VulkanInstance instance(useValidationLayers);
     return instance;
 }
 
-const VulkanPhysicalDevice &getVulkanPhysicalDevice()
+const VulkanPhysicalDevice &getVulkanPhysicalDevice(bool useValidationLayers)
 {
-    size_t pdIdx;
+    size_t pdIdx = 0;
     cl_int errNum = 0;
-    cl_platform_id platform = NULL;
+    cl_platform_id platform = nullptr;
     cl_uchar uuid[CL_UUID_SIZE_KHR];
-    cl_device_id *devices;
-    char *extensions = NULL;
-    size_t extensionSize = 0;
     cl_uint num_devices = 0;
     cl_uint device_no = 0;
     const size_t bufsize = BUFFERSIZE;
-    char buf[BUFFERSIZE];
-    const VulkanInstance &instance = getVulkanInstance();
+    const VulkanInstance &instance = getVulkanInstance(useValidationLayers);
     const VulkanPhysicalDeviceList &physicalDeviceList =
         instance.getPhysicalDeviceList();
 
@@ -69,14 +66,9 @@ const VulkanPhysicalDevice &getVulkanPhysicalDevice()
         throw std::runtime_error(
             "Error: clGetDeviceIDs failed in returning of devices\n");
     }
-    devices = (cl_device_id *)malloc(num_devices * sizeof(cl_device_id));
-    if (NULL == devices)
-    {
-        throw std::runtime_error(
-            "Error: Unable to allocate memory for devices\n");
-    }
-    errNum = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, num_devices, devices,
-                            NULL);
+    std::vector<cl_device_id> devices(num_devices);
+    errNum = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, num_devices,
+                            devices.data(), NULL);
     if (CL_SUCCESS != errNum)
     {
         throw std::runtime_error("Error: Failed to get deviceID.\n");
@@ -84,34 +76,14 @@ const VulkanPhysicalDevice &getVulkanPhysicalDevice()
     bool is_selected = false;
     for (device_no = 0; device_no < num_devices; device_no++)
     {
-        errNum = clGetDeviceInfo(devices[device_no], CL_DEVICE_EXTENSIONS, 0,
-                                 NULL, &extensionSize);
-        if (CL_SUCCESS != errNum)
-        {
-            throw std::runtime_error("Error in clGetDeviceInfo for getting "
-                                     "device_extension size....\n");
-        }
-        extensions = (char *)malloc(extensionSize);
-        if (NULL == extensions)
-        {
-            throw std::runtime_error(
-                "Unable to allocate memory for extensions\n");
-        }
-        errNum = clGetDeviceInfo(devices[device_no], CL_DEVICE_EXTENSIONS,
-                                 extensionSize, extensions, NULL);
-        if (CL_SUCCESS != errNum)
-        {
-            throw std::runtime_error("Error: Error in clGetDeviceInfo for "
-                                     "getting device_extension\n");
-        }
         errNum = clGetDeviceInfo(devices[device_no], CL_DEVICE_UUID_KHR,
-                                 CL_UUID_SIZE_KHR, uuid, &extensionSize);
+                                 CL_UUID_SIZE_KHR, uuid, nullptr);
         if (CL_SUCCESS != errNum)
         {
             throw std::runtime_error(
                 "Error: clGetDeviceInfo failed with error\n");
         }
-        free(extensions);
+
         for (pdIdx = 0; pdIdx < physicalDeviceList.size(); pdIdx++)
         {
             if (!memcmp(&uuid, physicalDeviceList[pdIdx].getUUID(),
@@ -139,10 +111,49 @@ const VulkanPhysicalDevice &getVulkanPhysicalDevice()
     return physicalDeviceList[pdIdx];
 }
 
-const VulkanQueueFamily &getVulkanQueueFamily(uint32_t queueFlags)
+const VulkanPhysicalDevice &
+getAssociatedVulkanPhysicalDevice(cl_device_id deviceId,
+                                  bool useValidationLayers)
+{
+    size_t pdIdx;
+    cl_int errNum = 0;
+    cl_uchar uuid[CL_UUID_SIZE_KHR];
+    const VulkanInstance &instance = getVulkanInstance(useValidationLayers);
+    const VulkanPhysicalDeviceList &physicalDeviceList =
+        instance.getPhysicalDeviceList();
+
+    errNum = clGetDeviceInfo(deviceId, CL_DEVICE_UUID_KHR, CL_UUID_SIZE_KHR,
+                             uuid, nullptr);
+    if (CL_SUCCESS != errNum)
+    {
+        throw std::runtime_error("Error: clGetDeviceInfo failed with error\n");
+    }
+    for (pdIdx = 0; pdIdx < physicalDeviceList.size(); pdIdx++)
+    {
+        if (!memcmp(&uuid, physicalDeviceList[pdIdx].getUUID(), VK_UUID_SIZE))
+        {
+            std::cout << "Selected physical device = "
+                      << physicalDeviceList[pdIdx] << std::endl;
+            break;
+        }
+    }
+
+    if ((pdIdx >= physicalDeviceList.size())
+        || (physicalDeviceList[pdIdx] == (VkPhysicalDevice)VK_NULL_HANDLE))
+    {
+        throw std::runtime_error("failed to find a suitable GPU!");
+    }
+    std::cout << "Selected physical device is: " << physicalDeviceList[pdIdx]
+              << std::endl;
+    return physicalDeviceList[pdIdx];
+}
+
+
+const VulkanQueueFamily &
+getVulkanQueueFamily(const VulkanPhysicalDevice &physicalDevice,
+                     uint32_t queueFlags)
 {
     size_t qfIdx;
-    const VulkanPhysicalDevice &physicalDevice = getVulkanPhysicalDevice();
     const VulkanQueueFamilyList &queueFamilyList =
         physicalDevice.getQueueFamilyList();
 
@@ -174,14 +185,14 @@ getVulkanMemoryType(const VulkanDevice &device,
         }
     }
 
-    // CHECK_LT(mtIdx, memoryTypeList.size());
+    ASSERT(mtIdx < memoryTypeList.size());
     return memoryTypeList[mtIdx];
 }
 
-bool checkVkSupport()
+bool checkVkSupport(bool useValidationLayers)
 {
     bool result = true;
-    const VulkanInstance &instance = getVulkanInstance();
+    const VulkanInstance &instance = getVulkanInstance(useValidationLayers);
     const VulkanPhysicalDeviceList &physicalDeviceList =
         instance.getPhysicalDeviceList();
     if (physicalDeviceList() == NULL)
@@ -215,7 +226,8 @@ getDefaultVulkanQueueFamilyToQueueCountMap()
 }
 
 const std::vector<VulkanExternalMemoryHandleType>
-getSupportedVulkanExternalMemoryHandleTypeList()
+getSupportedVulkanExternalMemoryHandleTypeList(
+    const VulkanPhysicalDevice &physical_device)
 {
     std::vector<VulkanExternalMemoryHandleType> externalMemoryHandleTypeList;
 
@@ -228,36 +240,133 @@ getSupportedVulkanExternalMemoryHandleTypeList()
     externalMemoryHandleTypeList.push_back(
         VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT);
 #else
-    externalMemoryHandleTypeList.push_back(
-        VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD);
+    VkPhysicalDeviceExternalBufferInfo buffer_info = {};
+    buffer_info.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO;
+    buffer_info.handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHR;
+
+    VkExternalBufferProperties buffer_properties = {};
+    buffer_properties.sType = VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES;
+
+    vkGetPhysicalDeviceExternalBufferProperties(physical_device, &buffer_info,
+                                                &buffer_properties);
+
+    if (buffer_properties.externalMemoryProperties.externalMemoryFeatures
+        & VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT)
+    {
+
+        externalMemoryHandleTypeList.push_back(
+            VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD);
+    }
 #endif
 
     return externalMemoryHandleTypeList;
 }
 
 const std::vector<VulkanExternalSemaphoreHandleType>
-getSupportedVulkanExternalSemaphoreHandleTypeList()
+getSupportedVulkanExternalSemaphoreHandleTypeList(const VulkanDevice &vkDevice)
 {
+    typedef struct
+    {
+        const char *extension_name;
+        VkExternalSemaphoreHandleTypeFlagBits vk_type;
+        VulkanExternalSemaphoreHandleType enum_type;
+    } VkSemaphoreHandleMap;
+
+    // Add all known handle types, use Vulkan queries to determine what is
+    // supported.
+    std::vector<VkSemaphoreHandleMap> all_known_handle_types;
+    all_known_handle_types.push_back(
+        { "VK_KHR_external_semaphore_fd",
+          VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR,
+          VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD });
+    all_known_handle_types.push_back(
+        { "VK_KHR_external_semaphore_fd",
+          VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT_KHR,
+          VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD });
+    all_known_handle_types.push_back(
+        { "VK_KHR_external_semaphore_win32",
+          VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR,
+          VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT });
+    all_known_handle_types.push_back(
+        { "VK_KHR_external_semaphore_win32",
+          VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR,
+          VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_NT });
+
     std::vector<VulkanExternalSemaphoreHandleType>
         externalSemaphoreHandleTypeList;
 
-#if _WIN32
-    if (IsWindows8OrGreater())
+    for (auto handle_type : all_known_handle_types)
     {
-        externalSemaphoreHandleTypeList.push_back(
-            VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_NT);
+        if (!vkDevice.getPhysicalDevice().hasExtension(
+                handle_type.extension_name))
+        {
+            continue;
+        }
+
+        VkPhysicalDeviceExternalSemaphoreInfo handle_query = {
+            VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO, nullptr,
+            handle_type.vk_type
+        };
+        VkExternalSemaphoreProperties query_result = {};
+        vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(
+            vkDevice.getPhysicalDevice(), &handle_query, &query_result);
+        if (query_result.externalSemaphoreFeatures
+            & (VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHR
+               | VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT_KHR))
+        {
+            externalSemaphoreHandleTypeList.push_back(handle_type.enum_type);
+        }
     }
-    externalSemaphoreHandleTypeList.push_back(
-        VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT);
-#elif defined(__ANDROID__)
-    externalSemaphoreHandleTypeList.push_back(
-        VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD);
-#else
-    externalSemaphoreHandleTypeList.push_back(
-        VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD);
-#endif
 
     return externalSemaphoreHandleTypeList;
+}
+
+std::vector<VulkanExternalSemaphoreHandleType>
+getSupportedInteropExternalSemaphoreHandleTypes(cl_device_id device,
+                                                VulkanDevice &vkDevice)
+{
+    const std::vector<VulkanExternalSemaphoreHandleType>
+        supportedVkSemaphoreTypes =
+            getSupportedVulkanExternalSemaphoreHandleTypeList(vkDevice);
+    std::vector<VulkanExternalSemaphoreHandleType> supportedSemaphoreTypes;
+
+    if (is_extension_available(device, "cl_khr_external_semaphore_opaque_fd")
+        && std::count(supportedVkSemaphoreTypes.begin(),
+                      supportedVkSemaphoreTypes.end(),
+                      VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD))
+    {
+        supportedSemaphoreTypes.push_back(
+            VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD);
+    }
+
+    if (is_extension_available(device, "cl_khr_external_semaphore_sync_fd")
+        && std::count(supportedVkSemaphoreTypes.begin(),
+                      supportedVkSemaphoreTypes.end(),
+                      VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD))
+    {
+        supportedSemaphoreTypes.push_back(
+            VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD);
+    }
+
+    if (is_extension_available(device, "cl_khr_external_semaphore_win32")
+        && std::count(supportedVkSemaphoreTypes.begin(),
+                      supportedVkSemaphoreTypes.end(),
+                      VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_NT))
+    {
+        supportedSemaphoreTypes.push_back(
+            VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_NT);
+    }
+
+    if (is_extension_available(device, "cl_khr_external_semaphore_win32")
+        && std::count(supportedVkSemaphoreTypes.begin(),
+                      supportedVkSemaphoreTypes.end(),
+                      VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT))
+    {
+        supportedSemaphoreTypes.push_back(
+            VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT);
+    }
+
+    return supportedSemaphoreTypes;
 }
 
 const std::vector<VulkanFormat> getSupportedVulkanFormatList()
@@ -498,7 +607,6 @@ cl_external_semaphore_handle_type_khr getCLSemaphoreTypeFromVulkanType(
             clExternalSemaphoreHandleTypeKhr =
                 CL_SEMAPHORE_HANDLE_OPAQUE_WIN32_KHR;
             break;
-        case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_NT_KMT:
         case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT:
             clExternalSemaphoreHandleTypeKhr =
                 CL_SEMAPHORE_HANDLE_OPAQUE_WIN32_KMT_KHR;
@@ -604,6 +712,7 @@ operator<<(std::ostream &os,
 {
     switch (externalMemoryHandleType)
     {
+        default:
         case VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE: return os << "None";
         case VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD:
             return os << "Opaque file descriptor";
@@ -624,6 +733,7 @@ operator<<(std::ostream &os,
 {
     switch (externalSemaphoreHandleType)
     {
+        default:
         case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_NONE: return os << "None";
         case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD:
             return os << "Opaque file descriptor";
@@ -631,8 +741,8 @@ operator<<(std::ostream &os,
             return os << "Opaque NT handle";
         case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT:
             return os << "Opaque D3DKMT handle";
-        case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_NT_KMT:
-            return os << "Opaque NT and D3DKMT handle";
+        case VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD:
+            return os << "Sync fd semaphore handle";
     }
 
     return os;
@@ -671,43 +781,37 @@ std::ostream &operator<<(std::ostream &os, VulkanFormat format)
     return os;
 }
 
-static char *findFilePath(const std::string filename)
+static std::string findFilePath(const std::string &filename,
+                                const std::string &startdir)
 {
     const char *searchPath[] = {
-        "./", // Same dir
-        "./shaders/", // In shaders folder in same dir
-        "../test_conformance/vulkan/shaders/" // In src folder
+        "/shaders/", // shaders directory, for most builds
+        "/../shaders/", // one directory up, for multi-config builds
     };
     for (unsigned int i = 0; i < sizeof(searchPath) / sizeof(char *); ++i)
     {
-        std::string path(searchPath[i]);
+        std::string path(startdir);
+        path += searchPath[i];
+        path += filename;
 
-        path.append(filename);
         FILE *fp;
         fp = fopen(path.c_str(), "rb");
 
         if (fp != NULL)
         {
             fclose(fp);
-            // File found
-            char *file_path = (char *)(malloc(path.length() + 1));
-            strncpy(file_path, path.c_str(), path.length() + 1);
-            return file_path;
-        }
-        if (fp)
-        {
-            fclose(fp);
+            return path;
         }
     }
     // File not found
-    return 0;
+    return "";
 }
 
-std::vector<char> readFile(const std::string &filename)
+std::vector<char> readFile(const std::string &filename,
+                           const std::string &startdir = "")
 {
-    char *file_path = findFilePath(filename);
-
-    std::ifstream file(file_path, std::ios::ate | std::ios::binary);
+    std::string filepath = findFilePath(filename, startdir);
+    std::ifstream file(filepath, std::ios::ate | std::ios::binary);
 
     if (!file.is_open())
     {
@@ -718,6 +822,6 @@ std::vector<char> readFile(const std::string &filename)
     file.seekg(0);
     file.read(buffer.data(), fileSize);
     file.close();
-    printf("filesize is %d", fileSize);
+    printf("filesize is %zu\n", fileSize);
     return buffer;
 }

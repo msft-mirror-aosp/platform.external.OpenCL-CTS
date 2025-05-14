@@ -98,11 +98,17 @@
     VK_FUNC_DECL(vkGetPhysicalDeviceSurfaceFormatsKHR)                         \
     VK_FUNC_DECL(vkGetPhysicalDeviceSurfacePresentModesKHR)                    \
     VK_FUNC_DECL(vkEnumerateDeviceExtensionProperties)                         \
-    VK_FUNC_DECL(vkGetPhysicalDeviceSurfaceSupportKHR)
-
+    VK_FUNC_DECL(vkGetPhysicalDeviceSurfaceSupportKHR)                         \
+    VK_FUNC_DECL(vkImportSemaphoreFdKHR)                                       \
+    VK_FUNC_DECL(vkGetPhysicalDeviceExternalSemaphorePropertiesKHR)            \
+    VK_FUNC_DECL(vkGetImageSubresourceLayout)                                  \
+    VK_FUNC_DECL(vkCreateDebugUtilsMessengerEXT)                               \
+    VK_FUNC_DECL(vkDestroyDebugUtilsMessengerEXT)                              \
+    VK_FUNC_DECL(vkGetPhysicalDeviceExternalBufferProperties)
 #define VK_WINDOWS_FUNC_LIST                                                   \
     VK_FUNC_DECL(vkGetMemoryWin32HandleKHR)                                    \
-    VK_FUNC_DECL(vkGetSemaphoreWin32HandleKHR)
+    VK_FUNC_DECL(vkGetSemaphoreWin32HandleKHR)                                 \
+    VK_FUNC_DECL(vkImportSemaphoreWin32HandleKHR)
 
 #define vkEnumerateInstanceVersion _vkEnumerateInstanceVersion
 #define vkEnumerateInstanceExtensionProperties                                 \
@@ -192,8 +198,16 @@
     _vkEnumerateDeviceExtensionProperties
 #define vkGetPhysicalDeviceSurfaceSupportKHR                                   \
     _vkGetPhysicalDeviceSurfaceSupportKHR
-
+#define vkImportSemaphoreFdKHR _vkImportSemaphoreFdKHR
+#define vkGetPhysicalDeviceExternalSemaphorePropertiesKHR                      \
+    _vkGetPhysicalDeviceExternalSemaphorePropertiesKHR
 #define vkGetMemoryWin32HandleKHR _vkGetMemoryWin32HandleKHR
 #define vkGetSemaphoreWin32HandleKHR _vkGetSemaphoreWin32HandleKHR
+#define vkImportSemaphoreWin32HandleKHR _vkImportSemaphoreWin32HandleKHR
+#define vkGetImageSubresourceLayout _vkGetImageSubresourceLayout
+#define vkCreateDebugUtilsMessengerEXT _vkCreateDebugUtilsMessengerEXT
+#define vkDestroyDebugUtilsMessengerEXT _vkDestroyDebugUtilsMessengerEXT
+#define vkGetPhysicalDeviceExternalBufferProperties                            \
+    _vkGetPhysicalDeviceExternalBufferProperties
 
 #endif //_vulkan_api_list_hpp_

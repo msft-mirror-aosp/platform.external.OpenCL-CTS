@@ -63,6 +63,8 @@ int TestFunc_Int_Float(const Func *f, MTdata d, bool relaxedMode)
 
     for (uint64_t i = 0; i < (1ULL << 32); i += step)
     {
+        if (gSkipCorrectnessTesting) break;
+
         // Init input array
         cl_uint *p = (cl_uint *)gIn;
         if (gWimpyMode)
@@ -97,7 +99,7 @@ int TestFunc_Int_Float(const Func *f, MTdata d, bool relaxedMode)
                     vlog_error(
                         "\n*** Error %d in clEnqueueWriteBuffer2(%d) ***\n",
                         error, j);
-                    goto exit;
+                    return error;
                 }
             }
             else
@@ -119,25 +121,19 @@ int TestFunc_Int_Float(const Func *f, MTdata d, bool relaxedMode)
             size_t vectorSize = sizeValues[j] * sizeof(cl_float);
             size_t localCount = (BUFFER_SIZE + vectorSize - 1)
                 / vectorSize; // BUFFER_SIZE / vectorSize  rounded up
-            if ((error = clSetKernelArg(kernels[j][thread_id], 0,
-                                        sizeof(gOutBuffer[j]), &gOutBuffer[j])))
-            {
-                LogBuildError(programs[j]);
-                goto exit;
-            }
-            if ((error = clSetKernelArg(kernels[j][thread_id], 1,
-                                        sizeof(gInBuffer), &gInBuffer)))
-            {
-                LogBuildError(programs[j]);
-                goto exit;
-            }
+            error = clSetKernelArg(kernels[j][thread_id], 0,
+                                   sizeof(gOutBuffer[j]), &gOutBuffer[j]);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 1, sizeof(gInBuffer),
+                                   &gInBuffer);
+            test_error(error, "Failed to set kernel argument");
 
             if ((error = clEnqueueNDRangeKernel(gQueue, kernels[j][thread_id],
                                                 1, NULL, &localCount, NULL, 0,
                                                 NULL, NULL)))
             {
                 vlog_error("FAILED -- could not execute kernel\n");
-                goto exit;
+                return error;
             }
         }
 
@@ -158,11 +154,9 @@ int TestFunc_Int_Float(const Func *f, MTdata d, bool relaxedMode)
                                          BUFFER_SIZE, gOut[j], 0, NULL, NULL)))
             {
                 vlog_error("ReadArray failed %d\n", error);
-                goto exit;
+                return error;
             }
         }
-
-        if (gSkipCorrectnessTesting) break;
 
         // Verify data
         uint32_t *t = (uint32_t *)gOut_Ref;
@@ -187,8 +181,7 @@ int TestFunc_Int_Float(const Func *f, MTdata d, bool relaxedMode)
                                "*%d vs. %d\n",
                                f->name, sizeNames[k], err, ((float *)gIn)[j],
                                ((cl_uint *)gIn)[j], t[j], q[j]);
-                    error = -1;
-                    goto exit;
+                    return -1;
                 }
             }
         }
@@ -219,6 +212,5 @@ int TestFunc_Int_Float(const Func *f, MTdata d, bool relaxedMode)
 
     vlog("\n");
 
-exit:
     return error;
 }

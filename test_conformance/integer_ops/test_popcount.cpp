@@ -13,15 +13,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "harness/compat.h"
+#include "testBase.h"
 
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include "procs.h"
-
+#include <cinttypes>
 #define str(s) #s
 
 #define __popcnt(x, __T, __n, __r) \
@@ -36,26 +35,29 @@
         } \
     }
 
-#define __verify_popcount_func(__T) \
-    static int verify_popcount_##__T( const void *p, const void *r, size_t n, const char *sizeName, size_t vecSize ) \
-    { \
-        const __T *inA = (const __T *) p; \
-        const __T *outptr = (const __T *) r; \
-        size_t i; \
-        int _n = sizeof(__T)*8; \
-        __T ref; \
-        for(i = 0; i < n; i++) \
-        { \
-            __T x = inA[i]; \
-            __T res = outptr[i]; \
-            __popcnt(x, __T, _n, ref); \
-            if(res != ref) \
-            { \
-                log_info( "%ld) Failure for popcount( (%s%s) 0x%x ) = *%d vs %d\n", i, str(__T), sizeName, x, (int)ref, (int)res ); \
-                return -1; \
-            }\
-        } \
-        return 0; \
+#define __verify_popcount_func(__T)                                            \
+    static int verify_popcount_##__T(const void *p, const void *r, size_t n,   \
+                                     const char *sizeName, size_t vecSize)     \
+    {                                                                          \
+        const __T *inA = (const __T *)p;                                       \
+        const __T *outptr = (const __T *)r;                                    \
+        size_t i;                                                              \
+        int _n = sizeof(__T) * 8;                                              \
+        __T ref;                                                               \
+        for (i = 0; i < n; i++)                                                \
+        {                                                                      \
+            __T x = inA[i];                                                    \
+            __T res = outptr[i];                                               \
+            __popcnt(x, __T, _n, ref);                                         \
+            if (res != ref)                                                    \
+            {                                                                  \
+                log_info(                                                      \
+                    "%zu) Failure for popcount( (%s%s) 0x%x ) = *%d vs %d\n",  \
+                    i, str(__T), sizeName, (int)x, (int)ref, (int)res);        \
+                return -1;                                                     \
+            }                                                                  \
+        }                                                                      \
+        return 0;                                                              \
     }
 
 __verify_popcount_func(cl_char);
@@ -87,7 +89,7 @@ static void printSrc(const char *src[], int nSrcStrings) {
     }
 }
 
-int test_popcount(cl_device_id device, cl_context context, cl_command_queue queue, int n_elems)
+REGISTER_TEST(popcount)
 {
     cl_int *input_ptr[1], *output_ptr, *p;
     int err;
@@ -97,15 +99,14 @@ int test_popcount(cl_device_id device, cl_context context, cl_command_queue queu
     MTdata d;
     int fail_count = 0;
 
-    size_t length = sizeof(cl_int) * 8 * n_elems;
+    size_t length = sizeof(cl_int) * 8 * num_elements;
 
     input_ptr[0] = (cl_int*)malloc(length);
     output_ptr   = (cl_int*)malloc(length);
 
     d = init_genrand( gRandomSeed );
     p = input_ptr[0];
-    for (i=0; i<8 * n_elems; i++)
-        p[i] = genrand_int32(d);
+    for (i = 0; i < 8 * num_elements; i++) p[i] = genrand_int32(d);
     free_mtdata(d);  d = NULL;
 
     for( type = 0; type < sizeof( test_str_names ) / sizeof( test_str_names[0] ); type++ )
@@ -243,5 +244,3 @@ int test_popcount(cl_device_id device, cl_context context, cl_command_queue queu
 
     return err;
 }
-
-

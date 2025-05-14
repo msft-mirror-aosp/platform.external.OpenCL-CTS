@@ -18,6 +18,8 @@
 #include "../common.h"
 #include "test_cl_ext_image_buffer.hpp"
 
+static inline bool is_power_of_two(size_t num) { return !(num & (num - 1)); }
+
 static int get_image_requirement_alignment(
     cl_device_id device, cl_context context, cl_mem_flags flags,
     const cl_image_format* image_format, const cl_image_desc* image_desc,
@@ -79,11 +81,17 @@ int image2d_from_buffer_positive(cl_device_id device, cl_context context,
         return TEST_SKIPPED_ITSELF;
     }
 
-    std::vector<cl_mem_object_type> imageTypes{
-        CL_MEM_OBJECT_IMAGE1D,       CL_MEM_OBJECT_IMAGE2D,
-        CL_MEM_OBJECT_IMAGE3D,       CL_MEM_OBJECT_IMAGE1D_BUFFER,
-        CL_MEM_OBJECT_IMAGE1D_ARRAY, CL_MEM_OBJECT_IMAGE2D_ARRAY
-    };
+    cl_uint row_pitch_alignment_2d = 0;
+    cl_int err = clGetDeviceInfo(device, CL_DEVICE_IMAGE_PITCH_ALIGNMENT,
+                                 sizeof(row_pitch_alignment_2d),
+                                 &row_pitch_alignment_2d, nullptr);
+    test_error(err, "Error clGetDeviceInfo");
+
+    cl_uint base_address_alignment_2d = 0;
+    err = clGetDeviceInfo(device, CL_DEVICE_IMAGE_BASE_ADDRESS_ALIGNMENT,
+                          sizeof(base_address_alignment_2d),
+                          &base_address_alignment_2d, nullptr);
+    test_error(err, "Error clGetDeviceInfo");
 
     std::vector<cl_mem_flags> flagTypes{ CL_MEM_READ_ONLY, CL_MEM_WRITE_ONLY,
                                          CL_MEM_READ_WRITE,
@@ -91,55 +99,43 @@ int image2d_from_buffer_positive(cl_device_id device, cl_context context,
 
     for (auto flagType : flagTypes)
     {
-        for (auto imageType : imageTypes)
+
+        /* Get the list of supported image formats */
+        std::vector<cl_image_format> formatList;
+        if (TEST_PASS
+                != get_format_list(context, CL_MEM_OBJECT_IMAGE2D, formatList,
+                                   flagType)
+            || formatList.size() == 0)
         {
-            /* Get the list of supported image formats */
-            std::vector<cl_image_format> formatList;
-            if (TEST_PASS
-                    != get_format_list(context, imageType, formatList, flagType)
-                || formatList.size() == 0)
+            test_fail("Failure to get supported formats list\n");
+        }
+
+        for (auto format : formatList)
+        {
+            cl_image_desc image_desc = { 0 };
+            image_desc_init(&image_desc, CL_MEM_OBJECT_IMAGE2D);
+
+            cl_mem_flags flag = (flagType == CL_MEM_KERNEL_READ_AND_WRITE)
+                ? CL_MEM_READ_WRITE
+                : flagType;
+
+            size_t row_pitch_alignment = 0;
+            size_t base_address_alignment = 0;
+
+            int get_error = get_image_requirement_alignment(
+                device, context, flag, &format, &image_desc,
+                &row_pitch_alignment, nullptr, &base_address_alignment);
+            if (TEST_PASS != get_error)
             {
-                test_fail("Failure to get supported formats list\n");
+                return get_error;
             }
 
-            cl_uint row_pitch_alignment_2d = 0;
-            cl_int err =
-                clGetDeviceInfo(device, CL_DEVICE_IMAGE_PITCH_ALIGNMENT,
-                                sizeof(row_pitch_alignment_2d),
-                                &row_pitch_alignment_2d, nullptr);
-            test_error(err, "Error clGetDeviceInfo");
+            const size_t element_size =
+                get_format_size(context, &format, CL_MEM_OBJECT_IMAGE2D, flag);
 
-            cl_uint base_address_alignment_2d = 0;
-            err =
-                clGetDeviceInfo(device, CL_DEVICE_IMAGE_BASE_ADDRESS_ALIGNMENT,
-                                sizeof(base_address_alignment_2d),
-                                &base_address_alignment_2d, nullptr);
-            test_error(err, "Error clGetDeviceInfo");
-
-            for (auto format : formatList)
+            if (is_power_of_two(element_size))
             {
-                cl_image_desc image_desc = { 0 };
-                image_desc_init(&image_desc, imageType);
-
-                cl_mem_flags flag = (flagType == CL_MEM_KERNEL_READ_AND_WRITE)
-                    ? CL_MEM_READ_WRITE
-                    : flagType;
-
-                size_t row_pitch_alignment = 0;
-                size_t base_address_alignment = 0;
-
-                int get_error = get_image_requirement_alignment(
-                    device, context, flag, &format, &image_desc,
-                    &row_pitch_alignment, nullptr, &base_address_alignment);
-                if (TEST_PASS != get_error)
-                {
-                    return get_error;
-                }
-
-                const size_t element_size =
-                    get_format_size(context, &format, imageType, flag);
-
-                /*  Alignements in pixels vs bytes */
+                /*  Alignments in pixels vs bytes */
                 if (base_address_alignment
                     > base_address_alignment_2d * element_size)
                 {
@@ -498,10 +494,11 @@ int image_from_buffer_alignment_negative(cl_device_id device,
                 test_error(err, "Unable to create buffer");
 
                 /* Test Row pitch images */
-                if (imageType == CL_MEM_OBJECT_IMAGE2D
-                    || imageType == CL_MEM_OBJECT_IMAGE3D
-                    || imageType == CL_MEM_OBJECT_IMAGE1D_ARRAY
-                    || imageType == CL_MEM_OBJECT_IMAGE2D_ARRAY)
+                if ((imageType == CL_MEM_OBJECT_IMAGE2D
+                     || imageType == CL_MEM_OBJECT_IMAGE3D
+                     || imageType == CL_MEM_OBJECT_IMAGE1D_ARRAY
+                     || imageType == CL_MEM_OBJECT_IMAGE2D_ARRAY)
+                    && row_pitch_alignment != 1)
                 {
                     image_desc.buffer = buffer;
                     image_desc.image_row_pitch =
@@ -514,8 +511,9 @@ int image_from_buffer_alignment_negative(cl_device_id device,
                 }
 
                 /* Test Slice pitch images */
-                if (imageType == CL_MEM_OBJECT_IMAGE3D
-                    || imageType == CL_MEM_OBJECT_IMAGE2D_ARRAY)
+                if ((imageType == CL_MEM_OBJECT_IMAGE3D
+                     || imageType == CL_MEM_OBJECT_IMAGE2D_ARRAY)
+                    && slice_pitch_alignment != 1)
                 {
                     image_desc.buffer = buffer;
                     image_desc.image_row_pitch = row_pitch;
@@ -528,36 +526,39 @@ int image_from_buffer_alignment_negative(cl_device_id device,
                                        "Unexpected clCreateImage return");
                 }
 
-                /* Test buffer from host ptr to test base address alignment */
-                const size_t aligned_buffer_size =
-                    aligned_size(buffer_size, base_address_alignment);
-                /* Create buffer with host ptr and additional size for the wrong
-                 * alignment */
-                void* const host_ptr =
-                    malloc(aligned_buffer_size + base_address_alignment);
-                void* non_aligned_host_ptr =
-                    (void*)((char*)(aligned_ptr(host_ptr,
-                                                base_address_alignment))
-                            + 1); /* wrong alignment */
+                if (base_address_alignment != 1)
+                {
+                    /* Test buffer from host ptr to test base address alignment
+                     */
+                    const size_t aligned_buffer_size =
+                        aligned_size(buffer_size, base_address_alignment);
+                    /* Create buffer with host ptr and additional size for the
+                     * wrong alignment */
+                    void* const host_ptr =
+                        malloc(aligned_buffer_size + base_address_alignment);
+                    void* non_aligned_host_ptr =
+                        (void*)((char*)(aligned_ptr(host_ptr,
+                                                    base_address_alignment))
+                                + 1); /* wrong alignment */
 
-                cl_mem buffer_host = clCreateBuffer(
-                    context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_WRITE,
-                    buffer_size, non_aligned_host_ptr, &err);
-                test_error(err, "Unable to create buffer");
+                    cl_mem buffer_host = clCreateBuffer(
+                        context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_WRITE,
+                        buffer_size, non_aligned_host_ptr, &err);
+                    test_error(err, "Unable to create buffer");
 
-                image_desc.buffer = buffer_host;
+                    image_desc.buffer = buffer_host;
 
-                clCreateImage(context, flag, &format, &image_desc, nullptr,
-                              &err);
-                test_failure_error(err, CL_INVALID_IMAGE_FORMAT_DESCRIPTOR,
-                                   "Unexpected clCreateImage return");
+                    clCreateImage(context, flag, &format, &image_desc, nullptr,
+                                  &err);
+                    test_failure_error(err, CL_INVALID_IMAGE_FORMAT_DESCRIPTOR,
+                                       "Unexpected clCreateImage return");
 
-                free(host_ptr);
+                    free(host_ptr);
+                    err = clReleaseMemObject(buffer_host);
+                    test_error(err, "Unable to release buffer");
+                }
 
                 err = clReleaseMemObject(buffer);
-                test_error(err, "Unable to release buffer");
-
-                err = clReleaseMemObject(buffer_host);
                 test_error(err, "Unable to release buffer");
             }
         }
@@ -768,7 +769,7 @@ int image_from_buffer_fill_positive(cl_device_id device, cl_context context,
                 err = clFinish(queue);
                 test_error(err, "Error clFinish");
 
-                cl_mem image1d_buffer;
+                cl_mem image1d_buffer = nullptr;
                 if (imageType == CL_MEM_OBJECT_IMAGE1D_BUFFER)
                 {
                     image1d_buffer = clCreateBuffer(context, flag, buffer_size,

@@ -24,8 +24,16 @@
 #include <CL/cl_half.h>
 #include <CL/cl_ext.h>
 
+#include "harness/conversions.h"
+#include "harness/mt19937.h"
 #include "harness/testHarness.h"
 #include "harness/typeWrappers.h"
+
+#define kVectorSizeCount 5
+#define kStrangeVectorSizeCount 1
+#define kTotalVecCount (kVectorSizeCount + kStrangeVectorSizeCount)
+
+extern int g_arrVecSizes[kVectorSizeCount + kStrangeVectorSizeCount];
 
 template <typename T>
 using VerifyFuncBinary = int (*)(const T *const, const T *const, const T *const,
@@ -151,28 +159,6 @@ struct MixTest : BaseFunctionTest
     cl_int Run() override;
 };
 
-template <typename T> float UlpFn(const T &val, const double &r)
-{
-    if (std::is_same<T, half>::value)
-    {
-        return Ulp_Error_Half(val, r);
-    }
-    else if (std::is_same<T, float>::value)
-    {
-        return Ulp_Error(val, r);
-    }
-    else if (std::is_same<T, double>::value)
-    {
-        return Ulp_Error_Double(val, r);
-    }
-    else
-    {
-        log_error("UlpFn: unsupported data type\n");
-    }
-
-    return -1.f; // wrong val
-}
-
 template <typename T> inline double conv_to_dbl(const T &val)
 {
     if (std::is_same<T, half>::value)
@@ -196,25 +182,31 @@ template <typename T> inline half conv_to_half(const T &val)
     return 0;
 }
 
-template <typename T> bool isfinite_fp(const T &v)
+template <typename T> float UlpFn(const T &val, const double &r)
 {
     if (std::is_same<T, half>::value)
     {
-        // Extract FP16 exponent and mantissa
-        uint16_t h_exp = (((half)v) >> (CL_HALF_MANT_DIG - 1)) & 0x1F;
-        uint16_t h_mant = ((half)v) & 0x3FF;
+        if (conv_to_half(r) == val)
+        {
+            return 0.0f;
+        }
 
-        // !Inf test
-        return !(h_exp == 0x1F && h_mant == 0);
+        return Ulp_Error_Half(val, r);
+    }
+    else if (std::is_same<T, float>::value)
+    {
+        return Ulp_Error(val, r);
+    }
+    else if (std::is_same<T, double>::value)
+    {
+        return Ulp_Error_Double(val, r);
     }
     else
     {
-#if !defined(_WIN32)
-        return std::isfinite(v);
-#else
-        return isfinite(v);
-#endif
+        log_error("UlpFn: unsupported data type\n");
     }
+
+    return -1.f; // wrong val
 }
 
 template <class T>

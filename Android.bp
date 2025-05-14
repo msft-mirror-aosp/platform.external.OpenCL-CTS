@@ -322,9 +322,7 @@ cc_test {
         "test_common/miniz/miniz.c",
     ],
     data: ["test_conformance/spir/*.zip"],
-    cflags: [
-        "-Wno-unused-private-field",
-    ],
+    cflags: ["-Wno-unused-private-field"],
     defaults: ["ocl-test-defaults"],
     rtti: true,
     gtest: false,

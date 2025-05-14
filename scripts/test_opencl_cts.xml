@@ -5,37 +5,37 @@
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
         <option name="cleanup" value="true"/>
         <option name="append-bitness" value="true"/>
-        <option key="ocl-test-allocations" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-allocations"/>
-        <option key="ocl-test-api" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-api"/>
-        <option key="ocl-test-atomics" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-atomics"/>
-        <option key="ocl-test-basic" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-basic"/>
-        <option key="ocl-test-buffers" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-buffers"/>
-        <option key="ocl-test-c11-atomics" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
-        <option key="ocl-test-commonfns" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-commonfns"/>
-        <option key="ocl-test-computeinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
-        <option key="ocl-test-contractions" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-contractions"/>
-        <option key="ocl-test-device-execution" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-execution"/>
-        <option key="ocl-test-device-partition" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-partition"/>
-        <option key="ocl-test-device-timer" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-device-timer"/>
-        <option key="ocl-test-events" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-events"/>
-        <option key="ocl-test-generic-address-space" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
-        <option key="ocl-test-geometrics" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-geometrics"/>
-        <option key="ocl-test-mem-host-flags" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
-        <option key="ocl-test-multiple-device-context" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
-        <option key="ocl-test-non-uniform-work-group" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
-        <option key="ocl-test-pipes" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-pipes"/>
-        <option key="ocl-test-profiling" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-profiling"/>
-        <option key="ocl-test-relationals" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-relationals"/>
-        <option key="ocl-test-subgroups" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
-        <option key="ocl-test-svm" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
-        <option key="ocl-test-thread-dimensions" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
-        <option key="ocl-test-vectors" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-vectors"/>
-        <option key="ocl-test-image-clcopyimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
-        <option key="ocl-test-image-clfillimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
-        <option key="ocl-test-image-clgetinfo" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
-        <option key="ocl-test-image-clreadwriteimage" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
-        <option key="ocl-test-image-kernel-image-methods" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
-        <option key="ocl-test-image-samplerlessreads" name="push-file" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
+        <option name="push-file" key="ocl-test-allocations" value="/data/nativetest64/unrestricted/ocl-test-allocations"/>
+        <option name="push-file" key="ocl-test-api" value="/data/nativetest64/unrestricted/ocl-test-api"/>
+        <option name="push-file" key="ocl-test-atomics" value="/data/nativetest64/unrestricted/ocl-test-atomics"/>
+        <option name="push-file" key="ocl-test-basic" value="/data/nativetest64/unrestricted/ocl-test-basic"/>
+        <option name="push-file" key="ocl-test-buffers" value="/data/nativetest64/unrestricted/ocl-test-buffers"/>
+        <option name="push-file" key="ocl-test-c11-atomics" value="/data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
+        <option name="push-file" key="ocl-test-commonfns" value="/data/nativetest64/unrestricted/ocl-test-commonfns"/>
+        <option name="push-file" key="ocl-test-computeinfo" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
+        <option name="push-file" key="ocl-test-contractions" value="/data/nativetest64/unrestricted/ocl-test-contractions"/>
+        <option name="push-file" key="ocl-test-device-execution" value="/data/nativetest64/unrestricted/ocl-test-device-execution"/>
+        <option name="push-file" key="ocl-test-device-partition" value="/data/nativetest64/unrestricted/ocl-test-device-partition"/>
+        <option name="push-file" key="ocl-test-device-timer" value="/data/nativetest64/unrestricted/ocl-test-device-timer"/>
+        <option name="push-file" key="ocl-test-events" value="/data/nativetest64/unrestricted/ocl-test-events"/>
+        <option name="push-file" key="ocl-test-generic-address-space" value="/data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
+        <option name="push-file" key="ocl-test-geometrics" value="/data/nativetest64/unrestricted/ocl-test-geometrics"/>
+        <option name="push-file" key="ocl-test-mem-host-flags" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
+        <option name="push-file" key="ocl-test-multiple-device-context" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
+        <option name="push-file" key="ocl-test-non-uniform-work-group" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
+        <option name="push-file" key="ocl-test-pipes" value="/data/nativetest64/unrestricted/ocl-test-pipes"/>
+        <option name="push-file" key="ocl-test-profiling" value="/data/nativetest64/unrestricted/ocl-test-profiling"/>
+        <option name="push-file" key="ocl-test-relationals" value="/data/nativetest64/unrestricted/ocl-test-relationals"/>
+        <option name="push-file" key="ocl-test-subgroups" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
+        <option name="push-file" key="ocl-test-svm" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
+        <option name="push-file" key="ocl-test-thread-dimensions" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
+        <option name="push-file" key="ocl-test-vectors" value="/data/nativetest64/unrestricted/ocl-test-vectors"/>
+        <option name="push-file" key="ocl-test-image-clcopyimage" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+        <option name="push-file" key="ocl-test-image-clfillimage" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+        <option name="push-file" key="ocl-test-image-clgetinfo" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+        <option name="push-file" key="ocl-test-image-clreadwriteimage" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+        <option name="push-file" key="ocl-test-image-kernel-image-methods" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+        <option name="push-file" key="ocl-test-image-samplerlessreads" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
         <option name="par-file-name" value="opencl_cts"/>

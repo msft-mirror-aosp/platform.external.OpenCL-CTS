@@ -91,11 +91,19 @@ def create_subelement_with_attribs(element, tag, attribs):
 def generate_push_file_rules(configuration):
   create_subelement_with_attribs(configuration, 'target_preparer',
       { 'class': "com.android.tradefed.targetprep.RootTargetPreparer" })
-  file_pusher = create_subelement_with_attribs(configuration, 'target_preparer',
+
+  tester_pusher = create_subelement_with_attribs(configuration, 'target_preparer',
       { 'class': "com.android.compatibility.common.tradefed.targetprep.FilePusher" })
-  create_subelement_with_attribs(file_pusher, 'option',
+  create_subelement_with_attribs(tester_pusher, 'option',
       { 'name': "cleanup", 'value': "true" })
-  create_subelement_with_attribs(file_pusher, 'option',
+  create_subelement_with_attribs(tester_pusher, 'option',
+      { 'name': "push-file", 'key': 'opencl_cts', 'value': "/data/nativetest64/unrestricted/opencl_cts" })
+
+  test_pusher = create_subelement_with_attribs(configuration, 'target_preparer',
+      { 'class': "com.android.compatibility.common.tradefed.targetprep.FilePusher" })
+  create_subelement_with_attribs(test_pusher, 'option',
+      { 'name': "cleanup", 'value': "true" })
+  create_subelement_with_attribs(test_pusher, 'option',
       { 'name': "append-bitness", 'value': "true" })
 
   with open(TEST_JSON_PATH, "r") as f:
@@ -105,7 +113,7 @@ def generate_push_file_rules(configuration):
     if test.get('manual_only', False):
       continue
 
-    create_subelement_with_attribs(file_pusher, 'option',
+    create_subelement_with_attribs(test_pusher, 'option',
         {
           'name': "push-file",
           'key': test['binary_name'],
@@ -122,19 +130,14 @@ def generate_test_rules(configuration):
       continue
 
     test_rule = create_subelement_with_attribs(configuration, 'test',
-        { 'class': "com.android.tradefed.testtype.python.PythonBinaryHostTest" })
+        { 'class': "com.android.tradefed.testtype.binary.ExecutableTargetTest" })
 
     create_subelement_with_attribs(test_rule, 'option',
-        { 'name': "par-file-name", 'value': "opencl_cts" })
+        { 'name': "per-binary-timeout", 'value': test.get('timeout', "30m") })
     create_subelement_with_attribs(test_rule, 'option',
-        { 'name': "inject-android-serial", 'value': "true" })
-    create_subelement_with_attribs(test_rule, 'option',
-        { 'name': "test-timeout", 'value': test.get('timeout', "30m") })
-    create_subelement_with_attribs(test_rule, 'option',
-        { 'name': "python-options", 'value': test["test_name"] })
-    create_subelement_with_attribs(test_rule, 'option',
-        { 'name': "python-options",
-          'value': "/data/nativetest64/unrestricted/{}".format(test['binary_name']) })
+        { 'name': "test-command-line",
+          'key' : test['test_name'],
+          'value': "/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts {} /data/nativetest64/unrestricted/{}".format(test['test_name'], test['binary_name']) })
 
     for arg in test.get('arguments', []):
       create_subelement_with_attribs(test_rule, 'option',

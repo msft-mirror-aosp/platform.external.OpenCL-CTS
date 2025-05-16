@@ -435,7 +435,7 @@ cc_test {
     gtest: false,
 }
 
-python_test_host {
+python_test {
     name: "opencl_cts",
     main: "scripts/test_opencl_cts.py",
     srcs: ["scripts/test_opencl_cts.py"],

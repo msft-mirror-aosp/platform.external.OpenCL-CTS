@@ -45,7 +45,13 @@ cc_test {{
   cc_test_string = '\n'.join([line for line in cc_test_string.split('\n')
                                    if not empty_field_regex.match(line)])
   f.write(cc_test_string)
+  return test_details['binary_name']
 
+# replace ALL_TEST_MODULES with list of
+def process_tail(tail, test_targets) -> str:
+  lines = [f'":{target}",' for target in test_targets]
+  replacement = "\n".join(lines)
+  return tail.replace("ALL_TEST_MODULES", replacement)
 
 # Return value indicates whether the output should be formatted with bpfmt
 def generate_android_bp() -> bool:
@@ -58,11 +64,13 @@ def generate_android_bp() -> bool:
 
     with open(TEST_JSON_PATH) as f:
       tests = json.load(f)
+
+    test_targets = []
     for test in tests:
-      write_one_cc_test(test, android_bp)
+      test_targets.append(write_one_cc_test(test, android_bp))
 
     with open(android_bp_tail_path, 'r') as android_bp_tail:
-      android_bp.write(android_bp_tail.read())
+      android_bp.write(process_tail(android_bp_tail.read(), test_targets))
 
   if shutil.which('bpfmt') is not None:
     subprocess.run(['bpfmt', '-w', 'Android.bp'])

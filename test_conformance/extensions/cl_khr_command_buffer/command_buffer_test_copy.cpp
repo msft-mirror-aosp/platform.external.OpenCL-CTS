@@ -16,7 +16,6 @@
 #include "basic_command_buffer.h"
 #include "svm_command_basic.h"
 #include "harness/typeWrappers.h"
-#include "procs.h"
 
 #include <vector>
 
@@ -38,15 +37,15 @@ struct CopyImageKHR : public BasicCommandBufferTest
 
     cl_int Run() override
     {
-        cl_int error = clCommandFillImageKHR(command_buffer, nullptr, src_image,
-                                             fill_color_1, origin, region, 0,
-                                             nullptr, nullptr, nullptr);
+        cl_int error = clCommandFillImageKHR(
+            command_buffer, nullptr, nullptr, src_image, fill_color_1, origin,
+            region, 0, nullptr, nullptr, nullptr);
 
         test_error(error, "clCommandFillImageKHR failed");
 
-        error = clCommandCopyImageKHR(command_buffer, nullptr, src_image,
-                                      dst_image, origin, origin, region, 0, 0,
-                                      nullptr, nullptr);
+        error = clCommandCopyImageKHR(command_buffer, nullptr, nullptr,
+                                      src_image, dst_image, origin, origin,
+                                      region, 0, 0, nullptr, nullptr);
 
         test_error(error, "clCommandCopyImageKHR failed");
 
@@ -141,13 +140,13 @@ struct CopyBufferKHR : public BasicCommandBufferTest
     cl_int Run() override
     {
         cl_int error = clCommandFillBufferKHR(
-            command_buffer, nullptr, in_mem, &pattern_1, sizeof(cl_char), 0,
-            data_size(), 0, nullptr, nullptr, nullptr);
+            command_buffer, nullptr, nullptr, in_mem, &pattern_1,
+            sizeof(cl_char), 0, data_size(), 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
 
-        error = clCommandCopyBufferKHR(command_buffer, nullptr, in_mem, out_mem,
-                                       0, 0, data_size(), 0, nullptr, nullptr,
-                                       nullptr);
+        error = clCommandCopyBufferKHR(command_buffer, nullptr, nullptr, in_mem,
+                                       out_mem, 0, 0, data_size(), 0, nullptr,
+                                       nullptr, nullptr);
         test_error(error, "clCommandCopyBufferKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -204,14 +203,15 @@ struct CopySVMBufferKHR : public BasicSVMCommandBufferTest
 
     cl_int Run() override
     {
+
         cl_int error = clCommandSVMMemFillKHR(
-            command_buffer, nullptr, svm_in_mem(), &pattern_1, sizeof(cl_char),
-            data_size(), 0, nullptr, nullptr, nullptr);
+            command_buffer, nullptr, nullptr, svm_in_mem(), &pattern_1,
+            sizeof(cl_char), data_size(), 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandSVMMemFillKHR failed");
 
-        error = clCommandSVMMemcpyKHR(command_buffer, nullptr, svm_out_mem(),
-                                      svm_in_mem(), data_size(), 0, nullptr,
-                                      nullptr, nullptr);
+        error = clCommandSVMMemcpyKHR(command_buffer, nullptr, nullptr,
+                                      svm_out_mem(), svm_in_mem(), data_size(),
+                                      0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandSVMMemcpyKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -273,15 +273,13 @@ struct CopyBufferToImageKHR : public BasicCommandBufferTest
     cl_int Run() override
     {
         cl_int error = clCommandFillBufferKHR(
-            command_buffer, nullptr, buffer, &pattern_1, sizeof(cl_char), 0,
-            data_size, 0, nullptr, nullptr, nullptr);
-
+            command_buffer, nullptr, nullptr, buffer, &pattern_1,
+            sizeof(cl_char), 0, data_size, 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
 
-        error = clCommandCopyBufferToImageKHR(command_buffer, nullptr, buffer,
-                                              image, 0, origin, region, 0, 0,
-                                              nullptr, nullptr);
-
+        error = clCommandCopyBufferToImageKHR(command_buffer, nullptr, nullptr,
+                                              buffer, image, 0, origin, region,
+                                              0, 0, nullptr, nullptr);
         test_error(error, "clCommandCopyBufferToImageKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -379,16 +377,14 @@ struct CopyImageToBufferKHR : public BasicCommandBufferTest
 
     cl_int Run() override
     {
-        cl_int error =
-            clCommandFillImageKHR(command_buffer, nullptr, image, fill_color_1,
-                                  origin, region, 0, nullptr, nullptr, nullptr);
-
+        cl_int error = clCommandFillImageKHR(
+            command_buffer, nullptr, nullptr, image, fill_color_1, origin,
+            region, 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandFillImageKHR failed");
 
-        error = clCommandCopyImageToBufferKHR(command_buffer, nullptr, image,
-                                              buffer, origin, region, 0, 0,
-                                              nullptr, nullptr, nullptr);
-
+        error = clCommandCopyImageToBufferKHR(command_buffer, nullptr, nullptr,
+                                              image, buffer, origin, region, 0,
+                                              0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandCopyImageToBufferKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -484,14 +480,13 @@ struct CopyBufferRectKHR : public BasicCommandBufferTest
     cl_int Run() override
     {
         cl_int error = clCommandFillBufferKHR(
-            command_buffer, nullptr, in_mem, &pattern_1, sizeof(cl_char), 0,
-            data_size, 0, nullptr, nullptr, nullptr);
+            command_buffer, nullptr, nullptr, in_mem, &pattern_1,
+            sizeof(cl_char), 0, data_size, 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandFillBufferKHR failed");
 
         error = clCommandCopyBufferRectKHR(
-            command_buffer, nullptr, in_mem, out_mem, origin, origin, region, 0,
-            0, 0, 0, 0, nullptr, nullptr, nullptr);
-
+            command_buffer, nullptr, nullptr, in_mem, out_mem, origin, origin,
+            region, 0, 0, 0, 0, 0, nullptr, nullptr, nullptr);
         test_error(error, "clCommandCopyBufferRectKHR failed");
 
         error = clFinalizeCommandBufferKHR(command_buffer);
@@ -567,42 +562,36 @@ struct CopyBufferRectKHR : public BasicCommandBufferTest
 };
 };
 
-int test_copy_image(cl_device_id device, cl_context context,
-                    cl_command_queue queue, int num_elements)
+REGISTER_TEST(copy_image)
 {
     return MakeAndRunTest<CopyImageKHR>(device, context, queue, num_elements);
 }
 
-int test_copy_buffer(cl_device_id device, cl_context context,
-                     cl_command_queue queue, int num_elements)
+REGISTER_TEST(copy_buffer)
 {
     return MakeAndRunTest<CopyBufferKHR>(device, context, queue, num_elements);
 }
 
-int test_copy_svm_buffer(cl_device_id device, cl_context context,
-                         cl_command_queue queue, int num_elements)
+REGISTER_TEST(copy_svm_buffer)
 {
     return MakeAndRunTest<CopySVMBufferKHR>(device, context, queue,
                                             num_elements);
 }
 
 
-int test_copy_buffer_to_image(cl_device_id device, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(copy_buffer_to_image)
 {
     return MakeAndRunTest<CopyBufferToImageKHR>(device, context, queue,
                                                 num_elements);
 }
 
-int test_copy_image_to_buffer(cl_device_id device, cl_context context,
-                              cl_command_queue queue, int num_elements)
+REGISTER_TEST(copy_image_to_buffer)
 {
     return MakeAndRunTest<CopyImageToBufferKHR>(device, context, queue,
                                                 num_elements);
 }
 
-int test_copy_buffer_rect(cl_device_id device, cl_context context,
-                          cl_command_queue queue, int num_elements)
+REGISTER_TEST(copy_buffer_rect)
 {
     return MakeAndRunTest<CopyBufferRectKHR>(device, context, queue,
                                              num_elements);

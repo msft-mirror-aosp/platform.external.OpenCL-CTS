@@ -105,6 +105,13 @@ const char *IGetErrorString(int clErrorCode)
         case CL_INVALID_SPEC_ID: return "CL_INVALID_SPEC_ID";
         case CL_MAX_SIZE_RESTRICTION_EXCEEDED:
             return "CL_MAX_SIZE_RESTRICTION_EXCEEDED";
+        case CL_INCOMPATIBLE_COMMAND_QUEUE_KHR:
+            return "CL_INCOMPATIBLE_COMMAND_QUEUE_KHR";
+        case CL_INVALID_SYNC_POINT_WAIT_LIST_KHR:
+            return "CL_INVALID_SYNC_POINT_WAIT_LIST_KHR";
+        case CL_INVALID_COMMAND_BUFFER_KHR:
+            return "CL_INVALID_COMMAND_BUFFER_KHR";
+        case CL_INVALID_SEMAPHORE_KHR: return "CL_INVALID_SEMAPHORE_KHR";
         default: return "(unknown)";
     }
 }
@@ -190,6 +197,8 @@ const char *GetChannelTypeName(cl_channel_type type)
         case CL_UNORM_SHORT_565: return "CL_UNORM_SHORT_565";
         case CL_UNORM_SHORT_555: return "CL_UNORM_SHORT_555";
         case CL_UNORM_INT_101010: return "CL_UNORM_INT_101010";
+        case CL_UNORM_INT_101010_2: return "CL_UNORM_INT_101010_2";
+        case CL_UNORM_INT_2_101010_EXT: return "CL_UNORM_INT_2_101010_EXT";
         case CL_SIGNED_INT8: return "CL_SIGNED_INT8";
         case CL_SIGNED_INT16: return "CL_SIGNED_INT16";
         case CL_SIGNED_INT32: return "CL_SIGNED_INT32";
@@ -202,6 +211,8 @@ const char *GetChannelTypeName(cl_channel_type type)
         case CL_SFIXED14_APPLE: return "CL_SFIXED14_APPLE";
 #endif
         case CL_UNORM_INT24: return "CL_UNORM_INT24";
+        case CL_UNSIGNED_INT_RAW10_EXT: return "CL_UNSIGNED_INT_RAW10_EXT";
+        case CL_UNSIGNED_INT_RAW12_EXT: return "CL_UNSIGNED_INT_RAW12_EXT";
         default: return NULL;
     }
 }
@@ -218,6 +229,8 @@ int IsChannelTypeSupported(cl_channel_type type)
         case CL_UNORM_SHORT_565:
         case CL_UNORM_SHORT_555:
         case CL_UNORM_INT_101010:
+        case CL_UNORM_INT_101010_2:
+        case CL_UNORM_INT_2_101010_EXT:
         case CL_SIGNED_INT8:
         case CL_SIGNED_INT16:
         case CL_SIGNED_INT32:
@@ -369,7 +382,7 @@ static float Ulp_Error_Half_Float(float test, double reference)
     return (float)scalbn(testVal - reference, ulp_exp);
 }
 
-float Ulp_Error_Half(cl_half test, float reference)
+float Ulp_Error_Half(cl_half test, double reference)
 {
     return Ulp_Error_Half_Float(cl_half_to_float(test), reference);
 }
@@ -542,6 +555,39 @@ float Ulp_Error_Double(double test, long double reference)
     return result;
 }
 
+cl_int OutputBuildLog(cl_program program, const cl_device_id device)
+{
+    size_t size_ret;
+
+    // Get the build status
+    cl_build_status build_status;
+    cl_int error =
+        clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_STATUS,
+                              sizeof(build_status), &build_status, &size_ret);
+    test_error(error, "Unable to query build status");
+
+    // If the build failed then print the status, obtain the build log and
+    // print it.
+    if (build_status != CL_BUILD_SUCCESS)
+    {
+        log_error("ERROR: CL_PROGRAM_BUILD_STATUS=%d\n", (int)build_status);
+        error = clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, 0,
+                                      nullptr, &size_ret);
+        test_error(error, "Unable to query build log size");
+
+        char *build_log = (char *)malloc(size_ret);
+        error = clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
+                                      size_ret, build_log, &size_ret);
+        test_error(error, "Unable to query build log");
+
+        log_error("ERROR: CL_PROGRAM_BUILD_LOG:\n%s\n", build_log);
+
+        free(build_log);
+    }
+
+    return CL_SUCCESS;
+}
+
 cl_int OutputBuildLogs(cl_program program, cl_uint num_devices,
                        cl_device_id *device_list)
 {
@@ -581,33 +627,8 @@ cl_int OutputBuildLogs(cl_program program, cl_uint num_devices,
         unsigned int i;
         for (i = 0; i < num_devices; i++)
         {
-
-            // Get the build status
-            cl_build_status build_status;
-            error = clGetProgramBuildInfo(
-                program, device_list[i], CL_PROGRAM_BUILD_STATUS,
-                sizeof(build_status), &build_status, &size_ret);
-            test_error(error, "Unable to query build status");
-
-            // If the build failed then log the status, and allocate the build
-            // log, log it and free it
-            if (build_status != CL_BUILD_SUCCESS)
-            {
-
-                log_error("ERROR: CL_PROGRAM_BUILD_STATUS=%d\n",
-                          (int)build_status);
-                error = clGetProgramBuildInfo(program, device_list[i],
-                                              CL_PROGRAM_BUILD_LOG, 0, NULL,
-                                              &size_ret);
-                test_error(error, "Unable to query build log size");
-                char *build_log = (char *)malloc(size_ret);
-                error = clGetProgramBuildInfo(program, device_list[i],
-                                              CL_PROGRAM_BUILD_LOG, size_ret,
-                                              build_log, &size_ret);
-                test_error(error, "Unable to query build log");
-                log_error("ERROR: CL_PROGRAM_BUILD_LOG:\n%s\n", build_log);
-                free(build_log);
-            }
+            error = OutputBuildLog(program, device_list[i]);
+            test_error(error, "OutputBuildLog failed");
         }
 
         // Was the number of devices given

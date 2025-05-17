@@ -20,7 +20,6 @@
 
 #include <vector>
 
-#include "procs.h"
 #include "utils.h"
 #include <time.h>
 
@@ -95,7 +94,7 @@ static int check_kernel_results(cl_int* results, cl_int len)
     return -1;
 }
 
-int test_enqueue_multi_queue(cl_device_id device, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(enqueue_multi_queue)
 {
     cl_uint i;
     cl_int k, err_ret, res = 0;
@@ -123,7 +122,9 @@ int test_enqueue_multi_queue(cl_device_id device, cl_context context, cl_command
     };
 
     dev_queue = clCreateCommandQueueWithProperties(context, device, queue_prop_def, &err_ret);
-    test_error(err_ret, "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE|CL_QUEUE_DEFAULT) failed");
+    test_error(err_ret,
+               "clCreateCommandQueueWithProperties(CL_QUEUE_ON_DEVICE | "
+               "CL_QUEUE_ON_DEVICE_DEFAULT) failed");
 
     if(max_queues > 1)
     {
@@ -141,7 +142,9 @@ int test_enqueue_multi_queue(cl_device_id device, cl_context context, cl_command
         for(i = 0; i < n; ++i)
         {
             queues[i] = clCreateCommandQueueWithProperties(context, device, queue_prop, &err_ret);
-            test_error(err_ret, "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE) failed");
+            test_error(err_ret,
+                       "clCreateCommandQueueWithProperties(CL_QUEUE_ON_DEVICE) "
+                       "failed");
             q[i] = queues[i];
         }
 
@@ -190,7 +193,6 @@ int test_enqueue_multi_queue(cl_device_id device, cl_context context, cl_command
     }
     return res;
 }
-
 
 
 #endif

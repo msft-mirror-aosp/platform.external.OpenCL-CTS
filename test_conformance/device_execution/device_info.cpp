@@ -15,10 +15,11 @@
 //
 #include <stdio.h>
 #include <string.h>
+#include <bitset>
+
 #include "harness/testHarness.h"
 #include "harness/typeWrappers.h"
 
-#include "procs.h"
 #include "utils.h"
 
 static const cl_uint MIN_DEVICE_PREFFERED_QUEUE_SIZE =  16 * 1024;
@@ -27,7 +28,7 @@ static const cl_uint MAX_DEVICE_EMBEDDED_QUEUE_SIZE  =  64 * 1024;
 
 #ifdef CL_VERSION_2_0
 
-int test_device_info(cl_device_id device, cl_context context, cl_command_queue queue, int num_elements)
+REGISTER_TEST(device_info)
 {
     cl_int err_ret;
     int embedded = 0;
@@ -96,6 +97,20 @@ int test_device_info(cl_device_id device, cl_context context, cl_command_queue q
     if(size < 1024)
     {
         log_error("Maximum number of events in use by a device queue is less than minimum 1024: %d\n", size);
+        return -1;
+    }
+
+    cl_device_type device_type;
+    err_ret = clGetDeviceInfo(device, CL_DEVICE_TYPE, sizeof(cl_device_type),
+                              &device_type, &ret_len);
+    test_error(err_ret, "clGetDeviceInfo(CL_DEVICE_TYPE) failed");
+    std::bitset<sizeof(cl_device_type)> type_bits(device_type);
+
+    if (type_bits.count() > 1 || (device_type & CL_DEVICE_TYPE_DEFAULT))
+    {
+        log_error("clGetDeviceInfo(CL_DEVICE_TYPE) must report a single device "
+                  "type, which must not be CL_DEVICE_TYPE_DEFAULT or "
+                  "CL_DEVICE_TYPE_ALL.\n");
         return -1;
     }
 

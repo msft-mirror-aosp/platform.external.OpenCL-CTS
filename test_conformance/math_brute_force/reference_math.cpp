@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2017 The Khronos Group Inc.
+// Copyright (c) 2017-2024 The Khronos Group Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -691,7 +691,7 @@ double reference_rootn(double x, int i)
     double sign = x;
     x = reference_fabs(x);
     x = reference_exp2(reference_log2(x) / (double)i);
-    return reference_copysignd(x, sign);
+    return reference_copysign(x, sign);
 }
 
 double reference_rsqrt(double x) { return 1.0 / reference_sqrt(x); }
@@ -707,7 +707,7 @@ double reference_sinpi(double x)
         r = 1 - r;
 
     // sinPi zeros have the same sign as x
-    if (r == 0.0) return reference_copysignd(0.0, x);
+    if (r == 0.0) return reference_copysign(0.0, x);
 
     return reference_sin(r * M_PI);
 }
@@ -717,7 +717,7 @@ double reference_relaxed_sinpi(double x) { return reference_sinpi(x); }
 double reference_tanpi(double x)
 {
     // set aside the sign  (allows us to preserve sign of -0)
-    double sign = reference_copysignd(1.0, x);
+    double sign = reference_copysign(1.0, x);
     double z = reference_fabs(x);
 
     // if big and even  -- caution: only works if x only has single precision
@@ -725,7 +725,7 @@ double reference_tanpi(double x)
     {
         if (z == INFINITY) return x - x; // nan
 
-        return reference_copysignd(
+        return reference_copysign(
             0.0, x); // tanpi ( n ) is copysign( 0.0, n)  for even integers n.
     }
 
@@ -739,7 +739,7 @@ double reference_tanpi(double x)
     if ((i & 1) && z == 0.0) sign = -sign;
 
     // track changes to the sign
-    sign *= reference_copysignd(1.0, z); // really should just be an xor
+    sign *= reference_copysign(1.0, z); // really should just be an xor
     z = reference_fabs(z); // remove the sign again
 
     // reduce once more
@@ -1070,7 +1070,7 @@ int reference_signbit(float x) { return 0 != signbit(x); }
 // Missing functions for win32
 
 
-float reference_copysign(float x, float y)
+float reference_copysignf(float x, float y)
 {
     union {
         float f;
@@ -1084,7 +1084,7 @@ float reference_copysign(float x, float y)
 }
 
 
-double reference_copysignd(double x, double y)
+double reference_copysign(double x, double y)
 {
     union {
         double f;
@@ -1101,10 +1101,10 @@ double reference_copysignd(double x, double y)
 double reference_round(double x)
 {
     double absx = reference_fabs(x);
-    if (absx < 0.5) return reference_copysignd(0.0, x);
+    if (absx < 0.5) return reference_copysign(0.0, x);
 
     if (absx < HEX_DBL(+, 1, 0, +, 53))
-        x = reference_trunc(x + reference_copysignd(0.5, x));
+        x = reference_trunc(x + reference_copysign(0.5, x));
 
     return x;
 }
@@ -1115,7 +1115,7 @@ double reference_trunc(double x)
     {
         cl_long l = (cl_long)x;
 
-        return reference_copysignd((double)l, x);
+        return reference_copysign((double)l, x);
     }
 
     return x;
@@ -1132,16 +1132,16 @@ double reference_trunc(double x)
 
 double reference_cbrt(double x)
 {
-    return reference_copysignd(reference_pow(reference_fabs(x), 1.0 / 3.0), x);
+    return reference_copysign(reference_pow(reference_fabs(x), 1.0 / 3.0), x);
 }
 
 double reference_rint(double x)
 {
     if (reference_fabs(x) < HEX_DBL(+, 1, 0, +, 52))
     {
-        double magic = reference_copysignd(HEX_DBL(+, 1, 0, +, 52), x);
+        double magic = reference_copysign(HEX_DBL(+, 1, 0, +, 52), x);
         double rounded = (x + magic) - magic;
-        x = reference_copysignd(rounded, x);
+        x = reference_copysign(rounded, x);
     }
 
     return x;
@@ -1174,7 +1174,7 @@ double reference_asinh(double x)
     double absx = reference_fabs(x);
     if (absx < HEX_DBL(+, 1, 0, -, 28)) return x;
 
-    double sign = reference_copysignd(1.0, x);
+    double sign = reference_copysign(1.0, x);
 
     if (absx > HEX_DBL(+, 1, 0, +, 28))
         return sign
@@ -1206,7 +1206,7 @@ double reference_atanh(double x)
      */
     if (isnan(x)) return x + x;
 
-    double signed_half = reference_copysignd(0.5, x);
+    double signed_half = reference_copysign(0.5, x);
     x = reference_fabs(x);
     if (x > 1.0) return cl_make_nan();
 
@@ -1641,6 +1641,7 @@ double reference_expm1(double x)
 double reference_fmax(double x, double y)
 {
     if (isnan(y)) return x;
+    if (isnan(x)) return y;
 
     return x >= y ? x : y;
 }
@@ -1648,6 +1649,7 @@ double reference_fmax(double x, double y)
 double reference_fmin(double x, double y)
 {
     if (isnan(y)) return x;
+    if (isnan(x)) return y;
 
     return x <= y ? x : y;
 }
@@ -1855,6 +1857,13 @@ double reference_logb(double x)
 }
 
 double reference_relaxed_reciprocal(double x) { return 1.0f / ((float)x); }
+
+long double reference_reciprocall(long double y)
+{
+    double dx = 1.0;
+    double dy = y;
+    return dx / dy;
+}
 
 double reference_reciprocal(double x) { return 1.0 / x; }
 
@@ -2725,6 +2734,34 @@ static double round_to_nearest_even_double(cl_ulong hi, cl_ulong lo,
     return u.d;
 }
 
+static double round_toward_zero_double(cl_ulong hi, cl_ulong lo, int exponent)
+{
+    union {
+        cl_ulong u;
+        cl_double d;
+    } u;
+
+    // edges
+    if (exponent > 1023) return CL_DBL_MAX;
+    if (exponent <= -1074) return 0.0;
+
+    // Figure out which bits go where
+    int shift = 11;
+    if (exponent < -1022)
+    {
+        shift -= 1022 + exponent; // subnormal: shift is not 52
+        exponent = -1023; //              set exponent to 0
+    }
+    else
+        hi &= 0x7fffffffffffffffULL; // normal: leading bit is implicit. Remove
+                                     // it.
+
+    // Assemble the double (round toward zero)
+    u.u = (hi >> shift) | ((cl_ulong)(exponent + 1023) << 52);
+
+    return u.d;
+}
+
 // Shift right.  Bits lost on the right will be OR'd together and OR'd with the
 // LSB
 static inline void shift_right_sticky_128(cl_ulong *hi, cl_ulong *lo, int shift)
@@ -2957,7 +2994,14 @@ long double reference_fmal(long double x, long double y, long double z)
     }
 
     // round
-    ua.d = round_to_nearest_even_double(hi, lo, exponent);
+    if (gIsInRTZMode)
+    {
+        ua.d = round_toward_zero_double(hi, lo, exponent);
+    }
+    else
+    {
+        ua.d = round_to_nearest_even_double(hi, lo, exponent);
+    }
 
     // Set the sign
     ua.u |= sign;
@@ -3196,7 +3240,7 @@ int reference_isgreaterequall(long double x, long double y) { return x >= y; }
 int reference_isinfl(long double x) { return 0 != isinf(x); }
 int reference_islessl(long double x, long double y) { return x < y; }
 int reference_islessequall(long double x, long double y) { return x <= y; }
-#if defined(__INTEL_COMPILER)
+#if defined(__INTEL_COMPILER) || defined(__INTEL_LLVM_COMPILER)
 int reference_islessgreaterl(long double x, long double y)
 {
     return 0 != islessgreaterl(x, y);
@@ -3218,7 +3262,7 @@ int reference_isunorderedl(long double x, long double y)
 {
     return isnan(x) || isnan(y);
 }
-#if defined(__INTEL_COMPILER)
+#if defined(__INTEL_COMPILER) || defined(__INTEL_LLVM_COMPILER)
 int reference_signbitl(long double x) { return 0 != signbitl(x); }
 #else
 int reference_signbitl(long double x) { return 0 != signbit(x); }
@@ -3582,7 +3626,8 @@ long double reference_exp2l(long double z)
 
 long double reference_expm1l(long double x)
 {
-#if defined(_MSC_VER) && !defined(__INTEL_COMPILER)
+#if defined(_MSC_VER) && !defined(__INTEL_COMPILER)                            \
+    && !defined(__INTEL_LLVM_COMPILER)
     // unimplemented
     return x;
 #else
@@ -3603,6 +3648,7 @@ long double reference_expm1l(long double x)
 long double reference_fmaxl(long double x, long double y)
 {
     if (isnan(y)) return x;
+    if (isnan(x)) return y;
 
     return x >= y ? x : y;
 }
@@ -3610,6 +3656,7 @@ long double reference_fmaxl(long double x, long double y)
 long double reference_fminl(long double x, long double y)
 {
     if (isnan(y)) return x;
+    if (isnan(x)) return y;
 
     return x <= y ? x : y;
 }
@@ -3667,7 +3714,8 @@ long double reference_log2l(long double x)
 
 long double reference_log1pl(long double x)
 {
-#if defined(_MSC_VER) && !defined(__INTEL_COMPILER)
+#if defined(_MSC_VER) && !defined(__INTEL_COMPILER)                            \
+    && !defined(__INTEL_LLVM_COMPILER)
     // unimplemented
     return x;
 #elif defined(__PPC__)
@@ -3737,9 +3785,6 @@ long double reference_nanl(cl_ulong x)
     u.u = x | 0x7ff8000000000000ULL;
     return (long double)u.f;
 }
-
-
-long double reference_reciprocall(long double x) { return 1.0L / x; }
 
 long double reference_remainderl(long double x, long double y)
 {
@@ -4699,6 +4744,49 @@ double reference_nextafter(double xx, double yy)
     return a.f;
 }
 
+cl_half reference_nanh(cl_ushort x)
+{
+    cl_ushort u;
+    cl_half h;
+    u = x | 0x7e00U;
+    memcpy(&h, &u, sizeof(cl_half));
+    return h;
+}
+
+float reference_nextafterh(float xx, float yy, bool allow_denorms)
+{
+    cl_half tmp_a = cl_half_from_float(xx, CL_HALF_RTE);
+    cl_half tmp_b = cl_half_from_float(yy, CL_HALF_RTE);
+    float x = cl_half_to_float(tmp_a);
+    float y = cl_half_to_float(tmp_b);
+
+    // take care of nans
+    if (x != x) return x;
+
+    if (y != y) return y;
+
+    if (x == y) return y;
+
+    short a_h = cl_half_from_float(x, CL_HALF_RTE);
+    short b_h = cl_half_from_float(y, CL_HALF_RTE);
+    short oa_h = a_h;
+
+    if (a_h & 0x8000) a_h = 0x8000 - a_h;
+    if (b_h & 0x8000) b_h = 0x8000 - b_h;
+
+    a_h += (a_h < b_h) ? 1 : -1;
+    a_h = (a_h < 0) ? (cl_short)0x8000 - a_h : a_h;
+
+    if (!allow_denorms && IsHalfSubnormal(a_h))
+    {
+        if (cl_half_to_float(0x7fff & oa_h) < cl_half_to_float(0x7fff & a_h))
+            a_h = (a_h & 0x8000) ? 0x8400 : 0x0400;
+        else
+            a_h = 0;
+    }
+
+    return cl_half_to_float(a_h);
+}
 
 long double reference_nextafterl(long double xx, long double yy)
 {
@@ -5290,7 +5378,7 @@ double reference_pow(double x, double y)
     __log2_ep(&hi, &lo, fabsx);
     double prod = y * hi;
     double result = reference_exp2(prod);
-    return isOddInt ? reference_copysignd(result, x) : result;
+    return isOddInt ? reference_copysign(result, x) : result;
 }
 
 double reference_sqrt(double x) { return sqrt(x); }
@@ -5721,3 +5809,9 @@ int reference_notl(long double x)
     int r = !x;
     return r;
 }
+
+long double reference_erfcl(long double x) { return erfc(x); }
+long double reference_erfl(long double x) { return erf(x); }
+
+double reference_erfc(double x) { return erfc(x); }
+double reference_erf(double x) { return erf(x); }

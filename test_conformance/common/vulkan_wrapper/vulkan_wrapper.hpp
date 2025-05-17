@@ -22,16 +22,24 @@
 #include "vulkan_list_map.hpp"
 #include "vulkan_api_list.hpp"
 #include <memory>
+#include <cassert>
 
 class VulkanInstance {
-    friend const VulkanInstance &getVulkanInstance();
+    friend const VulkanInstance &getVulkanInstance(bool useValidationLayers);
 
 protected:
     VkInstance m_vkInstance;
     VulkanPhysicalDeviceList m_physicalDeviceList;
+    VkDebugUtilsMessengerEXT m_debugMessenger;
+    bool m_useValidationLayers;
+    std::vector<const char *> m_validationLayers = {
+        "VK_LAYER_KHRONOS_validation",
+    };
 
-    VulkanInstance();
     VulkanInstance(const VulkanInstance &);
+
+public:
+    VulkanInstance(bool useValidationLayers = false);
     virtual ~VulkanInstance();
 
 public:
@@ -53,12 +61,15 @@ protected:
     VulkanQueueFamilyList m_queueFamilyList;
     VulkanMemoryHeapList m_memoryHeapList;
     VulkanMemoryTypeList m_memoryTypeList;
+    std::vector<VkExtensionProperties> m_extensions;
+
 
     VulkanPhysicalDevice(const VulkanPhysicalDevice &physicalDevice);
     VulkanPhysicalDevice(VkPhysicalDevice vkPhysicalDevice);
     virtual ~VulkanPhysicalDevice();
 
 public:
+    bool hasExtension(const char *extension_name) const;
     const VulkanQueueFamilyList &getQueueFamilyList() const;
     const VulkanMemoryHeapList &getMemoryHeapList() const;
     const VulkanMemoryTypeList &getMemoryTypeList() const;
@@ -141,7 +152,7 @@ public:
     virtual ~VulkanDevice();
     const VulkanPhysicalDevice &getPhysicalDevice() const;
     VulkanQueue &
-    getQueue(const VulkanQueueFamily &queueFamily = getVulkanQueueFamily(),
+    getQueue(const VulkanQueueFamily &queueFamily /* = getVulkanQueueFamily()*/,
              uint32_t queueIndex = 0);
     operator VkDevice() const;
 };
@@ -474,7 +485,7 @@ public:
         VulkanExternalMemoryHandleType externalMemoryHandleType =
             VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE,
         VulkanImageCreateFlag imageCreateFlags = VULKAN_IMAGE_CREATE_FLAG_NONE,
-        VulkanImageTiling imageTiling = VULKAN_IMAGE_TILING_OPTIMAL,
+        VulkanImageTiling imageTiling = VULKAN_IMAGE_TILING_LINEAR,
         VulkanImageUsage imageUsage =
             VULKAN_IMAGE_USAGE_SAMPLED_STORAGE_TRANSFER_SRC_DST,
         VulkanSharingMode sharingMode = VULKAN_SHARING_MODE_EXCLUSIVE);
@@ -489,6 +500,47 @@ public:
     const VulkanMemoryTypeList &getMemoryTypeList() const;
     VkImageCreateInfo getVkImageCreateInfo() const;
     operator VkImage() const;
+};
+
+class VulkanImage1D : public VulkanImage {
+protected:
+    VkImageView m_vkImageView;
+
+public:
+    VulkanImage1D(
+        const VulkanDevice &device, VulkanFormat format, uint32_t width,
+        VulkanImageTiling imageTiling, uint32_t numMipLevels = 1,
+        VulkanExternalMemoryHandleType externalMemoryHandleType =
+            VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE,
+        VulkanImageCreateFlag imageCreateFlag = VULKAN_IMAGE_CREATE_FLAG_NONE,
+        VulkanImageUsage imageUsage =
+            VULKAN_IMAGE_USAGE_SAMPLED_STORAGE_TRANSFER_SRC_DST,
+        VulkanSharingMode sharingMode = VULKAN_SHARING_MODE_EXCLUSIVE);
+    virtual ~VulkanImage1D();
+    virtual VulkanExtent3D getExtent3D(uint32_t mipLevel = 0) const;
+
+    VulkanImage1D(const VulkanImage1D &image1D);
+};
+
+class VulkanImage3D : public VulkanImage {
+protected:
+    VkImageView m_vkImageView;
+
+public:
+    VulkanImage3D(
+        const VulkanDevice &device, VulkanFormat format, uint32_t width,
+        uint32_t height, uint32_t depth, VulkanImageTiling imageTiling,
+        uint32_t numMipLevels = 1,
+        VulkanExternalMemoryHandleType externalMemoryHandleType =
+            VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE,
+        VulkanImageCreateFlag imageCreateFlag = VULKAN_IMAGE_CREATE_FLAG_NONE,
+        VulkanImageUsage imageUsage =
+            VULKAN_IMAGE_USAGE_SAMPLED_STORAGE_TRANSFER_SRC_DST,
+        VulkanSharingMode sharingMode = VULKAN_SHARING_MODE_EXCLUSIVE);
+    virtual ~VulkanImage3D();
+    virtual VulkanExtent3D getExtent3D(uint32_t mipLevel = 0) const;
+
+    VulkanImage3D(const VulkanImage3D &image3D);
 };
 
 class VulkanImage2D : public VulkanImage {
@@ -508,6 +560,7 @@ public:
         VulkanSharingMode sharingMode = VULKAN_SHARING_MODE_EXCLUSIVE);
     virtual ~VulkanImage2D();
     virtual VulkanExtent3D getExtent3D(uint32_t mipLevel = 0) const;
+    virtual VkSubresourceLayout getSubresourceLayout() const;
 
     VulkanImage2D(const VulkanImage2D &image2D);
 };
@@ -536,6 +589,7 @@ protected:
     VkDeviceMemory m_vkDeviceMemory;
     uint64_t m_size;
     bool m_isDedicated;
+    const std::wstring m_name;
 
     VulkanDeviceMemory(const VulkanDeviceMemory &deviceMemory);
 
@@ -544,17 +598,17 @@ public:
                        const VulkanMemoryType &memoryType,
                        VulkanExternalMemoryHandleType externalMemoryHandleType =
                            VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE,
-                       const void *name = NULL);
+                       const std::wstring name = L"");
     VulkanDeviceMemory(const VulkanDevice &device, const VulkanImage &image,
                        const VulkanMemoryType &memoryType,
                        VulkanExternalMemoryHandleType externalMemoryHandleType =
                            VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE,
-                       const void *name = NULL);
+                       const std::wstring name = L"");
     VulkanDeviceMemory(const VulkanDevice &device, const VulkanBuffer &buffer,
                        const VulkanMemoryType &memoryType,
                        VulkanExternalMemoryHandleType externalMemoryHandleType =
                            VULKAN_EXTERNAL_MEMORY_HANDLE_TYPE_NONE,
-                       const void *name = NULL);
+                       const std::wstring name = L"");
     virtual ~VulkanDeviceMemory();
     uint64_t getSize() const;
 #ifdef _WIN32
@@ -569,6 +623,7 @@ public:
     void unmap();
     void bindBuffer(const VulkanBuffer &buffer, uint64_t offset = 0);
     void bindImage(const VulkanImage &image, uint64_t offset = 0);
+    const std::wstring &getName() const;
     operator VkDeviceMemory() const;
 };
 
@@ -588,6 +643,7 @@ public:
         VulkanExternalSemaphoreHandleType externalSemaphoreHandleType =
             VULKAN_EXTERNAL_SEMAPHORE_HANDLE_TYPE_NONE,
         const std::wstring name = L"");
+    const VulkanDevice &getDevice() const;
     virtual ~VulkanSemaphore();
 #ifdef _WIN32
     HANDLE getHandle(

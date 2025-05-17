@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "procs.h"
 #include "subhelpers.h"
 #include "subgroup_common_templates.h"
 #include "harness/typeWrappers.h"
@@ -103,7 +102,8 @@ template <typename Ty, ArithmeticOp operation> struct RED_CLU
                 int ii = j * ns;
                 int n = ii + ns > nw ? nw - ii : ns;
                 std::vector<Ty> clusters_results;
-                int clusters_counter = ns / test_params.cluster_size;
+                int clusters_counter = (ns + test_params.cluster_size - 1)
+                    / test_params.cluster_size;
                 clusters_results.resize(clusters_counter);
 
                 // Compute target
@@ -180,10 +180,7 @@ int run_cluster_logical_and_or_xor_for_type(RunTestForType rft)
 }
 }
 
-int test_subgroup_functions_clustered_reduce(cl_device_id device,
-                                             cl_context context,
-                                             cl_command_queue queue,
-                                             int num_elements)
+REGISTER_TEST(subgroup_functions_clustered_reduce)
 {
     if (!is_extension_available(device, "cl_khr_subgroup_clustered_reduce"))
     {

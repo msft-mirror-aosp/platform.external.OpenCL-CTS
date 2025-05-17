@@ -17,7 +17,6 @@
 #include <harness/os_helpers.h>
 
 #include "basic_command_buffer.h"
-#include "procs.h"
 
 #if !defined(_WIN32)
 #if defined(__APPLE__)
@@ -175,7 +174,7 @@ struct CommandBufferPrintfTest : public BasicCommandBufferTest
                                  nullptr, &error);
         test_error(error, "clCreateBuffer failed");
 
-        cl_int offset[] = { 0, max_pattern_length };
+        cl_uint offset[] = { 0, max_pattern_length };
         off_mem =
             clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                            sizeof(offset), offset, &error);
@@ -274,7 +273,9 @@ struct CommandBufferPrintfTest : public BasicCommandBufferTest
                                      &pattern[0], 0, nullptr, nullptr);
         test_error(error, "clEnqueueWriteBuffer failed");
 
-        cl_int offset[] = { 0, pattern.size() - 1 };
+        test_assert_error(pattern.size() - 1 <= CL_UINT_MAX,
+                          "pattern.size() - 1 does not fit in a cl_uint");
+        cl_uint offset[] = { 0, static_cast<cl_uint>(pattern.size() - 1) };
         error = clEnqueueWriteBuffer(queue, off_mem, CL_TRUE, 0, sizeof(offset),
                                      offset, 0, nullptr, nullptr);
         test_error(error, "clEnqueueWriteBuffer failed");
@@ -426,7 +427,7 @@ struct CommandBufferPrintfTest : public BasicCommandBufferTest
                 std::max(min_pattern_length, rand() % max_pattern_length);
 
             std::vector<cl_char> pattern(pattern_length + 1, pattern_character);
-            pattern[pattern_length] = '\0';
+            pattern.back() = '\0';
             simul_passes[i] = { pattern,
                                 { cl_int(i * offset), cl_int(pattern_length) },
                                 std::vector<cl_char>(num_elements
@@ -522,15 +523,13 @@ struct CommandBufferPrintfTest : public BasicCommandBufferTest
 
 } // anonymous namespace
 
-int test_basic_printf(cl_device_id device, cl_context context,
-                      cl_command_queue queue, int num_elements)
+REGISTER_TEST(basic_printf)
 {
     return MakeAndRunTest<CommandBufferPrintfTest<false>>(device, context,
                                                           queue, num_elements);
 }
 
-int test_simultaneous_printf(cl_device_id device, cl_context context,
-                             cl_command_queue queue, int num_elements)
+REGISTER_TEST(simultaneous_printf)
 {
     return MakeAndRunTest<CommandBufferPrintfTest<true>>(device, context, queue,
                                                          num_elements);

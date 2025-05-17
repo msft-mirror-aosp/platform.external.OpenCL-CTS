@@ -219,6 +219,7 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
     cl_double *r;
     cl_double *s;
     cl_double *s2;
+    cl_int copysign_test = 0;
 
     Force64BitFPUPrecision();
 
@@ -343,26 +344,15 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
             (buffer_elements + sizeValues[j] - 1) / sizeValues[j];
         cl_kernel kernel = job->k[j][thread_id]; // each worker thread has its
                                                  // own copy of the cl_kernel
-        cl_program program = job->programs[j];
 
-        if ((error = clSetKernelArg(kernel, 0, sizeof(tinfo->outBuf[j]),
-                                    &tinfo->outBuf[j])))
-        {
-            LogBuildError(program);
-            return error;
-        }
-        if ((error = clSetKernelArg(kernel, 1, sizeof(tinfo->inBuf),
-                                    &tinfo->inBuf)))
-        {
-            LogBuildError(program);
-            return error;
-        }
-        if ((error = clSetKernelArg(kernel, 2, sizeof(tinfo->inBuf2),
-                                    &tinfo->inBuf2)))
-        {
-            LogBuildError(program);
-            return error;
-        }
+        error = clSetKernelArg(kernel, 0, sizeof(tinfo->outBuf[j]),
+                               &tinfo->outBuf[j]);
+        test_error(error, "Failed to set kernel argument");
+        error = clSetKernelArg(kernel, 1, sizeof(tinfo->inBuf), &tinfo->inBuf);
+        test_error(error, "Failed to set kernel argument");
+        error =
+            clSetKernelArg(kernel, 2, sizeof(tinfo->inBuf2), &tinfo->inBuf2);
+        test_error(error, "Failed to set kernel argument");
 
         if ((error = clEnqueueNDRangeKernel(tinfo->tQueue, kernel, 1, NULL,
                                             &vectorCount, NULL, 0, NULL, NULL)))
@@ -377,12 +367,16 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
 
     if (gSkipCorrectnessTesting) return CL_SUCCESS;
 
+    if (!strcmp(name, "copysign")) copysign_test = 1;
+
+#define ref_func(s, s2) (copysign_test ? func.f_ff_d(s, s2) : func.f_ff(s, s2))
+
     // Calculate the correctly rounded reference result
     r = (cl_double *)gOut_Ref + thread_id * buffer_elements;
     s = (cl_double *)gIn + thread_id * buffer_elements;
     s2 = (cl_double *)gIn2 + thread_id * buffer_elements;
     for (size_t j = 0; j < buffer_elements; j++)
-        r[j] = (cl_double)func.f_ff(s[j], s2[j]);
+        r[j] = (cl_double)ref_func(s[j], s2[j]);
 
     // Read the data back -- no need to wait for the first N-1 buffers but wait
     // for the last buffer. This is an in order queue.
@@ -412,7 +406,7 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
             if (t[j] != q[j])
             {
                 cl_double test = ((cl_double *)q)[j];
-                long double correct = func.f_ff(s[j], s2[j]);
+                long double correct = ref_func(s[j], s2[j]);
                 float err = Bruteforce_Ulp_Error_Double(test, correct);
                 int fail = !(fabsf(err) <= ulps);
 
@@ -449,8 +443,8 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
                         // retry per section 6.5.3.3
                         if (IsDoubleSubnormal(s[j]))
                         {
-                            long double correct2 = func.f_ff(0.0, s2[j]);
-                            long double correct3 = func.f_ff(-0.0, s2[j]);
+                            long double correct2 = ref_func(0.0, s2[j]);
+                            long double correct3 = ref_func(-0.0, s2[j]);
                             float err2 =
                                 Bruteforce_Ulp_Error_Double(test, correct2);
                             float err3 =
@@ -472,10 +466,10 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
                             // try with both args as zero
                             if (IsDoubleSubnormal(s2[j]))
                             {
-                                correct2 = func.f_ff(0.0, 0.0);
-                                correct3 = func.f_ff(-0.0, 0.0);
-                                long double correct4 = func.f_ff(0.0, -0.0);
-                                long double correct5 = func.f_ff(-0.0, -0.0);
+                                correct2 = ref_func(0.0, 0.0);
+                                correct3 = ref_func(-0.0, 0.0);
+                                long double correct4 = ref_func(0.0, -0.0);
+                                long double correct5 = ref_func(-0.0, -0.0);
                                 err2 =
                                     Bruteforce_Ulp_Error_Double(test, correct2);
                                 err3 =
@@ -507,8 +501,8 @@ cl_int Test(cl_uint job_id, cl_uint thread_id, void *data)
                         }
                         else if (IsDoubleSubnormal(s2[j]))
                         {
-                            long double correct2 = func.f_ff(s[j], 0.0);
-                            long double correct3 = func.f_ff(s[j], -0.0);
+                            long double correct2 = ref_func(s[j], 0.0);
+                            long double correct3 = ref_func(s[j], -0.0);
                             float err2 =
                                 Bruteforce_Ulp_Error_Double(test, correct2);
                             float err3 =

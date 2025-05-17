@@ -20,7 +20,6 @@
 
 #include <vector>
 
-#include "procs.h"
 #include "utils.h"
 #include <time.h>
 
@@ -43,8 +42,7 @@ static const char* enqueue_multi_level = R"(
       block_fn(res, level);
     })";
 
-int test_enqueue_profiling(cl_device_id device, cl_context context,
-                           cl_command_queue queue, int num_elements)
+REGISTER_TEST(enqueue_profiling)
 {
     cl_int err_ret, res = 0;
     clCommandQueueWrapper dev_queue;
@@ -66,8 +64,8 @@ int test_enqueue_profiling(cl_device_id device, cl_context context,
     dev_queue = clCreateCommandQueueWithProperties(
         context, device, dev_queue_prop_def, &err_ret);
     test_error(err_ret,
-               "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE|CL_QUEUE_"
-               "DEFAULT) failed");
+               "clCreateCommandQueueWithProperties(CL_QUEUE_ON_DEVICE | "
+               "CL_QUEUE_ON_DEVICE_DEFAULT) failed");
 
     cl_queue_properties host_queue_prop_def[] = { CL_QUEUE_PROPERTIES,
                                                   CL_QUEUE_PROFILING_ENABLE,
@@ -75,9 +73,9 @@ int test_enqueue_profiling(cl_device_id device, cl_context context,
 
     host_queue = clCreateCommandQueueWithProperties(
         context, device, host_queue_prop_def, &err_ret);
-    test_error(err_ret,
-               "clCreateCommandQueueWithProperties(CL_QUEUE_DEVICE|CL_QUEUE_"
-               "DEFAULT) failed");
+    test_error(
+        err_ret,
+        "clCreateCommandQueueWithProperties(CL_QUEUE_PROFILING_ENABLE) failed");
 
     cl_int status;
     size_t size = 1;

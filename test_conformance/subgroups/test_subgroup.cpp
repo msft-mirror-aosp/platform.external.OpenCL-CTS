@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "procs.h"
 #include "subhelpers.h"
 #include "subgroup_common_kernels.h"
 #include "subgroup_common_templates.h"
@@ -169,6 +168,7 @@ int test_subgroup_functions(cl_device_id device, cl_context context,
     constexpr size_t global_work_size = 2000;
     constexpr size_t local_work_size = 200;
     WorkGroupParams test_params(global_work_size, local_work_size);
+    test_params.use_core_subgroups = useCoreSubgroups;
     test_params.save_kernel_source(sub_group_reduction_scan_source);
     test_params.save_kernel_source(sub_group_generic_source,
                                    "sub_group_broadcast");
@@ -187,14 +187,12 @@ int test_subgroup_functions(cl_device_id device, cl_context context,
     return error;
 }
 
-int test_subgroup_functions_core(cl_device_id device, cl_context context,
-                                 cl_command_queue queue, int num_elements)
+REGISTER_TEST_VERSION(subgroup_functions_core, Version(2, 1))
 {
     return test_subgroup_functions(device, context, queue, num_elements, true);
 }
 
-int test_subgroup_functions_ext(cl_device_id device, cl_context context,
-                                cl_command_queue queue, int num_elements)
+REGISTER_TEST_VERSION(subgroup_functions_ext, Version(2, 0))
 {
     bool hasExtension = is_extension_available(device, "cl_khr_subgroups");
 

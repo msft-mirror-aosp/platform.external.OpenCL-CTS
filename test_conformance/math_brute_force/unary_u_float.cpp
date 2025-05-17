@@ -67,6 +67,8 @@ int TestFunc_Float_UInt(const Func *f, MTdata d, bool relaxedMode)
 
     for (uint64_t i = 0; i < (1ULL << 32); i += step)
     {
+        if (gSkipCorrectnessTesting) break;
+
         // Init input array
         uint32_t *p = (uint32_t *)gIn;
         if (gWimpyMode)
@@ -121,18 +123,12 @@ int TestFunc_Float_UInt(const Func *f, MTdata d, bool relaxedMode)
         {
             size_t vectorSize = sizeValues[j] * sizeof(cl_float);
             size_t localCount = (BUFFER_SIZE + vectorSize - 1) / vectorSize;
-            if ((error = clSetKernelArg(kernels[j][thread_id], 0,
-                                        sizeof(gOutBuffer[j]), &gOutBuffer[j])))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
-            if ((error = clSetKernelArg(kernels[j][thread_id], 1,
-                                        sizeof(gInBuffer), &gInBuffer)))
-            {
-                LogBuildError(programs[j]);
-                return error;
-            }
+            error = clSetKernelArg(kernels[j][thread_id], 0,
+                                   sizeof(gOutBuffer[j]), &gOutBuffer[j]);
+            test_error(error, "Failed to set kernel argument");
+            error = clSetKernelArg(kernels[j][thread_id], 1, sizeof(gInBuffer),
+                                   &gInBuffer);
+            test_error(error, "Failed to set kernel argument");
 
             if ((error = clEnqueueNDRangeKernel(gQueue, kernels[j][thread_id],
                                                 1, NULL, &localCount, NULL, 0,
@@ -163,8 +159,6 @@ int TestFunc_Float_UInt(const Func *f, MTdata d, bool relaxedMode)
                 return error;
             }
         }
-
-        if (gSkipCorrectnessTesting) break;
 
         // Verify data
         uint32_t *t = (uint32_t *)gOut_Ref;

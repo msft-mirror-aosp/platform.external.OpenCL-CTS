@@ -4,6 +4,10 @@
     <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
         <option name="cleanup" value="true"/>
+        <option name="push-file" key="opencl_cts" value="/data/nativetest64/unrestricted/opencl_cts"/>
+    </target_preparer>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
         <option name="append-bitness" value="true"/>
         <option name="push-file" key="ocl-test-allocations" value="/data/nativetest64/unrestricted/ocl-test-allocations"/>
         <option name="push-file" key="ocl-test-api" value="/data/nativetest64/unrestricted/ocl-test-api"/>
@@ -37,221 +41,128 @@
         <option name="push-file" key="ocl-test-image-kernel-image-methods" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
         <option name="push-file" key="ocl-test-image-samplerlessreads" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </target_preparer>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="allocations"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-allocations"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="allocations" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts allocations /data/nativetest64/unrestricted/ocl-test-allocations"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="api"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-api"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="api" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts api /data/nativetest64/unrestricted/ocl-test-api"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="atomics"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-atomics"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomics" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts atomics /data/nativetest64/unrestricted/ocl-test-atomics"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="basic"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-basic"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="basic" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts basic /data/nativetest64/unrestricted/ocl-test-basic"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="buffers"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-buffers"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="buffers" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts buffers /data/nativetest64/unrestricted/ocl-test-buffers"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="120m"/>
-        <option name="python-options" value="c11-atomics"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="c11-atomics" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts c11-atomics /data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="commonfns"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-commonfns"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="commonfns" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts commonfns /data/nativetest64/unrestricted/ocl-test-commonfns"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="computeinfo"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts computeinfo /data/nativetest64/unrestricted/ocl-test-computeinfo"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="contractions"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-contractions"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="contractions" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts contractions /data/nativetest64/unrestricted/ocl-test-contractions"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="device-execution"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-device-execution"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="device-execution" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts device-execution /data/nativetest64/unrestricted/ocl-test-device-execution"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="device-partition"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-device-partition"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="device-partition" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts device-partition /data/nativetest64/unrestricted/ocl-test-device-partition"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="device-timer"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-device-timer"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="device-timer" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts device-timer /data/nativetest64/unrestricted/ocl-test-device-timer"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="events"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-events"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="events" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts events /data/nativetest64/unrestricted/ocl-test-events"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="generic-address-space"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="generic-address-space" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts generic-address-space /data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="geometrics"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-geometrics"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geometrics" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts geometrics /data/nativetest64/unrestricted/ocl-test-geometrics"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="mem-host-flags"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="mem-host-flags" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts mem-host-flags /data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="multiple-device-context"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="multiple-device-context" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts multiple-device-context /data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="non-uniform-work-group"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="non-uniform-work-group" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts non-uniform-work-group /data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="pipes"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-pipes"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="pipes" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts pipes /data/nativetest64/unrestricted/ocl-test-pipes"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="profiling"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-profiling"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="profiling" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts profiling /data/nativetest64/unrestricted/ocl-test-profiling"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="relationals"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-relationals"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="relationals" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts relationals /data/nativetest64/unrestricted/ocl-test-relationals"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="subgroups"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="subgroups" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts subgroups /data/nativetest64/unrestricted/ocl-test-subgroups"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="svm"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts svm /data/nativetest64/unrestricted/ocl-test-svm"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="thread-dimensions"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="thread-dimensions" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts thread-dimensions /data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="vectors"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-vectors"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vectors" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts vectors /data/nativetest64/unrestricted/ocl-test-vectors"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="clcopyimage"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="clcopyimage" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts clcopyimage /data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="clfillimage"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="clfillimage" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts clfillimage /data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="clgetinfo"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="clgetinfo" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts clgetinfo /data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="clreadwriteimage"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="clreadwriteimage" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts clreadwriteimage /data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="kernel-image-methods"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="kernel-image-methods" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts kernel-image-methods /data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
     </test>
-    <test class="com.android.tradefed.testtype.python.PythonBinaryHostTest">
-        <option name="par-file-name" value="opencl_cts"/>
-        <option name="inject-android-serial" value="true"/>
-        <option name="test-timeout" value="30m"/>
-        <option name="python-options" value="samplerlessreads"/>
-        <option name="python-options" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="samplerlessreads" value="/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts samplerlessreads /data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
     </test>
 </configuration>

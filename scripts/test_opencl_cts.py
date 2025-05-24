@@ -4,7 +4,6 @@ from typing import List, Optional, Tuple
 
 import argparse
 import os
-import pipes
 import subprocess
 import sys
 import unittest
@@ -29,19 +28,15 @@ def parse_args(args: Optional[List[str]] = None) -> argparse.Namespace:
   return args
 
 
-def run_command(command: str) -> Tuple[int, str, str]:
-  serial_number = os.environ.get("ANDROID_SERIAL", "")
-  if not serial_number:
-    raise "$ANDROID_SERIAL is empty, device must be specified"
-
-  full_command = ["adb", "-s", serial_number, "shell", command]
+def run_command(command: list) -> Tuple[int, str, str]:
+  full_command = command
   ret = subprocess.run(
       full_command, capture_output=True, universal_newlines=True)
   return ret.returncode, ret.stdout, ret.stderr
 
 
 def get_all_subtests(binary_path: str) -> List[str]:
-  retcode, output, _ = run_command(f'{binary_path} --help')
+  retcode, output, _ = run_command([binary_path, '--help'])
 
   test_name_line = "Test names"
   index = output.find(test_name_line)
@@ -83,10 +78,7 @@ class OpenCLTest(unittest.TestCase):
     self._binary_path = binary_path
     self._args = args
 
-    self.command = " ".join(
-        [self._binary_path, self._test_name] +
-        list(map(pipes.quote, self._args))
-    )
+    self.command = [self._binary_path, self._test_name] + self._args
 
     self.test_func_name = self._test_name
     setattr(self, self.test_func_name, self.genericTest)

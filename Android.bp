@@ -486,6 +486,14 @@ python_test {
     test_options: {
         unit_test: false,
     },
+    target: {
+        android_arm64: {
+            test_suites: [
+                "device-tests",
+                "device-pixel-tests",
+            ],
+        },
+    },
 }
 
 python_test {

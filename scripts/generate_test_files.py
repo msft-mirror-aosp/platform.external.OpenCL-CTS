@@ -137,7 +137,7 @@ def generate_test_rules(configuration):
     create_subelement_with_attribs(test_rule, 'option',
         { 'name': "test-command-line",
           'key' : test['test_name'],
-          'value': "/data/nativetest64/unrestricted/opencl_cts/arm64/opencl_cts {} /data/nativetest64/unrestricted/{}".format(test['test_name'], test['binary_name']) })
+          'value': "/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts {} /data/nativetest64/unrestricted/{}".format(test['test_name'], test['binary_name']) })
 
     for arg in test.get('arguments', []):
       create_subelement_with_attribs(test_rule, 'option',

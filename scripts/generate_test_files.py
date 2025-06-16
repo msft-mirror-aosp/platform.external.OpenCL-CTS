@@ -1,82 +1,14 @@
 import json
 import os
-import re
-import shutil
-import subprocess
 from xml.dom import minidom
 from xml.etree import ElementTree
 
 
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
-TEST_JSON = 'tests.json'
-TEST_JSON_PATH = os.path.join(SCRIPT_DIR, TEST_JSON)
-
-
-def write_one_cc_test(test_details, f):
-  stringified_sources = map(lambda s: f'"{s}"', test_details['srcs'])
-  stringified_data = map(lambda s: f'"{s}"', test_details.get('data', []))
-  stringified_cflags = map(lambda s: f'"{s}"', test_details.get('cflags', []))
-
-  default = "ocl-test-defaults"
-  if test_details.get('image_type', False):
-    default = "ocl-test-image-defaults"
-
-  rtti = test_details.get('rtti', False)
-
-  cc_test_string = """
-cc_test {{
-    name: "{}",
-    srcs: [ {} ],
-    data: [ {} ],
-    cflags: [ {} ],
-    defaults: [ "{}" ],
-    rtti: {},
-    gtest: false
-}}
-
-""".format(test_details['binary_name'],
-           ", ".join(stringified_sources),
-           ", ".join(stringified_data),
-           ", ".join(stringified_cflags),
-           default,
-           (str(rtti)).lower())
-
-  empty_field_regex = re.compile("^\s*\w+: \[\s*\],?$")
-  cc_test_string = '\n'.join([line for line in cc_test_string.split('\n')
-                                   if not empty_field_regex.match(line)])
-  f.write(cc_test_string)
-  return test_details['binary_name']
-
-# replace ALL_TEST_MODULES with list of
-def process_tail(tail, test_targets) -> str:
-  lines = [f'":{target}",' for target in test_targets]
-  replacement = "\n".join(lines)
-  return tail.replace("ALL_TEST_MODULES", replacement)
-
-# Return value indicates whether the output should be formatted with bpfmt
-def generate_android_bp() -> bool:
-  android_bp_head_path = os.path.join(SCRIPT_DIR, 'android_bp_head')
-  android_bp_tail_path = os.path.join(SCRIPT_DIR, 'android_bp_tail')
-
-  with open('Android.bp', 'w') as android_bp:
-    with open(android_bp_head_path, 'r') as android_bp_head:
-      android_bp.write(android_bp_head.read())
-
-    with open(TEST_JSON_PATH) as f:
-      tests = json.load(f)
-
-    test_targets = []
-    for test in tests:
-      test_targets.append(write_one_cc_test(test, android_bp))
-
-    with open(android_bp_tail_path, 'r') as android_bp_tail:
-      android_bp.write(process_tail(android_bp_tail.read(), test_targets))
-
-  if shutil.which('bpfmt') is not None:
-    subprocess.run(['bpfmt', '-w', 'Android.bp'])
-    return True
-
-  return False
+TEST_JSON_PATH = os.path.join(SCRIPT_DIR, 'tests.json')
+TEST_CSV_PATH = os.path.join(SCRIPT_DIR, "..", "test_conformance", "opencl_conformance_tests_full.csv")
+TEST_XML_PATH = os.path.join(SCRIPT_DIR, "test_opencl_cts.xml")
+DATA_PATH="/data/nativetest64/unrestricted"
 
 
 def create_subelement_with_attribs(element, tag, attribs):
@@ -88,7 +20,7 @@ def create_subelement_with_attribs(element, tag, attribs):
   return subelement
 
 
-def generate_push_file_rules(configuration):
+def generate_push_file_rules(configuration, tests):
   create_subelement_with_attribs(configuration, 'target_preparer',
       { 'class': "com.android.tradefed.targetprep.RootTargetPreparer" })
 
@@ -97,7 +29,7 @@ def generate_push_file_rules(configuration):
   create_subelement_with_attribs(tester_pusher, 'option',
       { 'name': "cleanup", 'value': "true" })
   create_subelement_with_attribs(tester_pusher, 'option',
-      { 'name': "push-file", 'key': 'opencl_cts', 'value': "/data/nativetest64/unrestricted/opencl_cts" })
+      { 'name': "push-file", 'key': 'opencl_cts', 'value': "{}/opencl_cts".format(DATA_PATH) })
 
   test_pusher = create_subelement_with_attribs(configuration, 'target_preparer',
       { 'class': "com.android.compatibility.common.tradefed.targetprep.FilePusher" })
@@ -106,28 +38,17 @@ def generate_push_file_rules(configuration):
   create_subelement_with_attribs(test_pusher, 'option',
       { 'name': "append-bitness", 'value': "true" })
 
-  with open(TEST_JSON_PATH, "r") as f:
-    tests = json.load(f)
-
-  for test in tests:
-    if test.get('manual_only', False):
-      continue
-
+  for binary_name, _ in sorted(tests.items()):
     create_subelement_with_attribs(test_pusher, 'option',
         {
           'name': "push-file",
-          'key': test['binary_name'],
-          'value': "/data/nativetest64/unrestricted/{}".format(test['binary_name'])
+          'key': binary_name,
+          'value': "{}/{}".format(DATA_PATH, binary_name),
         })
 
 
-def generate_test_rules(configuration):
-  with open(TEST_JSON_PATH, "r") as f:
-    tests = json.load(f)
-
-  for test in tests:
-    if test.get('manual_only', False):
-      continue
+def generate_test_rules(configuration, tests):
+  for binary_name, test in sorted(tests.items()):
 
     test_rule = create_subelement_with_attribs(configuration, 'test',
         { 'class': "com.android.tradefed.testtype.binary.ExecutableTargetTest" })
@@ -137,14 +58,14 @@ def generate_test_rules(configuration):
     create_subelement_with_attribs(test_rule, 'option',
         { 'name': "test-command-line",
           'key' : test['test_name'],
-          'value': "/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts {} /data/nativetest64/unrestricted/{}".format(test['test_name'], test['binary_name']) })
+          'value': "{}/opencl_cts/*/opencl_cts {} {}/{}".format(DATA_PATH, test['test_name'], DATA_PATH, binary_name) })
 
     for arg in test.get('arguments', []):
       create_subelement_with_attribs(test_rule, 'option',
           { 'name': "python-options", 'value': arg })
 
 
-def generate_test_xml():
+def main():
   configuration = ElementTree.Element('configuration')
   configuration.attrib['description'] = "Config to run OpenCL CTS"
 
@@ -152,25 +73,30 @@ def generate_test_xml():
   logcat.attrib['name'] = "logcat-on-failure"
   logcat.attrib['value'] = "false"
 
-  generate_push_file_rules(configuration)
-  generate_test_rules(configuration)
+  json_tests = dict()
+  with open(TEST_JSON_PATH, "r") as f:
+    for json_test in json.load(f):
+      json_tests[json_test.get('test_name')] = json_test
+
+  tests = dict()
+  with open(TEST_CSV_PATH, newline='') as csvfile:
+    for line in csvfile.readlines():
+      if line.startswith("#") or line == "\n" or line.startswith("OpenCL-GL"):
+        continue
+      binary = line.split(',')[-1].strip().split(' ')[0].split('/')[-1]
+      test_name = binary.removeprefix("test_")
+      json_test = json_tests.get(test_name, {'test_name': test_name})
+      if json_test.get('manual_only', False):
+        continue
+      tests["OpenCL-CTS-" + binary] = json_test
+
+  generate_push_file_rules(configuration, tests)
+  generate_test_rules(configuration, tests)
 
   stringified_configuration = ElementTree.tostring(configuration, 'utf-8')
   reparsed_configuration = minidom.parseString(stringified_configuration)
-  with open('test_opencl_cts.xml', 'w') as f:
+  with open(TEST_XML_PATH, 'w') as f:
     f.write(reparsed_configuration.toprettyxml(indent=" "*4))
-
-
-def main():
-  android_bp_formatted = generate_android_bp()
-  generate_test_xml()
-
-  print("Don't forget to move -")
-  print("    Android.bp -> {ANDROID_ROOT}/external/OpenCL-CTS/Android.bp")
-  print("    test_opencl_cts.xml -> {ANDROID_ROOT}/external/OpenCL-CTS/scripts/test_opencl_cts.xml")
-  if not android_bp_formatted:
-    print("then run the blueprint autoformatter:")
-    print("    bpfmt -w {ANDROID_ROOT}/external/OpenCL-CTS/Android.bp")
 
 
 if __name__ == '__main__':

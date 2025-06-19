@@ -9,160 +9,190 @@
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
         <option name="cleanup" value="true"/>
         <option name="append-bitness" value="true"/>
-        <option name="push-file" key="ocl-test-allocations" value="/data/nativetest64/unrestricted/ocl-test-allocations"/>
-        <option name="push-file" key="ocl-test-api" value="/data/nativetest64/unrestricted/ocl-test-api"/>
-        <option name="push-file" key="ocl-test-atomics" value="/data/nativetest64/unrestricted/ocl-test-atomics"/>
-        <option name="push-file" key="ocl-test-basic" value="/data/nativetest64/unrestricted/ocl-test-basic"/>
-        <option name="push-file" key="ocl-test-buffers" value="/data/nativetest64/unrestricted/ocl-test-buffers"/>
-        <option name="push-file" key="ocl-test-c11-atomics" value="/data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
-        <option name="push-file" key="ocl-test-commonfns" value="/data/nativetest64/unrestricted/ocl-test-commonfns"/>
-        <option name="push-file" key="ocl-test-computeinfo" value="/data/nativetest64/unrestricted/ocl-test-computeinfo"/>
-        <option name="push-file" key="ocl-test-contractions" value="/data/nativetest64/unrestricted/ocl-test-contractions"/>
-        <option name="push-file" key="ocl-test-device-execution" value="/data/nativetest64/unrestricted/ocl-test-device-execution"/>
-        <option name="push-file" key="ocl-test-device-partition" value="/data/nativetest64/unrestricted/ocl-test-device-partition"/>
-        <option name="push-file" key="ocl-test-device-timer" value="/data/nativetest64/unrestricted/ocl-test-device-timer"/>
-        <option name="push-file" key="ocl-test-events" value="/data/nativetest64/unrestricted/ocl-test-events"/>
-        <option name="push-file" key="ocl-test-generic-address-space" value="/data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
-        <option name="push-file" key="ocl-test-geometrics" value="/data/nativetest64/unrestricted/ocl-test-geometrics"/>
-        <option name="push-file" key="ocl-test-mem-host-flags" value="/data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
-        <option name="push-file" key="ocl-test-multiple-device-context" value="/data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
-        <option name="push-file" key="ocl-test-non-uniform-work-group" value="/data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
-        <option name="push-file" key="ocl-test-pipes" value="/data/nativetest64/unrestricted/ocl-test-pipes"/>
-        <option name="push-file" key="ocl-test-profiling" value="/data/nativetest64/unrestricted/ocl-test-profiling"/>
-        <option name="push-file" key="ocl-test-relationals" value="/data/nativetest64/unrestricted/ocl-test-relationals"/>
-        <option name="push-file" key="ocl-test-subgroups" value="/data/nativetest64/unrestricted/ocl-test-subgroups"/>
-        <option name="push-file" key="ocl-test-svm" value="/data/nativetest64/unrestricted/ocl-test-svm"/>
-        <option name="push-file" key="ocl-test-thread-dimensions" value="/data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
-        <option name="push-file" key="ocl-test-vectors" value="/data/nativetest64/unrestricted/ocl-test-vectors"/>
-        <option name="push-file" key="ocl-test-image-clcopyimage" value="/data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
-        <option name="push-file" key="ocl-test-image-clfillimage" value="/data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
-        <option name="push-file" key="ocl-test-image-clgetinfo" value="/data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
-        <option name="push-file" key="ocl-test-image-clreadwriteimage" value="/data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
-        <option name="push-file" key="ocl-test-image-kernel-image-methods" value="/data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
-        <option name="push-file" key="ocl-test-image-samplerlessreads" value="/data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
+        <option name="push-file" key="OpenCL-CTS-test_allocations" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_allocations"/>
+        <option name="push-file" key="OpenCL-CTS-test_api" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_api"/>
+        <option name="push-file" key="OpenCL-CTS-test_atomics" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_atomics"/>
+        <option name="push-file" key="OpenCL-CTS-test_basic" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_basic"/>
+        <option name="push-file" key="OpenCL-CTS-test_buffers" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_buffers"/>
+        <option name="push-file" key="OpenCL-CTS-test_c11_atomics" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_c11_atomics"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_copy_images" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_copy_images"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_ext_cxx_for_opencl" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_ext_cxx_for_opencl"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_fill_images" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_fill_images"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_get_info" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_get_info"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_khr_command_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_command_buffer"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_khr_kernel_clock" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_kernel_clock"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_khr_mutable_dispatch" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_mutable_dispatch"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_khr_semaphore" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_semaphore"/>
+        <option name="push-file" key="OpenCL-CTS-test_cl_read_write_images" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_cl_read_write_images"/>
+        <option name="push-file" key="OpenCL-CTS-test_commonfns" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_commonfns"/>
+        <option name="push-file" key="OpenCL-CTS-test_computeinfo" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_computeinfo"/>
+        <option name="push-file" key="OpenCL-CTS-test_contractions" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_contractions"/>
+        <option name="push-file" key="OpenCL-CTS-test_device_execution" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_device_execution"/>
+        <option name="push-file" key="OpenCL-CTS-test_device_partition" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_device_partition"/>
+        <option name="push-file" key="OpenCL-CTS-test_device_timer" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_device_timer"/>
+        <option name="push-file" key="OpenCL-CTS-test_events" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_events"/>
+        <option name="push-file" key="OpenCL-CTS-test_generic_address_space" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_generic_address_space"/>
+        <option name="push-file" key="OpenCL-CTS-test_geometrics" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_geometrics"/>
+        <option name="push-file" key="OpenCL-CTS-test_kernel_image_methods" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_kernel_image_methods"/>
+        <option name="push-file" key="OpenCL-CTS-test_mem_host_flags" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_mem_host_flags"/>
+        <option name="push-file" key="OpenCL-CTS-test_multiples" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_multiples"/>
+        <option name="push-file" key="OpenCL-CTS-test_non_uniform_work_group" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_non_uniform_work_group"/>
+        <option name="push-file" key="OpenCL-CTS-test_pipes" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_pipes"/>
+        <option name="push-file" key="OpenCL-CTS-test_profiling" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_profiling"/>
+        <option name="push-file" key="OpenCL-CTS-test_relationals" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_relationals"/>
+        <option name="push-file" key="OpenCL-CTS-test_samplerless_reads" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_samplerless_reads"/>
+        <option name="push-file" key="OpenCL-CTS-test_subgroups" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_subgroups"/>
+        <option name="push-file" key="OpenCL-CTS-test_svm" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_svm"/>
+        <option name="push-file" key="OpenCL-CTS-test_thread_dimensions" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_thread_dimensions"/>
+        <option name="push-file" key="OpenCL-CTS-test_vectors" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_vectors"/>
+        <option name="push-file" key="OpenCL-CTS-test_workgroups" value="/data/nativetest64/unrestricted/OpenCL-CTS-test_workgroups"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="allocations" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts allocations /data/nativetest64/unrestricted/ocl-test-allocations"/>
+        <option name="test-command-line" key="allocations" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts allocations /data/nativetest64/unrestricted/OpenCL-CTS-test_allocations"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="api" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts api /data/nativetest64/unrestricted/ocl-test-api"/>
+        <option name="test-command-line" key="api" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts api /data/nativetest64/unrestricted/OpenCL-CTS-test_api"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomics" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts atomics /data/nativetest64/unrestricted/ocl-test-atomics"/>
+        <option name="test-command-line" key="atomics" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts atomics /data/nativetest64/unrestricted/OpenCL-CTS-test_atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="basic" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts basic /data/nativetest64/unrestricted/ocl-test-basic"/>
+        <option name="test-command-line" key="basic" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts basic /data/nativetest64/unrestricted/OpenCL-CTS-test_basic"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="buffers" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts buffers /data/nativetest64/unrestricted/ocl-test-buffers"/>
+        <option name="test-command-line" key="buffers" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts buffers /data/nativetest64/unrestricted/OpenCL-CTS-test_buffers"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="120m"/>
-        <option name="test-command-line" key="c11-atomics" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts c11-atomics /data/nativetest64/unrestricted/ocl-test-c11-atomics"/>
+        <option name="test-command-line" key="c11_atomics" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts c11_atomics /data/nativetest64/unrestricted/OpenCL-CTS-test_c11_atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="commonfns" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts commonfns /data/nativetest64/unrestricted/ocl-test-commonfns"/>
+        <option name="test-command-line" key="cl_copy_images" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_copy_images /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_copy_images"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts computeinfo /data/nativetest64/unrestricted/ocl-test-computeinfo"/>
+        <option name="test-command-line" key="cl_ext_cxx_for_opencl" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_ext_cxx_for_opencl /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_ext_cxx_for_opencl"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts contractions /data/nativetest64/unrestricted/ocl-test-contractions"/>
+        <option name="test-command-line" key="cl_fill_images" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_fill_images /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_fill_images"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="device-execution" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts device-execution /data/nativetest64/unrestricted/ocl-test-device-execution"/>
+        <option name="test-command-line" key="cl_get_info" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_get_info /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_get_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="device-partition" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts device-partition /data/nativetest64/unrestricted/ocl-test-device-partition"/>
+        <option name="test-command-line" key="cl_khr_command_buffer" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_khr_command_buffer /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="device-timer" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts device-timer /data/nativetest64/unrestricted/ocl-test-device-timer"/>
+        <option name="test-command-line" key="cl_khr_kernel_clock" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_khr_kernel_clock /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_kernel_clock"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="events" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts events /data/nativetest64/unrestricted/ocl-test-events"/>
+        <option name="test-command-line" key="cl_khr_mutable_dispatch" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_khr_mutable_dispatch /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_mutable_dispatch"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="generic-address-space" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts generic-address-space /data/nativetest64/unrestricted/ocl-test-generic-address-space"/>
+        <option name="test-command-line" key="cl_khr_semaphore" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_khr_semaphore /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_khr_semaphore"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="geometrics" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts geometrics /data/nativetest64/unrestricted/ocl-test-geometrics"/>
+        <option name="test-command-line" key="cl_read_write_images" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts cl_read_write_images /data/nativetest64/unrestricted/OpenCL-CTS-test_cl_read_write_images"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem-host-flags" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts mem-host-flags /data/nativetest64/unrestricted/ocl-test-mem-host-flags"/>
+        <option name="test-command-line" key="commonfns" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts commonfns /data/nativetest64/unrestricted/OpenCL-CTS-test_commonfns"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="multiple-device-context" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts multiple-device-context /data/nativetest64/unrestricted/ocl-test-multiple-device-context"/>
+        <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts computeinfo /data/nativetest64/unrestricted/OpenCL-CTS-test_computeinfo"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="non-uniform-work-group" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts non-uniform-work-group /data/nativetest64/unrestricted/ocl-test-non-uniform-work-group"/>
+        <option name="test-command-line" key="contractions" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts contractions /data/nativetest64/unrestricted/OpenCL-CTS-test_contractions"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipes" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts pipes /data/nativetest64/unrestricted/ocl-test-pipes"/>
+        <option name="test-command-line" key="device_execution" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts device_execution /data/nativetest64/unrestricted/OpenCL-CTS-test_device_execution"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="profiling" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts profiling /data/nativetest64/unrestricted/ocl-test-profiling"/>
+        <option name="test-command-line" key="device_partition" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts device_partition /data/nativetest64/unrestricted/OpenCL-CTS-test_device_partition"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relationals" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts relationals /data/nativetest64/unrestricted/ocl-test-relationals"/>
+        <option name="test-command-line" key="device_timer" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts device_timer /data/nativetest64/unrestricted/OpenCL-CTS-test_device_timer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="subgroups" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts subgroups /data/nativetest64/unrestricted/ocl-test-subgroups"/>
+        <option name="test-command-line" key="events" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts events /data/nativetest64/unrestricted/OpenCL-CTS-test_events"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="svm" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts svm /data/nativetest64/unrestricted/ocl-test-svm"/>
+        <option name="test-command-line" key="generic_address_space" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts generic_address_space /data/nativetest64/unrestricted/OpenCL-CTS-test_generic_address_space"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="thread-dimensions" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts thread-dimensions /data/nativetest64/unrestricted/ocl-test-thread-dimensions"/>
+        <option name="test-command-line" key="geometrics" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts geometrics /data/nativetest64/unrestricted/OpenCL-CTS-test_geometrics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="vectors" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts vectors /data/nativetest64/unrestricted/ocl-test-vectors"/>
+        <option name="test-command-line" key="kernel_image_methods" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts kernel_image_methods /data/nativetest64/unrestricted/OpenCL-CTS-test_kernel_image_methods"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="clcopyimage" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts clcopyimage /data/nativetest64/unrestricted/ocl-test-image-clcopyimage"/>
+        <option name="test-command-line" key="mem_host_flags" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts mem_host_flags /data/nativetest64/unrestricted/OpenCL-CTS-test_mem_host_flags"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="clfillimage" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts clfillimage /data/nativetest64/unrestricted/ocl-test-image-clfillimage"/>
+        <option name="test-command-line" key="multiples" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts multiples /data/nativetest64/unrestricted/OpenCL-CTS-test_multiples"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="clgetinfo" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts clgetinfo /data/nativetest64/unrestricted/ocl-test-image-clgetinfo"/>
+        <option name="test-command-line" key="non_uniform_work_group" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts non_uniform_work_group /data/nativetest64/unrestricted/OpenCL-CTS-test_non_uniform_work_group"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="clreadwriteimage" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts clreadwriteimage /data/nativetest64/unrestricted/ocl-test-image-clreadwriteimage"/>
+        <option name="test-command-line" key="pipes" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts pipes /data/nativetest64/unrestricted/OpenCL-CTS-test_pipes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel-image-methods" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts kernel-image-methods /data/nativetest64/unrestricted/ocl-test-image-kernel-image-methods"/>
+        <option name="test-command-line" key="profiling" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts profiling /data/nativetest64/unrestricted/OpenCL-CTS-test_profiling"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="samplerlessreads" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts samplerlessreads /data/nativetest64/unrestricted/ocl-test-image-samplerlessreads"/>
+        <option name="test-command-line" key="relationals" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts relationals /data/nativetest64/unrestricted/OpenCL-CTS-test_relationals"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="samplerless_reads" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts samplerless_reads /data/nativetest64/unrestricted/OpenCL-CTS-test_samplerless_reads"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="subgroups" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts subgroups /data/nativetest64/unrestricted/OpenCL-CTS-test_subgroups"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts svm /data/nativetest64/unrestricted/OpenCL-CTS-test_svm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="thread_dimensions" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts thread_dimensions /data/nativetest64/unrestricted/OpenCL-CTS-test_thread_dimensions"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vectors" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts vectors /data/nativetest64/unrestricted/OpenCL-CTS-test_vectors"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="workgroups" value="/data/nativetest64/unrestricted/opencl_cts/*/opencl_cts workgroups /data/nativetest64/unrestricted/OpenCL-CTS-test_workgroups"/>
     </test>
 </configuration>

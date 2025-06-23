@@ -1,0 +1,253 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="conversions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_conversions"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="basic" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_basic"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="api" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="compiler" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="commonfns" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="geometrics" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="relationals" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="thread_dimensions_full" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full*"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="multiples" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="atomics" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="profiling" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_profiling"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="events" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="allocations_single_5" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="allocations_multiple_5" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="vectors" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_vectors"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="printf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_printf"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="device_partition" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_device_partition"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="buffers" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_buffers"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_get_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_get_info"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="kernel_image_methods" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="image_streams_CL_FILTER_NEAREST" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="image_streams_use_pitches_CL_FILTER_NEAREST" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="image_streams_max_images_CL_FILTER_NEAREST" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="image_streams_test_mipmaps_CL_FILTER_NEAREST" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_copy_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_copy_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_copy_images_small_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_copy_images small_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_copy_images_max_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_copy_images max_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_copy_images_test_mipmaps" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_copy_images test_mipmaps"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_read_write_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_read_write_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_read_write_images_use_pitches" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_read_write_images use_pitches"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_read_write_images_max_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_read_write_images max_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_read_write_images_test_mipmaps" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_read_write_images test_mipmaps"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_fill_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_fill_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_fill_images_use_pitches" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_fill_images use_pitches"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_fill_images_max_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_fill_images max_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="samplerless_reads" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="samplerless_reads_use_pitches" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="samplerless_reads_max_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="mem_host_flags" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="select" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_select"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="contractions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="bruteforce" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="integer_ops" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_integer_ops"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="c11_atomics" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="device_execution" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_device_execution"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="generic_address_space" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_generic_address_space"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="non_uniform_work_group" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="pipes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="svm" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="workgroups" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_workgroups"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="device_timer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_device_timer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="spirv_new" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="spir" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="subgroups" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_subgroups"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_ext_cxx_for_opencl" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_ext_cxx_for_opencl"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_khr_semaphore" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_khr_command_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_khr_mutable_dispatch" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="cl_khr_kernel_clock" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_kernel_clock"/>
+    </test>
+</configuration>

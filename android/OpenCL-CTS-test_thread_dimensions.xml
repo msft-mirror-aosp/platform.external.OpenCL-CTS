@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_thread_dimensions">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_thread_dimensions" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="full_1d_implicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_1d_implicit_local"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="full_2d_explicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_2d_explicit_local"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="full_2d_implicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_2d_implicit_local"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="full_3d_explicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_3d_explicit_local"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="full_3d_implicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_3d_implicit_local"/>
+    </test>
+</configuration>

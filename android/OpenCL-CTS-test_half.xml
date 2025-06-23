@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_half">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_half" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="roundTrip" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half roundTrip"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vloada_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vloada_half"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vload_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vload_half"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstorea_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstorea_half"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstorea_half_rte" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstorea_half_rte"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstorea_half_rtn" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstorea_half_rtn"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstorea_half_rtp" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstorea_half_rtp"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstorea_half_rtz" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstorea_half_rtz"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstore_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstore_half"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstore_half_rte" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstore_half_rte"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstore_half_rtn" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstore_half_rtn"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstore_half_rtp" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstore_half_rtp"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="vstore_half_rtz" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_half vstore_half_rtz"/>
+    </test>
+</configuration>

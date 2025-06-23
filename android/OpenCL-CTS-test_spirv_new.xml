@@ -1,0 +1,945 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_spirv_new">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_spirv_new" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="basic_versions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new basic_versions --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_aliased" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_aliased --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_alignment" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_alignment --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_constant" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_constant --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_cpacked" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_cpacked --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rte_double_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rte_double_long --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rte_float_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rte_float_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rte_half_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rte_half_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtn_double_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtn_double_long --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtn_float_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtn_float_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtn_half_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtn_half_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtp_double_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtp_double_long --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtp_float_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtp_float_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtp_half_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtp_half_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtz_double_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtz_double_long --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtz_float_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtz_float_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_fp_rounding_mode_rtz_half_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_fp_rounding_mode_rtz_half_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_restrict" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_restrict --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_double_to_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_double_to_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_double_to_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_double_to_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_float_to_char" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_float_to_char --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_float_to_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_float_to_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_float_to_uchar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_float_to_uchar --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_float_to_ushort" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_float_to_ushort --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_half_to_char" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_half_to_char --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="decorate_saturated_conversion_half_to_uchar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new decorate_saturated_conversion_half_to_uchar --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fadd_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fadd_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fadd_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fadd_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fmul_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fmul_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fmul_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fmul_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fnegate_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fnegate_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fshiftleft_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fshiftleft_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fshiftleft_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fshiftleft_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fsub_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fsub_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="ext_cl_khr_spirv_no_integer_wrap_decoration_fsub_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new ext_cl_khr_spirv_no_integer_wrap_decoration_fsub_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="extinst_printf_operands_scalar_fp32" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new extinst_printf_operands_scalar_fp32 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="extinst_printf_operands_scalar_fp64" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new extinst_printf_operands_scalar_fp64 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="extinst_printf_operands_scalar_int32" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new extinst_printf_operands_scalar_int32 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="extinst_printf_operands_scalar_int64" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new extinst_printf_operands_scalar_int64 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="function_const" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new function_const --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="function_inline" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new function_inline --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="function_noinline" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new function_noinline --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="function_none" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new function_none --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="function_pure" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new function_pure --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="function_pure_ptr" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new function_pure_ptr --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="get_program_il" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new get_program_il --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="linkage_export_function_compile" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new linkage_export_function_compile --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="linkage_import_function_compile" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new linkage_import_function_compile --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="linkage_import_function_link" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new linkage_import_function_link --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="linkage_linkonce_odr" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new linkage_linkonce_odr --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_assume" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_assume --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_atomic_dec_global" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_atomic_dec_global --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_atomic_inc_global" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_atomic_inc_global --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_branch_conditional" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_branch_conditional --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_branch_conditional_weighted" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_branch_conditional_weighted --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_branch_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_branch_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_composite_construct_int4" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_composite_construct_int4 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_composite_construct_struct" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_composite_construct_struct --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_char_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_char_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_double_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_double_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_false_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_false_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_half_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_half_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_int3_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_int3_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_int4_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_int4_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_int_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_int_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_long_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_long_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_short_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_short_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_struct_int_char_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_struct_int_char_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_struct_int_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_struct_int_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_struct_struct_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_struct_struct_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_true_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_true_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_uchar_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_uchar_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_uint_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_uint_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_ulong_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_ulong_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_constant_ushort_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_constant_ushort_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_char_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_char_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_double_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_double_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_half_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_half_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_int3_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_int3_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_int4_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_int4_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_int_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_int_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_long_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_long_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_short_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_short_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_struct_int_char_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_struct_int_char_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_struct_int_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_struct_int_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_struct_struct_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_struct_struct_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_uchar_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_uchar_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_uint_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_uint_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_ulong_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_ulong_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_copy_ushort_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_copy_ushort_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_expect" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_expect --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_double2_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_double2_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_double2_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_double2_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_double_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_double_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_double_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_double_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_float4_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_float4_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_float4_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_float4_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_float_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_float_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_float_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_float_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_half_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_half_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fadd_half_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fadd_half_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_double2_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_double2_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_double2_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_double2_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_double_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_double_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_double_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_double_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_float4_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_float4_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_float4_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_float4_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_float_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_float_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_float_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_float_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_half_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_half_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fdiv_half_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fdiv_half_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_double2_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_double2_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_double2_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_double2_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_double_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_double_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_double_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_double_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_float4_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_float4_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_float4_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_float4_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_float_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_float_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_float_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_float_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_half_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_half_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fmul_half_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fmul_half_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_double2_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_double2_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_double2_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_double2_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_double_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_double_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_double_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_double_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_float4_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_float4_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_float4_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_float4_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_float_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_float_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_float_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_float_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_half_fast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_half_fast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_fsub_half_regular" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_fsub_half_regular --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_label_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_label_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_lifetime_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_lifetime_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_loop_merge_branch_conditional_dont_unroll" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_loop_merge_branch_conditional_dont_unroll --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_loop_merge_branch_conditional_none" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_loop_merge_branch_conditional_none --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_loop_merge_branch_conditional_unroll" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_loop_merge_branch_conditional_unroll --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_loop_merge_branch_dont_unroll" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_loop_merge_branch_dont_unroll --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_loop_merge_branch_none" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_loop_merge_branch_none --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_loop_merge_branch_unroll" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_loop_merge_branch_unroll --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_double" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_double --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_float" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_float --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_float4" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_float4 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_half --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_int4" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_int4 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_long --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_neg_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_neg_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_not_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_not_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_not_int4" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_not_int4 --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_not_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_not_long --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_not_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_not_short --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_phi_2_blocks" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_phi_2_blocks --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_phi_3_blocks" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_phi_3_blocks --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_phi_4_blocks" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_phi_4_blocks --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_selection_merge_if_dont_flatten" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_selection_merge_if_dont_flatten --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_selection_merge_if_flatten" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_selection_merge_if_flatten --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_selection_merge_if_none" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_selection_merge_if_none --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_selection_merge_swith_dont_flatten" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_selection_merge_swith_dont_flatten --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_selection_merge_swith_flatten" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_selection_merge_swith_flatten --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_selection_merge_swith_none" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_selection_merge_swith_none --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_double_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_double_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_false_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_false_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_half_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_half_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_true_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_true_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_uchar_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_uchar_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_uint_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_uint_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_ulong_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_ulong_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_spec_constant_ushort_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_spec_constant_ushort_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_type_opaque_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_type_opaque_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_char_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_char_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_double_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_double_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_false_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_false_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_half_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_half_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_int3_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_int3_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_int4_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_int4_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_int_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_int_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_long_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_long_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_short_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_short_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_struct_int_char_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_struct_int_char_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_struct_int_float_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_struct_int_float_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_struct_struct_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_struct_struct_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_true_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_true_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_uchar_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_uchar_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_uint_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_uint_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_ulong_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_ulong_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_undef_ushort_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_undef_ushort_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_unreachable_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_unreachable_simple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_char16_extract" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_char16_extract --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_char16_insert" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_char16_insert --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_double2_extract" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_double2_extract --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_double2_insert" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_double2_insert --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_float4_extract" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_float4_extract --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_float4_insert" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_float4_insert --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_half8_extract" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_half8_extract --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_half8_insert" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_half8_insert --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_int4_extract" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_int4_extract --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_int4_insert" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_int4_insert --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_long2_extract" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_long2_extract --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_long2_insert" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_long2_insert --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_times_scalar_double" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_times_scalar_double --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_times_scalar_float" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_times_scalar_float --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="op_vector_times_scalar_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new op_vector_times_scalar_half --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_copylogical" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_copylogical --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_copymemory_memory_operands" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_copymemory_memory_operands --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_image_operand_signextend" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_image_operand_signextend --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_image_operand_zeroextend" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_image_operand_zeroextend --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_loop_control_iterationmultiple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_loop_control_iterationmultiple --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_loop_control_maxiterations" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_loop_control_maxiterations --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_loop_control_miniterations" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_loop_control_miniterations --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_loop_control_partialcount" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_loop_control_partialcount --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_loop_control_peelcount" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_loop_control_peelcount --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fadd_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fadd_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fadd_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fadd_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fmul_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fmul_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fmul_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fmul_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fnegate_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fnegate_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fshiftleft_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fshiftleft_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fshiftleft_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fshiftleft_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fsub_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fsub_int --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_no_integer_wrap_decoration_fsub_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_no_integer_wrap_decoration_fsub_uint --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_nonwriteable_decoration" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_nonwriteable_decoration --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_ptrops" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_ptrops --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_select_composite" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_select_composite --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_usersemantic_decoratestring" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_usersemantic_decoratestring --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv14_usersemantic_memberdecoratestring" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv14_usersemantic_memberdecoratestring --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv15_non_uniform_broadcast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv15_non_uniform_broadcast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv15_ptr_bitcast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv15_ptr_bitcast --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv16_image_operand_nontemporal" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv16_image_operand_nontemporal --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv16_uniformdecoration_uniform" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv16_uniformdecoration_uniform --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv16_uniformdecoration_uniformid" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spirv_new spirv16_uniformdecoration_uniformid --spirv_binaries_path /data/nativetest64/unrestricted/OpenCL-CTS/*/gensrcs/external/OpenCL-CTS/test_conformance/spirv_new/spirv_asm"/>
+    </test>
+</configuration>

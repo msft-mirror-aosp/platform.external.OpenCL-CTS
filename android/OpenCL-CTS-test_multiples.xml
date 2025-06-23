@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_multiples">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_multiples" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="context_four_contexts_same_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples context_four_contexts_same_device"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="context_multiple_contexts_same_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples context_multiple_contexts_same_device"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="context_three_contexts_same_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples context_three_contexts_same_device"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="context_two_contexts_same_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples context_two_contexts_same_device"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="hundred_queues" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples hundred_queues"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_devices" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples max_devices"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="two_devices" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_multiples two_devices"/>
+    </test>
+</configuration>

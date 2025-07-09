@@ -535,6 +535,8 @@ cc_test {
     static_libs: ["OpenCL-CTS_test_common_libharness_a"],
     rtti: false,
     defaults: ["OpenCL-CTS-defaults"],
+    // Triggered by test_api_min_max.cpp
+    cflags: ["-Wno-string-concatenation"],
 }
 
 cc_test {

@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_samplerless_reads">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_samplerless_reads" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads 1D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads 1Darray"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="1Dbuffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads 1Dbuffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads 2D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads 2Darray"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads 3D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="use_pitches_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches 1D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="use_pitches_1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches 1Darray"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="use_pitches_1Dbuffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches 1Dbuffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="use_pitches_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches 2D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="use_pitches_2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches 2Darray"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="use_pitches_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads use_pitches 3D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_images_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images 1D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_images_1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images 1Darray"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_images_1Dbuffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images 1Dbuffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_images_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images 2D"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_images_2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images 2Darray"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="max_images_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_samplerless_reads max_images 3D"/>
+    </test>
+</configuration>

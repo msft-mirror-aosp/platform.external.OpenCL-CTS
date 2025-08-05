@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_computeinfo">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_computeinfo" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo computeinfo"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="conformance_version" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo conformance_version"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="device_uuid" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo device_uuid"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="extended_versioning" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo extended_versioning"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="pci_bus_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo pci_bus_info"/>
+    </test>
+</configuration>

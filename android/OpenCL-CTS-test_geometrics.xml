@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_geometrics">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_geometrics" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_cross" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_cross"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_distance" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_distance"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_dot" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_dot"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_fast_distance" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_fast_distance"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_fast_length" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_fast_length"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_fast_normalize" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_fast_normalize"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_length" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_length"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="geom_normalize" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_geometrics geom_normalize"/>
+    </test>
+</configuration>

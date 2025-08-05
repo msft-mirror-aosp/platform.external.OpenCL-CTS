@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_c11_atomics">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_c11_atomics" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_compare_exchange_strong" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_compare_exchange_strong"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_compare_exchange_weak" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_compare_exchange_weak"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_exchange" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_exchange"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fence" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fence"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_add" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_add"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_and" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_and"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_max" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_max"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_min" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_min"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_or" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_or"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_orand" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_orand"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_sub" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_sub"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_xor" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_xor"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_fetch_xor2" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_fetch_xor2"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_flag" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_flag"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_init" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_init"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_load" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_load"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="atomic_store" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics atomic_store"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_compare_exchange_strong" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_compare_exchange_strong"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_compare_exchange_weak" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_compare_exchange_weak"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_exchange" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_exchange"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fence" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fence"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_add" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_add"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_and" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_and"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_max" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_max"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_min" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_min"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_or" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_or"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_orand" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_orand"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_sub" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_sub"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_xor" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_xor"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_fetch_xor2" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_fetch_xor2"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_flag" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_flag"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_init" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_init"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_load" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_load"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_atomic_store" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_c11_atomics svm_atomic_store"/>
+    </test>
+</configuration>

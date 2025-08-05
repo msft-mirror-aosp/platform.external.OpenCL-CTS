@@ -4,18 +4,18 @@ set -e
 
 SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
-help="
-OpenCL-CTS post_update depends on 'ninja-to-soong' (https://github.com/rjodinchr/ninja-to-soong).
-Please set 'N2S_DIR' to 'ninja-to-soong' to run this script.
+TMP_DIR=$(mktemp -d)
+cmake -S "${SCRIPT_DIR}/../OpenCL-ICD-Loader" -B "${TMP_DIR}/OpenCL-ICD-Loader" -DOPENCL_ICD_LOADER_HEADERS_DIR="${SCRIPT_DIR}/../OpenCL-Headers" -G Ninja
+cmake --build "${TMP_DIR}/OpenCL-ICD-Loader"
+cmake -S "${SCRIPT_DIR}" -B "${TMP_DIR}/OpenCL-CTS" -G Ninja -DCL_INCLUDE_DIR="${SCRIPT_DIR}/../OpenCL-Headers" -DCL_LIB_DIR="${TMP_DIR}/OpenCL-ICD-Loader" -DOPENCL_LIBRARIES=OpenCL
+cmake --build "${TMP_DIR}/OpenCL-CTS"
+cmake --install "${TMP_DIR}/OpenCL-CTS" --prefix "${TMP_DIR}/install"
+cp "${TMP_DIR}/OpenCL-CTS/test_conformance/spir/test_spir" "${TMP_DIR}/install/bin" # Manual install because CMake is not installing it by default
 
-Example:
-$ N2S_DIR=<path/to/ninja-to-soong> ./tools/external_updater update external/OpenCL-CTS
-"
-[[ -z "${N2S_DIR}" ]] && echo "$help" && exit -1
+PATH="${PATH}":"${TMP_DIR}/install/bin" python3 "${SCRIPT_DIR}/android/generate_xml_files.py"
 
-python3 "${SCRIPT_DIR}/scripts/generate_test_files.py"
+rm -rf "${TMP_DIR}"
 
-pushd "${N2S_DIR}"
-rm -rf "${SCRIPT_DIR}/cmake_generated"
-cargo run --release -- --aosp-path $(realpath "${SCRIPT_DIR}/../..") OpenCL-CTS --copy-to-aosp
+pushd "${SCRIPT_DIR}/../rust/ninja-to-soong"
+cargo run --release -- OpenCL-CTS --copy-to-aosp
 popd

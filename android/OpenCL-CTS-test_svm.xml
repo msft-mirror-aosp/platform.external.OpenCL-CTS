@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<configuration description="Config to run OpenCL-CTS-test_svm">
+    <option name="logcat-on-failure" value="false"/>
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer"/>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true"/>
+        <option name="push-file" key="OpenCL-CTS-test_svm" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
+    </target_preparer>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_allocate_shared_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_allocate_shared_buffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_allocate_shared_buffer_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_allocate_shared_buffer_negative"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_byte_granularity" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_byte_granularity"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_cross_buffer_pointers_coarse_grain" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_cross_buffer_pointers_coarse_grain"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_enqueue_api" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_enqueue_api"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_fine_grain_memory_consistency" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_fine_grain_memory_consistency"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_fine_grain_sync_buffers" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_fine_grain_sync_buffers"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_migrate" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_migrate"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_pointer_passing" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_pointer_passing"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_set_kernel_exec_info_svm_ptrs" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_set_kernel_exec_info_svm_ptrs"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_shared_address_space_coarse_grain_new_api" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_shared_address_space_coarse_grain_new_api"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_shared_address_space_coarse_grain_old_api" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_shared_address_space_coarse_grain_old_api"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_shared_address_space_fine_grain" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_shared_address_space_fine_grain"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_shared_address_space_fine_grain_buffers" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_shared_address_space_fine_grain_buffers"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="svm_shared_sub_buffers" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_svm svm_shared_sub_buffers"/>
+    </test>
+</configuration>

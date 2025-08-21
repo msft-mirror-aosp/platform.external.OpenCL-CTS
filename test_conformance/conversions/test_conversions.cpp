@@ -112,6 +112,35 @@ int main(int argc, const char **argv)
     int error;
 
     argc = parseCustomParam(argc, argv);
+    if (gListTests)
+    {
+        for (unsigned dst = 0; dst < kTypeCount; dst++)
+        {
+            for (unsigned src = 0; src < kTypeCount; src++)
+            {
+                for (unsigned sat = 0; sat < 2; sat++)
+                {
+                    // skip illegal saturated conversions to float type
+                    if (gSaturationNames[sat] == std::string("_sat")
+                        && (gTypeNames[dst] == std::string("float")
+                            || gTypeNames[dst] == std::string("half")
+                            || gTypeNames[dst] == std::string("double")))
+                    {
+                        continue;
+                    }
+                    for (unsigned rnd = 0; rnd < kRoundingModeCount; rnd++)
+                    {
+                        vlog("\t%s\n",
+                             (std::string(gTypeNames[dst])
+                              + gSaturationNames[sat] + gRoundingModeNames[rnd]
+                              + "_" + gTypeNames[src])
+                                 .c_str());
+                    }
+                }
+            }
+        }
+        return 0;
+    }
     if (argc == -1)
     {
         return 1;
@@ -226,8 +255,6 @@ static int ParseArgs(int argc, const char **argv)
                         gForceFTZ ^= 1;
                         gForceHalfFTZ ^= 1;
                         break;
-                    case 't': gTimeResults ^= 1; break;
-                    case 'a': gReportAverageTimes ^= 1; break;
                     case '1':
                         if (arg[1] == '6')
                         {

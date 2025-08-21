@@ -144,6 +144,10 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="get_device_info_comparability" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_device_info_comparability"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="get_image1d_array_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image1d_array_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -380,11 +384,31 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_enqueue_map_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_enqueue_map_image"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="negative_get_platform_ids" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_get_platform_ids"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="negative_get_platform_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_get_platform_info"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_invalid_arg_index" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_invalid_arg_index"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_invalid_arg_size_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_invalid_arg_size_local"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_set_immutable_memory_to_writeable_kernel_arg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_set_immutable_memory_to_writeable_kernel_arg"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_set_read_write_image_arg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_set_read_write_image_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
@@ -465,6 +489,14 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="set_kernel_arg_struct_array" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_struct_array"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv_query_dependencies" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api spirv_query_dependencies"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="spirv_query_requirements" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api spirv_query_requirements"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>

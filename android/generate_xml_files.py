@@ -16,18 +16,14 @@ def get_all_tests():
       return ''
 
   def get_subtests(executable):
-    LIST_TEST_CMD_DEFAULT = "--help | sed -n '/Test names.*:/,/^$/p'"
+    LIST_TEST_CMD_DEFAULT = " --list | sort"
     list_test_cmds = dict(
-      test_half = "--help | sed -n '/-h.*Help/,${p}'",
-      test_bruteforce = "-p | sed -n '/Math function names:/,${p}'",
-      test_printf = "--help | sed -n '/default is to run the full test on the default device/,${p}'",
-      test_spir = "--help | sed -n '/Do not extract test files from Zip; use existing./,${p}'",
       test_thread_dimensions = LIST_TEST_CMD_DEFAULT + " | grep full",
     )
     list_test_cmd = list_test_cmds.get(executable)
     if list_test_cmd is None:
       list_test_cmd = LIST_TEST_CMD_DEFAULT
-    process = subprocess.run(executable + " " + list_test_cmd + " | tail -n +2 | sort",
+    process = subprocess.run(executable + list_test_cmd,
                              shell=True, check=True, capture_output=True, text=True)
     subtests = []
     for subtest in process.stdout.splitlines():
@@ -37,29 +33,12 @@ def get_all_tests():
       subtests.append(subtest)
     return subtests
 
-  def get_conversions_subtests():
-    conv_types = ["uchar", "char", "ushort", "short", "uint", "int", "half", "float", "double", "ulong", "long"]
-    conv_round = ["rte", "rtp", "rtn", "rtz"]
-    conv_tests = []
-    for source in conv_types:
-      for dest in conv_types:
-        conv_tests.append(dest + "_" + source)
-        if dest != "float" and dest != "double" and dest != "half":
-          conv_tests.append(dest + "_sat_" + source)
-        for round in conv_round:
-          conv_tests.append(dest + "_" + round + "_" + source)
-          if dest != "float" and dest != "double" and dest != "half":
-            conv_tests.append(dest + "_sat_" + round + "_" + source)
-    return conv_tests
-
   all_tests = dict()
-  all_tests["test_conversions"] = [dict(args="", subtests=get_conversions_subtests(), path="conversions/test_conversions")]
   with open(TEST_CSV_PATH, newline='') as csvfile:
     for line in csvfile.readlines():
       if (line.startswith("#") or
           line == "\n" or
           line.startswith("OpenCL-GL") or
-          line.startswith("Conversions") or
           line.startswith("CL_DEVICE_TYPE_CPU")):
         continue
       executable_and_args = line.split(',')[-1].strip().split(' ', 1)

@@ -8,6 +8,10 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="full_1d_explicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_1d_explicit_local"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="full_1d_implicit_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_thread_dimensions full_1d_implicit_local"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">

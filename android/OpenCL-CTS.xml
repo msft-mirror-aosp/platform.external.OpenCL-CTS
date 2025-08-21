@@ -8,10 +8,6 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="120m"/>
-        <option name="test-command-line" key="conversions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_conversions"/>
-    </test>
-    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="120m"/>
         <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -169,6 +165,10 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="120m"/>
         <option name="test-command-line" key="select" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_select"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="120m"/>
+        <option name="test-command-line" key="conversions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_conversions"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="120m"/>

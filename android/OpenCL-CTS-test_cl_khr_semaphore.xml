@@ -142,8 +142,4 @@
         <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="semaphores_simple_1" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_simple_1"/>
     </test>
-    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_simple_2" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_simple_2"/>
-    </test>
 </configuration>

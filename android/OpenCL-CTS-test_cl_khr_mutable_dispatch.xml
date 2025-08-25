@@ -124,6 +124,10 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="mutable_dispatch_work_dim" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_work_dim"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="ndrange_command_buffer_with_no_additional_work_groups" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch ndrange_command_buffer_with_no_additional_work_groups"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">

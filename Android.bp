@@ -501,9 +501,20 @@ cc_test {
 cc_test {
     name: "OpenCL-CTS-test_api",
     srcs: ["test_conformance/api/*.cpp"],
+    generated_headers: ["OpenCL-CTS_test_conformance_api_spirv_capability_deps_def"],
     test_config: "android/OpenCL-CTS-test_api.xml",
     rtti: false,
     defaults: ["OpenCL-CTS-defaults"],
+}
+
+cc_genrule {
+    name: "OpenCL-CTS_test_conformance_api_spirv_capability_deps_def",
+    cmd: "python3 $(location) --grammar $(location :SpirvHeaders_include_spirv_unified1_spirv_core_grammar_json) --output $(location spirv_capability_deps.def)",
+    srcs: [":SpirvHeaders_include_spirv_unified1_spirv_core_grammar_json"],
+    out: ["spirv_capability_deps.def"],
+    tool_files: ["test_conformance/api/generate_spirv_capability_deps.py"],
+    vendor_available: true,
+    host_supported: true,
 }
 
 cc_test {
@@ -4689,7 +4700,10 @@ cc_defaults {
 
 cc_defaults {
     name: "OpenCL-CTS-manual-defaults",
-    header_libs: ["OpenCL-Headers"],
+    header_libs: [
+        "OpenCL-Headers",
+        "SPIRV-Headers-includes",
+    ],
     cflags: [
         "-Wno-error",
         "-Wno-c++11-narrowing",

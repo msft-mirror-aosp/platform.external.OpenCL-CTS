@@ -68,6 +68,10 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="enqueue_and_release" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer enqueue_and_release"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="event_info_command_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer event_info_command_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -340,6 +344,26 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_copy_buffer_to_immutable_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_buffer_to_immutable_image"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_copy_image_to_immutable_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_image_to_immutable_buffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_copy_to_immutable_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_to_immutable_buffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_copy_to_immutable_buffer_rect" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_to_immutable_buffer_rect"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_copy_to_immutable_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_to_immutable_image"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="negative_create_command_buffer_not_supported_properties" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_create_command_buffer_not_supported_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -401,6 +425,14 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="negative_enqueue_with_unsupported_queue_property" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_with_unsupported_queue_property"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_fill_immutable_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_fill_immutable_buffer"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="30m"/>
+        <option name="test-command-line" key="negative_fill_immutable_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_fill_immutable_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>

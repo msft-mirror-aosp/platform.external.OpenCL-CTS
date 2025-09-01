@@ -8,54 +8,54 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_add" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_add"/>
+        <option name="test-command-line" key="atomic_add" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_add"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_add_index" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_add_index"/>
+        <option name="test-command-line" key="atomic_add_index" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_add_index"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_add_index_bin" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_add_index_bin"/>
+        <option name="test-command-line" key="atomic_add_index_bin" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_add_index_bin"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_and" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_and"/>
+        <option name="test-command-line" key="atomic_and" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_and"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_cmpxchg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_cmpxchg"/>
+        <option name="test-command-line" key="atomic_cmpxchg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_cmpxchg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_dec" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_dec"/>
+        <option name="test-command-line" key="atomic_dec" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_dec"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_inc" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_inc"/>
+        <option name="test-command-line" key="atomic_inc" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_inc"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_max" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_max"/>
+        <option name="test-command-line" key="atomic_max" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_max"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_min" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_min"/>
+        <option name="test-command-line" key="atomic_min" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_min"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_or" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_or"/>
+        <option name="test-command-line" key="atomic_or" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_or"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_sub" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_sub"/>
+        <option name="test-command-line" key="atomic_sub" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_sub"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_xchg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_xchg"/>
+        <option name="test-command-line" key="atomic_xchg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_xchg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomic_xor" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_xor"/>
+        <option name="test-command-line" key="atomic_xor" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_atomics atomic_xor"/>
     </test>
 </configuration>

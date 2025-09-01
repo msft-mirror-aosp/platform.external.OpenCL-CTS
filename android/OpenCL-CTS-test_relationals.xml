@@ -8,70 +8,70 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_all" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_all"/>
+        <option name="test-command-line" key="relational_all" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_all"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_any" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_any"/>
+        <option name="test-command-line" key="relational_any" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_any"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_bitselect" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_bitselect"/>
+        <option name="test-command-line" key="relational_bitselect" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_bitselect"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_isequal" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isequal"/>
+        <option name="test-command-line" key="relational_isequal" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isequal"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_isgreater" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isgreater"/>
+        <option name="test-command-line" key="relational_isgreater" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isgreater"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_isgreaterequal" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isgreaterequal"/>
+        <option name="test-command-line" key="relational_isgreaterequal" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isgreaterequal"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_isless" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isless"/>
+        <option name="test-command-line" key="relational_isless" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isless"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_islessequal" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_islessequal"/>
+        <option name="test-command-line" key="relational_islessequal" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_islessequal"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_islessgreater" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_islessgreater"/>
+        <option name="test-command-line" key="relational_islessgreater" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_islessgreater"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_isnotequal" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isnotequal"/>
+        <option name="test-command-line" key="relational_isnotequal" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_isnotequal"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_select_signed" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_select_signed"/>
+        <option name="test-command-line" key="relational_select_signed" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_select_signed"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relational_select_unsigned" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_select_unsigned"/>
+        <option name="test-command-line" key="relational_select_unsigned" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals relational_select_unsigned"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="shuffle_array_cast" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_array_cast"/>
+        <option name="test-command-line" key="shuffle_array_cast" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_array_cast"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="shuffle_built_in" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_built_in"/>
+        <option name="test-command-line" key="shuffle_built_in" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_built_in"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="shuffle_built_in_dual_input" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_built_in_dual_input"/>
+        <option name="test-command-line" key="shuffle_built_in_dual_input" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_built_in_dual_input"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="shuffle_copy" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_copy"/>
+        <option name="test-command-line" key="shuffle_copy" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_copy"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="shuffle_function_call" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_function_call"/>
+        <option name="test-command-line" key="shuffle_function_call" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_relationals shuffle_function_call"/>
     </test>
 </configuration>

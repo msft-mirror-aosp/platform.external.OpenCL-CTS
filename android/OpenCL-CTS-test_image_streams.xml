@@ -8,290 +8,290 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 1D"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_1D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 1D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 1Darray"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_1Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 1Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 2D"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 2Darray"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_2Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 2Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 3D"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST 3D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_image2d_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image2d_from_buffer_positive"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_image2d_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image2d_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_buffer_read_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_buffer_read_positive"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_buffer_read_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_buffer_read_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_small_buffer_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_small_buffer_negative"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_image_from_small_buffer_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST image_from_small_buffer_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 1D"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_1D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 1D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 1Darray"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_1Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 1Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 2D"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 2Darray"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_2Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 2Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 3D"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST 3D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image2d_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image2d_from_buffer_positive"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image2d_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image2d_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_buffer_read_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_buffer_read_positive"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_buffer_read_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_buffer_read_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_small_buffer_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_small_buffer_negative"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_image_from_small_buffer_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST image_from_small_buffer_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="use_pitches_CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams use_pitches CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 1D"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_1D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 1D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 1Darray"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_1Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 1Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 2D"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 2Darray"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_2Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 2Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 3D"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST 3D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image2d_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image2d_from_buffer_positive"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image2d_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image2d_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_buffer_read_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_buffer_read_positive"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_buffer_read_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_buffer_read_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_small_buffer_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_small_buffer_negative"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_image_from_small_buffer_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST image_from_small_buffer_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="max_images_CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams max_images CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 1D"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_1D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 1D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_1Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 1Darray"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_1Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 1Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 2D"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_2Darray" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 2Darray"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_2Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 2Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 3D"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST 3D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_ext_image_raw10_raw12" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_ext_image_raw10_raw12"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_clGetImageRequirementsInfoEXT_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST clGetImageRequirementsInfoEXT_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_max_val_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_max_val_ext_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_max_val_ext_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_size_ext_consistency" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_size_ext_consistency"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_cl_image_requirements_size_ext_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST cl_image_requirements_size_ext_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image2d_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image2d_from_buffer_positive"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image2d_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image2d_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_buffer_alignment_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_buffer_alignment_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_buffer_fill_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_buffer_fill_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_buffer_read_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_buffer_read_positive"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_buffer_read_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_buffer_read_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_small_buffer_negative" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_small_buffer_negative"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_image_from_small_buffer_negative" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST image_from_small_buffer_negative"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_imageInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST imageInfo_image_from_buffer_positive"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
+        <option name="test-command-line" key="test_mipmaps_CL_FILTER_NEAREST_memInfo_image_from_buffer_positive" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_image_streams test_mipmaps CL_FILTER_NEAREST memInfo_image_from_buffer_positive"/>
     </test>
 </configuration>

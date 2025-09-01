@@ -8,10 +8,10 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="cxx_for_opencl_ext" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_ext_cxx_for_opencl cxx_for_opencl_ext"/>
+        <option name="test-command-line" key="cxx_for_opencl_ext" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_ext_cxx_for_opencl cxx_for_opencl_ext"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="cxx_for_opencl_ver" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_ext_cxx_for_opencl cxx_for_opencl_ver"/>
+        <option name="test-command-line" key="cxx_for_opencl_ver" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_ext_cxx_for_opencl cxx_for_opencl_ver"/>
     </test>
 </configuration>

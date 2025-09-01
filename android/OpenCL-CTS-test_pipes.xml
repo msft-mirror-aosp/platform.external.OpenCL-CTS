@@ -8,222 +8,222 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_char" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_char"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_char" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_char"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_double" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_double"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_double" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_float" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_float"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_float" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_float"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_half"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_half" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_half"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_int"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_int" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_int"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_long"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_long" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_long"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_short"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_short" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_short"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_struct" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_struct"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_struct" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_struct"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_uchar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_uchar"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_uchar" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_uchar"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_uint"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_uint" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_uint"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_ulong" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_ulong"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_ulong" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_ulong"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_convenience_readwrite_ushort" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_ushort"/>
+        <option name="test-command-line" key="pipe_convenience_readwrite_ushort" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_convenience_readwrite_ushort"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_info"/>
+        <option name="test-command-line" key="pipe_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_max_active_reservations" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_max_active_reservations"/>
+        <option name="test-command-line" key="pipe_max_active_reservations" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_max_active_reservations"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_max_args" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_max_args"/>
+        <option name="test-command-line" key="pipe_max_args" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_max_args"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_max_packet_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_max_packet_size"/>
+        <option name="test-command-line" key="pipe_max_packet_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_max_packet_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_query_functions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_query_functions"/>
+        <option name="test-command-line" key="pipe_query_functions" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_query_functions"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_char" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_char"/>
+        <option name="test-command-line" key="pipe_readwrite_char" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_char"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_double" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_double"/>
+        <option name="test-command-line" key="pipe_readwrite_double" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_errors" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_errors"/>
+        <option name="test-command-line" key="pipe_readwrite_errors" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_errors"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_float" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_float"/>
+        <option name="test-command-line" key="pipe_readwrite_float" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_float"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_half"/>
+        <option name="test-command-line" key="pipe_readwrite_half" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_half"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_int"/>
+        <option name="test-command-line" key="pipe_readwrite_int" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_int"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_long"/>
+        <option name="test-command-line" key="pipe_readwrite_long" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_long"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_short"/>
+        <option name="test-command-line" key="pipe_readwrite_short" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_short"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_struct" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_struct"/>
+        <option name="test-command-line" key="pipe_readwrite_struct" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_struct"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_uchar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_uchar"/>
+        <option name="test-command-line" key="pipe_readwrite_uchar" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_uchar"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_uint"/>
+        <option name="test-command-line" key="pipe_readwrite_uint" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_uint"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_ulong" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_ulong"/>
+        <option name="test-command-line" key="pipe_readwrite_ulong" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_ulong"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_readwrite_ushort" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_ushort"/>
+        <option name="test-command-line" key="pipe_readwrite_ushort" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_readwrite_ushort"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_char" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_char"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_char" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_char"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_double" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_double"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_double" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_float" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_float"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_float" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_float"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_half"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_half" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_half"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_int"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_int" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_int"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_long"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_long" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_long"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_short"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_short" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_short"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_struct" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_struct"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_struct" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_struct"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_uchar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_uchar"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_uchar" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_uchar"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_uint"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_uint" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_uint"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_ulong" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_ulong"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_ulong" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_ulong"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroup_readwrite_ushort" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_ushort"/>
+        <option name="test-command-line" key="pipe_subgroup_readwrite_ushort" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroup_readwrite_ushort"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_subgroups_divergence" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroups_divergence"/>
+        <option name="test-command-line" key="pipe_subgroups_divergence" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_subgroups_divergence"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_char" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_char"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_char" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_char"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_double" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_double"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_double" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_float" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_float"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_float" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_float"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_half" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_half"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_half" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_half"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_int" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_int"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_int" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_int"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_long" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_long"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_long" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_long"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_short" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_short"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_short" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_short"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_struct" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_struct"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_struct" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_struct"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_uchar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_uchar"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_uchar" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_uchar"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_uint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_uint"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_uint" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_uint"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_ulong" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_ulong"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_ulong" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_ulong"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_workgroup_readwrite_ushort" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_ushort"/>
+        <option name="test-command-line" key="pipe_workgroup_readwrite_ushort" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_pipes pipe_workgroup_readwrite_ushort"/>
     </test>
 </configuration>

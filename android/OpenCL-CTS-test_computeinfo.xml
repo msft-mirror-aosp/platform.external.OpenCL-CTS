@@ -8,22 +8,22 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="computeinfo" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo computeinfo"/>
+        <option name="test-command-line" key="computeinfo" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo computeinfo"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="conformance_version" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo conformance_version"/>
+        <option name="test-command-line" key="conformance_version" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo conformance_version"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="device_uuid" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo device_uuid"/>
+        <option name="test-command-line" key="device_uuid" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo device_uuid"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="extended_versioning" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo extended_versioning"/>
+        <option name="test-command-line" key="extended_versioning" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo extended_versioning"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pci_bus_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo pci_bus_info"/>
+        <option name="test-command-line" key="pci_bus_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_computeinfo pci_bus_info"/>
     </test>
 </configuration>

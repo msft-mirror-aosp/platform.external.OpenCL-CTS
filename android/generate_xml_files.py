@@ -16,14 +16,7 @@ def get_all_tests():
       return ''
 
   def get_subtests(executable):
-    LIST_TEST_CMD_DEFAULT = " --list | sort"
-    list_test_cmds = dict(
-      test_thread_dimensions = LIST_TEST_CMD_DEFAULT + " | grep full",
-    )
-    list_test_cmd = list_test_cmds.get(executable)
-    if list_test_cmd is None:
-      list_test_cmd = LIST_TEST_CMD_DEFAULT
-    process = subprocess.run(executable + list_test_cmd,
+    process = subprocess.run(executable + " --list | sort",
                              shell=True, check=True, capture_output=True, text=True)
     subtests = []
     for subtest in process.stdout.splitlines():
@@ -129,7 +122,7 @@ def main():
         subtest = " " + subtest
         if args != " full*":
           subtest = args + subtest
-        subtests.append((clean_name(subtest).removeprefix("_"), prefix + binary_path + subtest + suffix))
+        subtests.append((clean_name(subtest).removeprefix("_"), "CL_WIMPY_MODE=1 " + prefix + binary_path + subtest + suffix))
     generate_xml(binary, subtests, "30m")
 
   generate_xml("OpenCL-CTS", cts_tests, "120m")

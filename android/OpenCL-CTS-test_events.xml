@@ -8,122 +8,122 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="callback_on_error_enqueue_command" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callback_on_error_enqueue_command"/>
+        <option name="test-command-line" key="callback_on_error_enqueue_command" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callback_on_error_enqueue_command"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="callback_on_error_simple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callback_on_error_simple"/>
+        <option name="test-command-line" key="callback_on_error_simple" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callback_on_error_simple"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="callbacks" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callbacks"/>
+        <option name="test-command-line" key="callbacks" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callbacks"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="callbacks_simultaneous" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callbacks_simultaneous"/>
+        <option name="test-command-line" key="callbacks_simultaneous" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events callbacks_simultaneous"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_enqueue_barrier_with_event_list" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_enqueue_barrier_with_event_list"/>
+        <option name="test-command-line" key="event_enqueue_barrier_with_event_list" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_enqueue_barrier_with_event_list"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_enqueue_marker" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_enqueue_marker"/>
+        <option name="test-command-line" key="event_enqueue_marker" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_enqueue_marker"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_enqueue_marker_with_event_list" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_enqueue_marker_with_event_list"/>
+        <option name="test-command-line" key="event_enqueue_marker_with_event_list" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_enqueue_marker_with_event_list"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_finish_array" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_finish_array"/>
+        <option name="test-command-line" key="event_finish_array" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_finish_array"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_finish_execute" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_finish_execute"/>
+        <option name="test-command-line" key="event_finish_execute" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_finish_execute"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_flush" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_flush"/>
+        <option name="test-command-line" key="event_flush" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_flush"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_get_execute_status" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_execute_status"/>
+        <option name="test-command-line" key="event_get_execute_status" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_execute_status"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_get_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_info"/>
+        <option name="test-command-line" key="event_get_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_get_read_array_status" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_read_array_status"/>
+        <option name="test-command-line" key="event_get_read_array_status" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_read_array_status"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_get_write_array_status" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_write_array_status"/>
+        <option name="test-command-line" key="event_get_write_array_status" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_get_write_array_status"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_release_before_done" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_release_before_done"/>
+        <option name="test-command-line" key="event_release_before_done" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_release_before_done"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_wait_for_array" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_wait_for_array"/>
+        <option name="test-command-line" key="event_wait_for_array" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_wait_for_array"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="event_wait_for_execute" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_wait_for_execute"/>
+        <option name="test-command-line" key="event_wait_for_execute" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events event_wait_for_execute"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_barrier_single_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_barrier_single_queue"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_barrier_single_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_barrier_single_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_marker_multi_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_marker_multi_queue"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_marker_multi_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_marker_multi_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_marker_multi_queue_multi_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_marker_multi_queue_multi_device"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_marker_multi_queue_multi_device" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_marker_multi_queue_multi_device"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_marker_single_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_marker_single_queue"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_marker_single_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_marker_single_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_wait_for_events_multi_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_wait_for_events_multi_queue"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_wait_for_events_multi_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_wait_for_events_multi_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_wait_for_events_multi_queue_multi_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_wait_for_events_multi_queue_multi_device"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_wait_for_events_multi_queue_multi_device" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_wait_for_events_multi_queue_multi_device"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_enqueue_wait_for_events_single_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_wait_for_events_single_queue"/>
+        <option name="test-command-line" key="out_of_order_event_enqueue_wait_for_events_single_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_enqueue_wait_for_events_single_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_waitlist_multi_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_waitlist_multi_queue"/>
+        <option name="test-command-line" key="out_of_order_event_waitlist_multi_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_waitlist_multi_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_waitlist_multi_queue_multi_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_waitlist_multi_queue_multi_device"/>
+        <option name="test-command-line" key="out_of_order_event_waitlist_multi_queue_multi_device" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_waitlist_multi_queue_multi_device"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="out_of_order_event_waitlist_single_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_waitlist_single_queue"/>
+        <option name="test-command-line" key="out_of_order_event_waitlist_single_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events out_of_order_event_waitlist_single_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="userevents" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events userevents"/>
+        <option name="test-command-line" key="userevents" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events userevents"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="userevents_multithreaded" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events userevents_multithreaded"/>
+        <option name="test-command-line" key="userevents_multithreaded" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events userevents_multithreaded"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="waitlists" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events waitlists"/>
+        <option name="test-command-line" key="waitlists" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_events waitlists"/>
     </test>
 </configuration>

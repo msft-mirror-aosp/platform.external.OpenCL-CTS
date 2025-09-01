@@ -8,74 +8,74 @@
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="clamp" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns clamp"/>
+        <option name="test-command-line" key="clamp" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns clamp"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="degrees" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns degrees"/>
+        <option name="test-command-line" key="degrees" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns degrees"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="fmax" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fmax"/>
+        <option name="test-command-line" key="fmax" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fmax"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="fmaxf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fmaxf"/>
+        <option name="test-command-line" key="fmaxf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fmaxf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="fmin" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fmin"/>
+        <option name="test-command-line" key="fmin" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fmin"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="fminf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fminf"/>
+        <option name="test-command-line" key="fminf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns fminf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="max" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns max"/>
+        <option name="test-command-line" key="max" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns max"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="maxf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns maxf"/>
+        <option name="test-command-line" key="maxf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns maxf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns min"/>
+        <option name="test-command-line" key="min" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns min"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="minf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns minf"/>
+        <option name="test-command-line" key="minf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns minf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mix" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns mix"/>
+        <option name="test-command-line" key="mix" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns mix"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mixf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns mixf"/>
+        <option name="test-command-line" key="mixf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns mixf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="radians" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns radians"/>
+        <option name="test-command-line" key="radians" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns radians"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="sign" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns sign"/>
+        <option name="test-command-line" key="sign" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns sign"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="smoothstep" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns smoothstep"/>
+        <option name="test-command-line" key="smoothstep" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns smoothstep"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="smoothstepf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns smoothstepf"/>
+        <option name="test-command-line" key="smoothstepf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns smoothstepf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="step" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns step"/>
+        <option name="test-command-line" key="step" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns step"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="stepf" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns stepf"/>
+        <option name="test-command-line" key="stepf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_commonfns stepf"/>
     </test>
 </configuration>

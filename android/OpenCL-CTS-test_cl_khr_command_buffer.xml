@@ -7,547 +7,547 @@
         <option name="push-file" key="OpenCL-CTS-test_cl_khr_command_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="barrier_wait_list" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer barrier_wait_list"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="basic_printf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer basic_printf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="basic_profiling" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer basic_profiling"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="basic_set_kernel_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer basic_set_kernel_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="clwaitforevents" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer clwaitforevents"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="clwaitforevents_single" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer clwaitforevents_single"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="command_buffer_wait_for_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer command_buffer_wait_for_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="command_buffer_wait_for_regular" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer command_buffer_wait_for_regular"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="command_buffer_wait_for_sec_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer command_buffer_wait_for_sec_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="copy_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer copy_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="copy_buffer_rect" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer copy_buffer_rect"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="copy_buffer_to_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer copy_buffer_to_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="copy_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer copy_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="copy_image_to_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer copy_image_to_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="copy_svm_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer copy_svm_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="enqueue_and_release" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer enqueue_and_release"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="event_info_command_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer event_info_command_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="event_info_command_type" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer event_info_command_type"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="event_info_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer event_info_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="event_info_execution_status" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer event_info_execution_status"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="event_info_reference_count" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer event_info_reference_count"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="explicit_flush" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer explicit_flush"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="fill_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer fill_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="fill_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer fill_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="fill_svm_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer fill_svm_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="finalize_empty" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer finalize_empty"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="finalize_invalid" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer finalize_invalid"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="info_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer info_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="info_prop_array" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer info_prop_array"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="info_queues" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer info_queues"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="info_ref_count" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer info_ref_count"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="info_state" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer info_state"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="interleaved_enqueue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer interleaved_enqueue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="mixed_commands" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer mixed_commands"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="multi_flag_creation" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer multi_flag_creation"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_barrier_buffer_finalized" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_barrier_buffer_finalized"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_barrier_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_barrier_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_barrier_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_barrier_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_barrier_not_null_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_barrier_not_null_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_barrier_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_barrier_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_buffer_different_contexts" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_buffer_different_contexts"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_buffer_finalized_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_buffer_finalized_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_buffer_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_buffer_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_buffer_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_buffer_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_buffer_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_buffer_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_buffer_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_buffer_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_image_different_contexts" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_image_different_contexts"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_image_finalized_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_image_finalized_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_image_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_image_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_image_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_image_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_image_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_image_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_copy_image_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_copy_image_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_buffer_context_not_same" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_buffer_context_not_same"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_buffer_finalized_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_buffer_finalized_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_buffer_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_buffer_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_buffer_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_buffer_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_buffer_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_buffer_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_buffer_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_buffer_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_image_context_not_same" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_image_context_not_same"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_image_finalized_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_image_finalized_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_image_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_image_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_image_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_image_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_image_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_image_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_fill_image_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_fill_image_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_svm_finalized_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_svm_finalized_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_svm_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_svm_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_svm_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_svm_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_svm_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_svm_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_command_svm_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_command_svm_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_copy_image_context_not_same" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_copy_image_context_not_same"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_copy_image_finalized_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_copy_image_finalized_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_copy_image_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_copy_image_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_copy_image_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_copy_image_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_copy_image_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_copy_image_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_buffer_copy_image_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_buffer_copy_image_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_command_buffer_finalized" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_command_buffer_finalized"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_invalid_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_invalid_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_mutable_handle_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_mutable_handle_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_not_support_printf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_not_support_printf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_sync_points_null_or_num_zero" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_sync_points_null_or_num_zero"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_with_different_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_with_different_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_kernel_with_enqueue_call" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_kernel_with_enqueue_call"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_command_ndrange_queue_not_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_command_ndrange_queue_not_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_copy_buffer_to_immutable_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_buffer_to_immutable_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_copy_image_to_immutable_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_image_to_immutable_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_copy_to_immutable_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_to_immutable_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_copy_to_immutable_buffer_rect" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_to_immutable_buffer_rect"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_copy_to_immutable_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_copy_to_immutable_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_create_command_buffer_not_supported_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_create_command_buffer_not_supported_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_create_command_buffer_null_queues" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_create_command_buffer_null_queues"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_create_command_buffer_num_queues" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_create_command_buffer_num_queues"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_create_command_buffer_repeated_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_create_command_buffer_repeated_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_different_context_than_event" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_different_context_than_event"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_not_finalized" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_not_finalized"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_not_valid_queue_in_queues" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_not_valid_queue_in_queues"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_null_queues_num_queues" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_null_queues_num_queues"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_num_queues_not_zero_different_while_buffer_creation" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_num_queues_not_zero_different_while_buffer_creation"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_command_buffer_without_simultaneous_no_pending_state" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_command_buffer_without_simultaneous_no_pending_state"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_event_wait_list_null_or_events_null" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_event_wait_list_null_or_events_null"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_inconsistent_device" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_inconsistent_device"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_queue_with_different_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_queue_with_different_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_queue_without_reqd_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_queue_without_reqd_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_enqueue_with_unsupported_queue_property" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_enqueue_with_unsupported_queue_property"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_fill_immutable_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_fill_immutable_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_fill_immutable_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_fill_immutable_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_finalize_command_buffer_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_finalize_command_buffer_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_finalize_command_buffer_not_recording_state" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_finalize_command_buffer_not_recording_state"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_not_supported_param_name" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_not_supported_param_name"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_prop_array" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_prop_array"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_queues" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_queues"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_ref_count" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_ref_count"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_get_command_buffer_info_state" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_get_command_buffer_info_state"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_release_command_buffer_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_release_command_buffer_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="negative_retain_command_buffer_invalid_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer negative_retain_command_buffer_invalid_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="out_of_order" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer out_of_order"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="pending_set_kernel_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer pending_set_kernel_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="properties_queue_substitution" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer properties_queue_substitution"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="queue_substitute_in_order" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer queue_substitute_in_order"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="queue_substitute_out_of_order" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer queue_substitute_out_of_order"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="queue_substitution" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer queue_substitution"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="regular_wait_for_command_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer regular_wait_for_command_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="return_event_callback" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer return_event_callback"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="simultaneous_out_of_order" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer simultaneous_out_of_order"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="simultaneous_printf" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer simultaneous_printf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="simultaneous_profiling" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer simultaneous_profiling"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="simultaneous_queue_substitution" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer simultaneous_queue_substitution"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="single_ndrange" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer single_ndrange"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="substitute_queue_profiling" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer substitute_queue_profiling"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="user_event_callback" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer user_event_callback"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="user_events_wait" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer user_events_wait"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="user_event_wait" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer user_event_wait"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="wait_for_sec_queue_event" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_command_buffer wait_for_sec_queue_event"/>
     </test>
 </configuration>

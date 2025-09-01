@@ -7,27 +7,27 @@
         <option name="push-file" key="OpenCL-CTS-test_kernel_image_methods" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="1D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods 1D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="1Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods 1Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="1Dbuffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods 1Dbuffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods 2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="2Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods 2Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_kernel_image_methods 3D"/>
     </test>
 </configuration>

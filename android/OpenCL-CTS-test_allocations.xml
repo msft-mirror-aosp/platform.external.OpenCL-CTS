@@ -7,51 +7,51 @@
         <option name="push-file" key="OpenCL-CTS-test_allocations" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="single_5_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5 buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="single_5_buffer_non_blocking" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5 buffer_non_blocking"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="single_5_image2d_read" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5 image2d_read"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="single_5_image2d_read_non_blocking" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5 image2d_read_non_blocking"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="single_5_image2d_write" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5 image2d_write"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="single_5_image2d_write_non_blocking" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations single 5 image2d_write_non_blocking"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="multiple_5_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5 buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="multiple_5_buffer_non_blocking" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5 buffer_non_blocking"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="multiple_5_image2d_read" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5 image2d_read"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="multiple_5_image2d_read_non_blocking" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5 image2d_read_non_blocking"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="multiple_5_image2d_write" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5 image2d_write"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="10m"/>
         <option name="test-command-line" key="multiple_5_image2d_write_non_blocking" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_allocations multiple 5 image2d_write_non_blocking"/>
     </test>
 </configuration>

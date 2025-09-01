@@ -7,51 +7,51 @@
         <option name="push-file" key="OpenCL-CTS-test_non_uniform_work_group" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_1d_atomics" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_1d_atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_1d_barriers" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_1d_barriers"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_1d_basic" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_1d_basic"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_2d_atomics" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_2d_atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_2d_barriers" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_2d_barriers"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_2d_basic" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_2d_basic"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_3d_atomics" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_3d_atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_3d_barriers" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_3d_barriers"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_3d_basic" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_3d_basic"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_other_atomics" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_other_atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_other_barriers" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_other_barriers"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="non_uniform_other_basic" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_non_uniform_work_group non_uniform_other_basic"/>
     </test>
 </configuration>

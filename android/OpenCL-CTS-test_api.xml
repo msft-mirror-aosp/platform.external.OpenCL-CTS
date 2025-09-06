@@ -7,515 +7,515 @@
         <option name="push-file" key="OpenCL-CTS-test_api" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="binary_create" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api binary_create"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="binary_create" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api binary_create"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="binary_get" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api binary_get"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="binary_get" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api binary_get"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="bool_type" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api bool_type"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="bool_type" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api bool_type"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="buffer_properties_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api buffer_properties_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="buffer_properties_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api buffer_properties_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="clone_kernel" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api clone_kernel"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="clone_kernel" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api clone_kernel"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_2d_image_from_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_2d_image_from_buffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_2d_image_from_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_2d_image_from_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_3d_image_writes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_3d_image_writes"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_3d_image_writes" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_3d_image_writes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_depth_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_depth_images"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_depth_images" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_depth_images"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_device_and_host_timer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_device_and_host_timer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_device_and_host_timer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_device_and_host_timer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_device_enqueue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_device_enqueue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_device_enqueue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_device_enqueue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_il_programs" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_il_programs"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_il_programs" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_il_programs"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_memory_model" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_memory_model"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_memory_model" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_memory_model"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_non_uniform_work_group" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_non_uniform_work_group"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_non_uniform_work_group" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_non_uniform_work_group"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_pipes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_pipes"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_pipes" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_pipes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_prog_ctor_dtor" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_prog_ctor_dtor"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_prog_ctor_dtor" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_prog_ctor_dtor"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_progvar" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_progvar"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_progvar" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_progvar"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_read_write_images" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_read_write_images"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_read_write_images" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_read_write_images"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_requirements_fp16" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_requirements_fp16"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_requirements_fp16" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_requirements_fp16"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_requirements_fp64" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_requirements_fp64"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_requirements_fp64" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_requirements_fp64"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_subgroups" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_subgroups"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_subgroups" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_subgroups"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="consistency_svm" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_svm"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="consistency_svm" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api consistency_svm"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="context_destructor_callback" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api context_destructor_callback"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="context_destructor_callback" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api context_destructor_callback"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="create_context_from_type" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_context_from_type"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="create_context_from_type" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_context_from_type"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="create_context_from_type_device_type_all" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_context_from_type_device_type_all"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="create_context_from_type_device_type_all" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_context_from_type_device_type_all"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="create_context_from_type_device_type_default" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_context_from_type_device_type_default"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="create_context_from_type_device_type_default" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_context_from_type_device_type_default"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="create_kernels_in_program" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_kernels_in_program"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="create_kernels_in_program" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api create_kernels_in_program"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="enqueue_task" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api enqueue_task"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="enqueue_task" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api enqueue_task"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="execute_kernel_local_sizes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api execute_kernel_local_sizes"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="execute_kernel_local_sizes" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api execute_kernel_local_sizes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_buffer_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_buffer_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_buffer_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_buffer_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_command_queue_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_command_queue_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_command_queue_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_command_queue_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_command_queue_info_compatibility" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_command_queue_info_compatibility"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_command_queue_info_compatibility" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_command_queue_info_compatibility"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_context_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_context_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_context_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_context_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_context_info_mult_devices" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_context_info_mult_devices"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_context_info_mult_devices" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_context_info_mult_devices"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_device_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_device_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_device_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_device_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_device_info_comparability" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_device_info_comparability"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_device_info_comparability" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_device_info_comparability"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_image1d_array_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image1d_array_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_image1d_array_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image1d_array_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_image1d_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image1d_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_image1d_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image1d_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_image2d_array_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image2d_array_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_image2d_array_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image2d_array_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_image2d_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image2d_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_image2d_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image2d_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_image3d_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image3d_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_image3d_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_image3d_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_kernel_arg_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_kernel_arg_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_kernel_arg_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_kernel_arg_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_kernel_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_kernel_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_kernel_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_kernel_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_platform_ids" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_platform_ids"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_platform_ids" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_platform_ids"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_platform_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_platform_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_platform_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_platform_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_program_info_kernel_names" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_program_info_kernel_names"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_program_info_kernel_names" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_program_info_kernel_names"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_sampler_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_sampler_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_sampler_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_sampler_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="get_sampler_info_compatibility" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_sampler_info_compatibility"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="get_sampler_info_compatibility" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api get_sampler_info_compatibility"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="image_properties_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api image_properties_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="image_properties_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api image_properties_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_arg_changes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_arg_changes"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_arg_changes" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_arg_changes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_arg_multi_setup_random" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_arg_multi_setup_random"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_arg_multi_setup_random" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_arg_multi_setup_random"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_attributes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_attributes"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_attributes" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_attributes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_global_constant" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_global_constant"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_global_constant" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_global_constant"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_local_memory_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_local_memory_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_local_memory_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_local_memory_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_private_memory_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_private_memory_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_private_memory_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_private_memory_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_required_group_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_required_group_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_required_group_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api kernel_required_group_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="load_single_kernel" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_single_kernel"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="load_single_kernel" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_single_kernel"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="load_two_kernels" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_two_kernels"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="load_two_kernels" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_two_kernels"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="load_two_kernels_in_one" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_two_kernels_in_one"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="load_two_kernels_in_one" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_two_kernels_in_one"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="load_two_kernels_manually" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_two_kernels_manually"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="load_two_kernels_manually" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api load_two_kernels_manually"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_object_destructor_callback" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api mem_object_destructor_callback"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_object_destructor_callback" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api mem_object_destructor_callback"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_data_type_align_size_alignment" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_data_type_align_size_alignment"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_data_type_align_size_alignment" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_data_type_align_size_alignment"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_image_formats" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_image_formats"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_image_formats" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_image_formats"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_address_bits" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_address_bits"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_address_bits" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_address_bits"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_compute_units" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_compute_units"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_compute_units" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_compute_units"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_constant_args" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_constant_args"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_constant_args" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_constant_args"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_constant_buffer_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_constant_buffer_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_constant_buffer_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_constant_buffer_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_device_version" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_device_version"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_device_version" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_device_version"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_double_fp_config" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_double_fp_config"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_double_fp_config" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_double_fp_config"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_execution_capabilities" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_execution_capabilities"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_execution_capabilities" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_execution_capabilities"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_2d_height" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_2d_height"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_2d_height" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_2d_height"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_2d_width" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_2d_width"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_2d_width" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_2d_width"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_3d_depth" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_3d_depth"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_3d_depth" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_3d_depth"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_3d_height" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_3d_height"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_3d_height" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_3d_height"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_3d_width" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_3d_width"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_3d_width" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_3d_width"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_array_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_array_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_array_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_array_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_image_buffer_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_buffer_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_image_buffer_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_image_buffer_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_kernel_preferred_work_group_size_multiple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_kernel_preferred_work_group_size_multiple"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_kernel_preferred_work_group_size_multiple" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_kernel_preferred_work_group_size_multiple"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_language_version" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_language_version"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_language_version" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_language_version"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_local_mem_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_local_mem_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_local_mem_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_local_mem_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_mem_alloc_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_mem_alloc_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_mem_alloc_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_mem_alloc_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_parameter_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_parameter_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_parameter_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_parameter_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_queue_properties" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_queue_properties"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_queue_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_queue_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_read_image_args" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_read_image_args"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_read_image_args" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_read_image_args"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_samplers" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_samplers"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_samplers" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_samplers"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_single_fp_config" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_single_fp_config"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_single_fp_config" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_single_fp_config"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_thread_dimensions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_thread_dimensions"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_thread_dimensions" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_thread_dimensions"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_work_group_size" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_work_group_size"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_work_group_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_work_group_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_work_items_sizes" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_work_items_sizes"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_work_items_sizes" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_work_items_sizes"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="min_max_write_image_args" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_write_image_args"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="min_max_write_image_args" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api min_max_write_image_args"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="multi_queue_flush_on_release" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api multi_queue_flush_on_release"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="multi_queue_flush_on_release" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api multi_queue_flush_on_release"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="native_kernel" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api native_kernel"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="native_kernel" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api native_kernel"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_create_command_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_create_command_queue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_create_command_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_create_command_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_create_command_queue_with_properties" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_create_command_queue_with_properties"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_create_command_queue_with_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_create_command_queue_with_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_create_command_queue_with_properties_khr" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_create_command_queue_with_properties_khr"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_create_command_queue_with_properties_khr" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_create_command_queue_with_properties_khr"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_enqueue_map_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_enqueue_map_image"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_enqueue_map_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_enqueue_map_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_get_platform_ids" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_get_platform_ids"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_get_platform_ids" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_get_platform_ids"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_get_platform_info" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_get_platform_info"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_get_platform_info" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_get_platform_info"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_invalid_arg_index" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_invalid_arg_index"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_invalid_arg_index" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_invalid_arg_index"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_invalid_arg_size_local" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_invalid_arg_size_local"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_invalid_arg_size_local" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_invalid_arg_size_local"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_set_immutable_memory_to_writeable_kernel_arg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_set_immutable_memory_to_writeable_kernel_arg"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_set_immutable_memory_to_writeable_kernel_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_set_immutable_memory_to_writeable_kernel_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="negative_set_read_write_image_arg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_set_read_write_image_arg"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="negative_set_read_write_image_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api negative_set_read_write_image_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="null_buffer_arg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api null_buffer_arg"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="null_buffer_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api null_buffer_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="pipe_properties_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api pipe_properties_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="pipe_properties_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api pipe_properties_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="platform_extensions" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api platform_extensions"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="platform_extensions" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api platform_extensions"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="queue_flush_on_release" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_flush_on_release"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="queue_flush_on_release" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_flush_on_release"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="queue_hint" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_hint"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="queue_hint" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_hint"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="queue_properties" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_properties"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="queue_properties" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_properties"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="queue_properties_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_properties_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="queue_properties_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api queue_properties_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="release_during_execute" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api release_during_execute"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="release_during_execute" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api release_during_execute"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="release_kernel_order" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api release_kernel_order"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="release_kernel_order" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api release_kernel_order"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="repeated_setup_cleanup" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api repeated_setup_cleanup"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="repeated_setup_cleanup" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api repeated_setup_cleanup"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="retain_mem_object_multiple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_mem_object_multiple"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="retain_mem_object_multiple" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_mem_object_multiple"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="retain_mem_object_set_kernel_arg" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_mem_object_set_kernel_arg"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="retain_mem_object_set_kernel_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_mem_object_set_kernel_arg"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="retain_mem_object_single" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_mem_object_single"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="retain_mem_object_single" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_mem_object_single"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="retain_queue_multiple" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_queue_multiple"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="retain_queue_multiple" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_queue_multiple"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="retain_queue_single" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_queue_single"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="retain_queue_single" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api retain_queue_single"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="set_command_queue_property" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_command_queue_property"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="set_command_queue_property" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_command_queue_property"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="set_default_device_command_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_default_device_command_queue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="set_default_device_command_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_default_device_command_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="set_kernel_arg_by_index" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_by_index"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="set_kernel_arg_by_index" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_by_index"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="set_kernel_arg_constant" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_constant"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="set_kernel_arg_constant" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_constant"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="set_kernel_arg_struct_array" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_struct_array"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="set_kernel_arg_struct_array" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api set_kernel_arg_struct_array"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="spirv_query_dependencies" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api spirv_query_dependencies"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="spirv_query_dependencies" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api spirv_query_dependencies"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="spirv_query_requirements" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api spirv_query_requirements"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="spirv_query_requirements" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api spirv_query_requirements"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="sub_group_dispatch" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api sub_group_dispatch"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="sub_group_dispatch" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api sub_group_dispatch"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="work_group_suggested_local_size_1D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api work_group_suggested_local_size_1D"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="work_group_suggested_local_size_1D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api work_group_suggested_local_size_1D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="work_group_suggested_local_size_2D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api work_group_suggested_local_size_2D"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="work_group_suggested_local_size_2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api work_group_suggested_local_size_2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="work_group_suggested_local_size_3D" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api work_group_suggested_local_size_3D"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="work_group_suggested_local_size_3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api work_group_suggested_local_size_3D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="zero_sized_enqueue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api zero_sized_enqueue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="zero_sized_enqueue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_api zero_sized_enqueue"/>
     </test>
 </configuration>

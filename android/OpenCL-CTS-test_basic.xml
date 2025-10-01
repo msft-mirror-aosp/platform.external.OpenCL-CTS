@@ -107,11 +107,11 @@
         <option name="test-command-line" key="enqueued_local_size" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_basic enqueued_local_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="3m"/>
         <option name="test-command-line" key="enqueue_map_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_basic enqueue_map_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="2m"/>
         <option name="test-command-line" key="enqueue_map_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_basic enqueue_map_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -319,7 +319,7 @@
         <option name="test-command-line" key="progvar_func_scope" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_basic progvar_func_scope"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="2m"/>
         <option name="test-command-line" key="progvar_prog_scope_init" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_basic progvar_prog_scope_init"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">

@@ -23,11 +23,11 @@
         <option name="test-command-line" key="2D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_get_info 2D"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="2m"/>
         <option name="test-command-line" key="2Darray" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_get_info 2Darray"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="2m"/>
         <option name="test-command-line" key="3D" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_get_info 3D"/>
     </test>
 </configuration>

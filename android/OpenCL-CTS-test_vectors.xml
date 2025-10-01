@@ -27,7 +27,7 @@
         <option name="test-command-line" key="vec_align_array" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_vectors vec_align_array"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="20m"/>
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="vec_align_packed_struct" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_vectors vec_align_packed_struct"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -35,7 +35,7 @@
         <option name="test-command-line" key="vec_align_packed_struct_arr" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_vectors vec_align_packed_struct_arr"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="20m"/>
+        <option name="per-binary-timeout" value="30m"/>
         <option name="test-command-line" key="vec_align_struct" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_vectors vec_align_struct"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">

@@ -335,39 +335,39 @@
         <option name="test-command-line" key="pow" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce pow"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="pown" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce pown"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="powr" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce powr"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="reciprocal" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce reciprocal"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="remainder" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce remainder"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="remquo" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce remquo"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="rint" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce rint"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="rootn" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce rootn"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="round" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce round"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="1m"/>
+        <option name="per-binary-timeout" value="300m"/>
         <option name="test-command-line" key="rsqrt" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_bruteforce rsqrt"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">

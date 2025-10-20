@@ -7,143 +7,139 @@
         <option name="push-file" key="OpenCL-CTS-test_cl_khr_semaphore" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_cross_queues_io" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_cross_queues_io"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_cross_queues_io" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_cross_queues_io"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_cross_queues_ooo" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_cross_queues_ooo"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_cross_queues_ooo" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_cross_queues_ooo"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_device_list_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_device_list_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_device_list_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_device_list_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_multi_device_context_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_multi_device_context_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_multi_device_context_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_multi_device_context_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_multi_signal" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_multi_signal"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_multi_signal" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_multi_signal"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_multi_wait" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_multi_wait"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_multi_wait" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_multi_wait"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_import_invalid_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_import_invalid_device"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_import_invalid_device" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_import_invalid_device"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_invalid_context" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_context"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_invalid_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_invalid_device" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_device"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_invalid_device" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_device"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_invalid_operation" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_operation"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_invalid_operation" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_operation"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_invalid_property" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_property"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_invalid_property" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_property"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_invalid_value" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_value"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_invalid_value" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_invalid_value"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_create_multi_device_property" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_multi_device_property"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_create_multi_device_property" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_create_multi_device_property"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_get_info_invalid_semaphore" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_get_info_invalid_semaphore"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_get_info_invalid_semaphore" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_get_info_invalid_semaphore"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_get_info_invalid_value" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_get_info_invalid_value"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_get_info_invalid_value" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_get_info_invalid_value"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_release" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_release"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_release" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_release"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_retain" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_retain"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_retain" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_retain"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_signal_invalid_command_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_command_queue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_signal_invalid_command_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_command_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_signal_invalid_context" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_context"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_signal_invalid_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_signal_invalid_event_status" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_event_status"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_signal_invalid_event_status" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_event_status"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_signal_invalid_event_wait_list" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_event_wait_list"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_signal_invalid_event_wait_list" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_event_wait_list"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_signal_invalid_semaphore" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_semaphore"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_signal_invalid_semaphore" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_semaphore"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_signal_invalid_value" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_value"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_signal_invalid_value" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_signal_invalid_value"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_wait_invalid_command_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_command_queue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_wait_invalid_command_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_command_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_wait_invalid_context" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_context"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_wait_invalid_context" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_context"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_wait_invalid_event_status" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_event_status"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_wait_invalid_event_status" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_event_status"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_wait_invalid_event_wait_list" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_event_wait_list"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_wait_invalid_event_wait_list" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_event_wait_list"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_wait_invalid_semaphore" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_semaphore"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_wait_invalid_semaphore" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_semaphore"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_negative_wait_invalid_value" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_value"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_negative_wait_invalid_value" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_negative_wait_invalid_value"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_no_device_list_queries" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_no_device_list_queries"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_no_device_list_queries" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_no_device_list_queries"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_ooo_ops_cross_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_ooo_ops_cross_queue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_ooo_ops_cross_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_ooo_ops_cross_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_ooo_ops_single_queue" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_ooo_ops_single_queue"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_ooo_ops_single_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_ooo_ops_single_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_reuse" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_reuse"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_reuse" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_reuse"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_simple_1" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_simple_1"/>
-    </test>
-    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="semaphores_simple_2" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_simple_2"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_simple_1" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_simple_1"/>
     </test>
 </configuration>

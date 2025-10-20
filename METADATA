@@ -8,12 +8,12 @@ third_party {
   license_type: NOTICE
   last_upgrade_date {
     year: 2025
-    month: 5
-    day: 12
+    month: 8
+    day: 21
   }
   identifier {
     type: "Git"
     value: "https://github.com/KhronosGroup/OpenCL-CTS.git"
-    version: "v2025-04-21-00"
+    version: "v2025-08-21-00"
   }
 }

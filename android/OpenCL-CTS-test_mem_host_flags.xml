@@ -7,39 +7,39 @@
         <option name="push-file" key="OpenCL-CTS-test_mem_host_flags" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_no_access_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_no_access_buffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_no_access_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_no_access_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_no_access_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_no_access_image"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_no_access_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_no_access_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_no_access_subbuffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_no_access_subbuffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_no_access_subbuffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_no_access_subbuffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_read_only_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_read_only_buffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_read_only_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_read_only_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_read_only_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_read_only_image"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_read_only_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_read_only_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_read_only_subbuffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_read_only_subbuffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_read_only_subbuffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_read_only_subbuffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_write_only_buffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_write_only_buffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_write_only_buffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_write_only_buffer"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_write_only_image" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_write_only_image"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_write_only_image" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_write_only_image"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="mem_host_write_only_subbuffer" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_write_only_subbuffer"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mem_host_write_only_subbuffer" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_mem_host_flags mem_host_write_only_subbuffer"/>
     </test>
 </configuration>

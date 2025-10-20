@@ -7,135 +7,135 @@
         <option name="push-file" key="OpenCL-CTS-test_spir" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="api" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir api"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="api" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir api"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="api_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir api_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="api_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir api_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="atomics" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir atomics"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="atomics" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir atomics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="basic" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir basic"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="basic" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir basic"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="basic_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir basic_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="basic_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir basic_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="binary_type" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir binary_type"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="binary_type" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir binary_type"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="commonfns" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir commonfns"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="commonfns" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir commonfns"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="commonfns_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir commonfns_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="commonfns_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir commonfns_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="compile_and_link" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir compile_and_link"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="compile_and_link" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir compile_and_link"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="conversions" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir conversions"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="conversions" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir conversions"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="conversions_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir conversions_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="conversions_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir conversions_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="enum_values" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir enum_values"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="enum_values" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir enum_values"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="geometrics" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir geometrics"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="geometrics" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir geometrics"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="geometrics_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir geometrics_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="geometrics_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir geometrics_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="half" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir half"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="half" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir half"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="half_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir half_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="half_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir half_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="images_kernel_read_write" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir images_kernel_read_write"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="images_kernel_read_write" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir images_kernel_read_write"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="images_samplerlessRead" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir images_samplerlessRead"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="images_samplerlessRead" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir images_samplerlessRead"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="integer_ops" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir integer_ops"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="integer_ops" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir integer_ops"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="kernel_image_methods" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir kernel_image_methods"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_image_methods" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir kernel_image_methods"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="math_brute_force" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir math_brute_force"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="math_brute_force" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir math_brute_force"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="math_brute_force_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir math_brute_force_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="math_brute_force_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir math_brute_force_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="printf" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir printf"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="printf" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir printf"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="profiling" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir profiling"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="profiling" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir profiling"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relationals" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir relationals"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="relationals" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir relationals"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="relationals_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir relationals_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="relationals_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir relationals_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="sampler_enumeration" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir sampler_enumeration"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="sampler_enumeration" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir sampler_enumeration"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="select" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir select"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="select" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir select"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="select_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir select_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="select_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir select_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="vec_align" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_align"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="vec_align" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_align"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="vec_align_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_align_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="vec_align_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_align_double"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="vec_step" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_step"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="vec_step" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_step"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="vec_step_double" value="cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_step_double"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="vec_step_double" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_spir /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/spir/OpenCL-CTS-test_spir vec_step_double"/>
     </test>
 </configuration>

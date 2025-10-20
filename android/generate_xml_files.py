@@ -16,18 +16,7 @@ def get_all_tests():
       return ''
 
   def get_subtests(executable):
-    LIST_TEST_CMD_DEFAULT = "--help | sed -n '/Test names.*:/,/^$/p'"
-    list_test_cmds = dict(
-      test_half = "--help | sed -n '/-h.*Help/,${p}'",
-      test_bruteforce = "-p | sed -n '/Math function names:/,${p}'",
-      test_printf = "--help | sed -n '/default is to run the full test on the default device/,${p}'",
-      test_spir = "--help | sed -n '/Do not extract test files from Zip; use existing./,${p}'",
-      test_thread_dimensions = LIST_TEST_CMD_DEFAULT + " | grep full",
-    )
-    list_test_cmd = list_test_cmds.get(executable)
-    if list_test_cmd is None:
-      list_test_cmd = LIST_TEST_CMD_DEFAULT
-    process = subprocess.run(executable + " " + list_test_cmd + " | tail -n +2 | sort",
+    process = subprocess.run(executable + " --list | sort",
                              shell=True, check=True, capture_output=True, text=True)
     subtests = []
     for subtest in process.stdout.splitlines():
@@ -37,29 +26,12 @@ def get_all_tests():
       subtests.append(subtest)
     return subtests
 
-  def get_conversions_subtests():
-    conv_types = ["uchar", "char", "ushort", "short", "uint", "int", "half", "float", "double", "ulong", "long"]
-    conv_round = ["rte", "rtp", "rtn", "rtz"]
-    conv_tests = []
-    for source in conv_types:
-      for dest in conv_types:
-        conv_tests.append(dest + "_" + source)
-        if dest != "float" and dest != "double" and dest != "half":
-          conv_tests.append(dest + "_sat_" + source)
-        for round in conv_round:
-          conv_tests.append(dest + "_" + round + "_" + source)
-          if dest != "float" and dest != "double" and dest != "half":
-            conv_tests.append(dest + "_sat_" + round + "_" + source)
-    return conv_tests
-
   all_tests = dict()
-  all_tests["test_conversions"] = [dict(args="", subtests=get_conversions_subtests(), path="conversions/test_conversions")]
   with open(TEST_CSV_PATH, newline='') as csvfile:
     for line in csvfile.readlines():
       if (line.startswith("#") or
           line == "\n" or
           line.startswith("OpenCL-GL") or
-          line.startswith("Conversions") or
           line.startswith("CL_DEVICE_TYPE_CPU")):
         continue
       executable_and_args = line.split(',')[-1].strip().split(' ', 1)
@@ -70,6 +42,78 @@ def get_all_tests():
         all_tests[executable] = []
       all_tests[executable].append(dict(args=args, subtests=subtests, path=executable_and_args[0]))
   return all_tests
+
+timeouts = {
+  'OpenCL-CTS-test_allocations' : 10,
+  'OpenCL-CTS-test_basic': {
+    'astype': 10,
+    'async_copy_global_to_local': 10,
+    'async_copy_global_to_local2D': 10,
+    'async_copy_global_to_local3D': 10,
+    'async_copy_local_to_global': 10,
+    'async_copy_local_to_global2D': 10,
+    'async_copy_local_to_global3D': 10,
+    'async_strided_copy_global_to_local': 10,
+    'async_strided_copy_local_to_global': 10,
+    'enqueue_map_buffer': 3,
+    'enqueue_map_image': 2,
+    'hiloeo': 10,
+    'imagedim_non_pow2': 20,
+    'imagedim_pow2': 20,
+    'prefetch': 2,
+    'progvar_prog_scope_init': 2,
+    'vector_creation': 20,
+    'vector_swizzle': 5,
+    'vload_constant': 2,
+    'vload_global': 2,
+    'vload_local': 2,
+    'vload_private': 2,
+    'vstore_global': 2,
+    'vstore_local': 2,
+    'vstore_private': 2,
+  },
+  'OpenCL-CTS-test_bruteforce': {
+    'pown': 300,
+    'powr': 300,
+    'reciprocal': 300,
+    'remainder': 300,
+    'remquo': 300,
+    'rint': 300,
+    'rootn': 300,
+    'round': 300,
+    'rsqrt': 300,
+  },
+  'OpenCL-CTS-test_buffers': 2,
+  'OpenCL-CTS-test_c11_atomics': 10,
+  'OpenCL-CTS-test_cl_copy_images': 60,
+  'OpenCL-CTS-test_cl_fill_images': 30,
+  'OpenCL-CTS-test_cl_get_info': {
+      '2Darray': 2,
+      '3D': 2,
+  },
+  'OpenCL-CTS-test_cl_read_write_images': 10,
+  'OpenCL-CTS-test_image_streams': 10,
+  'OpenCL-CTS-test_integer_ops': 20,
+  'OpenCL-CTS-test_kernel_image_methods': 10,
+  'OpenCL-CTS-test_multiples': {
+    'context_multiple_contexts_same_device': 20,
+  },
+  'OpenCL-CTS-test_relationals': {
+    'shuffle_array_cast': 10,
+    'shuffle_built_in': 10,
+    'shuffle_built_in_dual_input': 10,
+    'shuffle_copy': 10,
+    'shuffle_function_call': 10,
+  },
+  'OpenCL-CTS-test_samplerless_reads': 10,
+  'OpenCL-CTS-test_vectors': {
+    'vec_align_array': 20,
+    'vec_align_packed_struct': 30,
+    'vec_align_packed_struct_arr': 20,
+    'vec_align_struct': 30,
+    'vec_align_struct_arr': 20,
+  }
+}
 
 def generate_xml(binary, tests, timeout):
   def create_subelement_with_attribs(element, tag, attribs):
@@ -96,12 +140,17 @@ def generate_xml(binary, tests, timeout):
           'value': test[1],
         })
 
-  def generate_test_rules(configuration, tests, timeout):
+  def generate_test_rules(configuration, binary, tests, default_timeout):
     for test in tests:
+      if type(timeouts.get(binary)) is dict:
+        timeout = timeouts[binary].get(test[0], default_timeout)
+      else:
+        timeout = timeouts.get(binary, default_timeout)
+
       test_rule = create_subelement_with_attribs(
         configuration, 'test', { 'class': "com.android.tradefed.testtype.binary.ExecutableTargetTest" })
       create_subelement_with_attribs(
-        test_rule, 'option', { 'name': "per-binary-timeout", 'value': timeout })
+        test_rule, 'option', { 'name': "per-binary-timeout", 'value': "{}m".format(timeout) })
       create_subelement_with_attribs(
         test_rule, 'option', { 'name': "test-command-line", 'key' : test[0], 'value': test[1] })
 
@@ -111,7 +160,7 @@ def generate_xml(binary, tests, timeout):
   logcat.attrib['name'] = "logcat-on-failure"
   logcat.attrib['value'] = "false"
   generate_push_file_rules(configuration, [(binary, DATA_PATH)])
-  generate_test_rules(configuration, tests, timeout)
+  generate_test_rules(configuration, binary, tests, timeout)
   stringified_configuration = ElementTree.tostring(configuration, 'utf-8')
   reparsed_configuration = minidom.parseString(stringified_configuration)
   with open(os.path.join(SCRIPT_DIR, binary + ".xml"), 'w') as f:
@@ -150,10 +199,10 @@ def main():
         subtest = " " + subtest
         if args != " full*":
           subtest = args + subtest
-        subtests.append((clean_name(subtest).removeprefix("_"), prefix + binary_path + subtest + suffix))
-    generate_xml(binary, subtests, "30m")
+        subtests.append((clean_name(subtest).removeprefix("_"), "CL_WIMPY_MODE=1 " + prefix + binary_path + subtest + suffix))
+    generate_xml(binary, subtests, 1)
 
-  generate_xml("OpenCL-CTS", cts_tests, "120m")
+  generate_xml("OpenCL-CTS", cts_tests, 180)
 
 if __name__ == '__main__':
   main()

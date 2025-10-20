@@ -7,67 +7,67 @@
         <option name="push-file" key="OpenCL-CTS-test_contractions" value="/data/nativetest64/unrestricted/OpenCL-CTS"/>
     </target_preparer>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_0" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_0"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_0" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_0"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_1" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_1"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_1" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_1"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_2" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_2"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_2" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_2"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_3" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_3"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_3" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_3"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_4" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_4"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_4" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_4"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_5" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_5"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_5" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_5"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_6" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_6"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_6" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_6"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_double_7" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_7"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_double_7" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_double_7"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_0" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_0"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_0" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_0"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_1" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_1"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_1" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_1"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_2" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_2"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_2" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_2"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_3" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_3"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_3" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_3"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_4" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_4"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_4" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_4"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_5" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_5"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_5" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_5"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_6" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_6"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_6" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_6"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
-        <option name="per-binary-timeout" value="30m"/>
-        <option name="test-command-line" key="contractions_float_7" value="/data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_7"/>
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="contractions_float_7" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_contractions contractions_float_7"/>
     </test>
 </configuration>

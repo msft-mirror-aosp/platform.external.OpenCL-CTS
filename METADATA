@@ -14,7 +14,7 @@ third_party {
   identifier {
     type: "Git"
     value: "https://github.com/KhronosGroup/OpenCL-CTS.git"
-    version: "7dbeeff0388b7fb5ebe8e2c5a1d1ea2bdd5ad7b2"
+    version: "0633af21c15319653808cd07803eccaf5f6014e9"
     closest_version: "v2025-08-21-00"
   }
 }

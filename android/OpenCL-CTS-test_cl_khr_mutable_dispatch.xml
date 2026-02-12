@@ -68,6 +68,14 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mutable_dispatch_cross_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_cross_queue"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mutable_dispatch_defer_arguments" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_defer_arguments"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="mutable_dispatch_global_arguments" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_global_arguments"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -85,6 +93,10 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="mutable_dispatch_image_2d_arguments" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_image_2d_arguments"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mutable_dispatch_in_order" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_in_order"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
@@ -108,6 +120,10 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mutable_dispatch_set_kernel_arg" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_set_kernel_arg"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="mutable_dispatch_simultaneous_cross_queue" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_simultaneous_cross_queue"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -121,6 +137,10 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="mutable_dispatch_svm_arguments" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_svm_arguments"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="mutable_dispatch_updates_persist" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_mutable_dispatch mutable_dispatch_updates_persist"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>

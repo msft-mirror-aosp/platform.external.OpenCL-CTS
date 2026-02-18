@@ -136,6 +136,10 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="semaphores_payload" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_payload"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="semaphores_reuse" value="CL_WIMPY_MODE=1 /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_cl_khr_semaphore semaphores_reuse"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">

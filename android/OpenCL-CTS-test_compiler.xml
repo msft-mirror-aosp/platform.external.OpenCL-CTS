@@ -96,6 +96,10 @@
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="kernel_name_size" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler kernel_name_size"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="large_compile" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler large_compile"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
@@ -129,6 +133,10 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="multi_file_libraries" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler multi_file_libraries"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="multiple_build_program" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler multiple_build_program"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
@@ -169,6 +177,10 @@
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
         <option name="test-command-line" key="options_include_directory" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler options_include_directory"/>
+    </test>
+    <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
+        <option name="per-binary-timeout" value="1m"/>
+        <option name="test-command-line" key="options_uniform_work_group_size" value="CL_WIMPY_MODE=1 cp /data/nativetest64/unrestricted/OpenCL-CTS/*/OpenCL-CTS-test_compiler /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/; /data/nativetest64/unrestricted/OpenCL-CTS/*/test_conformance/compiler/OpenCL-CTS-test_compiler options_uniform_work_group_size"/>
     </test>
     <test class="com.android.tradefed.testtype.binary.ExecutableTargetTest">
         <option name="per-binary-timeout" value="1m"/>
